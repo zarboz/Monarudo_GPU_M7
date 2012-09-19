@@ -93,6 +93,8 @@ static int pm8xxx_vib_set_on(struct pm8xxx_vib_pwm *vib)
 	return rc;
 }
 
+
+
 static int pm8xxx_vib_set_off(struct pm8xxx_vib_pwm *vib)
 {
 	int rc = 0;
@@ -159,7 +161,16 @@ retry:
 			      ktime_set(value / 1000, (value % 1000) * 1000000),
 			      HRTIMER_MODE_REL);
 	}
+
 }
+
+int vibrate( int time)
+{
+
+
+    return 0;
+}
+
 
 static void pm8xxx_vib_update(struct work_struct *work)
 {
