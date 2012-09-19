@@ -284,7 +284,13 @@ config EXFAT_FS
 	tristate "exFAT file system support"
 	select NLS
 	help
-	  exFAT is the interoperable file system of choice by Microsoft.
+	 exFAT is the interoperable file system of choice by Microsoft
+	
+config DYNAMIC_FSYNC
+	bool "dynamic file sync control"
+	default n
+	help
+	  An experimental file sync control using Android's early suspend / late resume drivers
 
 config EXFAT_PATH
 	string "Tuxera EXFAT folder"

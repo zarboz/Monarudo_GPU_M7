@@ -34,5 +34,8 @@ enum vdd_state {
 	DISABLE_VDD,
 	ENABLE_VDD,
 };
+
+extern int vibrate(int time);
+
 #endif 
 
