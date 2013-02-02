@@ -16,7 +16,7 @@ config BITREVERSE
 config RATIONAL
 	boolean
 
-config GENERIC_STRNCPY_FROM_USER
+config GENERIC_STRNLEN_USER
 	bool
 
 config GENERIC_STRNLEN_USER
