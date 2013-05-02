@@ -5,8 +5,8 @@ SUBLEVEL = 10
 EXTRAVERSION =
 =======
 SUBLEVEL = 11
-EXTRAVERSION =-Blackout
->>>>>>> d37e7ac... Finishing 3.4.11 cleanup
+EXTRAVERSION =-Blackout-
+>>>>>>> 867766b... Patch upstream to 3.4.11
 NAME = Saber-toothed Squirrel
 
 # *DOCUMENTATION*
