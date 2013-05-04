@@ -1,11 +1,12 @@
 VERSION = 3
 PATCHLEVEL = 4
-SUBLEVEL = 11
 <<<<<<< HEAD
+SUBLEVEL = 11
 EXTRAVERSION =
 =======
+SUBLEVEL = 12
 EXTRAVERSION =-Blackout
->>>>>>> d37e7ac... Finishing 3.4.11 cleanup
+>>>>>>> 9d4c444... Patching upstream 3.0.11->3.0.12
 NAME = Saber-toothed Squirrel
 
 # *DOCUMENTATION*
