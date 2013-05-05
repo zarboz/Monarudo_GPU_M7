@@ -1,7 +1,7 @@
 /*
  *
  * Automatically generated file; DO NOT EDIT.
- * Linux/arm 3.4.11 Kernel Configuration
+ * Linux/arm 3.4.14 Kernel Configuration
  *
  */
 #define CONFIG_IP6_NF_MATCH_AH 1
@@ -763,6 +763,7 @@
 #define CONFIG_SMP 1
 #define CONFIG_NETFILTER_XT_MATCH_TIME 1
 #define CONFIG_HAVE_KERNEL_GZIP 1
+#define CONFIG_ZSMALLOC 1
 #define CONFIG_NET_VENDOR_I825XX 1
 #define CONFIG_NETFILTER_XT_MATCH_MAC 1
 #define CONFIG_ARM_NR_BANKS 8
@@ -974,6 +975,7 @@
 #define CONFIG_MSM_KGSL_MMU_PAGE_FAULT 1
 #define CONFIG_MSM_BUSPM_DEV_MODULE 1
 #define CONFIG_MSDOS_PARTITION 1
+#define CONFIG_FRANDOM 1
 #define CONFIG_FB_MSM_MIPI_TOSHIBA_VIDEO_WUXGA 1
 #define CONFIG_HAVE_OPROFILE 1
 #define CONFIG_HAVE_GENERIC_DMA_COHERENT 1
