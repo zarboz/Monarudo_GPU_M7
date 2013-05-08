@@ -1,13 +1,14 @@
 VERSION = 3
 PATCHLEVEL = 4
 <<<<<<< HEAD
-SUBLEVEL = 14
-EXTRAVERSION =
-=======
 SUBLEVEL = 15
-EXTRAVERSION =-Blackout
->>>>>>> 33dcc17... Patching upstream 3.4.14->3.4.15
+EXTRAVERSION =
 NAME = Saber-toothed Squirrel
+=======
+SUBLEVEL = 16
+EXTRAVERSION =-Blackout-M7
+NAME = Raunchy Racoon
+>>>>>>> 989a6c9... Patching upstream 3.4.15->3.4.16
 
 # *DOCUMENTATION*
 # To see a list of typical targets execute "make help"
