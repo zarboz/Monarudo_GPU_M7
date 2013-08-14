@@ -2800,9 +2800,16 @@ config MSM_MPDEC_INPUTBOOST_CPUMIN
 
 	  
 config UPDATE_LCDC_LUT
-	default y
-	bool "enable LCDC LUT"
-	help
-	  enable LCDC LUT
+        bool "Set initial Qualcomm LCDC lut"
+        default y
+        help
+          Set initial Qualcomm LCDC Look Up Table.
+
++config LCD_KCAL
+        tristate "MSM generic LCDC Calibration"
+        default y
+        help
+          Enable MSM generic LCDC temperature Calibration.
+
 endif
 
