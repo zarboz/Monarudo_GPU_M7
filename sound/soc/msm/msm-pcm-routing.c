@@ -2728,7 +2728,11 @@ static const struct snd_soc_dapm_route intercon[] = {
 	{"SEC_I2S_RX", NULL, "SEC_I2S_DL_HL"},
 	{"PRI_I2S_RX", NULL, "PRI_I2S_DL_HL"},
 	{"PRI_I2S_UL_HL", NULL, "PRI_I2S_TX"},
-#if defined(CONFIG_ARCH_DUMMY) || defined(CONFIG_ARCH_DUMMY) || defined(CONFIG_ARCH_DUMMY)
+#if defined(CONFIG_MACH_M7_DXG)  || \
+    defined(CONFIG_MACH_DUMMY) || \
+    defined(CONFIG_MACH_DUMMY) || \
+    defined(CONFIG_MACH_DUMMY) || \
+    defined(CONFIG_MACH_T6_DXG)
 	
 	
 	
