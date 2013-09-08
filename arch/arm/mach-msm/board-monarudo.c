@@ -4108,8 +4108,8 @@ static struct platform_device *common_devices[] __initdata = {
 #ifdef CONFIG_MSM_ROTATOR
 	&msm_rotator_device,
 #endif
-	&msm8960_cpu_idle_device,
-	&msm8960_msm_gov_device,
+	&apq8064_cpu_idle_device,
+	&apq8064_msm_gov_device,
 	&msm_tsens_device,
 	&msm_device_tz_log,
 	&apq8064_iommu_domain_device,
@@ -4117,7 +4117,7 @@ static struct platform_device *common_devices[] __initdata = {
 	&apq8064_device_cache_erp,
 #endif
 #ifdef CONFIG_PERFLOCK
-	&msm8064_device_perf_lock,
+	&apq8064_device_perf_lock,
 #endif
 	&apq_compr_dsp,
 	&apq_multi_ch_pcm,
