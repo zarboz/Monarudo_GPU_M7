@@ -22,6 +22,10 @@
 #include <linux/cpufreq.h>
 #include <linux/cpu.h>
 #include <linux/regulator/consumer.h>
+#ifdef CONFIG_DEBUG_FS
+#include <linux/seq_file.h>
+#include <linux/debugfs.h>
+#endif
 
 #include <asm/mach-types.h>
 #include <asm/cpu.h>
@@ -39,23 +43,24 @@
 #include "avs.h"
 
 #define CPU_FOOT_PRINT_MAGIC				0xACBDFE00
+#define CPU_FOOT_PRINT_BASE_CPU0_VIRT		(MSM_KERNEL_FOOTPRINT_BASE + 0x0)
 static void set_acpuclk_foot_print(unsigned cpu, unsigned state)
 {
-	unsigned *status = (unsigned *)(CPU_FOOT_PRINT_BASE + 0x6C) + cpu;
+	unsigned *status = (unsigned *)(CPU_FOOT_PRINT_BASE_CPU0_VIRT + 0x6C) + cpu;
 	*status = (CPU_FOOT_PRINT_MAGIC | state);
 	mb();
 }
 
 static void set_acpuclk_cpu_freq_foot_print(unsigned cpu, unsigned khz)
 {
-	unsigned *status = (unsigned *)(CPU_FOOT_PRINT_BASE + 0x58) + cpu;
+	unsigned *status = (unsigned *)(CPU_FOOT_PRINT_BASE_CPU0_VIRT + 0x58) + cpu;
 	*status = khz;
 	mb();
 }
 
 static void set_acpuclk_L2_freq_foot_print(unsigned khz)
 {
-	unsigned *status = (unsigned *)(CPU_FOOT_PRINT_BASE + 0x68);
+	unsigned *status = (unsigned *)(CPU_FOOT_PRINT_BASE_CPU0_VIRT + 0x68);
 	*status = khz;
 	mb();
 }
@@ -70,6 +75,10 @@ static DEFINE_MUTEX(driver_lock);
 static DEFINE_SPINLOCK(l2_lock);
 
 static struct drv_data drv;
+
+#ifdef CONFIG_DEBUG_FS
+static unsigned int krait_chip_variant = 0;
+#endif
 
 static unsigned long acpuclk_krait_get_rate(int cpu)
 {
@@ -571,15 +580,6 @@ static struct acpuclk_data acpuclk_krait_data = {
 	.get_rate = acpuclk_krait_get_rate,
 };
 
-#ifdef CONFIG_APQ8064_ONLY 
-unsigned long acpuclk_krait_power_collapse(void)
-{
-	unsigned long rate = acpuclk_get_rate(smp_processor_id());
-	acpuclk_krait_set_rate(smp_processor_id(), 384000, SETRATE_PC);
-	return rate;
-}
-#endif
-
 static void __init hfpll_init(struct scalable *sc,
 			      const struct core_speed *tgt_s)
 {
@@ -614,7 +614,6 @@ static int rpm_regulator_init(struct scalable *sc, enum vregs vreg,
 
 	sc->vreg[vreg].rpm_reg = rpm_regulator_get(drv.dev,
 						   sc->vreg[vreg].name);
-
 	if (IS_ERR(sc->vreg[vreg].rpm_reg)) {
 		ret = PTR_ERR(sc->vreg[vreg].rpm_reg);
 		dev_err(drv.dev, "rpm_regulator_get(%s) failed (%d)\n",
@@ -1035,7 +1034,9 @@ static void krait_apply_vmin(struct acpu_level *tbl)
 	}
 }
 
+
 uint32_t global_speed_bin;
+
 int __init get_speed_bin(u32 pte_efuse)
 {
 	uint32_t speed_bin;
@@ -1103,6 +1104,7 @@ static struct pvs_table * __init select_freq_plan(u32 pte_efuse_phys,
 	return &pvs_tables[drv.speed_bin][drv.pvs_bin];
 }
 
+
 static void __init drv_data_init(struct device *dev,
 				 const struct acpuclk_krait_params *params)
 {
@@ -1135,6 +1137,8 @@ static void __init drv_data_init(struct device *dev,
 	drv.acpu_freq_tbl = kmemdup(pvs->table, pvs->size, GFP_KERNEL);
 	BUG_ON(!drv.acpu_freq_tbl);
 	drv.boost_uv = pvs->boost_uv;
+
+
 
 	acpuclk_krait_data.power_collapse_khz = params->stby_khz;
 	acpuclk_krait_data.wait_for_irq_khz = params->stby_khz;
@@ -1183,11 +1187,15 @@ static void __init hw_init(void)
 #ifdef CONFIG_DEBUG_FS
 static int krait_variant_debugfs_show(struct seq_file *s, void *data)
 {
+	seq_printf(s, "Your krait chip speed is: \n");
+	seq_printf(s, "[%s] 1 \n", ((drv.speed_bin == 1) ? "X" : " "));
+	seq_printf(s, "[%s] 2 \n", ((drv.speed_bin == 2) ? "X" : " "));
+
 	seq_printf(s, "Your krait chip variant is: \n");
 	seq_printf(s, "[%s] SLOWEST \n", ((krait_chip_variant == 0) ? "X" : " "));
 	seq_printf(s, "[%s] SLOWER \n", ((krait_chip_variant == 1) ? "X" : " "));
 	seq_printf(s, "[%s] SLOW \n", ((krait_chip_variant == 2) ? "X" : " "));
-	seq_printf(s, "[%s] NOM \n", ((krait_chip_variant == 3) ? "X" : " "));
+	seq_printf(s, "[%s] NORM \n", ((krait_chip_variant == 3) ? "X" : " "));
 	seq_printf(s, "[%s] FAST \n", ((krait_chip_variant == 4) ? "X" : " "));
 	seq_printf(s, "[%s] FASTER \n", ((krait_chip_variant == 5) ? "X" : " "));
 	seq_printf(s, "[%s] FASTEST \n", ((krait_chip_variant == 6) ? "X" : " "));

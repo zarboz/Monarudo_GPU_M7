@@ -3173,10 +3173,20 @@ static struct platform_device msm_tsens_device = {
 
 static struct msm_thermal_data msm_thermal_pdata = {
 	.sensor_id = 0,
-	.poll_ms = 1000,
-	.limit_temp = 55,
-	.temp_hysteresis = 10,
-	.limit_freq = 918000,
+	.poll_ms = 150,
+	.shutdown_temp = 120,
+
+	.allowed_max_high = 110,
+	.allowed_max_low = 101,
+	.allowed_max_freq = 702000,
+
+	.allowed_mid_high = 100,
+	.allowed_mid_low = 96,
+	.allowed_mid_freq = 1026000,
+
+	.allowed_low_high = 95,
+	.allowed_low_low = 90,
+	.allowed_low_freq = 1512000,
 };
 
 static int __init check_dq_setup(char *str)
@@ -4855,11 +4865,11 @@ static void __init monarudo_cdp_init(void)
 #ifdef CONFIG_CPU_FREQ_GOV_ONDEMAND_2_PHASE
         if(!cpu_is_krait_v1())
                 set_two_phase_freq(1134000);
-#endif
 	set_input_event_min_freq_by_cpu(1, 1134000);
 	set_input_event_min_freq_by_cpu(2, 1026000);
 	set_input_event_min_freq_by_cpu(3, 810000);
 	set_input_event_min_freq_by_cpu(4, 810000);
+#endif
 
 	
 	
