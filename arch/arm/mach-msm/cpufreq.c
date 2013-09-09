@@ -549,8 +549,6 @@ static int msm_cpufreq_init(struct cpufreq_policy *policy)
 	policy->min = 384000; 
 #endif
 	return 0;
-
-#endif
 }
 
 static int msm_cpufreq_suspend(void)
