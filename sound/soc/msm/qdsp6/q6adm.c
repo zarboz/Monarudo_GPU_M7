@@ -302,9 +302,6 @@ static int32_t adm_callback(struct apr_client_data *data, void *priv)
 		switch (data->opcode) {
 		case ADM_CMDRSP_COPP_OPEN:
 		case ADM_CMDRSP_MULTI_CHANNEL_COPP_OPEN:
-		
-		case ADM_CMDRSP_MULTI_CHANNEL_COPP_OPEN_V3:
-		
 		case ADM_CMDRSP_MULTI_CHANNEL_COPP_OPEN_V2: {
 			struct adm_copp_open_respond *open = data->payload;
 			if (open->copp_id == INVALID_COPP_ID) {
@@ -788,7 +785,7 @@ fail_cmd:
 
 
 int adm_multi_ch_copp_open(int port_id, int path, int rate, int channel_mode,
-int topology, int perfmode)
+				int topology)
 {
 	struct adm_multi_ch_copp_open_command open;
 	int ret = 0;
@@ -826,17 +823,8 @@ int topology, int perfmode)
 
 		open.hdr.pkt_size =
 			sizeof(struct adm_multi_ch_copp_open_command);
-		
-		if (perfmode) {
-			pr_debug("%s Performance mode", __func__);
-			open.hdr.opcode = ADM_CMD_MULTI_CHANNEL_COPP_OPEN_V3;
-			open.flags = ADM_MULTI_CH_COPP_OPEN_PERF_MODE_BIT;
-			open.reserved = PCM_BITS_PER_SAMPLE;
-		} else {
-			open.hdr.opcode = ADM_CMD_MULTI_CHANNEL_COPP_OPEN;
-			open.reserved = 0;
-		}
-		
+		open.hdr.opcode = ADM_CMD_MULTI_CHANNEL_COPP_OPEN;
+		open.reserved = 0;
 		memset(open.dev_channel_mapping, 0, 8);
 
 		if (channel_mode == 1)	{
@@ -946,7 +934,7 @@ fail_cmd:
 
 
 int adm_multi_ch_copp_open_v2(int port_id, int path, int rate, int channel_mode,
-				int topology, uint16_t bit_width, int perfmode)
+				int topology, uint16_t bit_width)
 {
 	struct adm_multi_ch_copp_open_command_v2 open;
 	int ret = 0;
@@ -985,15 +973,7 @@ int adm_multi_ch_copp_open_v2(int port_id, int path, int rate, int channel_mode,
 		open.hdr.pkt_size =
 			sizeof(struct adm_multi_ch_copp_open_command_v2);
 
-		
-		if (perfmode) {
-			pr_debug("%s Performance mode", __func__);
-			open.hdr.opcode = ADM_CMD_MULTI_CHANNEL_COPP_OPEN_V3;
-			open.flags = ADM_MULTI_CH_COPP_OPEN_PERF_MODE_BIT;
-		} else {
-			open.hdr.opcode = ADM_CMD_MULTI_CHANNEL_COPP_OPEN_V2;
-		}
-		
+		open.hdr.opcode = ADM_CMD_MULTI_CHANNEL_COPP_OPEN_V2;
 		pr_debug("%s Performance mode", __func__);
 
 		memset(open.dev_channel_mapping, 0, 8);
@@ -1176,6 +1156,7 @@ int adm_matrix_map(int session_id, int path, int num_copps,
 	if (!ret) {
 		pr_err("%s: ADM cmd Route failed for port %d\n",
 					__func__, port_id[0]);
+		HTC_Q6_BUG();
 		ret = -EINVAL;
 		goto fail_cmd;
 	}
@@ -1416,6 +1397,7 @@ int adm_close(int port_id)
 		if (!ret) {
 			pr_err("%s: ADM cmd Route failed for port %d\n",
 						__func__, port_id);
+			HTC_Q6_BUG();
 			ret = -EINVAL;
 			goto fail_cmd;
 		}

@@ -19,7 +19,6 @@
 #include <sound/q6asm.h>
 #include <linux/module.h>
 #include <linux/gpio.h>
-//#include "board-monarudo.h"
 #include "board-m7.h"
 #include <mach/tpa6185.h>
 #include <mach/rt5501.h>
@@ -30,13 +29,18 @@
 static atomic_t q6_effect_mode = ATOMIC_INIT(-1);
 extern unsigned int system_rev;
 extern unsigned int engineerid;
-//extern unsigned skuid;
+extern unsigned skuid;
 
 static int monarudo_get_hw_component(void)
 {
     int hw_com = 0;
 
+    if(query_tpa6185())
+        hw_com |= HTC_AUDIO_TPA6185;
+
+    if(query_rt5501())
     hw_com |= HTC_AUDIO_RT5501;
+
     return hw_com;
 }
 
@@ -47,7 +51,6 @@ static int monarudo_enable_digital_mic(void)
 
     return 0;
 }
-
 
 void apq8064_set_q6_effect_mode(int mode)
 {

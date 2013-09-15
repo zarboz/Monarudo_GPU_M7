@@ -277,13 +277,14 @@ static int hs_1wire_report_type(char **string)
 	char *hs_type[] = {
 		"headset_beats_20",
 		"headset_mic_midtier",
-		"headset_mic_oneseg",
+		"headset_beats_solo_20",
 	};
 	hi->aid &= 0x7f;
 	HS_LOG("[1wire]AID = 0x%x", hi->aid);
 	if (hi->aid > type_num || hi->aid < 1) {
-		*string = "1wire_unknown";
-		return 14;
+		*string = hs_type[hi->aid - 1];
+		HS_LOG("Report %s type, size %d", *string, sizeof(hs_type[hi->aid -1]));
+		return sizeof(hs_type[hi->aid -1]);
 	}else {
 		*string = hs_type[hi->aid - 1];
 		HS_LOG("Report %s type, size %d", *string, sizeof(hs_type[hi->aid -1]));
