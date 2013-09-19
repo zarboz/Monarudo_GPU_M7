@@ -1,0 +1,1320 @@
+Binary file ./.git/objects/pack/pack-b27361edfbf57628c7b6995caa40fc27bd17ef27.pack matches
+./drivers/i2c/muxes/gpio-i2cmux.c:101:		gpio_direction_output(pdata->gpios[i],
+Binary file ./drivers/i2c/built-in.o matches
+Binary file ./drivers/i2c/busses/built-in.o matches
+./drivers/i2c/busses/i2c-pca-platform.c:216:			gpio_direction_output(i2c->gpio, 1);
+./drivers/i2c/busses/i2c-qup.c:693:		gpio_direction_output(gpio_clk, 0);
+./drivers/i2c/busses/i2c-qup.c:695:		gpio_direction_output(gpio_dat, 0);
+Binary file ./drivers/i2c/busses/i2c-qup.o matches
+./drivers/i2c/busses/i2c-gpio.c:35:		gpio_direction_output(pdata->sda_pin, 0);
+./drivers/i2c/busses/i2c-gpio.c:58:		gpio_direction_output(pdata->scl_pin, 0);
+./drivers/i2c/busses/i2c-gpio.c:153:		gpio_direction_output(pdata->sda_pin, 1);
+./drivers/i2c/busses/i2c-gpio.c:161:		gpio_direction_output(pdata->scl_pin, 1);
+./drivers/i2c/chips/tpa6185.c:591:            ret = gpio_direction_output(pdata->gpio_tpa6185_spk_en, 1);
+./drivers/i2c/chips/tpa6185.c:609:	    gpio_direction_output(pdata->gpio_tpa6185_spk_en, 0);
+Binary file ./drivers/i2c/chips/tpa6185.o matches
+Binary file ./drivers/i2c/chips/built-in.o matches
+./drivers/i2c/chips/rt5501.c:448:    gpio_direction_output(pdata->gpio_rt5501_spk_en, 0);
+./drivers/i2c/chips/rt5501.c:491:        gpio_direction_output(pdata->gpio_rt5501_spk_en, 1);
+./drivers/i2c/chips/rt5501.c:745:            gpio_direction_output(pdata->gpio_rt5501_spk_en, 1);
+./drivers/i2c/chips/rt5501.c:993:            ret = gpio_direction_output(pdata->gpio_rt5501_spk_en, 1);
+./drivers/i2c/chips/rt5501.c:1011:	    gpio_direction_output(pdata->gpio_rt5501_spk_en, 0);
+./drivers/i2c/chips/rt5501.c.orig:448:    gpio_direction_output(pdata->gpio_rt5501_spk_en, 0);
+./drivers/i2c/chips/rt5501.c.orig:491:        gpio_direction_output(pdata->gpio_rt5501_spk_en, 1);
+./drivers/i2c/chips/rt5501.c.orig:745:            gpio_direction_output(pdata->gpio_rt5501_spk_en, 1);
+./drivers/i2c/chips/rt5501.c.orig:993:            ret = gpio_direction_output(pdata->gpio_rt5501_spk_en, 1);
+./drivers/i2c/chips/rt5501.c.orig:1011:	    gpio_direction_output(pdata->gpio_rt5501_spk_en, 0);
+Binary file ./drivers/i2c/chips/rt5501.o matches
+./drivers/rtc/rtc-v3020.c:132:		gpio_direction_output(v3020_gpio[i].gpio, 1);
+./drivers/rtc/rtc-v3020.c:156:	gpio_direction_output(chip->gpio[V3020_IO].gpio, bit);
+Binary file ./drivers/misc/cable_detect_8xxx.o matches
+./drivers/misc/cable_detect_8xxx.c:805:		gpio_direction_output(pInfo->usb_id_pin_gpio, 0);
+./drivers/misc/cable_detect_8xxx.c:807:		gpio_direction_output(pInfo->usb_id_pin_gpio, 1);
+./drivers/misc/cable_detect_8xxx.c:809:		gpio_direction_output(pInfo->usb_id_pin_gpio, 0);
+Binary file ./drivers/misc/built-in.o matches
+./drivers/misc/pm8xxx-vibrator-pwm.c:61:			rc = gpio_direction_output(vib->vdd_gpio, ENABLE_AMP);
+./drivers/misc/pm8xxx-vibrator-pwm.c:68:		rc = gpio_direction_output(vib->ena_gpio, ENABLE_AMP);
+./drivers/misc/pm8xxx-vibrator-pwm.c:75:			rc = gpio_direction_output(vib->pwm_gpio, 1);
+./drivers/misc/pm8xxx-vibrator-pwm.c:103:			rc = gpio_direction_output(vib->pwm_gpio, 0);
+./drivers/misc/pm8xxx-vibrator-pwm.c:121:		rc = gpio_direction_output(vib->ena_gpio, DISABLE_AMP);
+./drivers/misc/pm8xxx-vibrator-pwm.c:127:			rc = gpio_direction_output(vib->vdd_gpio, DISABLE_AMP);
+./drivers/misc/pm8xxx-vibrator-pwm.c:189:	rc = gpio_direction_output(vib->ena_gpio, DISABLE_AMP);
+./drivers/misc/pm8xxx-vibrator-pwm.c:258:		gpio_direction_output(vib->vdd_gpio, DISABLE_VDD);
+./drivers/misc/pm8xxx-vibrator-pwm.c:268:		gpio_direction_output(vib->vdd_gpio, ENABLE_VDD);
+Binary file ./drivers/misc/pm8xxx-vibrator-pwm.o matches
+./drivers/misc/ti-st/st_kim.c:743:	status = gpio_direction_output(kim_gdata->nshutdown, 0);
+./drivers/gpu/drm/gma500/tc35876x-dsi-lvds.c:653:		gpio_direction_output(pdata->gpio_bridge_reset, 0);
+./drivers/gpu/drm/gma500/tc35876x-dsi-lvds.c:658:		gpio_direction_output(pdata->gpio_panel_bl_en, 0);
+./drivers/gpu/drm/gma500/tc35876x-dsi-lvds.c:663:		gpio_direction_output(pdata->gpio_panel_vadd, 0);
+./drivers/gpu/drm/gma500/mdfld_dsi_output.c:480:	ret = gpio_direction_output(gpio, 1);
+./drivers/gpu/drm/gma500/mdfld_dsi_output.c:482:		DRM_ERROR("gpio_direction_output failed\n");
+Binary file ./drivers/media/built-in.o matches
+./drivers/media/radio/si4713-i2c.c:2019:		gpio_direction_output(sdev->gpio_reset, 0);
+Binary file ./drivers/media/video/built-in.o matches
+./drivers/media/video/s5p-tv/sii9234_drv.c:114:	gpio_direction_output(ctx->gpio_n_reset, 1);
+./drivers/media/video/s5p-tv/sii9234_drv.c:116:	gpio_direction_output(ctx->gpio_n_reset, 0);
+./drivers/media/video/s5p-tv/sii9234_drv.c:118:	gpio_direction_output(ctx->gpio_n_reset, 1);
+./drivers/media/video/via-camera.c:204:	gpio_direction_output(cam->power_gpio, 0);
+./drivers/media/video/via-camera.c:205:	gpio_direction_output(cam->reset_gpio, 0);
+./drivers/media/video/m5mols/m5mols_core.c:976:	gpio_direction_output(pdata->gpio_reset, pdata->reset_polarity);
+./drivers/media/video/noon010pc30.c:762:		gpio_direction_output(info->gpio_nreset, 0);
+./drivers/media/video/noon010pc30.c:773:		gpio_direction_output(info->gpio_nstby, 0);
+./drivers/media/video/vs6624.c:813:	gpio_direction_output(*ce, 1);
+./drivers/media/video/adv7183.c:477:		gpio_direction_output(decoder->oe_pin, 0);
+./drivers/media/video/adv7183.c:479:		gpio_direction_output(decoder->oe_pin, 1);
+./drivers/media/video/adv7183.c:622:	gpio_direction_output(decoder->oe_pin, 1);
+./drivers/media/video/adv7183.c:624:	gpio_direction_output(decoder->reset_pin, 0);
+./drivers/media/video/adv7183.c:627:	gpio_direction_output(decoder->reset_pin, 1);
+./drivers/media/video/marvell-ccic/mmp-driver.c:242:	gpio_direction_output(pdata->sensor_power_gpio, 0);
+./drivers/media/video/marvell-ccic/mmp-driver.c:249:	gpio_direction_output(pdata->sensor_reset_gpio, 0);
+./drivers/media/video/msm/flash.c:136:				gpio_direction_output(
+./drivers/media/video/msm/flash.c:277:			gpio_direction_output(external->led_en, 0);
+./drivers/media/video/msm/flash.c:285:			gpio_direction_output(external->led_flash_en, 0);
+./drivers/media/video/msm/flash.c:358:			gpio_direction_output(external->led_en, 0);
+./drivers/media/video/msm/flash.c:364:			gpio_direction_output(external->led_flash_en, 0);
+Binary file ./drivers/media/video/msm/built-in.o matches
+Binary file ./drivers/media/video/msm/flash.o matches
+./drivers/media/video/msm/rawchip/rawchip.c:152:			gpio_direction_output(pdata->rawchip_reset, 0);
+./drivers/media/video/msm/rawchip/rawchip.c:154:			gpio_direction_output(pdata->rawchip_reset, 1);
+./drivers/media/video/msm/rawchip/rawchip.c:560:	gpio_direction_output(pdata->rawchip_reset, 1);
+./drivers/media/video/msm/rawchip/rawchip.c:588:	gpio_direction_output(pdata->rawchip_reset, 0);
+Binary file ./drivers/media/video/msm/rawchip/built-in.o matches
+Binary file ./drivers/media/video/msm/rawchip/rawchip.o matches
+./drivers/media/video/msm/actuators/ad5823_act.c:80:		gpio_direction_output(ad5823_msm_actuator_info->vcm_pwd, 1);
+./drivers/media/video/msm/actuators/ad5823_act.c:98:		gpio_direction_output(ad5823_msm_actuator_info->vcm_pwd, 0);
+Binary file ./drivers/media/video/msm/actuators/ad5816_act.o matches
+Binary file ./drivers/media/video/msm/actuators/built-in.o matches
+Binary file ./drivers/media/video/msm/actuators/s5k3h2yx_act.o matches
+Binary file ./drivers/media/video/msm/actuators/ti201_act.o matches
+./drivers/media/video/msm/actuators/rumbas_act.c:965:		gpio_direction_output(rumbas_msm_actuator_info->vcm_pwd, 1);
+./drivers/media/video/msm/actuators/rumbas_act.c:987:		gpio_direction_output(rumbas_msm_actuator_info->vcm_pwd, 0);
+./drivers/media/video/msm/actuators/ad5816_act.c:79:		gpio_direction_output(ad5816_msm_actuator_info->vcm_pwd, 1);
+./drivers/media/video/msm/actuators/ad5816_act.c:97:		gpio_direction_output(ad5816_msm_actuator_info->vcm_pwd, 0);
+./drivers/media/video/msm/actuators/s5k3h2yx_act.c:77:		gpio_direction_output(s5k3h2yx_msm_actuator_info->vcm_pwd, 1);
+./drivers/media/video/msm/actuators/s5k3h2yx_act.c:95:		gpio_direction_output(s5k3h2yx_msm_actuator_info->vcm_pwd, 0);
+./drivers/media/video/msm/actuators/ti201_act.c:87:		gpio_direction_output(ti201_msm_actuator_info->vcm_pwd, 1);
+./drivers/media/video/msm/actuators/ti201_act.c:105:		gpio_direction_output(ti201_msm_actuator_info->vcm_pwd, 0);
+./drivers/media/video/msm/actuators/lc898212_act.c:80:		gpio_direction_output(lc898212_msm_actuator_info->vcm_pwd, 1);
+./drivers/media/video/msm/actuators/lc898212_act.c:98:		gpio_direction_output(lc898212_msm_actuator_info->vcm_pwd, 0);
+Binary file ./drivers/media/video/msm/actuators/ad5823_act.o matches
+./drivers/media/video/msm/sensors/ar0260_v4l2.c:1454:			gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 0);
+./drivers/media/video/msm/sensors/ar0260_v4l2.c:1498:		gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 1);
+./drivers/media/video/msm/sensors/ar0260_v4l2.c:1512:	gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 1);
+./drivers/media/video/msm/sensors/ar0260_v4l2.c:1514:	gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 0);
+./drivers/media/video/msm/sensors/ar0260_v4l2.c:1551:		gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 0);
+Binary file ./drivers/media/video/msm/sensors/built-in.o matches
+Binary file ./drivers/media/video/msm/sensors/ar0260_v4l2.o matches
+Binary file ./drivers/media/video/msm/sensors/msm_sensor.o matches
+./drivers/media/video/msm/sensors/msm_sensor.c:1744:		gpio_direction_output(gpio, 0);
+./drivers/media/video/msm/yushanII/yushanII.c:672:	gpio_direction_output(pdata->rawchip_reset, 1);
+./drivers/media/video/msm/yushanII/yushanII.c:704:	gpio_direction_output(pdata->rawchip_reset, 0);
+./drivers/mmc/host/sdhci-pci.c:1272:			gpio_direction_output(slot->rst_n_gpio, 1);
+./drivers/mmc/host/pxamci.c:718:		gpio_direction_output(gpio_power,
+./drivers/mmc/host/jz4740_mmc.c:720:		gpio_direction_output(gpio, value);
+./drivers/mmc/host/sdhci-tegra.c:273:		gpio_direction_output(plat->power_gpio, 1);
+./drivers/mmc/host/sdhci-spear.c:176:		ret = gpio_direction_output(sdhci->data->card_power_gpio, val);
+./drivers/mmc/host/s3cmci.c:1257:		gpio_direction_output(S3C2410_GPE(5), 0);
+Binary file ./drivers/built-in.o matches
+./drivers/pcmcia/sa1100_h3600.c:36:		err = gpio_direction_output(H3XXX_EGPIO_OPT_NVRAM_ON, 0);
+./drivers/pcmcia/sa1100_h3600.c:42:		err = gpio_direction_output(H3XXX_EGPIO_OPT_ON, 0);
+./drivers/pcmcia/sa1100_h3600.c:48:		err = gpio_direction_output(H3XXX_EGPIO_OPT_RESET, 0);
+./drivers/pcmcia/sa1100_h3600.c:54:		err = gpio_direction_output(H3XXX_EGPIO_CARD_RESET, 0);
+./drivers/pcmcia/xxs1500_ss.c:162:	gpio_direction_output(GPIO_RESET, 1);	/* assert reset */
+./drivers/pcmcia/xxs1500_ss.c:163:	gpio_direction_output(GPIO_OUTEN, 1);	/* disable buffers */
+./drivers/pcmcia/xxs1500_ss.c:164:	gpio_direction_output(GPIO_POWER, 1);	/* power off */
+./drivers/pcmcia/pxa2xx_cm_x270.c:30:	gpio_direction_output(GPIO_PCMCIA_RESET, 0);
+./drivers/pcmcia/pxa2xx_cm_x255.c:33:	gpio_direction_output(GPIO_PCMCIA_RESET, 0);
+./drivers/pcmcia/pxa2xx_viper.c:55:	if (gpio_direction_output(pdata->pwr_gpio, 0)) {
+./drivers/staging/olpc_dcon/olpc_dcon_xo_1.c:68:	gpio_direction_output(OLPC_GPIO_DCON_LOAD,
+Binary file ./drivers/staging/android/built-in.o matches
+Binary file ./drivers/staging/android/timed_gpio.o matches
+./drivers/staging/android/timed_gpio.c:42:	gpio_direction_output(data->gpio, data->active_low ? 1 : 0);
+./drivers/staging/android/timed_gpio.c:73:	gpio_direction_output(data->gpio, data->active_low ? !value : !!value);
+./drivers/staging/android/timed_gpio.c:126:		gpio_direction_output(gpio_dat->gpio, gpio_dat->active_low);
+Binary file ./drivers/staging/built-in.o matches
+./drivers/watchdog/wm831x_wdt.c:259:			ret = gpio_direction_output(pdata->update_gpio, 0);
+./drivers/watchdog/wm831x_wdt.c:262:					"gpio_direction_output returned: %d\n",
+./drivers/spi/spi-pxa2xx.c:1278:		err = gpio_direction_output(chip->gpio_cs,
+./drivers/spi/spi-fsl-spi.c:996:		ret = gpio_direction_output(pinfo->gpios[i],
+./drivers/spi/spi-imx.c:740:		gpio_direction_output(gpio, spi->mode & SPI_CS_HIGH ? 0 : 1);
+./drivers/spi/spi-oc-tiny.c:353:		gpio_direction_output(hw->gpio_cs[i], 1);
+./drivers/spi/spi-ath79.c:112:		status = gpio_direction_output(cdata->gpio,
+./drivers/spi/spi-s3c24xx.c:502:			gpio_direction_output(hw->pdata->pin_cs, 1);
+./drivers/spi/spi-s3c24xx.c:624:		gpio_direction_output(pdata->pin_cs, 1);
+./drivers/spi/spi-bfin-sport.c:148:	gpio_direction_output(chip->cs_gpio, 0);
+./drivers/spi/spi-bfin-sport.c:154:	gpio_direction_output(chip->cs_gpio, 1);
+./drivers/spi/spi-sirf.c:369:		gpio_direction_output(gpio, spi->mode & SPI_CS_HIGH ? 0 : 1);
+./drivers/spi/spi-gpio.c:238:			status = gpio_direction_output(cs, spi->mode & SPI_CS_HIGH);
+./drivers/spi/spi-gpio.c:268:			value = gpio_direction_output(pin, 0);
+./drivers/spi/spi-bfin5xx.c:1121:			gpio_direction_output(chip->cs_gpio, 1);
+./drivers/spi/spi-mpc52xx.c:479:			gpio_direction_output(gpio_cs, 1);
+./drivers/spi/spi-txx9.c:130:	if (gpio_direction_output(spi->chip_select,
+./drivers/spi/spi-davinci.c:933:				gpio_direction_output(pdata->chip_sel[i], 1);
+./drivers/spi/spi-ppc4xx.c:448:				gpio_direction_output(gpio,
+./drivers/spi/spi-atmel.c:785:		gpio_direction_output(npcs_pin, !(spi->mode & SPI_CS_HIGH));
+./drivers/tty/serial/bfin_uart.c:736:			gpio_direction_output(uart->rts_pin, 0);
+./drivers/tty/serial/bfin_sport_uart.c:307:			gpio_direction_output(up->rts_pin, 0);
+./drivers/tty/serial/ifx6x60.c:1061:	ret += gpio_direction_output(ifx_dev->gpio.reset, 0);
+./drivers/tty/serial/ifx6x60.c:1071:	ret += gpio_direction_output(ifx_dev->gpio.po, 0);
+./drivers/tty/serial/ifx6x60.c:1087:	ret += gpio_direction_output(ifx_dev->gpio.mrdy, 0);
+./drivers/leds/leds-gpio.c:131:	ret = gpio_direction_output(led_dat->gpio, led_dat->active_low ^ state);
+./drivers/leds/leds-renesas-tpu.c:209:		gpio_direction_output(cfg->pin_gpio, !!brightness);
+./drivers/leds/leds-ns2.c:196:		ret = gpio_direction_output(template->cmd,
+./drivers/leds/leds-ns2.c:208:		ret = gpio_direction_output(template->slow,
+./drivers/leds/leds-lt3593.c:113:	ret = gpio_direction_output(led_dat->gpio, state);
+./drivers/leds/leds-tca6507.c:606:static int tca6507_gpio_direction_output(struct gpio_chip *gc,
+./drivers/leds/leds-tca6507.c:637:	tca->gpio.direction_output = tca6507_gpio_direction_output;
+./drivers/leds/leds-pca9532.c:288:static int pca9532_gpio_direction_output(struct gpio_chip *gc, unsigned offset, int val)
+./drivers/leds/leds-pca9532.c:417:		data->gpio.direction_output = pca9532_gpio_direction_output;
+./drivers/usb/gadget/pxa25x_udc.c:2174:		gpio_direction_output(dev->mach->gpio_pullup, 0);
+./drivers/usb/gadget/at91_udc.c:1787:		gpio_direction_output(udc->board.pullup_pin,
+./drivers/usb/gadget/pxa27x_udc.c:2473:			gpio_direction_output(gpio,
+./drivers/usb/host/ehci-tegra.c:456:	err = gpio_direction_output(gpio, 1);
+./drivers/usb/host/ohci-at91.c:582:			ret = gpio_direction_output(gpio,
+./drivers/usb/host/fhci-hcd.c:664:			ret = gpio_direction_output(gpio, 0);
+./drivers/usb/host/ehci-pmcmsp.c:70:	gpio_direction_output(MSP_PIN_USB0_HOST_DEV, 1);
+./drivers/usb/host/ehci-pmcmsp.c:72:	gpio_direction_output(MSP_PIN_USB1_HOST_DEV, 1);
+./drivers/usb/host/isp1760-if.c:106:				gpio_direction_output(drvdata->rst_gpio, 0);
+./drivers/usb/host/isp1760-if.c:108:				gpio_direction_output(drvdata->rst_gpio, 1);
+./drivers/usb/host/fhci-hub.c:136:	gpio_direction_output(fhci->gpios[GPIO_USBOE], 0);
+./drivers/usb/host/fhci-hub.c:137:	gpio_direction_output(fhci->gpios[GPIO_USBTP], 0);
+./drivers/usb/host/fhci-hub.c:138:	gpio_direction_output(fhci->gpios[GPIO_USBTN], 0);
+./drivers/usb/musb/blackfin.c:415:	gpio_direction_output(musb->config->gpio_vrsel, 0);
+./drivers/usb/otg/gpio_vbus.c:290:		gpio_direction_output(gpio, pdata->gpio_pullup_inverted);
+./drivers/block/mg_disk.c:888:	gpio_direction_output(host->rst, 1);
+Binary file ./drivers/regulator/msm-gpio-regulator.o matches
+Binary file ./drivers/regulator/built-in.o matches
+./drivers/regulator/tps62360-regulator.c:336:		ret = gpio_direction_output(tps->vsel0_gpio,
+./drivers/regulator/tps62360-regulator.c:352:		ret = gpio_direction_output(tps->vsel1_gpio,
+./drivers/regulator/gpio-regulator.c:249:			ret = gpio_direction_output(config->enable_gpio,
+./drivers/regulator/gpio-regulator.c:253:			ret = gpio_direction_output(config->enable_gpio,
+./drivers/regulator/max8997.c:1093:		gpio_direction_output(pdata->buck125_gpios[0],
+./drivers/regulator/max8997.c:1096:		gpio_direction_output(pdata->buck125_gpios[1],
+./drivers/regulator/max8997.c:1099:		gpio_direction_output(pdata->buck125_gpios[2],
+./drivers/regulator/max8998.c:742:		gpio_direction_output(pdata->buck1_set1,
+./drivers/regulator/max8998.c:747:		gpio_direction_output(pdata->buck1_set2,
+./drivers/regulator/max8998.c:807:		gpio_direction_output(pdata->buck2_set3,
+./drivers/regulator/max8952.c:225:			gpio_direction_output(pdata->gpio_en, max8952->en);
+./drivers/regulator/max8952.c:243:			gpio_direction_output(pdata->gpio_vid0,
+./drivers/regulator/max8952.c:249:			gpio_direction_output(pdata->gpio_vid1,
+./drivers/regulator/msm-gpio-regulator.c:83:	return gpio_direction_output(vreg->gpio, !vreg->active_low);
+./drivers/regulator/msm-gpio-regulator.c:95:	return gpio_direction_output(vreg->gpio, vreg->active_low);
+./drivers/regulator/s5m8767.c:639:			gpio_direction_output(pdata->buck_gpios[0],
+./drivers/regulator/s5m8767.c:642:			gpio_direction_output(pdata->buck_gpios[1],
+./drivers/regulator/s5m8767.c:645:			gpio_direction_output(pdata->buck_gpios[2],
+./drivers/regulator/fixed.c:236:		ret = gpio_direction_output(config->gpio, ret);
+./drivers/regulator/wm831x-dcdc.c:452:	ret = gpio_direction_output(pdata->dvs_gpio, dcdc->dvs_gpio_state);
+./drivers/regulator/wm8994-regulator.c:262:		ret = gpio_direction_output(ldo->enable, ldo->is_enabled);
+./drivers/platform/x86/intel_pmic_gpio.c:102:static int pmic_gpio_direction_output(struct gpio_chip *chip,
+./drivers/platform/x86/intel_pmic_gpio.c:270:	pg->chip.direction_output = pmic_gpio_direction_output;
+./drivers/sh/pfc.c:636:static int sh_gpio_direction_output(struct gpio_chip *chip, unsigned offset,
+./drivers/sh/pfc.c:716:	chip->direction_output = sh_gpio_direction_output;
+Binary file ./drivers/mfd/built-in.o matches
+./drivers/mfd/asic3.c:468:static int asic3_gpio_direction_output(struct gpio_chip *chip,
+./drivers/mfd/asic3.c:985:	asic->gpio.direction_output = asic3_gpio_direction_output;
+./drivers/mfd/ucb1x00-core.c:154:static int ucb1x00_gpio_direction_output(struct gpio_chip *chip, unsigned offset
+./drivers/mfd/ucb1x00-core.c:578:		ucb->gpio.direction_output = ucb1x00_gpio_direction_output;
+Binary file ./drivers/mfd/wcd9xxx-core.o matches
+./drivers/mfd/htc-egpio.c:214:static int egpio_direction_output(struct gpio_chip *chip,
+./drivers/mfd/htc-egpio.c:326:		chip->direction_output = egpio_direction_output;
+./drivers/mfd/tc6393xb.c:479:static int tc6393xb_gpio_direction_output(struct gpio_chip *chip,
+./drivers/mfd/tc6393xb.c:507:	tc6393xb->gpio.direction_output = tc6393xb_gpio_direction_output;
+./drivers/mfd/wcd9xxx-core.c:278:		gpio_direction_output(wcd9xxx->reset_gpio, 1);
+./drivers/mfd/wcd9xxx-core.c:280:		gpio_direction_output(wcd9xxx->reset_gpio, 0);
+./drivers/mfd/wcd9xxx-core.c:282:		gpio_direction_output(wcd9xxx->reset_gpio, 1);
+./drivers/net/wireless/p54/p54spi.c:636:	gpio_direction_output(p54spi_gpio_power, 0);
+./drivers/net/irda/pxaficp_ir.c:875:		err = gpio_direction_output(si->pdata->gpio_pwdown,
+./drivers/net/phy/mdio-gpio.c:48:		gpio_direction_output(bitbang->mdio, 1);
+./drivers/net/phy/mdio-gpio.c:127:	gpio_direction_output(bitbang->mdc, 0);
+./drivers/mtd/nand/cmx270_nand.c:164:	gpio_direction_output(GPIO_NAND_CS, 1);
+./drivers/mtd/nand/gpio.c:361:	gpio_direction_output(gpiomtd->plat.gpio_nce, 1);
+./drivers/mtd/nand/gpio.c:366:		gpio_direction_output(gpiomtd->plat.gpio_nwp, 1);
+./drivers/mtd/nand/gpio.c:371:	gpio_direction_output(gpiomtd->plat.gpio_ale, 0);
+./drivers/mtd/nand/gpio.c:375:	gpio_direction_output(gpiomtd->plat.gpio_cle, 0);
+./drivers/mtd/maps/gpio-addr-flash.c:241:		gpio_direction_output(state->gpio_addrs[i], 0);
+./drivers/mtd/maps/bfin-async-flash.c:157:	gpio_direction_output(state->enet_flash_pin, 1);
+./drivers/pinctrl/pinctrl-coh901.c:384:static int u300_gpio_direction_output(struct gpio_chip *chip, unsigned offset,
+./drivers/pinctrl/pinctrl-coh901.c:542:	.direction_output	= u300_gpio_direction_output,
+./drivers/pinctrl/pinctrl-coh901.c:682:		u300_gpio_direction_output(&gpio->chip, offset, conf->outval);
+./drivers/pinctrl/core.c:444: * pinctrl_gpio_direction_output() - request a GPIO pin to go into output mode
+./drivers/pinctrl/core.c:448: * as part of their gpio_direction_output() semantics, platforms and individual
+./drivers/pinctrl/core.c:451:int pinctrl_gpio_direction_output(unsigned gpio)
+./drivers/pinctrl/core.c:459:EXPORT_SYMBOL_GPL(pinctrl_gpio_direction_output);
+./drivers/gpio/gpio-da9052.c:157:static int da9052_gpio_direction_output(struct gpio_chip *gc,
+./drivers/gpio/gpio-da9052.c:197:	.direction_output = da9052_gpio_direction_output,
+./drivers/gpio/gpio-vx855.c:176:static int vx855gpio_direction_output(struct gpio_chip *gpio,
+./drivers/gpio/gpio-vx855.c:211:	c->direction_output = vx855gpio_direction_output;
+./drivers/gpio/gpio-ks8695.c:125:static int ks8695_gpio_direction_output(struct gpio_chip *gc,
+./drivers/gpio/gpio-ks8695.c:225:	.direction_output	= ks8695_gpio_direction_output,
+./drivers/gpio/gpio-ab8500.c:140:static int ab8500_gpio_direction_output(struct gpio_chip *chip, unsigned offset,
+./drivers/gpio/gpio-ab8500.c:203:	.direction_output	= ab8500_gpio_direction_output,
+./drivers/gpio/pm8xxx-gpio.c:214:static int pm_gpio_direction_output(struct gpio_chip *gpio_chip,
+./drivers/gpio/pm8xxx-gpio.c:289:	pm_gpio_chip->gpio_chip.direction_output = pm_gpio_direction_output;
+Binary file ./drivers/gpio/built-in.o matches
+./drivers/gpio/gpio-msm-common.c:152:static int msm_gpio_direction_output(struct gpio_chip *chip,
+./drivers/gpio/gpio-msm-common.c:206:		.direction_output = msm_gpio_direction_output,
+./drivers/gpio/gpio-timberdale.c:87:static int timbgpio_gpio_direction_output(struct gpio_chip *gpio,
+./drivers/gpio/gpio-timberdale.c:273:	gc->direction_output = timbgpio_gpio_direction_output;
+./drivers/gpio/gpio-adp5588.c:113:static int adp5588_gpio_direction_output(struct gpio_chip *chip,
+./drivers/gpio/gpio-adp5588.c:378:	gc->direction_output = adp5588_gpio_direction_output;
+Binary file ./drivers/gpio/gpio-msm-common.o matches
+./drivers/gpio/gpio-sx150x.c:256:static int sx150x_gpio_direction_output(struct gpio_chip *gc,
+./drivers/gpio/gpio-sx150x.c:425:	chip->gpio_chip.direction_output = sx150x_gpio_direction_output;
+./drivers/gpio/gpio-pca953x.c:172:static int pca953x_gpio_direction_output(struct gpio_chip *gc,
+./drivers/gpio/gpio-pca953x.c:291:	gc->direction_output = pca953x_gpio_direction_output;
+./drivers/gpio/gpio-adp5520.c:68:static int adp5520_gpio_direction_output(struct gpio_chip *chip,
+./drivers/gpio/gpio-adp5520.c:127:	gc->direction_output = adp5520_gpio_direction_output;
+./drivers/gpio/gpio-pch.c:134:static int pch_gpio_direction_output(struct gpio_chip *gpio, unsigned nr,
+./drivers/gpio/gpio-pch.c:222:	gpio->direction_output = pch_gpio_direction_output;
+./drivers/gpio/gpio-max732x.c:245:static int max732x_gpio_direction_output(struct gpio_chip *gc,
+./drivers/gpio/gpio-max732x.c:563:		gc->direction_output = max732x_gpio_direction_output;
+./drivers/gpio/gpio-msm-v1.c:295:			.direction_output = msm_gpio_direction_output,	\
+./drivers/gpio/gpio-msm-v1.c:389:msm_gpio_direction_output(struct gpio_chip *chip, unsigned offset, int value)
+./drivers/gpio/gpio-tc3589x.c:71:static int tc3589x_gpio_direction_output(struct gpio_chip *chip,
+./drivers/gpio/gpio-tc3589x.c:107:	.direction_output	= tc3589x_gpio_direction_output,
+./drivers/gpio/gpio-pxa.c:240:static int pxa_gpio_direction_output(struct gpio_chip *chip,
+./drivers/gpio/gpio-pxa.c:296:		c->direction_output = pxa_gpio_direction_output;
+./drivers/gpio/gpio-bt8xx.c:115:static int bt8xxgpio_gpio_direction_output(struct gpio_chip *gpio,
+./drivers/gpio/gpio-bt8xx.c:167:	c->direction_output = bt8xxgpio_gpio_direction_output;
+./drivers/gpio/gpio-tegra.c:139:static int tegra_gpio_direction_output(struct gpio_chip *chip, unsigned offset,
+./drivers/gpio/gpio-tegra.c:156:	.direction_output	= tegra_gpio_direction_output,
+./drivers/gpio/gpio-ml-ioh.c:131:static int ioh_gpio_direction_output(struct gpio_chip *gpio, unsigned nr,
+./drivers/gpio/gpio-ml-ioh.c:239:	gpio->direction_output = ioh_gpio_direction_output;
+./drivers/gpio/gpio-vr41xx.c:467:static int vr41xx_gpio_direction_output(struct gpio_chip *chip, unsigned offset,
+./drivers/gpio/gpio-vr41xx.c:488:	.direction_output	= vr41xx_gpio_direction_output,
+Binary file ./drivers/gpio/gpiolib.o matches
+./drivers/gpio/gpiolib.c:204:		status = gpio_direction_output(gpio, 1);
+./drivers/gpio/gpiolib.c:206:		status = gpio_direction_output(gpio, 0);
+./drivers/gpio/gpiolib.c:1128:		err = gpio_direction_output(gpio,
+./drivers/gpio/gpiolib.c:1233:int gpio_direction_output(unsigned gpio, int value)
+./drivers/gpio/gpiolib.c:1291:EXPORT_SYMBOL_GPL(gpio_direction_output);
+./drivers/gpio/gpio-langwell.c:152:static int lnw_gpio_direction_output(struct gpio_chip *chip,
+./drivers/gpio/gpio-langwell.c:352:	lnw->chip.direction_output = lnw_gpio_direction_output;
+./drivers/gpio/gpio-langwell.c:429:	gc->direction_output = lnw_gpio_direction_output;
+Binary file ./drivers/gpio/pm8xxx-gpio.o matches
+Binary file ./drivers/gpio/gpio-sx150x.o matches
+./drivers/gpio/gpio-stmpe.c:78:static int stmpe_gpio_direction_output(struct gpio_chip *chip,
+./drivers/gpio/gpio-stmpe.c:125:	.direction_output	= stmpe_gpio_direction_output,
+./drivers/hwmon/sht15.c:216:	gpio_direction_output(data->pdata->gpio_data, 1);
+./drivers/hwmon/sht15.c:254:	gpio_direction_output(data->pdata->gpio_data, 1);
+./drivers/hwmon/sht15.c:354:	gpio_direction_output(data->pdata->gpio_data, 0);
+./drivers/hwmon/sht15.c:373:	gpio_direction_output(data->pdata->gpio_data, 1);
+./drivers/hwmon/sht15.c:415:	gpio_direction_output(data->pdata->gpio_data, 1);
+./drivers/hwmon/sht15.c:951:	gpio_direction_output(data->pdata->gpio_sck, 0);
+./drivers/hwmon/gpio-fan.c:372:		err = gpio_direction_output(ctrl[i], gpio_get_value(ctrl[i]));
+./drivers/w1/masters/w1-gpio.c:28:		gpio_direction_output(pdata->pin, 0);
+./drivers/w1/masters/w1-gpio.c:66:		gpio_direction_output(pdata->pin, 1);
+Binary file ./drivers/input/misc/gpio_matrix.o matches
+Binary file ./drivers/input/misc/built-in.o matches
+Binary file ./drivers/input/misc/gpio_output.o matches
+./drivers/input/misc/gpio_matrix.c:183:			gpio_direction_output(gpio, polarity);
+./drivers/input/misc/gpio_matrix.c:217:			gpio_direction_output(mi->output_gpios[out], polarity);
+./drivers/input/misc/gpio_matrix.c:373:				err = gpio_direction_output(mi->output_gpios[i],
+./drivers/input/misc/gpio_output.c:75:			ret = gpio_direction_output(oi->keymap[i].gpio,
+./drivers/input/misc/gpio_output.c:79:					"gpio_direction_output failed for %d\n",
+./drivers/input/misc/gpio_output.c:81:				goto err_gpio_direction_output_failed;
+./drivers/input/misc/gpio_output.c:89:err_gpio_direction_output_failed:
+Binary file ./drivers/input/built-in.o matches
+./drivers/input/keyboard/adp5589-keys.c:439:static int adp5589_gpio_direction_output(struct gpio_chip *chip,
+./drivers/input/keyboard/adp5589-keys.c:518:	kpad->gc.direction_output = adp5589_gpio_direction_output;
+./drivers/input/keyboard/matrix_keypad.c:54:		gpio_direction_output(pdata->col_gpios[col], level_on);
+./drivers/input/keyboard/matrix_keypad.c:317:		gpio_direction_output(pdata->col_gpios[i], !pdata->active_low);
+./drivers/input/keyboard/omap-keypad.c:346:			gpio_direction_output(col_gpios[col_idx], 0);
+./drivers/input/keyboard/adp5588-keys.c:121:static int adp5588_gpio_direction_output(struct gpio_chip *chip,
+./drivers/input/keyboard/adp5588-keys.c:192:	kpad->gc.direction_output = adp5588_gpio_direction_output;
+Binary file ./drivers/input/touchscreen/built-in.o matches
+./drivers/input/touchscreen/synaptics_3200.c:346:			gpio_direction_output(ts->gpio_reset, 0);
+./drivers/input/touchscreen/synaptics_3200.c:348:			gpio_direction_output(ts->gpio_reset, 1);
+./drivers/input/touchscreen/synaptics_3200.c:1671:		gpio_direction_output(ts->gpio_reset, 0);
+./drivers/input/touchscreen/synaptics_3200.c:1673:		gpio_direction_output(ts->gpio_reset, 1);
+./drivers/input/touchscreen/ad7879.c:392:static int ad7879_gpio_direction_output(struct gpio_chip *chip,
+./drivers/input/touchscreen/ad7879.c:448:		ts->gc.direction_output = ad7879_gpio_direction_output;
+./drivers/input/touchscreen/cy8ctmg110_ts.c:71:		gpio_direction_output(ts->reset_pin, 1 - poweron);
+Binary file ./drivers/input/touchscreen/synaptics_3200.o matches
+./drivers/input/touchscreen/egalax_ts.c:137:	gpio_direction_output(gpio, 0);
+Binary file ./drivers/video/built-in.o matches
+./drivers/video/omap2/displays/panel-n8x0.c:292:	gpio_direction_output(bdata->ctrl_pwrdown, 1);
+./drivers/video/omap2/displays/panel-n8x0.c:326:	gpio_direction_output(bdata->panel_reset, 1);
+./drivers/video/omap2/displays/panel-n8x0.c:362:	/* gpio_direction_output(bdata->panel_reset, 0); */
+./drivers/video/omap2/displays/panel-n8x0.c:369:	gpio_direction_output(bdata->ctrl_pwrdown, 0);
+./drivers/video/omap2/displays/panel-n8x0.c:393:	/* gpio_direction_output(bdata->panel_reset, 0); */
+./drivers/video/omap2/displays/panel-n8x0.c:394:	gpio_direction_output(bdata->ctrl_pwrdown, 0);
+./drivers/video/backlight/lms283gf05.c:165:		ret = gpio_direction_output(pdata->reset_gpio,
+./drivers/video/backlight/tosa_bl.c:97:	ret = gpio_direction_output(TOSA_GPIO_BL_C20MA, 0);
+./drivers/video/backlight/tosa_lcd.c:201:	ret = gpio_direction_output(TOSA_GPIO_TG_ON, 0);
+./drivers/video/backlight/atmel-pwm-bl.c:164:		retval = gpio_direction_output(pwmbl->gpio_on,
+./drivers/video/backlight/corgi_lcd.c:503:		gpio_direction_output(lcd->gpio_backlight_on, 0);
+./drivers/video/backlight/corgi_lcd.c:521:			gpio_direction_output(lcd->gpio_backlight_cont, 1);
+./drivers/video/backlight/corgi_lcd.c:524:			gpio_direction_output(lcd->gpio_backlight_cont, 0);
+Binary file ./drivers/video/msm/sii9234/built-in.o matches
+Binary file ./drivers/video/msm/sii9234/sii9234.o matches
+./drivers/video/msm/sii9234/sii9234.c:869:	gpio_direction_output(pInfo->reset_pin, 0);
+Binary file ./drivers/video/msm/mipi_tc358764_dsi2lvds.o matches
+Binary file ./drivers/video/msm/built-in.o matches
+Binary file ./drivers/video/msm/lvds_frc_fhd.o matches
+./drivers/video/msm/mipi_tc358764_dsi2lvds.c:610:	gpio_direction_output(d2l_3d_gpio_enable, enable);
+./drivers/video/msm/mipi_tc358764_dsi2lvds.c:611:	gpio_direction_output(d2l_3d_gpio_mode, mode);
+./drivers/video/msm/lvds_frc_fhd.c:44:	gpio_direction_output(gpio_reset, 1);
+./drivers/video/msm/lvds_frc_fhd.c:45:	gpio_direction_output(gpio_pwr, 0);
+./drivers/video/msm/lvds_frc_fhd.c:46:	gpio_direction_output(gpio_update, 0);
+./drivers/video/msm/lvds_frc_fhd.c:48:	gpio_direction_output(gpio_reset, 0);
+./drivers/video/msm/lvds_frc_fhd.c:50:	gpio_direction_output(gpio_pwr, 1);
+./drivers/video/msm/lvds_frc_fhd.c:52:	gpio_direction_output(gpio_update, 1);
+./drivers/video/msm/lvds_frc_fhd.c:54:	gpio_direction_output(gpio_reset, 1);
+./drivers/video/msm/lvds_frc_fhd.c:87:	gpio_direction_output(gpio_reset, 0);
+./drivers/video/msm/lvds_frc_fhd.c:89:	gpio_direction_output(gpio_update, 0);
+./drivers/video/msm/lvds_frc_fhd.c:91:	gpio_direction_output(gpio_pwr, 0);
+Binary file ./.tmp_vmlinux2 matches
+./.tmp_System.map:12167:c027a884 T gpio_direction_output
+./.tmp_System.map:12203:c027c0a8 t msm_gpio_direction_output
+./.tmp_System.map:12279:c027e40c t pm_gpio_direction_output
+./.tmp_System.map:12309:c027feb8 t sx150x_gpio_direction_output
+Binary file ./.tmp_vmlinux1 matches
+./System.map:12167:c027a884 T gpio_direction_output
+./System.map:12203:c027c0a8 t msm_gpio_direction_output
+./System.map:12279:c027e40c t pm_gpio_direction_output
+./System.map:12309:c027feb8 t sx150x_gpio_direction_output
+./lastcommit.txt:1875:             gpio_direction_output(pdata->gpio_rt5501_spk_en, 1);
+./lastcommit.txt:8228:-			gpio_direction_output(PM8921_GPIO_PM_TO_SYS(RCV_PAMP_PMGPIO), 1);
+./lastcommit.txt:8230:-			gpio_direction_output(RCV_PAMP_GPIO, 1);
+./lastcommit.txt:8232:-			gpio_direction_output(PM8921_GPIO_PM_TO_SYS(RCV_SPK_SEL_PMGPIO), 1);
+./lastcommit.txt:8256:-                            gpio_direction_output(PM8921_GPIO_PM_TO_SYS(10), 1);
+./lastcommit.txt:8300:-		gpio_direction_output(PM8921_GPIO_PM_TO_SYS(RCV_PAMP_PMGPIO), 0);
+./lastcommit.txt:8302:-		gpio_direction_output(RCV_PAMP_GPIO, 0);
+./lastcommit.txt:8304:-		gpio_direction_output(PM8921_GPIO_PM_TO_SYS(RCV_SPK_SEL_PMGPIO), 0);
+./lastcommit.txt:8339:-                    gpio_direction_output(PM8921_GPIO_PM_TO_SYS(10), 0);
+./43.patch:24983:             gpio_direction_output(pdata->gpio_rt5501_spk_en, 1);
+./sound/soc/samsung/rx1950_uda1380.c:258:	ret = gpio_direction_output(S3C2410_GPA(1), 0);
+./sound/soc/samsung/s3c24xx_uda134x.c:276:	gpio_direction_output(pin, 0);
+./sound/soc/samsung/s3c24xx_simtec.c:264:		gpio_direction_output(pd->amp_gain[0], 0);
+./sound/soc/samsung/s3c24xx_simtec.c:265:		gpio_direction_output(pd->amp_gain[1], 0);
+./sound/soc/samsung/h1940_uda1380.c:240:	ret = gpio_direction_output(H1940_LATCH_AUDIO_POWER, 0);
+./sound/soc/samsung/speyside.c:150:	gpio_direction_output(WM8996_HPSEL_GPIO, speyside_jack_polarity);
+./sound/soc/samsung/speyside.c:169:	gpio_direction_output(WM8996_HPSEL_GPIO, speyside_jack_polarity);
+./sound/soc/samsung/smartq_wm8987.c:244:	ret = gpio_direction_output(S3C64XX_GPK(12), 1);
+Binary file ./sound/soc/built-in.o matches
+./sound/soc/blackfin/bf5xx-ad73311.c:139:	gpio_direction_output(GPIO_SE, 0);
+./sound/soc/blackfin/bf5xx-ac97.c:176:	gpio_direction_output(gpio, 1);
+./sound/soc/blackfin/bf5xx-ac97.c:298:	gpio_direction_output(CONFIG_SND_BF5XX_RESET_GPIO_NUM, 1);
+./sound/soc/omap/zoom2.c:192:	gpio_direction_output(ZOOM2_HEADSET_MUX_GPIO, 0);
+./sound/soc/omap/zoom2.c:195:	gpio_direction_output(ZOOM2_HEADSET_EXTMUTE_GPIO, 0);
+./sound/soc/omap/n810.c:352:	gpio_direction_output(N810_HEADSET_AMP_GPIO, 0);
+./sound/soc/omap/n810.c:353:	gpio_direction_output(N810_SPEAKER_AMP_GPIO, 0);
+./sound/soc/omap/omap3pandora.c:258:	ret = gpio_direction_output(OMAP3_PANDORA_DAC_POWER_GPIO, 0);
+./sound/soc/omap/omap3pandora.c:270:	ret = gpio_direction_output(OMAP3_PANDORA_AMP_POWER_GPIO, 0);
+./sound/soc/tegra/tegra_wm8903.c:289:		gpio_direction_output(pdata->gpio_spkr_en, 0);
+./sound/soc/tegra/tegra_wm8903.c:300:		gpio_direction_output(pdata->gpio_hp_mute, 1);
+./sound/soc/tegra/tegra_wm8903.c:312:		gpio_direction_output(pdata->gpio_int_mic_en, 0);
+./sound/soc/tegra/tegra_wm8903.c:324:		gpio_direction_output(pdata->gpio_ext_mic_en, 0);
+Binary file ./sound/soc/msm/built-in.o matches
+Binary file ./sound/soc/msm/snd-soc-msm8960.o matches
+./sound/soc/msm/apq8064_M7.c:499:			gpio_direction_output(PM8921_GPIO_PM_TO_SYS(RCV_PAMP_PMGPIO), 1);
+./sound/soc/msm/apq8064_M7.c:501:			gpio_direction_output(RCV_PAMP_GPIO, 1);
+./sound/soc/msm/apq8064_M7.c:503:			gpio_direction_output(PM8921_GPIO_PM_TO_SYS(RCV_SPK_SEL_PMGPIO), 1);
+./sound/soc/msm/apq8064_M7.c:527:                            gpio_direction_output(PM8921_GPIO_PM_TO_SYS(10), 1);
+./sound/soc/msm/apq8064_M7.c:556:                            gpio_direction_output(PM8921_GPIO_PM_TO_SYS(10), 1);
+./sound/soc/msm/apq8064_M7.c:610:		gpio_direction_output(PM8921_GPIO_PM_TO_SYS(RCV_PAMP_PMGPIO), 0);
+./sound/soc/msm/apq8064_M7.c:612:		gpio_direction_output(RCV_PAMP_GPIO, 0);
+./sound/soc/msm/apq8064_M7.c:614:		gpio_direction_output(PM8921_GPIO_PM_TO_SYS(RCV_SPK_SEL_PMGPIO), 0);
+./sound/soc/msm/apq8064_M7.c:631:                    gpio_direction_output(PM8921_GPIO_PM_TO_SYS(10), 0);
+./sound/soc/msm/apq8064_M7.c:653:                    gpio_direction_output(PM8921_GPIO_PM_TO_SYS(10), 0);
+./sound/soc/msm/apq8064_M7.c:725:				gpio_direction_output(HAC_PAMP_GPIO, 1);
+./sound/soc/msm/apq8064_M7.c:728:				gpio_direction_output(HAC_PAMP_GPIO, 0);
+./sound/soc/msm/apq8064_M7.c:762:				ret =gpio_direction_output(RCV_PAMP_GPIO, 1);
+./sound/soc/msm/apq8064_M7.c:763:				ret = gpio_direction_output(PM8921_GPIO_PM_TO_SYS(RCV_SPK_SEL_PMGPIO), 1);
+./sound/soc/msm/apq8064_M7.c:766:				gpio_direction_output(RCV_PAMP_GPIO, 0);
+./sound/soc/msm/apq8064_M7.c:767:				gpio_direction_output(PM8921_GPIO_PM_TO_SYS(RCV_SPK_SEL_PMGPIO), 0);
+./sound/soc/msm/apq8064_M7.c:2640:		gpio_direction_output(PM8921_GPIO_PM_TO_SYS(10), 0);
+./sound/soc/msm/mpq8064.c:188:			gpio_direction_output(bottom_spk_pamp_gpio, 1);
+./sound/soc/msm/mpq8064.c:205:			gpio_direction_output(top_spk_pamp_gpio, 1);
+./sound/soc/msm/mpq8064.c:272:		gpio_direction_output(bottom_spk_pamp_gpio, 0);
+./sound/soc/msm/mpq8064.c:286:		gpio_direction_output(top_spk_pamp_gpio, 0);
+Binary file ./sound/soc/msm/mpq8064.o matches
+./sound/soc/msm/apq8064.c:487:			gpio_direction_output(RCV_PAMP_GPIO, 1);
+./sound/soc/msm/apq8064.c:488:			gpio_direction_output(PM8921_GPIO_PM_TO_SYS(RCV_SPK_SEL_PMGPIO), 1);
+./sound/soc/msm/apq8064.c:512:				gpio_direction_output(PM8921_GPIO_PM_TO_SYS(10), 1);
+./sound/soc/msm/apq8064.c:582:		gpio_direction_output(RCV_PAMP_GPIO, 0);
+./sound/soc/msm/apq8064.c:583:		gpio_direction_output(PM8921_GPIO_PM_TO_SYS(RCV_SPK_SEL_PMGPIO), 0);
+./sound/soc/msm/apq8064.c:600:			gpio_direction_output(PM8921_GPIO_PM_TO_SYS(10), 0);
+./sound/soc/msm/apq8064.c:2528:		gpio_direction_output(PM8921_GPIO_PM_TO_SYS(10), 0);
+Binary file ./sound/soc/msm/apq8064.o matches
+./sound/soc/codecs/pcm3008.c:79:		ret = gpio_direction_output(setup->dem0_pin, 1);
+./sound/soc/codecs/pcm3008.c:86:		ret = gpio_direction_output(setup->dem1_pin, 0);
+./sound/soc/codecs/pcm3008.c:93:		ret = gpio_direction_output(setup->pdad_pin, 1);
+./sound/soc/codecs/pcm3008.c:100:		ret = gpio_direction_output(setup->pdda_pin, 1);
+./sound/soc/codecs/cs8427.c:655:	gpio_direction_output(pdata->reset_gpio, 1);
+./sound/soc/codecs/cs8427.c:657:	gpio_direction_output(pdata->reset_gpio, 0);
+./sound/soc/codecs/cs8427.c:659:	gpio_direction_output(pdata->reset_gpio, 1);
+Binary file ./sound/soc/codecs/built-in.o matches
+./sound/soc/codecs/tlv320dac33.c:1565:		gpio_direction_output(dac33->power_gpio, 0);
+./sound/soc/codecs/tlv320aic3x.c:1330:		gpio_direction_output(aic3x->gpio_reset, 0);
+Binary file ./sound/soc/codecs/snd-soc-cs8427.o matches
+Binary file ./sound/soc/codecs/cs8427.o matches
+./sound/soc/codecs/tpa6130a2.c:407:		gpio_direction_output(data->power_gpio, 0);
+./sound/soc/codecs/cs4271.c:477:		gpio_direction_output(gpio_nreset, 0);
+./sound/soc/pxa/spitz.c:326:	ret = gpio_direction_output(spitz_mic_gpio, 0);
+./sound/atmel/ac97c.c:991:			gpio_direction_output(pdata->reset_pin, 1);
+./sound/pci/cs5535audio/cs5535audio_olpc.c:159:	gpio_direction_output(OLPC_GPIO_MIC_AC, 0);
+Binary file ./sound/built-in.o matches
+./net/rfkill/rfkill-gpio.c:56:			gpio_direction_output(rfkill->pdata->shutdown_gpio, 0);
+./net/rfkill/rfkill-gpio.c:58:			gpio_direction_output(rfkill->pdata->reset_gpio, 0);
+./net/rfkill/rfkill-gpio.c:65:			gpio_direction_output(rfkill->pdata->reset_gpio, 1);
+./net/rfkill/rfkill-gpio.c:67:			gpio_direction_output(rfkill->pdata->shutdown_gpio, 1);
+Binary file ./vmlinux matches
+./include/asm-generic/gpio.h:87:extern int gpio_direction_output(unsigned gpio, int value);
+./include/linux/gpio.h:80:static inline int gpio_direction_output(unsigned gpio, int value)
+./include/linux/pinctrl/consumer.h:30:extern int pinctrl_gpio_direction_output(unsigned gpio);
+./include/linux/pinctrl/consumer.h:55:static inline int pinctrl_gpio_direction_output(unsigned gpio)
+./Documentation/gpio.txt:136:	int gpio_direction_output(unsigned gpio, int value);
+./Documentation/gpio.txt:231:	gpio_direction_output()
+./Documentation/gpio.txt:425: LOW:	gpio_direction_output(gpio, 0) ... this drives the signal
+./Documentation/spi/ep93xx_spi:42:	gpio_direction_output(MMC_CHIP_SELECT_GPIO, 1);
+./Documentation/arm/Samsung-S3C24XX/GPIO.txt:33:  s3c2410_gpio_setpin()		gpio_set_value() or gpio_direction_output()
+./arch/xtensa/platforms/s6105/setup.c:64:	gpio_direction_output(GPIO_LED1_NGREEN, 1);
+./arch/xtensa/platforms/s6105/setup.c:72:		gpio_direction_output(GPIO_LED1_RED, !(c & 0x10));
+./arch/microblaze/kernel/reset.c:45:	ret = gpio_direction_output(handle, 0);
+./arch/blackfin/kernel/bfin_gpio.c:1163:int bfin_gpio_direction_output(unsigned gpio, int value)
+./arch/blackfin/kernel/bfin_gpio.c:1187:EXPORT_SYMBOL(bfin_gpio_direction_output);
+./arch/blackfin/kernel/bfin_gpio.c:1280:	return bfin_gpio_direction_output(gpio, level);
+./arch/blackfin/mach-bf533/boards/stamp.c:809:	gpio_direction_output(GPIO_PF0, 0);
+./arch/blackfin/mach-bf533/boards/stamp.c:810:	gpio_direction_output(GPIO_PF1, 1);
+./arch/blackfin/mach-bf533/boards/stamp.c:813:	gpio_direction_output(GPIO_PF11, 0);
+./arch/blackfin/mach-bf533/boards/stamp.c:842:		gpio_direction_output(GPIO_PF0, 1);
+./arch/blackfin/mach-bf533/boards/stamp.c:884:	gpio_direction_output(GPIO_PF0, 0);
+./arch/blackfin/mach-bf533/boards/blackstamp.c:480:		gpio_direction_output(GPIO_PF0, 1);
+./arch/blackfin/mach-bf538/ext-gpio.c:60:static int bf538_gpio_direction_output(struct gpio_chip *chip, unsigned gpio, int value)
+./arch/blackfin/mach-bf538/ext-gpio.c:85:	.direction_output = bf538_gpio_direction_output,
+./arch/blackfin/mach-bf538/ext-gpio.c:97:	.direction_output = bf538_gpio_direction_output,
+./arch/blackfin/mach-bf538/ext-gpio.c:109:	.direction_output = bf538_gpio_direction_output,
+./arch/blackfin/include/asm/gpio.h:184:int bfin_gpio_direction_output(unsigned gpio, int value);
+./arch/blackfin/include/asm/gpio.h:237:static inline int gpio_direction_output(unsigned gpio, int value)
+./arch/blackfin/include/asm/gpio.h:239:	return bfin_gpio_direction_output(gpio, value);
+./arch/blackfin/mach-bf561/boards/cm_bf561.c:514:	gpio_direction_output(GPIO_PF46, 0);
+./arch/blackfin/mach-bf561/boards/ezkit.c:615:	gpio_direction_output(GPIO_PF11, 0);
+./arch/blackfin/mach-bf537/boards/stamp.c:231:	gpio_direction_output(CONFIG_USB_SL811_BFIN_GPIO_VBUS, is_on);
+./arch/blackfin/mach-bf537/boards/stamp.c:2951:	gpio_direction_output(GPIO_PF6, 0);
+./arch/blackfin/mach-bf537/boards/cm_bf537u.c:732:	gpio_direction_output(GPIO_PH15, 0);
+./arch/blackfin/mach-bf537/boards/cm_bf537u.c:738:	gpio_direction_output(GPIO_PH13, 0);
+./arch/blackfin/mach-bf537/boards/tcm_bf537.c:728:	gpio_direction_output(GPIO_PG14, 0);
+./arch/blackfin/mach-bf537/boards/cm_bf537e.c:761:	gpio_direction_output(GPIO_PG14, 0);
+./arch/arm/mach-s3c64xx/mach-smdk6410.c:126:		gpio_direction_output(S3C64XX_GPF(13), 1);
+./arch/arm/mach-s3c64xx/mach-smdk6410.c:129:		gpio_direction_output(S3C64XX_GPN(5), 0);
+./arch/arm/mach-s3c64xx/mach-smdk6410.c:131:		gpio_direction_output(S3C64XX_GPN(5), 1);
+./arch/arm/mach-s3c64xx/mach-smdk6410.c:134:		gpio_direction_output(S3C64XX_GPF(13), 0);
+./arch/arm/mach-s3c64xx/mach-crag6410.c:138:		gpio_direction_output(S3C64XX_GPF(14), 0);
+./arch/arm/mach-s3c64xx/mach-crag6410.c:773:	gpio_direction_output(S3C64XX_GPB(0), 0);
+./arch/arm/mach-s3c64xx/mach-crag6410.c:776:	gpio_direction_output(S3C64XX_GPF(14), 0);  /* turn off */
+./arch/arm/mach-s3c64xx/mach-crag6410.c:779:	gpio_direction_output(S3C64XX_GPB(1), 0);
+./arch/arm/mach-s3c64xx/mach-crag6410.c:782:	gpio_direction_output(S3C64XX_GPF(10), 1);
+./arch/arm/mach-s3c64xx/pm.c:358:	gpio_direction_output(S3C64XX_GPN(12), 0);
+./arch/arm/mach-s3c64xx/pm.c:359:	gpio_direction_output(S3C64XX_GPN(13), 0);
+./arch/arm/mach-s3c64xx/pm.c:360:	gpio_direction_output(S3C64XX_GPN(14), 0);
+./arch/arm/mach-s3c64xx/pm.c:361:	gpio_direction_output(S3C64XX_GPN(15), 0);
+./arch/arm/mach-s3c64xx/mach-hmt.c:82:		ret = gpio_direction_output(S3C64XX_GPB(4), 0);
+./arch/arm/mach-s3c64xx/mach-hmt.c:257:	gpio_direction_output(S3C64XX_GPC(7), 0);
+./arch/arm/mach-s3c64xx/mach-hmt.c:259:	gpio_direction_output(S3C64XX_GPM(0), 1);
+./arch/arm/mach-s3c64xx/mach-hmt.c:261:	gpio_direction_output(S3C64XX_GPK(7), 1);
+./arch/arm/mach-s3c64xx/mach-hmt.c:263:	gpio_direction_output(S3C64XX_GPF(13), 1);
+./arch/arm/mach-s3c64xx/mach-smartq.c:201:	gpio_direction_output(S3C64XX_GPM(3), 0);
+./arch/arm/mach-s3c64xx/mach-smartq.c:221:	gpio_direction_output(S3C64XX_GPM(3), power);
+./arch/arm/mach-s3c64xx/mach-smartq.c:276:	gpio_direction_output(S3C64XX_GPK(15), 1);
+./arch/arm/mach-s3c64xx/mach-smartq.c:290:	gpio_direction_output(S3C64XX_GPK(15), 0);
+./arch/arm/mach-s3c64xx/mach-smartq.c:323:	gpio_direction_output(S3C64XX_GPL(0), 0);
+./arch/arm/mach-s3c64xx/mach-smartq.c:324:	gpio_direction_output(S3C64XX_GPL(1), 0);
+./arch/arm/mach-s3c64xx/mach-smartq.c:364:	gpio_direction_output(S3C64XX_GPK(1), 1);
+./arch/arm/mach-s3c64xx/mach-smartq.c:367:	gpio_direction_output(S3C64XX_GPK(2), 0);
+./arch/arm/mach-s3c64xx/mach-mini6410.c:195:		gpio_direction_output(S3C64XX_GPE(0), 1);
+./arch/arm/mach-s3c64xx/mach-mini6410.c:197:		gpio_direction_output(S3C64XX_GPE(0), 0);
+./arch/arm/mach-s3c64xx/mach-anw6410.c:115:		gpio_direction_output(S3C64XX_GPF(1), 1);
+./arch/arm/mach-s3c64xx/mach-anw6410.c:116:		gpio_direction_output(S3C64XX_GPF(4), 1);
+./arch/arm/mach-s3c64xx/mach-anw6410.c:121:		gpio_direction_output(S3C64XX_GPF(1), 0);
+./arch/arm/mach-s3c64xx/mach-anw6410.c:122:		gpio_direction_output(S3C64XX_GPF(4), 0);
+./arch/arm/mach-lpc32xx/phy3250.c:98:	else if (gpio_direction_output(LCD_POWER_GPIO, 1))
+./arch/arm/mach-lpc32xx/phy3250.c:105:	else if (gpio_direction_output(BKL_POWER_GPIO, 1))
+./arch/arm/mach-lpc32xx/phy3250.c:282:	else if (gpio_direction_output(SPI0_CS_GPIO, 1))
+./arch/arm/mach-s5p64x0/mach-smdk6440.c:140:		gpio_direction_output(S5P6440_GPN(5), 1);
+./arch/arm/mach-s5p64x0/mach-smdk6450.c:158:		gpio_direction_output(S5P6450_GPN(5), 1);
+./arch/arm/mach-exynos/mach-nuri.c:248:	gpio_direction_output(gpio, power);
+./arch/arm/mach-exynos/mach-nuri.c:1069:	gpio_direction_output(gpio, ta_en);
+./arch/arm/mach-omap2/board-3430sdp.c:137:	gpio_direction_output(SDP3430_LCD_PANEL_ENABLE_GPIO, 1);
+./arch/arm/mach-omap2/board-3430sdp.c:138:	gpio_direction_output(SDP3430_LCD_PANEL_BACKLIGHT_GPIO, 1);
+./arch/arm/mach-omap2/board-3430sdp.c:149:	gpio_direction_output(SDP3430_LCD_PANEL_ENABLE_GPIO, 0);
+./arch/arm/mach-omap2/board-3430sdp.c:150:	gpio_direction_output(SDP3430_LCD_PANEL_BACKLIGHT_GPIO, 0);
+./arch/arm/mach-omap2/board-ldp.c:197:		gpio_direction_output(ldp_lcd_enable_gpio, 1);
+./arch/arm/mach-omap2/board-ldp.c:199:		gpio_direction_output(ldp_backlight_gpio, 1);
+./arch/arm/mach-omap2/board-ldp.c:207:		gpio_direction_output(ldp_lcd_enable_gpio, 0);
+./arch/arm/mach-omap2/board-ldp.c:209:		gpio_direction_output(ldp_backlight_gpio, 0);
+./arch/arm/mach-omap2/board-2430sdp.c:115:	gpio_direction_output(SDP2430_LCD_PANEL_ENABLE_GPIO, 1);
+./arch/arm/mach-omap2/board-2430sdp.c:116:	gpio_direction_output(SDP2430_LCD_PANEL_BACKLIGHT_GPIO, 1);
+./arch/arm/mach-omap2/board-2430sdp.c:123:	gpio_direction_output(SDP2430_LCD_PANEL_ENABLE_GPIO, 0);
+./arch/arm/mach-omap2/board-2430sdp.c:124:	gpio_direction_output(SDP2430_LCD_PANEL_BACKLIGHT_GPIO, 0);
+./arch/arm/mach-omap2/board-igep0020.c:449:	gpio_direction_output(IGEP2_GPIO_DVI_PUP, 1);
+./arch/arm/mach-omap2/board-igep0020.c:456:	gpio_direction_output(IGEP2_GPIO_DVI_PUP, 0);
+./arch/arm/plat-iop/gpio.c:61:static int iop3xx_gpio_direction_output(struct gpio_chip *chip, unsigned gpio, int level)
+./arch/arm/plat-iop/gpio.c:82:	.direction_output	= iop3xx_gpio_direction_output,
+./arch/arm/mach-mmp/gplugd.c:145:	gpio_direction_output(104, 1);
+./arch/arm/mach-mmp/gplugd.c:164:		gpio_direction_output(35, 1);
+./arch/arm/mach-mmp/gplugd.c:172:		gpio_direction_output(85, 0);
+./arch/arm/mach-ep93xx/core.c:594:		err = gpio_direction_output(EP93XX_GPIO_LINE_EGPIO14, 0);
+./arch/arm/mach-ks8695/devices.c:196:	gpio_direction_output(cpu_led, 1);
+./arch/arm/mach-ks8695/devices.c:197:	gpio_direction_output(timer_led, 1);
+./arch/arm/mach-ks8695/board-acs5k.c:71:			gpio_direction_output(gpio_base + n,
+./arch/arm/mach-ks8695/board-acs5k.c:203:	gpio_direction_output(3, 1); /* Default CAN_RESET high */
+./arch/arm/mach-ks8695/board-acs5k.c:204:	gpio_direction_output(6, 0); /* Default KS8695_ACTIVE low */
+./arch/arm/mach-vt8500/gpio.c:76:static int vt8500_muxed_gpio_direction_output(struct gpio_chip *chip,
+./arch/arm/mach-vt8500/gpio.c:123:		.direction_output = vt8500_muxed_gpio_direction_output,	\
+./arch/arm/mach-vt8500/gpio.c:168:static int vt8500_gpio_direction_output(struct gpio_chip *chip,
+./arch/arm/mach-vt8500/gpio.c:214:	.direction_output	= vt8500_gpio_direction_output,
+./arch/arm/mach-mxs/module-tx28.c:95:		ret = gpio_direction_output(gpio, 0);
+./arch/arm/mach-mxs/module-tx28.c:105:	ret = gpio_direction_output(TX28_FEC_PHY_POWER, 1);
+./arch/arm/mach-mxs/module-tx28.c:115:	gpio_direction_output(MXS_GPIO_NR(4, 2), 1);
+./arch/arm/mach-mxs/module-tx28.c:116:	gpio_direction_output(MXS_GPIO_NR(4, 3), 1);
+./arch/arm/mach-mxs/module-tx28.c:117:	gpio_direction_output(MXS_GPIO_NR(4, 4), 1);
+./arch/arm/mach-shmobile/board-ag5evm.c:517:	gpio_direction_output(GPIO_PORT208, 1);
+./arch/arm/mach-shmobile/board-ag5evm.c:523:	gpio_direction_output(GPIO_PORT145, 1);
+./arch/arm/mach-shmobile/board-ag5evm.c:539:	gpio_direction_output(GPIO_PORT217, 0);
+./arch/arm/mach-shmobile/board-ag5evm.c:546:	gpio_direction_output(GPIO_PORT235, 0);
+./arch/arm/mach-shmobile/board-ag5evm.c:566:	gpio_direction_output(GPIO_PORT114, 0);
+./arch/arm/mach-shmobile/board-bonito.c:456:			gpio_direction_output(GPIO_PORT61, 1);
+./arch/arm/mach-shmobile/board-g4evm.c:298:	gpio_direction_output(GPIO_PORT109, 1);
+./arch/arm/mach-shmobile/board-g4evm.c:303:	gpio_direction_output(GPIO_PORT110, 1);
+./arch/arm/mach-shmobile/board-g4evm.c:308:	gpio_direction_output(GPIO_PORT112, 1);
+./arch/arm/mach-shmobile/board-g4evm.c:313:	gpio_direction_output(GPIO_PORT113, 1);
+./arch/arm/mach-shmobile/board-mackerel.c:1421:	gpio_direction_output(GPIO_PORT31, 0); /* off by default */
+./arch/arm/mach-shmobile/board-mackerel.c:1424:	gpio_direction_output(GPIO_PORT151, 1);
+./arch/arm/mach-shmobile/board-mackerel.c:1441:	gpio_direction_output(GPIO_PORT161, 0); /* slave */
+./arch/arm/mach-shmobile/board-ap4evb.c:1272:	gpio_direction_output(GPIO_PORT161, 0); /* slave */
+./arch/arm/mach-shmobile/board-ap4evb.c:1370:	gpio_direction_output(GPIO_PORT189, 1);
+./arch/arm/mach-shmobile/board-ap4evb.c:1373:	gpio_direction_output(GPIO_PORT151, 1);
+./arch/arm/mach-shmobile/board-kota2.c:450:	gpio_direction_output(GPIO_PORT145, 1);
+./arch/arm/mach-shmobile/board-kota2.c:483:	gpio_direction_output(GPIO_PORT208, 1);
+./arch/arm/mach-shmobile/board-g3evm.c:254:	gpio_direction_output(GPIO_PORT22, 1);
+./arch/arm/mach-shmobile/board-g3evm.c:259:	gpio_direction_output(GPIO_PORT23, 1);
+./arch/arm/mach-shmobile/board-g3evm.c:264:	gpio_direction_output(GPIO_PORT24, 1);
+./arch/arm/mach-tegra/board-seaboard.c:197:	gpio_status = gpio_direction_output(TEGRA_GPIO_USB1, 1);
+./arch/arm/mach-tegra/usb_phy.c:578:	gpio_direction_output(config->reset_gpio, 0);
+./arch/arm/mach-tegra/usb_phy.c:580:	gpio_direction_output(config->reset_gpio, 1);
+./arch/arm/mach-tegra/usb_phy.c:653:	gpio_direction_output(config->reset_gpio, 0);
+./arch/arm/mach-tegra/usb_phy.c:716:		gpio_direction_output(ulpi_config->reset_gpio, 0);
+./arch/arm/mach-tegra/board-harmony-pcie.c:42:	gpio_direction_output(TEGRA_GPIO_EN_VDD_1V05_GPIO, 1);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:247:	gpio_direction_output(S3C2410_GPJ(2), 1);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:248:	gpio_direction_output(S3C2410_GPJ(3), 1);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:253:	gpio_direction_output(S3C2410_GPJ(2), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:254:	gpio_direction_output(S3C2410_GPJ(3), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:395:			gpio_direction_output(S3C2410_GPC(i), 1);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:404:			gpio_direction_output(S3C2410_GPD(i), 1);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:406:			gpio_direction_output(S3C2410_GPD(i), 1);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:412:		gpio_direction_output(S3C2410_GPB(0), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:416:			gpio_direction_output(S3C2410_GPC(i), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:420:			gpio_direction_output(S3C2410_GPC(i), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:424:			gpio_direction_output(S3C2410_GPD(i), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:427:			gpio_direction_output(S3C2410_GPD(i), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:430:		gpio_direction_output(S3C2410_GPC(6), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:431:		gpio_direction_output(S3C2410_GPC(7), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:432:		gpio_direction_output(S3C2410_GPC(5), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:435:		gpio_direction_output(S3C2410_GPB(1), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:440:		gpio_direction_output(S3C2410_GPC(0), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:441:		gpio_direction_output(S3C2410_GPC(10), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:446:		gpio_direction_output(S3C2410_GPC(0), 1);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:447:		gpio_direction_output(S3C2410_GPC(5), 1);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:450:		gpio_direction_output(S3C2410_GPC(7), 1);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:464:		gpio_direction_output(S3C2410_GPC(10), 1);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:465:		gpio_direction_output(S3C2410_GPC(6), 1);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:476:			gpio_direction_output(S3C2410_GPB(0), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:479:			gpio_direction_output(S3C2410_GPB(0), 1);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:549:		gpio_direction_output(S3C2410_GPJ(1), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:553:		gpio_direction_output(S3C2410_GPJ(1), 1);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:781:	gpio_direction_output(S3C2410_GPJ(1), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:800:	gpio_direction_output(S3C2410_GPA(3), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:801:	gpio_direction_output(S3C2410_GPA(4), 0);
+./arch/arm/mach-s3c24xx/mach-rx1950.c:802:	gpio_direction_output(S3C2410_GPJ(6), 0);
+./arch/arm/mach-s3c24xx/mach-mini2440.c:649:	gpio_direction_output(S3C2410_GPG(4), 1);
+./arch/arm/mach-s3c24xx/mach-jive.c:621:	gpio_direction_output(S3C2410_GPG(13), 0);
+./arch/arm/mach-s3c24xx/mach-jive.c:624:	gpio_direction_output(S3C2410_GPB(7), 1);
+./arch/arm/mach-s3c24xx/mach-jive.c:635:	gpio_direction_output(S3C2410_GPH(10), 1);
+./arch/arm/mach-s3c24xx/mach-bast.c:198:	gpio_direction_output(S3C2410_GPA(21), 1);
+./arch/arm/mach-s3c24xx/simtec-usb.c:127:	gpio_direction_output(S3C2410_GPB(4), 1);
+./arch/arm/mach-s3c24xx/mach-smdk2416.c:235:	gpio_direction_output(S3C2410_GPB(4), 1);
+./arch/arm/mach-s3c24xx/mach-smdk2416.c:238:	gpio_direction_output(S3C2410_GPB(3), 1);
+./arch/arm/mach-s3c24xx/mach-smdk2416.c:241:	gpio_direction_output(S3C2410_GPB(1), 1);
+./arch/arm/mach-s3c24xx/mach-h1940.c:314:	gpio_direction_output(H1940_LATCH_SM803_ENABLE, 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:482:	gpio_direction_output(S3C2410_GPB(0), 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:493:		gpio_direction_output(S3C2410_GPB(0), 1);
+./arch/arm/mach-s3c24xx/mach-h1940.c:496:		gpio_direction_output(S3C2410_GPB(0), 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:506:	gpio_direction_output(S3C2410_GPB(0), 1);
+./arch/arm/mach-s3c24xx/mach-h1940.c:547:		gpio_direction_output(S3C2410_GPC(1), 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:548:		gpio_direction_output(S3C2410_GPC(4), 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:718:	gpio_direction_output(S3C2410_GPC(0), 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:719:	gpio_direction_output(S3C2410_GPC(1), 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:720:	gpio_direction_output(S3C2410_GPC(4), 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:721:	gpio_direction_output(S3C2410_GPC(5), 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:723:	gpio_direction_output(H1940_LATCH_LCD_P0, 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:724:	gpio_direction_output(H1940_LATCH_LCD_P1, 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:725:	gpio_direction_output(H1940_LATCH_LCD_P2, 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:726:	gpio_direction_output(H1940_LATCH_LCD_P3, 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:727:	gpio_direction_output(H1940_LATCH_LCD_P4, 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:728:	gpio_direction_output(H1940_LATCH_MAX1698_nSHUTDOWN, 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:731:	gpio_direction_output(H1940_LATCH_SD_POWER, 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:739:	gpio_direction_output(S3C2410_GPA(1), 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:740:	gpio_direction_output(S3C2410_GPA(3), 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:741:	gpio_direction_output(S3C2410_GPA(7), 0);
+./arch/arm/mach-s3c24xx/mach-h1940.c:742:	gpio_direction_output(H1940_LATCH_LED_FLASH, 0);
+./arch/arm/mach-s3c24xx/mach-vr1000.c:336:	gpio_direction_output(S3C2410_GPB(9), 1);
+./arch/arm/mach-s3c24xx/mach-osiris-dvs.c:109:	gpio_direction_output(OSIRIS_GPIO_DVS, 1);
+./arch/arm/mach-s3c24xx/mach-qt2410.c:343:	gpio_direction_output(S3C2410_GPB(5), 1);
+./arch/arm/mach-s3c24xx/mach-gta02.c:107:	gpio_direction_output(GTA02_GPIO_AUX_LED, led);
+./arch/arm/mach-gemini/gpio.c:190:static int gemini_gpio_direction_output(struct gpio_chip *chip, unsigned offset,
+./arch/arm/mach-gemini/gpio.c:202:	.direction_output	= gemini_gpio_direction_output,
+./arch/arm/mach-s5pc100/mach-smdkc100.c:118:		gpio_direction_output(S5PC100_GPH0(6), 1);
+./arch/arm/mach-s5pc100/mach-smdkc100.c:120:		gpio_direction_output(S5PC100_GPH0(6), 0);
+./arch/arm/mach-s5pc100/mach-smdkc100.c:122:		gpio_direction_output(S5PC100_GPH0(6), 1);
+Binary file ./arch/arm/mach-msm/board-monarudo-all.o matches
+./arch/arm/mach-msm/board-monarudo-camera.c:538:	gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:556:	gpio_direction_output(gpio_cam_d1v2, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:567:	gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:591:	gpio_direction_output(gpio_cam_d1v2, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:601:	gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:778:			gpio_direction_output(CAM_PIN_GPIO_CAM_MCLK1, camera_id);
+./arch/arm/mach-msm/board-monarudo-camera.c:828:	gpio_direction_output(gpio_cam_d1v2, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:843:		gpio_direction_output(CAM_PIN_GPIO_V_CAM_D1V2_EN_XD, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:861:	gpio_direction_output(gpio_cam_d1v2_en, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:894:	gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:907:		gpio_direction_output(gpio_cam_d1v2, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:922:		gpio_direction_output(gpio_cam_d1v2, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:962:		gpio_direction_output(gpio_cam_d1v2, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:978:			gpio_direction_output(CAM_PIN_GPIO_V_CAM_D1V2_EN_XD, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:998:		gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:1022:		gpio_direction_output(gpio_cam_d1v2_en, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:1339:	gpio_direction_output(gpio_cam_d1v2, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:1362:		gpio_direction_output(gpio_cam_d1v2, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:1400:		gpio_direction_output(gpio_cam_d1v2, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:1830:	gpio_direction_output(gpio_cam_d1v2, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:1853:		gpio_direction_output(gpio_cam_d1v2, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:1891:		gpio_direction_output(gpio_cam_d1v2, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:2119:	gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:2130:	gpio_direction_output(CAM_PIN_GPIO_V_CAM2_D1V2_EN, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:2141:		gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:2163:		gpio_direction_output(CAM_PIN_GPIO_V_CAM2_D1V2_EN, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:2174:		gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:2252:	gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:2270:	gpio_direction_output(gpio_cam_d1v2_en, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:2323:	gpio_direction_output(gpio_cam_d1v2_en, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:2362:		gpio_direction_output(gpio_cam_d1v2_en, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:2376:		gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:2459:	gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:2475:	gpio_direction_output(gpio_cam_d1v2_en, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:2485:	gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:2513:	gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:2536:		gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:2543:		gpio_direction_output(gpio_cam_d1v2_en, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:2550:		gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:2586:		gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:2598:		gpio_direction_output(gpio_cam_d1v2_en, 0);
+./arch/arm/mach-msm/board-monarudo-camera.c:2690:	gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 1);
+./arch/arm/mach-msm/board-monarudo-camera.c:2716:	gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+Binary file ./arch/arm/mach-msm/built-in.o matches
+./arch/arm/mach-msm/mdm2.c:132:	gpio_direction_output(mdm_drv->ap2mdm_status_gpio, 0);
+./arch/arm/mach-msm/mdm2.c:134:	gpio_direction_output(mdm_drv->ap2mdm_wakeup_gpio, 0);
+./arch/arm/mach-msm/mdm2.c:138:	gpio_direction_output(mdm_drv->ap2mdm_pmic_reset_n_gpio, 0);
+./arch/arm/mach-msm/mdm2.c:144:	gpio_direction_output(mdm_drv->ap2mdm_pmic_reset_n_gpio, 1);
+./arch/arm/mach-msm/mdm2.c:148:	gpio_direction_output(mdm_drv->ap2mdm_status_gpio, 1);
+./arch/arm/mach-msm/mdm2.c:165:			gpio_direction_output(mdm_drv->ap2mdm_kpdpwr_n_gpio, 1);
+./arch/arm/mach-msm/mdm2.c:177:		gpio_direction_output(mdm_drv->ap2mdm_errfatal_gpio, 0);
+./arch/arm/mach-msm/mdm2.c:179:		gpio_direction_output(mdm_drv->ap2mdm_status_gpio, 0);
+./arch/arm/mach-msm/mdm2.c:181:		gpio_direction_output(mdm_drv->ap2mdm_wakeup_gpio, 0);
+./arch/arm/mach-msm/mdm2.c:185:		gpio_direction_output(mdm_drv->ap2mdm_kpdpwr_n_gpio, 0);
+./arch/arm/mach-msm/mdm2.c:202:		gpio_direction_output(mdm_drv->ap2mdm_kpdpwr_n_gpio, 0);
+./arch/arm/mach-msm/mdm2.c:205:		gpio_direction_output(mdm_drv->ap2mdm_pmic_reset_n_gpio, 0);
+./arch/arm/mach-msm/mdm2.c:226:		gpio_direction_output(mdm_drv->ap2mdm_wakeup_gpio, 1);
+Binary file ./arch/arm/mach-msm/board-monarudo.o matches
+Binary file ./arch/arm/mach-msm/restart-apq8064.o matches
+Binary file ./arch/arm/mach-msm/board-monarudo-audio.o matches
+./arch/arm/mach-msm/restart-apq8064.c:157:		gpio_direction_output(ap2mdm_pmic_reset_n_gpio, 0);
+./arch/arm/mach-msm/restart-apq8064.c:173:			gpio_direction_output(ap2qsc_pmic_soft_reset_gpio, 1);
+./arch/arm/mach-msm/restart-apq8064.c:178:		gpio_direction_output(ap2qsc_pmic_pwr_en_gpio, !ap2qsc_pmic_pwr_en_value);
+./arch/arm/mach-msm/msm_dsps.c:189:		ret = gpio_direction_output(num, val);
+./arch/arm/mach-msm/msm_dsps.c:246:		ret = gpio_direction_output(num, val);
+./arch/arm/mach-msm/msm_dsps.c:300:		ret = gpio_direction_output(num, val);
+Binary file ./arch/arm/mach-msm/board-monarudo-camera.o matches
+./arch/arm/mach-msm/board-monarudo.c:1786:			gpio_direction_output(PM8921_GPIO_PM_TO_SYS(USB1_HS_ID_GPIO_XC),1);
+./arch/arm/mach-msm/include/mach/pmic.h:741:int pmic_gpio_direction_output(unsigned gpio);
+./arch/arm/mach-msm/board-monarudo-audio.c:102:	gpio_direction_output(HAC_PAMP_GPIO, 0);
+./arch/arm/mach-msm/board-m7.c:1738:		gpio_direction_output(PM8921_GPIO_PM_TO_SYS(USB1_HS_ID_GPIO),1);
+./arch/arm/mach-msm/board-m7.c:4801:	gpio_direction_output(PM8921_GPIO_PM_TO_SYS(CIR_RST),0);
+./arch/arm/mach-msm/board-m7.c:4803:	gpio_direction_output(PM8921_GPIO_PM_TO_SYS(CIR_RST),1);
+./arch/arm/mach-msm/board-m7.c:4825:			rc = gpio_direction_output(PM8921_GPIO_PM_TO_SYS(CIR_LS_EN),0);
+./arch/arm/mach-msm/board-m7.c:4828:			rc = gpio_direction_output(PM8921_GPIO_PM_TO_SYS(CIR_LS_EN),1);
+Binary file ./arch/arm/mach-msm/mdm_common.o matches
+Binary file ./arch/arm/mach-msm/mdm2.o matches
+./arch/arm/mach-msm/mdm_common.c:508:	gpio_direction_output(mdm_drv->ap2mdm_ipc1_gpio, 1);
+./arch/arm/mach-msm/mdm_common.c:510:	gpio_direction_output(mdm_drv->ap2mdm_ipc1_gpio, 0);
+./arch/arm/mach-msm/mdm_common.c:709:	gpio_direction_output(mdm_drv->ap2mdm_errfatal_gpio, 1);
+./arch/arm/mach-msm/mdm_common.c:719:	gpio_direction_output(mdm_drv->ap2mdm_errfatal_gpio, 0);
+./arch/arm/mach-msm/mdm_common.c:720:	gpio_direction_output(mdm_drv->ap2mdm_status_gpio, 1);
+./arch/arm/mach-msm/mdm_common.c:754:		gpio_direction_output(mdm_drv->ap2mdm_errfatal_gpio, 1);
+./arch/arm/mach-msm/mdm_common.c:902:				gpio_direction_output(ap2mdm_pmic_reset_n_gpio, 0);
+./arch/arm/mach-msm/mdm_common.c:950:	gpio_direction_output(mdm_drv->ap2mdm_status_gpio, 1);
+./arch/arm/mach-msm/mdm_common.c:952:	gpio_direction_output(mdm_drv->ap2mdm_errfatal_gpio, 0);
+./arch/arm/mach-msm/mdm_common.c:954:	gpio_direction_output(mdm_drv->ap2mdm_ipc1_gpio, 0);
+./arch/arm/mach-msm/mdm_common.c:964:		gpio_direction_output(mdm_drv->ap2mdm_wakeup_gpio, 0);
+Binary file ./arch/arm/mach-msm/msm_dsps.o matches
+./arch/arm/mach-msm/board-m7-camera.c:524:	gpio_direction_output(gpio, enable);
+./arch/arm/mach-msm/board-m7-camera.c:634:		gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:681:			gpio_direction_output(gpio_cam_d1v2_en, 1);
+./arch/arm/mach-msm/board-m7-camera.c:709:	gpio_direction_output(CAM_PIN_V_RAW_1V2_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:721:		gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:757:			gpio_direction_output(gpio_cam_d1v2_en, 0);
+./arch/arm/mach-msm/board-m7-camera.c:778:		gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:1113:	gpio_direction_output(CAM_PIN_GPIO_V_CAM_D1V2_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:1127:	gpio_direction_output(CAM_PIN_GPIO_MCAM_D1V2_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:1140:	gpio_direction_output(gpio_cam_d1v2_en, 1);
+./arch/arm/mach-msm/board-m7-camera.c:1176:	gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 1);
+./arch/arm/mach-msm/board-m7-camera.c:1194:		gpio_direction_output(CAM_PIN_GPIO_V_CAM_D1V2_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:1226:		gpio_direction_output(gpio_cam_d1v2_en, 0);
+./arch/arm/mach-msm/board-m7-camera.c:1238:	gpio_direction_output(CAM_PIN_GPIO_MCAM_D1V2_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:1254:		gpio_direction_output(CAM_PIN_GPIO_V_CAM_D1V2_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:1278:		gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 0);
+./arch/arm/mach-msm/board-m7-camera.c:1490:	gpio_direction_output(CAM_PIN_GPIO_CAM_SEL, 0);
+./arch/arm/mach-msm/board-m7-camera.c:1515:		gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:1540:		gpio_direction_output(CAM_PIN_GPIO_V_CAM_1V8_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:1581:	gpio_direction_output(gpio_cam_d1v2_en, 1);
+./arch/arm/mach-msm/board-m7-camera.c:1598:			gpio_direction_output(CAM_PIN_GPIO_V_CAM_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:1615:			gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:1652:		gpio_direction_output(gpio_cam_d1v2_en, 0);
+./arch/arm/mach-msm/board-m7-camera.c:1676:			gpio_direction_output(CAM_PIN_GPIO_V_CAM_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:1698:			gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:1723:		gpio_direction_output(CAM_PIN_GPIO_CAM_SEL, 0);
+./arch/arm/mach-msm/board-m7-camera.c:1914:		gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:1939:		gpio_direction_output(CAM_PIN_GPIO_V_CAM_1V8_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:1990:		gpio_direction_output(CAM_PIN_PMGPIO_V_CAM_D1V2_EN_XB, 1);
+./arch/arm/mach-msm/board-m7-camera.c:2002:		gpio_direction_output(CAM_PIN_GPIO_MCAM_D1V2_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:2023:		gpio_direction_output(CAM_PIN_GPIO_CAM_SEL, 0);
+./arch/arm/mach-msm/board-m7-camera.c:2039:			gpio_direction_output(CAM_PIN_GPIO_V_CAM_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:2056:			gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:2084:				gpio_direction_output(CAM_PIN_PMGPIO_V_CAM_D1V2_EN_XB, 0);
+./arch/arm/mach-msm/board-m7-camera.c:2095:				gpio_direction_output(CAM_PIN_GPIO_MCAM_D1V2_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:2121:			gpio_direction_output(CAM_PIN_GPIO_CAM_SEL, 0);
+./arch/arm/mach-msm/board-m7-camera.c:2134:			gpio_direction_output(CAM_PIN_PMGPIO_V_CAM_D1V2_EN_XB, 0);
+./arch/arm/mach-msm/board-m7-camera.c:2145:			gpio_direction_output(CAM_PIN_GPIO_MCAM_D1V2_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:2186:			gpio_direction_output(CAM_PIN_GPIO_V_CAM_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:2208:			gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:2776:	gpio_direction_output(CAM_PIN_GPIO_V_CAM_D1V2_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:2809:		gpio_direction_output(CAM_PIN_GPIO_V_CAM_D1V2_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:2846:		gpio_direction_output(CAM_PIN_GPIO_V_CAM_D1V2_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:3114:	gpio_direction_output(CAM_PIN_GPIO_V_CAM_D1V2_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:3147:		gpio_direction_output(CAM_PIN_GPIO_V_CAM_D1V2_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:3184:		gpio_direction_output(CAM_PIN_GPIO_V_CAM_D1V2_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:3441:	gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 1);
+./arch/arm/mach-msm/board-m7-camera.c:3454:		gpio_direction_output(CAM_PIN_XB_GPIO_V_CAM2_D1V2_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:3464:		gpio_direction_output(CAM_PIN_GPIO_V_CAM2_D1V2_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:3475:		gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 0);
+./arch/arm/mach-msm/board-m7-camera.c:3503:			gpio_direction_output(CAM_PIN_XB_GPIO_V_CAM2_D1V2_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:3513:			gpio_direction_output(CAM_PIN_GPIO_V_CAM2_D1V2_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:3526:		gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 0);
+./arch/arm/mach-msm/board-m7-camera.c:3619:		gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:3645:		gpio_direction_output(CAM_PIN_GPIO_V_CAM_1V8_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:3679:	gpio_direction_output(CAM_PIN_GPIO_CAM_SEL, 1);
+./arch/arm/mach-msm/board-m7-camera.c:3694:			gpio_direction_output(CAM_PIN_GPIO_V_CAM_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:3711:			gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:3738:		gpio_direction_output(CAM_PIN_GPIO_CAM_SEL, 0);
+./arch/arm/mach-msm/board-m7-camera.c:3762:			gpio_direction_output(CAM_PIN_GPIO_V_CAM_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:3784:			gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:3865:	gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 1);
+./arch/arm/mach-msm/board-m7-camera.c:3879:		gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:3905:		gpio_direction_output(CAM_PIN_GPIO_V_CAM_1V8_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:3939:	gpio_direction_output(CAM_PIN_GPIO_CAM_SEL, 1);
+./arch/arm/mach-msm/board-m7-camera.c:3949:	gpio_direction_output(CAM_PIN_GPIO_CAM2_RSTz, 0);
+./arch/arm/mach-msm/board-m7-camera.c:3966:			gpio_direction_output(CAM_PIN_GPIO_V_CAM_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:3983:			gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:4011:		gpio_direction_output(CAM_PIN_GPIO_CAM_SEL, 0);
+./arch/arm/mach-msm/board-m7-camera.c:4035:			gpio_direction_output(CAM_PIN_GPIO_V_CAM_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:4057:			gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:4283:		gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:4349:		gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:4365:		gpio_direction_output(CAM_PIN_GPIO_V_RAW_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:4399:		gpio_direction_output(CAM_PIN_GPIO_V_CAM_1V8_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:4449:		gpio_direction_output(CAM_PIN_PMGPIO_V_CAM_D1V2_EN_XB, 1);
+./arch/arm/mach-msm/board-m7-camera.c:4461:		gpio_direction_output(CAM_PIN_GPIO_MCAM_D1V2_EN, 1);
+./arch/arm/mach-msm/board-m7-camera.c:4491:			gpio_direction_output(CAM_PIN_GPIO_V_CAM_1V8_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:4518:			gpio_direction_output(CAM_PIN_PMGPIO_V_CAM_D1V2_EN_XB, 0);
+./arch/arm/mach-msm/board-m7-camera.c:4529:			gpio_direction_output(CAM_PIN_GPIO_MCAM_D1V2_EN, 0);
+./arch/arm/mach-msm/board-m7-camera.c:4569:			gpio_direction_output(CAM_PIN_GPIO_V_CAM_1V8_EN, 0);
+./arch/arm/mach-sa1100/h3xxx.c:46:			err = gpio_direction_output(s->gpio, s->mode);
+./arch/arm/mach-sa1100/h3xxx.c:91:	err = gpio_direction_output(H3XXX_EGPIO_VPP_ON, 0);
+./arch/arm/mach-sa1100/h3xxx.c:147:			gpio_direction_output(H3XXX_EGPIO_RS232_ON, !state);
+./arch/arm/mach-sa1100/h3100.c:35:		gpio_direction_output(H3XXX_EGPIO_LCD_ON, enable);
+./arch/arm/mach-sa1100/h3600.c:50:	gpio_direction_output(H3XXX_EGPIO_LCD_ON, enable);
+./arch/arm/mach-sa1100/h3600.c:51:	gpio_direction_output(H3600_EGPIO_LCD_PCI, enable);
+./arch/arm/mach-sa1100/h3600.c:52:	gpio_direction_output(H3600_EGPIO_LCD_5V_ON, enable);
+./arch/arm/mach-sa1100/h3600.c:53:	gpio_direction_output(H3600_EGPIO_LVDD_ON, enable);
+./arch/arm/mach-sa1100/h3600.c:112:	err = gpio_direction_output(H3600_EGPIO_IR_ON, 0);
+./arch/arm/mach-sa1100/h3600.c:118:	err = gpio_direction_output(H3600_EGPIO_IR_FSEL, 0);
+./arch/arm/mach-sa1100/simpad.c:111:static int cs3_gpio_direction_output(struct gpio_chip *chip, unsigned offset,
+./arch/arm/mach-sa1100/simpad.c:370:	cs3_gpio.direction_output = cs3_gpio_direction_output;
+./arch/arm/mach-sa1100/collie.c:274:	rc = gpio_direction_output(COLLIE_GPIO_VPEN, 1);
+Binary file ./arch/arm/boot/Image matches
+./arch/arm/mach-omap1/board-h3-mmc.c:56:	gpio_direction_output(H3_TPS_GPIO_MMC_PWR_EN, 0);
+./arch/arm/mach-omap1/board-palmz71.c:274:		gpio_direction_output(1, 1);
+./arch/arm/mach-omap1/board-voiceblue.c:198:	gpio_direction_output(0, 0);
+./arch/arm/mach-omap1/board-voiceblue.c:255:	gpio_direction_output(7, 1);
+./arch/arm/mach-omap1/board-voiceblue.c:263:	gpio_direction_output(6, 0);
+./arch/arm/mach-omap1/board-htcherald.c:546:		gpio_direction_output(HTCHERALD_GPIO_USB_EN1, 0);
+./arch/arm/mach-omap1/board-htcherald.c:553:	gpio_direction_output(HTCHERALD_GPIO_USB_EN2, 0); /* output low */
+./arch/arm/mach-omap1/board-h2-mmc.c:38:	gpio_direction_output(H2_TPS_GPIO_MMC_PWR_EN, 0);
+./arch/arm/mach-omap1/board-nokia770.c:207:	gpio_direction_output(NOKIA770_GPIO_MMC_POWER, 0);
+./arch/arm/mach-omap1/board-osk.c:196:	gpio_direction_output(OSK_TPS_GPIO_USB_PWR_EN, 1);
+./arch/arm/mach-omap1/board-osk.c:203:	gpio_direction_output(OSK_TPS_GPIO_LAN_RESET, 0);
+./arch/arm/mach-omap1/board-osk.c:207:	gpio_direction_output(OSK_TPS_GPIO_DSP_PWR_EN, 1);
+./arch/arm/mach-omap1/board-osk.c:454:		gpio_direction_output(11, 0);
+./arch/arm/mach-omap1/board-osk.c:509:		gpio_direction_output(2, 1);
+./arch/arm/mach-omap1/board-sx1.c:396:	gpio_direction_output(1, 1);	/*A_IRDA_OFF = 1 */
+./arch/arm/mach-omap1/board-sx1.c:397:	gpio_direction_output(11, 0);	/*A_SWITCH = 0 */
+./arch/arm/mach-omap1/board-sx1.c:398:	gpio_direction_output(15, 0);	/*A_USB_ON = 0 */
+./arch/arm/mach-omap1/leds.c:54:			gpio_direction_output(3, 1);
+./arch/arm/mach-omap1/leds.c:60:			gpio_direction_output(OMAP_MPUIO(4), 1);
+./arch/arm/mach-s5pv210/mach-goni.c:152:	gpio_direction_output(reset_gpio, 1);
+./arch/arm/mach-orion5x/dns323-setup.c:646:		 gpio_direction_output(DNS323_GPIO_LED_POWER1, 0);
+./arch/arm/mach-orion5x/dns323-setup.c:686:		    gpio_direction_output(DNS323_GPIO_POWER_OFF, 0) != 0)
+./arch/arm/mach-orion5x/dns323-setup.c:699:			gpio_direction_output(DNS323_GPIO_SYSTEM_UP, 1);
+./arch/arm/mach-orion5x/dns323-setup.c:703:		    gpio_direction_output(DNS323_GPIO_POWER_OFF, 0) != 0)
+./arch/arm/mach-orion5x/dns323-setup.c:713:		    gpio_direction_output(DNS323C_GPIO_POWER_OFF, 0) != 0)
+./arch/arm/mach-orion5x/net2big-setup.c:151:		err = gpio_direction_output(NET2BIG_GPIO_SATA_POWER_REQ, 0);
+./arch/arm/mach-orion5x/net2big-setup.c:256:		err = gpio_direction_output(NET2BIG_GPIO_PWR_LED_BLINK_STOP, 1);
+./arch/arm/mach-orion5x/net2big-setup.c:270:		err = gpio_direction_output(NET2BIG_GPIO_SATA0_BLUE_LED, 1);
+./arch/arm/mach-orion5x/net2big-setup.c:280:		err = gpio_direction_output(NET2BIG_GPIO_SATA1_BLUE_LED, 1);
+./arch/arm/mach-orion5x/net2big-setup.c:412:	    gpio_direction_output(NET2BIG_GPIO_POWER_OFF, 0) == 0)
+./arch/arm/mach-orion5x/d2net-setup.c:129:		err = gpio_direction_output(D2NET_GPIO_SATA0_POWER, 1);
+./arch/arm/mach-orion5x/d2net-setup.c:138:		err = gpio_direction_output(D2NET_GPIO_SATA1_POWER, 1);
+./arch/arm/mach-orion5x/d2net-setup.c:208:		err = gpio_direction_output(D2NET_GPIO_BLUE_LED_BLINK_CTRL, 1);
+./arch/arm/mach-orion5x/rd88f5182-setup.c:114:			if (gpio_direction_output(pin, 0) != 0) {
+./arch/arm/mach-orion5x/mv2120-setup.c:223:	    gpio_direction_output(MV2120_GPIO_POWER_OFF, 1) != 0)
+./arch/arm/mach-ixp4xx/common.c:393:static int ixp4xx_gpio_direction_output(struct gpio_chip *chip, unsigned gpio,
+./arch/arm/mach-ixp4xx/common.c:420:	.direction_output	= ixp4xx_gpio_direction_output,
+./arch/arm/mach-pxa/poodle.c:250:	gpio_direction_output(POODLE_GPIO_SD_PWR, 0);
+./arch/arm/mach-pxa/poodle.c:251:	gpio_direction_output(POODLE_GPIO_SD_PWR1, 0);
+./arch/arm/mach-pxa/em-x270.c:388:	gpio_direction_output(GPIO11_NAND_CS, 1);
+./arch/arm/mach-pxa/em-x270.c:481:	gpio_direction_output(usb_hub_reset, 1);
+./arch/arm/mach-pxa/em-x270.c:482:	gpio_direction_output(GPIO9_USB_VBUS_EN, 0);
+./arch/arm/mach-pxa/em-x270.c:585:		gpio_direction_output(GPIO38_SD_PWEN, 1);
+./arch/arm/mach-pxa/em-x270.c:748:		gpio_direction_output(GPIO37_WLAN_RST, 1);
+./arch/arm/mach-pxa/em-x270.c:752:	gpio_direction_output(GPIO19_WLAN_STRAP, 1);
+./arch/arm/mach-pxa/em-x270.c:757:	gpio_direction_output(GPIO115_WLAN_PWEN, 0);
+./arch/arm/mach-pxa/em-x270.c:958:	gpio_direction_output(cam_reset, 0);
+./arch/arm/mach-pxa/ezx.c:717:	gpio_direction_output(GPIO50_nCAM_EN, 1);
+./arch/arm/mach-pxa/ezx.c:718:	gpio_direction_output(GPIO19_GEN1_CAM_RST, 0);
+./arch/arm/mach-pxa/ezx.c:992:	gpio_direction_output(GPIO50_nCAM_EN, 1);
+./arch/arm/mach-pxa/ezx.c:993:	gpio_direction_output(GPIO28_GEN2_CAM_RST, 0);
+./arch/arm/mach-pxa/zeus.c:402:	err = gpio_direction_output(ZEUS_CAN_SHDN_GPIO, 1);
+./arch/arm/mach-pxa/zeus.c:541:	if ((err = gpio_direction_output(ZEUS_USB2_PWREN_GPIO, 1))) {
+./arch/arm/mach-pxa/zeus.c:556:	gpio_direction_output(ZEUS_USB2_PWREN_GPIO, 0);
+./arch/arm/mach-pxa/zeus.c:590:	if ((err = gpio_direction_output(ZEUS_LCD_EN_GPIO, 0)))
+./arch/arm/mach-pxa/zeus.c:596:	if ((err = gpio_direction_output(ZEUS_BKLEN_GPIO, 0)))
+./arch/arm/mach-pxa/raumfeld.c:525:		gpio_direction_output(GPIO_W1_PULLUP_ENABLE, 0);
+./arch/arm/mach-pxa/raumfeld.c:603:		gpio_direction_output(GPIO_TFT_VA_EN, 1);
+./arch/arm/mach-pxa/raumfeld.c:611:		gpio_direction_output(GPIO_DISPLAY_ENABLE, 1);
+./arch/arm/mach-pxa/raumfeld.c:817:		gpio_direction_output(GPIO_CHRG_PEN2, 1);
+./arch/arm/mach-pxa/raumfeld.c:827:		gpio_direction_output(GPIO_CHARGE_USB_SUSP, 0);
+./arch/arm/mach-pxa/raumfeld.c:979:		gpio_direction_output(GPIO_CODEC_RESET, 1);
+./arch/arm/mach-pxa/raumfeld.c:985:		gpio_direction_output(GPIO_SPDIF_RESET, 1);
+./arch/arm/mach-pxa/raumfeld.c:991:		gpio_direction_output(GPIO_MCLK_RESET, 1);
+./arch/arm/mach-pxa/raumfeld.c:1022:		gpio_direction_output(GPIO_W2W_RESET, 0);
+./arch/arm/mach-pxa/raumfeld.c:1028:		gpio_direction_output(GPIO_W2W_PDN, 0);
+./arch/arm/mach-pxa/raumfeld.c:1035:		gpio_direction_output(GPIO_SHUTDOWN_SUPPLY, 0);
+./arch/arm/mach-pxa/raumfeld.c:1054:		gpio_direction_output(GPIO_SHUTDOWN_BATT, 0);
+./arch/arm/mach-pxa/stargate2.c:707:	gpio_direction_output(SG2_SD_POWER_ENABLE, 0);
+./arch/arm/mach-pxa/stargate2.c:813:	gpio_direction_output(SG2_BT_RESET, 1);
+./arch/arm/mach-pxa/pcm990-baseboard.c:412:			gpio_direction_output(gpio_bus_switch, 0);
+./arch/arm/mach-pxa/tosa.c:305:		gpio_direction_output(TOSA_GPIO_IRDA_TX, 0);
+./arch/arm/mach-pxa/tosa.c:319:	ret = gpio_direction_output(TOSA_GPIO_IRDA_TX, 0);
+./arch/arm/mach-pxa/tosa.c:327:	ret = gpio_direction_output(TOSA_GPIO_IR_POWERDWN, 0);
+./arch/arm/mach-pxa/tosa.c:643:	rc = gpio_direction_output(TOSA_GPIO_TC6393XB_L3V_ON, 0);
+./arch/arm/mach-pxa/tosa.c:646:	rc = gpio_direction_output(TOSA_GPIO_TC6393XB_SUSPEND, 0);
+./arch/arm/mach-pxa/tosa.c:649:	rc = gpio_direction_output(TOSA_GPIO_TC6393XB_REST_IN, 0);
+./arch/arm/mach-pxa/tosa.c:742:	rc = gpio_direction_output(TOSA_GPIO_CARD_VCC_ON, 1);
+./arch/arm/mach-pxa/saar.c:422:		gpio_direction_output(GPIO_LCD_RESET, 0);
+./arch/arm/mach-pxa/spitz.c:642:	return gpio_direction_output(SPITZ_GPIO_USB_HOST, 1);
+./arch/arm/mach-pxa/balloon3.c:259:	ret = gpio_direction_output(BALLOON3_GPIO_RUN_BACKLIGHT, 1);
+./arch/arm/mach-pxa/balloon3.c:642:	ret = gpio_direction_output(BALLOON3_GPIO_RUN_NAND, 1);
+./arch/arm/mach-pxa/palmte2.c:336:		gpio_direction_output(GPIO_NR_PALMTE2_USB_PULLUP, 1);
+./arch/arm/mach-pxa/vpac270.c:567:	ret = gpio_direction_output(GPIO81_VPAC270_BKL_ON, 1);
+./arch/arm/mach-pxa/am300epd.c:133:	gpio_direction_output(PWR_GPIO_PIN, 0);
+./arch/arm/mach-pxa/am300epd.c:134:	gpio_direction_output(CFG_GPIO_PIN, 1);
+./arch/arm/mach-pxa/am300epd.c:135:	gpio_direction_output(DC_GPIO_PIN, 0);
+./arch/arm/mach-pxa/am300epd.c:136:	gpio_direction_output(RD_GPIO_PIN, 1);
+./arch/arm/mach-pxa/am300epd.c:137:	gpio_direction_output(WR_GPIO_PIN, 1);
+./arch/arm/mach-pxa/am300epd.c:138:	gpio_direction_output(CS_GPIO_PIN, 1);
+./arch/arm/mach-pxa/am300epd.c:139:	gpio_direction_output(RST_GPIO_PIN, 0);
+./arch/arm/mach-pxa/am300epd.c:147:		gpio_direction_output(i, 0);
+./arch/arm/mach-pxa/am200epd.c:119:	gpio_direction_output(LED_GPIO_PIN, 0);
+./arch/arm/mach-pxa/am200epd.c:120:	gpio_direction_output(STDBY_GPIO_PIN, 0);
+./arch/arm/mach-pxa/am200epd.c:121:	gpio_direction_output(RST_GPIO_PIN, 0);
+./arch/arm/mach-pxa/am200epd.c:126:	gpio_direction_output(PCBPWR_GPIO_PIN, 0);
+./arch/arm/mach-pxa/z2.c:518:	ret = gpio_direction_output(GPIO14_ZIPITZ2_WIFI_POWER, 1);
+./arch/arm/mach-pxa/reset.c:35:		rc = gpio_direction_output(gpio, level);
+./arch/arm/mach-pxa/reset.c:61:	gpio_direction_output(reset_gpio, 0);
+./arch/arm/mach-pxa/palmtc.c:176:	ret = gpio_direction_output(GPIO_NR_PALMTC_BL_POWER, 1);
+./arch/arm/mach-pxa/eseries.c:110:	gpio_direction_output(GPIO_ESERIES_TMIO_SUSPEND, 0);
+./arch/arm/mach-pxa/eseries.c:111:	gpio_direction_output(GPIO_ESERIES_TMIO_PCLR, 0);
+./arch/arm/mach-pxa/tosa-bt.c:67:	rc = gpio_direction_output(data->gpio_reset, 0);
+./arch/arm/mach-pxa/tosa-bt.c:73:	rc = gpio_direction_output(data->gpio_pwr, 0);
+./arch/arm/mach-pxa/palm27x.c:152:		if (!gpio_direction_output(power, 1)) {
+./arch/arm/mach-pxa/palm27x.c:189:		gpio_direction_output(pullup,
+./arch/arm/mach-pxa/palm27x.c:283:	ret = gpio_direction_output(palm_bl_power, 0);
+./arch/arm/mach-pxa/palm27x.c:291:		ret = gpio_direction_output(palm_lcd_power, 0);
+./arch/arm/mach-pxa/cm-x270.c:337:	err = gpio_direction_output(GPIO102_WLAN_RST, 0);
+./arch/arm/mach-pxa/cm-x270.c:342:	err = gpio_direction_output(GPIO19_WLAN_STRAP, 1);
+./arch/arm/mach-pxa/gumstix.c:170:	err = gpio_direction_output(GPIO_GUMSTIX_BTRESET, 1);
+./arch/arm/mach-pxa/viper.c:365:	ret = gpio_direction_output(VIPER_BCKLIGHT_EN_GPIO, 0);
+./arch/arm/mach-pxa/viper.c:369:	ret = gpio_direction_output(VIPER_LCD_EN_GPIO, 0);
+./arch/arm/mach-pxa/viper.c:829:	if (gpio_direction_output(VIPER_PSU_DATA_GPIO, 0) ||
+./arch/arm/mach-pxa/viper.c:830:	    gpio_direction_output(VIPER_PSU_CLK_GPIO, 0) ||
+./arch/arm/mach-pxa/viper.c:831:	    gpio_direction_output(VIPER_PSU_nCS_LD_GPIO, 0))
+./arch/arm/mach-pxa/viper.c:854:	if (gpio_direction_output(VIPER_UART_SHDN_GPIO, 0))
+./arch/arm/mach-pxa/colibri-pxa3xx.c:108:	gpio_direction_output(bl_pin, 0);
+./arch/arm/common/scoop.c:108:static int scoop_gpio_direction_output(struct gpio_chip *chip,
+./arch/arm/common/scoop.c:226:		devptr->gpio.direction_output = scoop_gpio_direction_output;
+./arch/arm/mach-kirkwood/netspace_v2-setup.c:253:	    gpio_direction_output(NETSPACE_V2_GPIO_POWER_OFF, 0) == 0)
+./arch/arm/mach-kirkwood/rd88f6192-nas-setup.c:59:	    gpio_direction_output(RD88F6192_GPIO_USB_VBUS, 1) != 0)
+./arch/arm/mach-kirkwood/d2net_v2-setup.c:217:	    gpio_direction_output(D2NET_V2_GPIO_POWER_OFF, 0) == 0)
+./arch/arm/mach-kirkwood/t5325-setup.c:193:	    gpio_direction_output(HP_T5325_GPIO_POWER_OFF, 0) == 0)
+./arch/arm/mach-kirkwood/netxbig_v2-setup.c:394:	    gpio_direction_output(NETXBIG_V2_GPIO_POWER_OFF, 0) == 0)
+./arch/arm/mach-kirkwood/openrd-setup.c:138:	gpio_direction_output(34, 0);
+./arch/arm/mach-kirkwood/openrd-setup.c:143:		gpio_direction_output(28, 0);
+./arch/arm/mach-kirkwood/openrd-setup.c:145:		gpio_direction_output(28, 1);
+./arch/arm/mach-kirkwood/openrd-setup.c:199:			gpio_direction_output(34, 1);
+./arch/arm/mach-kirkwood/dockstar-setup.c:95:	    gpio_direction_output(29, 1) != 0)
+./arch/arm/mach-kirkwood/lacie_v2-common.c:104:			err = gpio_direction_output(
+./arch/arm/mach-kirkwood/sheevaplug-setup.c:119:	    gpio_direction_output(29, 1) != 0)
+./arch/arm/mach-imx/mach-mxt_td60.c:147:			gpio_direction_output(gpio_base + n,
+./arch/arm/mach-imx/eukrea_mbimx51-baseboard.c:181:	gpio_direction_output(MBIMX51_LED0, 1);
+./arch/arm/mach-imx/eukrea_mbimx51-baseboard.c:184:	gpio_direction_output(MBIMX51_LED1, 1);
+./arch/arm/mach-imx/eukrea_mbimx51-baseboard.c:187:	gpio_direction_output(MBIMX51_LED2, 1);
+./arch/arm/mach-imx/eukrea_mbimx51-baseboard.c:190:	gpio_direction_output(MBIMX51_LED3, 1);
+./arch/arm/mach-imx/mx31moboard-smartbot.c:109:	gpio_direction_output(CAM_RST_B, 1);
+./arch/arm/mach-imx/mx31moboard-smartbot.c:113:	gpio_direction_output(CAM_POWER, 0);
+./arch/arm/mach-imx/mx31moboard-smartbot.c:162:		gpio_direction_output(POWER_EN, 0);
+./arch/arm/mach-imx/mx31moboard-smartbot.c:167:		gpio_direction_output(DSPIC_RST_B, 0);
+./arch/arm/mach-imx/mx31moboard-smartbot.c:172:		gpio_direction_output(TRSLAT_RST_B, 0);
+./arch/arm/mach-imx/mx31moboard-smartbot.c:177:		gpio_direction_output(TRSLAT_SRC_CHOICE, 0);
+./arch/arm/mach-imx/mach-mx51_efikamx.c:189:		gpio_direction_output(EFIKAMX_RESET1_1, 0);
+./arch/arm/mach-imx/mach-mx51_efikamx.c:191:		gpio_direction_output(EFIKAMX_RESET, 0);
+./arch/arm/mach-imx/mach-mx51_efikamx.c:205:	gpio_direction_output(EFIKAMX_POWEROFF, 1);
+./arch/arm/mach-imx/mach-mx51_efikamx.c:257:		gpio_direction_output(EFIKAMX_RESET1_1, 1);
+./arch/arm/mach-imx/mach-mx51_efikamx.c:260:		gpio_direction_output(EFIKAMX_RESET, 1);
+./arch/arm/mach-imx/mach-mx51_efikamx.c:269:	gpio_direction_output(EFIKA_WLAN_EN, 0);
+./arch/arm/mach-imx/mach-mx51_efikamx.c:273:	gpio_direction_output(EFIKA_WLAN_RESET, 0);
+./arch/arm/mach-imx/eukrea_mbimx27-baseboard.c:199:		gpio_direction_output(GPIO_PORTE | 5, 1);
+./arch/arm/mach-imx/eukrea_mbimx27-baseboard.c:201:		gpio_direction_output(GPIO_PORTE | 5, 0);
+./arch/arm/mach-imx/eukrea_mbimx27-baseboard.c:223:		gpio_direction_output(GPIO_PORTA | 25, 1);
+./arch/arm/mach-imx/eukrea_mbimx27-baseboard.c:225:		gpio_direction_output(GPIO_PORTA | 25, 0);
+./arch/arm/mach-imx/mach-mx31moboard.c:133:	ret = gpio_direction_output(IOMUX_TO_GPIO(MX31_PIN_CTS1), 0);
+./arch/arm/mach-imx/mach-mx31moboard.c:403:	gpio_direction_output(OTG_EN_B, 0);
+./arch/arm/mach-imx/mach-mx31moboard.c:405:	gpio_direction_output(USBH2_EN_B, 0);
+./arch/arm/mach-imx/mach-mx31moboard.c:408:	gpio_direction_output(USB_RESET_B, 0);
+./arch/arm/mach-imx/mach-mx53_loco.c:239:	gpio_direction_output(LOCO_FEC_PHY_RST, 0);
+./arch/arm/mach-imx/mach-armadillo5x0.c:167:	err = gpio_direction_output(OTG_RESET, 1/*HIGH*/);
+./arch/arm/mach-imx/mach-armadillo5x0.c:213:	err = gpio_direction_output(USBH2_CS, 0/*Enabled*/);
+./arch/arm/mach-imx/mach-armadillo5x0.c:226:	err = gpio_direction_output(USBH2_RESET, 1/*HIGH*/);
+./arch/arm/mach-imx/mach-mx51_efikasb.c:111:	gpio_direction_output(EFIKASB_USBH2_STP, 0);
+./arch/arm/mach-imx/mach-mx51_efikasb.c:209:	gpio_direction_output(EFIKASB_POWEROFF, 1);
+./arch/arm/mach-imx/eukrea_mbimxsd-baseboard.c:133:	gpio_direction_output(GPIO_LED1, 1);
+./arch/arm/mach-imx/mach-mx27_3ds.c:216:	gpio_direction_output(SD1_EN_GPIO, 1);
+./arch/arm/mach-imx/mach-mx27_3ds.c:223:	gpio_direction_output(OTG_PHY_RESET_GPIO, 0);
+./arch/arm/mach-imx/mach-pca100.c:387:	gpio_direction_output(OTG_PHY_CS_GPIO, 1);
+./arch/arm/mach-imx/mach-pca100.c:389:	gpio_direction_output(USBH2_PHY_CS_GPIO, 1);
+./arch/arm/mach-imx/eukrea_mbimxsd25-baseboard.c:161:		gpio_direction_output(GPIO_LCDPWR, 1);
+./arch/arm/mach-imx/eukrea_mbimxsd25-baseboard.c:163:		gpio_direction_output(GPIO_LCDPWR, 0);
+./arch/arm/mach-imx/eukrea_mbimxsd25-baseboard.c:251:	gpio_direction_output(GPIO_LED1, 1);
+./arch/arm/mach-imx/eukrea_mbimxsd25-baseboard.c:259:	gpio_direction_output(GPIO_LCDPWR, 1);
+./arch/arm/mach-imx/mach-mx25_3ds.c:132:	gpio_direction_output(FEC_ENABLE_GPIO, 0);  /* drop PHY power */
+./arch/arm/mach-imx/mach-mx25_3ds.c:133:	gpio_direction_output(FEC_RESET_B_GPIO, 0); /* assert reset */
+./arch/arm/mach-imx/mach-qong.c:202:		gpio_direction_output(IOMUX_TO_GPIO(MX31_PIN_NFCE_B), 0);
+./arch/arm/mach-imx/mach-mx31_3ds.c:582:	err = gpio_direction_output(USBOTG_RST_B, 0);
+./arch/arm/mach-imx/mach-mx31_3ds.c:625:	err = gpio_direction_output(USBH2_RST_B, 0);
+./arch/arm/mach-imx/mach-vpr200.c:283:		gpio_direction_output(GPIO_LCDPWR, 0);
+./arch/arm/mach-imx/mach-mx31lilly.c:181:	gpio_direction_output(IOMUX_TO_GPIO(MX31_PIN_DTR_DCE1), 0);
+./arch/arm/mach-imx/eukrea_mbimxsd35-baseboard.c:172:		gpio_direction_output(GPIO_LCDPWR, 1);
+./arch/arm/mach-imx/eukrea_mbimxsd35-baseboard.c:174:		gpio_direction_output(GPIO_LCDPWR, 0);
+./arch/arm/mach-imx/eukrea_mbimxsd35-baseboard.c:264:	gpio_direction_output(GPIO_LED1, 1);
+./arch/arm/mach-imx/eukrea_mbimxsd35-baseboard.c:272:	gpio_direction_output(GPIO_LCDPWR, 1);
+./arch/arm/mach-imx/mach-mx53_smd.c:101:	gpio_direction_output(SMD_FEC_PHY_RST, 0);
+./arch/arm/mach-imx/mach-pcm043.c:240:	gpio_direction_output(AC97_GPIO_TXFS, 1);
+./arch/arm/mach-imx/mach-pcm043.c:273:	gpio_direction_output(AC97_GPIO_TXFS, 0);
+./arch/arm/mach-imx/mach-pcm043.c:274:	gpio_direction_output(AC97_GPIO_TXD, 0);
+./arch/arm/mach-imx/mach-pcm043.c:277:	gpio_direction_output(AC97_GPIO_RESET, 0);
+./arch/arm/mach-imx/mach-pcm043.c:279:	gpio_direction_output(AC97_GPIO_RESET, 1);
+./arch/arm/mach-imx/mx31moboard-marxbot.c:127:		gpio_direction_output(TRSLAT_RST_B, 0);
+./arch/arm/mach-imx/mx31moboard-marxbot.c:132:		gpio_direction_output(DSPICS_RST_B, 0);
+./arch/arm/mach-imx/mx31moboard-marxbot.c:199:	gpio_direction_output(CAM_CHOICE, 0);
+./arch/arm/mach-imx/mx31moboard-marxbot.c:204:	gpio_direction_output(BASECAM_RST_B, 1);
+./arch/arm/mach-imx/mx31moboard-marxbot.c:208:	gpio_direction_output(BASECAM_POWER, 0);
+./arch/arm/mach-imx/mx31moboard-marxbot.c:213:	gpio_direction_output(TURRETCAM_RST_B, 1);
+./arch/arm/mach-imx/mx31moboard-marxbot.c:217:	gpio_direction_output(TURRETCAM_POWER, 0);
+./arch/arm/mach-imx/mx31moboard-marxbot.c:281:	gpio_direction_output(USBH1_MODE, 0);
+./arch/arm/mach-imx/mx31moboard-marxbot.c:288:	gpio_direction_output(USBH1_VBUSEN_B, 1);
+./arch/arm/mach-imx/mx31moboard-devboard.c:167:	gpio_direction_output(USBH1_MODE, 0);
+./arch/arm/mach-imx/mx31moboard-devboard.c:174:	gpio_direction_output(USBH1_VBUSEN_B, 1);
+./arch/arm/mach-imx/mach-mx31lite.c:169:	gpio_direction_output(IOMUX_TO_GPIO(MX31_PIN_DTR_DCE1), 0);
+./arch/arm/mach-imx/mach-cpuimx51sd.c:284:	gpio_direction_output(CAN_NCS, 1);
+./arch/arm/mach-imx/mach-cpuimx51sd.c:287:	gpio_direction_output(CAN_RST, 0);
+./arch/arm/mach-imx/mach-cpuimx51sd.c:310:	gpio_direction_output(USBH1_RST, 0);
+./arch/arm/mach-imx/mx51_efika.c:166:	gpio_direction_output(EFIKAMX_USBH1_STP, 0);
+./arch/arm/mach-imx/mx51_efika.c:198:	gpio_direction_output(EFIKAMX_USB_HUB_RESET, 1);
+./arch/arm/mach-imx/mx51_efika.c:211:	gpio_direction_output(EFIKA_USB_PHY_RESET, 0);
+./arch/arm/mach-imx/mx31lilly-db.c:203:	gpio_direction_output(LCD_VCC_EN_GPIO, 1);
+./arch/arm/mach-imx/mach-mx50_rdp.c:179:	gpio_direction_output(FEC_EN, 0);
+./arch/arm/mach-imx/mach-mx50_rdp.c:181:	gpio_direction_output(FEC_RESET_B, 0);
+./arch/arm/mach-imx/mach-pcm037.c:656:		gpio_direction_output(IOMUX_TO_GPIO(MX31_PIN_CSI_D5), 1);
+./arch/arm/mach-imx/mach-mx53_ard.c:179:	gpio_direction_output(ARD_I2CPORTEXP_B, 1);
+./arch/arm/mach-ux500/board-mop500-stuib.c:108:		retval = gpio_direction_output(reset_pin, 1);
+./arch/arm/mach-ux500/board-mop500-stuib.c:130:		retval = gpio_direction_output(reset_pin, 0);
+./arch/arm/mach-ux500/board-mop500-sdi.c:51:		gpio_direction_output(sdi0_vsel, 0);
+./arch/arm/mach-ux500/board-mop500-sdi.c:52:		gpio_direction_output(sdi0_en, 1);
+./arch/arm/mach-ux500/board-mop500-sdi.c:55:		gpio_direction_output(sdi0_vsel, 0);
+./arch/arm/mach-ux500/board-mop500-sdi.c:56:		gpio_direction_output(sdi0_en, 0);
+./arch/arm/mach-ux500/board-mop500-sdi.c:117:	gpio_direction_output(sdi0_vsel, 0);
+./arch/arm/mach-ux500/board-mop500-sdi.c:118:	gpio_direction_output(sdi0_en, 1);
+./arch/arm/plat-orion/gpio.c:190:orion_gpio_direction_output(struct gpio_chip *chip, unsigned pin, int value)
+./arch/arm/plat-orion/gpio.c:400:	ochip->chip.direction_output = orion_gpio_direction_output;
+./arch/arm/mach-davinci/board-dm355-evm.c:340:	gpio_direction_output(2, USB_ID_VALUE);
+./arch/arm/mach-davinci/board-dm644x-evm.c:377:	gpio_direction_output(gpio + 3, 0);
+./arch/arm/mach-davinci/board-dm644x-evm.c:380:	gpio_direction_output(gpio + 2, 0);
+./arch/arm/mach-davinci/board-dm644x-evm.c:383:	gpio_direction_output(gpio + 1, 0);
+./arch/arm/mach-davinci/board-dm644x-evm.c:417:	gpio_direction_output(gpio + 0, 1);
+./arch/arm/mach-davinci/board-dm644x-evm.c:421:	gpio_direction_output(gpio + 1, 1);
+./arch/arm/mach-davinci/board-dm644x-evm.c:425:	gpio_direction_output(gpio + 2, 1);
+./arch/arm/mach-davinci/board-dm644x-evm.c:429:	gpio_direction_output(gpio + 3, 0);
+./arch/arm/mach-davinci/board-dm644x-evm.c:435:	gpio_direction_output(gpio + 5, 1);
+./arch/arm/mach-davinci/board-dm644x-evm.c:439:	gpio_direction_output(gpio + 6, 0);
+./arch/arm/mach-davinci/board-dm644x-evm.c:443:	gpio_direction_output(gpio + 7, 1);
+./arch/arm/mach-davinci/board-dm355-leopard.c:262:	gpio_direction_output(2, USB_ID_VALUE);
+./arch/arm/mach-davinci/board-da850-evm.c:483:	gpio_direction_output(sel_a, 1);
+./arch/arm/mach-davinci/board-da850-evm.c:484:	gpio_direction_output(sel_b, 1);
+./arch/arm/mach-davinci/board-da850-evm.c:485:	gpio_direction_output(sel_c, 1);
+./arch/arm/mach-davinci/board-da850-evm.c:819:	gpio_direction_output(DA850_LCD_BL_PIN, 0);
+./arch/arm/mach-davinci/board-da850-evm.c:820:	gpio_direction_output(DA850_LCD_PWR_PIN, 0);
+./arch/arm/mach-davinci/board-da850-evm.c:1068:	gpio_direction_output(DA850_MII_MDIO_CLKEN_PIN, rmii_en);
+./arch/arm/mach-davinci/board-tnetv107x-evm.c:220:			gpio_direction_output(gpio, 0);
+./arch/arm/mach-davinci/board-da830-evm.c:172:	gpio_direction_output(ON_BD_USB_DRV, 0);
+./arch/arm/mach-davinci/board-da830-evm.c:429:	gpio_direction_output(mux_mode, 1);
+./arch/arm/mach-davinci/board-da830-evm.c:449:	gpio_direction_output(mux_mode, 0);
+./arch/arm/mach-davinci/board-da830-evm.c:469:	gpio_direction_output(gpio + 6, 0);
+./arch/sh/boards/mach-migor/setup.c:566:	gpio_direction_output(GPIO_PTH2, 1);
+./arch/sh/boards/mach-migor/setup.c:611:	gpio_direction_output(GPIO_PTT3, 0);
+./arch/sh/boards/mach-migor/setup.c:613:	gpio_direction_output(GPIO_PTT2, 1);
+./arch/sh/boards/mach-migor/setup.c:616:	gpio_direction_output(GPIO_PTT0, 0);
+./arch/sh/boards/mach-migor/setup.c:618:	gpio_direction_output(GPIO_PTT0, 1);
+./arch/sh/boards/mach-kfr2r09/setup.c:293:		ret = gpio_direction_output(GPIO_PTB4, 1);
+./arch/sh/boards/mach-kfr2r09/setup.c:295:			ret = gpio_direction_output(GPIO_PTB7, 1);
+./arch/sh/boards/mach-kfr2r09/setup.c:502:	gpio_direction_output(GPIO_PTV6, 1); /* USBCLK_ON = H */
+./arch/sh/boards/mach-kfr2r09/setup.c:530:	gpio_direction_output(GPIO_PTG3, 1); /* HPON_ON = H */
+./arch/sh/boards/mach-kfr2r09/setup.c:578:	gpio_direction_output(GPIO_PTE4, 1);
+./arch/sh/boards/mach-kfr2r09/setup.c:580:	gpio_direction_output(GPIO_PTF4, 1);
+./arch/sh/boards/mach-kfr2r09/setup.c:582:	gpio_direction_output(GPIO_PTU0, 1);
+./arch/sh/boards/mach-ap325rxa/setup.c:548:	gpio_direction_output(GPIO_PTX5, 1);
+./arch/sh/boards/mach-ap325rxa/setup.c:552:	gpio_direction_output(GPIO_PTX4, 0);
+./arch/sh/boards/mach-ap325rxa/setup.c:588:	gpio_direction_output(GPIO_PTS3, 1);
+./arch/sh/boards/mach-ap325rxa/setup.c:606:	gpio_direction_output(GPIO_PTZ7, 0); /* OE_CAM */
+./arch/sh/boards/mach-ap325rxa/setup.c:608:	gpio_direction_output(GPIO_PTZ6, 0); /* STBY_CAM */
+./arch/sh/boards/mach-ap325rxa/setup.c:610:	gpio_direction_output(GPIO_PTZ5, 0); /* RST_CAM */
+./arch/sh/boards/mach-ap325rxa/setup.c:612:	gpio_direction_output(GPIO_PTZ4, 0); /* SADDR */
+./arch/sh/boards/board-sh7757lcr.c:537:	gpio_direction_output(GPIO_PTU3, 1);
+./arch/sh/boards/board-sh7757lcr.c:539:	gpio_direction_output(GPIO_PTU2, 1);
+./arch/sh/boards/board-sh7757lcr.c:541:	gpio_direction_output(GPIO_PTU1, 1);
+./arch/sh/boards/board-sh7757lcr.c:543:	gpio_direction_output(GPIO_PTU0, 1);
+./arch/sh/boards/board-sh7757lcr.c:547:	gpio_direction_output(GPIO_PTT4, 1);
+./arch/sh/boards/board-sh7757lcr.c:551:	gpio_direction_output(GPIO_PTT7, 0);
+./arch/sh/boards/board-sh7757lcr.c:553:	gpio_direction_output(GPIO_PTT6, 0);
+./arch/sh/boards/board-sh7757lcr.c:555:	gpio_direction_output(GPIO_PTT5, 1);
+./arch/sh/boards/mach-ecovec24/setup.c:1042:	gpio_direction_output(GPIO_PTG0, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1043:	gpio_direction_output(GPIO_PTG1, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1044:	gpio_direction_output(GPIO_PTG2, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1045:	gpio_direction_output(GPIO_PTG3, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1050:	gpio_direction_output(GPIO_PTA1, 1);
+./arch/sh/boards/mach-ecovec24/setup.c:1072:	gpio_direction_output(GPIO_PTB4, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1073:	gpio_direction_output(GPIO_PTB5, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1123:	gpio_direction_output(GPIO_PTU1, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1124:	gpio_direction_output(GPIO_PTR1, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1125:	gpio_direction_output(GPIO_PTA2, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1155:		gpio_direction_output(GPIO_PTF4, 1);
+./arch/sh/boards/mach-ecovec24/setup.c:1234:	gpio_direction_output(GPIO_PTB6, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1241:	gpio_direction_output(GPIO_PTM4, 1); /* active low CS */
+./arch/sh/boards/mach-ecovec24/setup.c:1243:	gpio_direction_output(GPIO_PTB6, 0); /* disable power by default */
+./arch/sh/boards/mach-ecovec24/setup.c:1264:	gpio_direction_output(GPIO_PTB7, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1277:	gpio_direction_output(GPIO_PTB7, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1293:	gpio_direction_output(GPIO_PTU2, 1);
+./arch/sh/boards/mach-ecovec24/setup.c:1298:	gpio_direction_output(GPIO_PTA3, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1299:	gpio_direction_output(GPIO_PTA4, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1329:	gpio_direction_output(GPIO_PTU0, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1347:	gpio_direction_output(GPIO_PTU5, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1375:	gpio_direction_output(GPIO_PTG4, 0);
+./arch/sh/boards/mach-ecovec24/setup.c:1377:	gpio_direction_output(GPIO_PTU3, 1);
+./arch/avr32/boards/atngw100/mrmt.c:318:	gpio_direction_output( PIN_LCD_DISP, 0 );	/* LCD DISP */
+./arch/avr32/boards/atngw100/mrmt.c:323:	gpio_direction_output( PIN_LCD_BL, 0 );		/* Backlight */
+./arch/avr32/boards/atngw100/mrmt.c:335:	gpio_direction_output( PIN_LCD_BL, 1 );
+./arch/avr32/boards/atngw100/mrmt.c:342:	gpio_direction_output( PIN_BT_RST, 1 );
+./arch/avr32/boards/atngw100/mrmt.c:347:	gpio_direction_output( PIN_ZB_RST_N, 0 );
+./arch/avr32/boards/atngw100/mrmt.c:370:	gpio_direction_output( PIN_PWR_ON, 1 );
+./arch/avr32/boards/atngw100/evklcd10x.c:160:	gpio_direction_output(GPIO_PIN_PB(15), 0);
+./arch/mips/lantiq/xway/gpio.c:63:		gpio_direction_output(pin, 1);
+./arch/mips/lantiq/xway/gpio.c:113:static int ltq_gpio_direction_output(struct gpio_chip *chip,
+./arch/mips/lantiq/xway/gpio.c:167:		ltq_gpio_direction_output;
+./arch/mips/bcm63xx/gpio.c:137:static int bcm63xx_gpio_direction_output(struct gpio_chip *chip,
+./arch/mips/bcm63xx/gpio.c:148:	.direction_output	= bcm63xx_gpio_direction_output,
+./arch/mips/ath79/gpio.c:71:static int ath79_gpio_direction_output(struct gpio_chip *chip,
+./arch/mips/ath79/gpio.c:97:	.direction_output	= ath79_gpio_direction_output,
+./arch/mips/rb532/gpio.c:126:static int rb532_gpio_direction_output(struct gpio_chip *chip,
+./arch/mips/rb532/gpio.c:148:			.direction_output	= rb532_gpio_direction_output,
+./arch/mips/ar7/platform.c:73:	ret = gpio_direction_output(pdata->gpio_bit, 0);
+./arch/mips/ar7/gpio.c:105:static int ar7_gpio_direction_output(struct gpio_chip *chip,
+./arch/mips/ar7/gpio.c:118:static int titan_gpio_direction_output(struct gpio_chip *chip,
+./arch/mips/ar7/gpio.c:140:		.direction_output	= ar7_gpio_direction_output,
+./arch/mips/ar7/gpio.c:152:		.direction_output	= titan_gpio_direction_output,
+./arch/mips/txx9/rbtx4938/setup.c:289:	gpio_direction_output(16 + SRTC_CS, 0);
+./arch/mips/txx9/rbtx4938/setup.c:291:	gpio_direction_output(SEEPROM1_CS, 1);
+./arch/mips/txx9/rbtx4938/setup.c:293:	gpio_direction_output(16 + SEEPROM2_CS, 1);
+./arch/mips/txx9/rbtx4938/setup.c:295:	gpio_direction_output(16 + SEEPROM3_CS, 1);
+./arch/mips/txx9/rbtx4927/setup.c:211:	gpio_direction_output(15, 1);
+./arch/mips/alchemy/devboards/db1550.c:39:	alchemy_gpio_direction_output(203, 0);	/* red led on */
+./arch/mips/alchemy/devboards/db1550.c:61:	alchemy_gpio_direction_output(202, 0);	/* green led on */
+./arch/mips/alchemy/devboards/db1000.c:511:		gpio_direction_output(208, 0);	/* SPI MOSI */
+./arch/mips/alchemy/devboards/db1000.c:512:		gpio_direction_output(209, 1);	/* SPI SCK */
+./arch/mips/alchemy/devboards/db1000.c:513:		gpio_direction_output(210, 1);	/* SPI CS# */
+./arch/mips/alchemy/devboards/db1200.c:849:	gpio_direction_output(215, 1);
+./arch/mips/alchemy/board-gpr.c:70:	alchemy_gpio_direction_output(4, 0);
+./arch/mips/alchemy/board-gpr.c:71:	alchemy_gpio_direction_output(5, 0);
+./arch/mips/alchemy/board-gpr.c:76:	alchemy_gpio_direction_output(1, 0);
+./arch/mips/alchemy/board-gpr.c:102:	alchemy_gpio_direction_output(215, 1);
+./arch/mips/alchemy/board-mtx1.c:86:	alchemy_gpio_direction_output(204, 0);
+./arch/mips/alchemy/board-mtx1.c:94:	alchemy_gpio_direction_output(0, 0);	/* Disable M66EN (PCI 66MHz) */
+./arch/mips/alchemy/board-mtx1.c:95:	alchemy_gpio_direction_output(3, 1);	/* Disable PCI CLKRUN# */
+./arch/mips/alchemy/board-mtx1.c:96:	alchemy_gpio_direction_output(1, 1);	/* Enable EXT_IO3 */
+./arch/mips/alchemy/board-mtx1.c:97:	alchemy_gpio_direction_output(5, 0);	/* Disable eth PHY TX_ER */
+./arch/mips/alchemy/board-mtx1.c:100:	alchemy_gpio_direction_output(211, 1);	/* green on */
+./arch/mips/alchemy/board-mtx1.c:101:	alchemy_gpio_direction_output(212, 0);	/* red off */
+./arch/mips/alchemy/common/gpiolib.c:138:	return au1300_gpio_direction_output(off + AU1300_GPIO_BASE, v);
+./arch/mips/include/asm/mach-bcm47xx/gpio.h:90:static inline int gpio_direction_output(unsigned gpio, int value)
+./arch/mips/include/asm/mach-au1x00/gpio-au1300.h:70:static inline int au1300_gpio_direction_output(unsigned int gpio, int v)
+./arch/mips/include/asm/mach-au1x00/gpio-au1300.h:159:static inline int gpio_direction_output(unsigned int gpio, int v)
+./arch/mips/include/asm/mach-au1x00/gpio-au1300.h:161:	return au1300_gpio_direction_output(gpio, v);
+./arch/mips/include/asm/mach-au1x00/gpio-au1000.h:467:static inline int alchemy_gpio_direction_output(int gpio, int v)
+./arch/mips/include/asm/mach-au1x00/gpio-au1000.h:562:static inline int gpio_direction_output(int gpio, int v)
+./arch/mips/include/asm/mach-au1x00/gpio-au1000.h:564:	return alchemy_gpio_direction_output(gpio, v);
+./arch/mips/include/asm/mach-generic/gpio.h:12:int gpio_direction_output(unsigned gpio, int value);
+./arch/mips/jz4740/gpio.c:219:static int jz_gpio_direction_output(struct gpio_chip *chip, unsigned gpio,
+./arch/mips/jz4740/gpio.c:405:		.direction_output = jz_gpio_direction_output, \
+./arch/mips/loongson/common/gpio.c:94:static int ls2f_gpio_direction_output(struct gpio_chip *chip,
+./arch/mips/loongson/common/gpio.c:129:	.direction_output       = ls2f_gpio_direction_output,
+./arch/m68k/platform/5307/gpio.c:30:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/coldfire/device.c:151:	status = gpio_direction_output(MCFQSPI_CS0, 1);
+./arch/m68k/platform/coldfire/device.c:153:		pr_debug("gpio_direction_output for MCFQSPI_CS0 failed\n");
+./arch/m68k/platform/coldfire/device.c:162:	status = gpio_direction_output(MCFQSPI_CS1, 1);
+./arch/m68k/platform/coldfire/device.c:164:		pr_debug("gpio_direction_output for MCFQSPI_CS1 failed\n");
+./arch/m68k/platform/coldfire/device.c:173:	status = gpio_direction_output(MCFQSPI_CS2, 1);
+./arch/m68k/platform/coldfire/device.c:175:		pr_debug("gpio_direction_output for MCFQSPI_CS2 failed\n");
+./arch/m68k/platform/coldfire/device.c:185:	status = gpio_direction_output(MCFQSPI_CS3, 1);
+./arch/m68k/platform/coldfire/device.c:187:		pr_debug("gpio_direction_output for MCFQSPI_CS3 failed\n");
+./arch/m68k/platform/coldfire/gpio.c:48:int mcf_gpio_direction_output(struct gpio_chip *chip, unsigned offset,
+./arch/m68k/platform/5272/gpio.c:30:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/5272/gpio.c:45:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/5272/gpio.c:61:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:30:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:45:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:63:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:81:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:99:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:117:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:135:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:153:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:171:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:189:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:207:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:225:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:243:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:261:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:279:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:297:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/532x/gpio.c:315:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/5206/gpio.c:30:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:31:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:47:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:65:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:83:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:101:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:119:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:137:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:155:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:173:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:191:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:209:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:227:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:245:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:264:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:280:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:298:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:316:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:334:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:352:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:370:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:388:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:406:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:424:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:442:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:460:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:478:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:496:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:514:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:532:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:550:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:568:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/527x/gpio.c:586:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/520x/gpio.c:30:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/520x/gpio.c:45:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/520x/gpio.c:63:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/520x/gpio.c:81:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/520x/gpio.c:99:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/520x/gpio.c:117:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/520x/gpio.c:135:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/520x/gpio.c:153:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/5249/gpio.c:30:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/5249/gpio.c:45:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/523x/gpio.c:30:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/523x/gpio.c:46:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/523x/gpio.c:64:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/523x/gpio.c:82:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/523x/gpio.c:100:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/523x/gpio.c:118:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/523x/gpio.c:136:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/523x/gpio.c:154:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/523x/gpio.c:172:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/523x/gpio.c:190:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/523x/gpio.c:208:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/523x/gpio.c:226:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/523x/gpio.c:244:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/523x/gpio.c:262:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:30:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:46:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:62:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:78:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:94:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:110:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:128:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:146:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:164:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:182:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:200:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:218:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:236:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:254:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:272:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:290:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:308:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:326:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:344:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:362:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:380:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:398:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/528x/gpio.c:416:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/platform/5407/gpio.c:30:			.direction_output	= mcf_gpio_direction_output,
+./arch/m68k/include/asm/mcfgpio.h:34:int mcf_gpio_direction_output(struct gpio_chip *, unsigned, int);
+Binary file ./vmlinux.o matches

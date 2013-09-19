@@ -73,7 +73,7 @@ else ifdef CONFIG_ARCH_DUMMY
 else ifdef CONFIG_ARCH_DUMMY
 else ifdef CONFIG_ARCH_DUMMY
 else
-snd-soc-msm8960-objs := apq8064.o mpq8064.o
+snd-soc-msm8960-objs := apq8064_M7.o mpq8064.o
 endif
 obj-$(CONFIG_SND_SOC_MSM8960) += snd-soc-msm8960.o
 else
@@ -110,3 +110,8 @@ obj-$(CONFIG_SND_SOC_MSM8974) += snd-soc-msm8974.o
 
 snd-soc-qdsp6v2-objs := msm-dai-fe.o msm-dai-stub.o
 obj-$(CONFIG_SND_SOC_QDSP6V2) += snd-soc-qdsp6v2.o
+
+#//HTC_AUD_START LPA5
+CFLAGS_msm-compr-q6.o := -DDEBUG
+CFLAGS_msm-pcm-lpa.o := -DDEBUG
+#//HTC_AUD_END LPA5
