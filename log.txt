@@ -1,0 +1,99 @@
+a65d94c adding cmdline interfacing
+33692e3 fixing cmdline
+7dba25d updating defconfig
+c2c1c431 pulling headset_mgr from joelz tree
+0b26681 Thanks Joelz for pointing this out to me
+8a13060 Revert "reverting board-audio changes as they break headphones"
+55c2990 fixing ROW
+f747d5b Revert "block: Introduce ROW Scheduler"
+78bc59e block: cgroups, kconfig, build bits for BFQ-v6-3.4
+21683a9 block: add kconfig and makefile triggers for files
+d11bfb1 block: introduce VR I/O scheduler
+c2eafd8 block: introduce BFQ scheduler
+5ef7b3d block: Introduce ROW Scheduler
+2f2d56b Reverting some RCVA headset amplifier things that DNA uses and M7 doesnt use due to firmware
+01f90cf raising gpu clocks to something more usable
+1d13580 opening GPU bottleneck
+0081fba Adding Makefile GCC optmization flags
+472e545 Sound Control: Added headphone poweramp controls
+c916a83 Sound Control: Updated for HTC One (m7) (adapted for DNA)
+a6da5ff Sound Control: Sound control for WCD93xx codec
+1e60b80 fixing UV control and adjusting some max clock voltages for 1.9ghz++
+7c3d51b Lowering global min UV and raising globlal max UV
+ab40d88 reverting board-audio changes as they break headphones
+b82f1df bulk governor update
+9cbb169 cleaning up mass pick in of updates
+29039d6 finishing cherry-pick
+02da5f9 power: Remove legacy wakelock code.
+b084308 PM / Sleep: Add wakeup_source_activate and wakeup_source_deactivate tracepoints
+0e4f587 PM / Sleep: Change wakeup source statistics to follow Android
+d3768bb PM / Sleep: Use wait queue to signal "no wakeup events in progress"
+937b999 PM / Sleep: Look for wakeup events in later stages of device suspend
+3d96f8a redo fastcharge
+42840f6 Voltage Control: allow for lower minimums
+b19c596 arm/crypto: Add optimized AES and SHA1 routines
+75ce9ed Optimized ARM RWSEM algorithm
+76f73c1 lib/string: use glibc version
+2898a72 lib/memcopy: use glibc version
+c2b9eaa arm/kernel return_address Cleanup: useless warning
+42d4faa acpu: show a useful warn message
+613c95e Voltage Control: initial voltage control for MSM S4-Pro SOC
+06d630b Updating Cmdline options
+9eb3436 fix hsic wakelock https://www.codeaurora.org/gitweb/quic/la/?p=kernel/msm.git;a=commit;h=41d004c4eaa5565cb8d9113862c3cef1e51be648 and https://www.codeaurora.org/gitweb/quic/la/?p=kernel/msm.git;a=commit;h=6f199aa800253a69e5679d1057823039f1bd65c9
+bb62658 Finally Zram is working -.-
+dcc20ee cpufreq: enable sibling cpu policy sharing
+9c1802a Move down direct IO plugging
+96000f2 Allow arm_memblock_steal() to remove memory from any RAM region
+0cb8cd8 Add generic strnlen_user() function
+256cada Make the interfaces truly generic
+b4a4153 Sparc's strncpy_from_user is generic enough, move under lib
+ef2d6c8 Move REPEAT_BYTE definition into linux/kernel.h
+579e0e0 Increase portability of strncpy_from_user() implementation
+271931d Optimize strncpy_from_user() zero byte search
+e027e57 Add full proper error handling to strncpy_from_user()
+21a36c3 Support asynchronous compaction in lowmemorykiller.
+f106118 Modify return values to avoid extra calls
+88f1291 Add binder buffers to kmemleak
+a4a2aec Enable HAVE_EFFICIENT_UNALIGNED_ACCESS in all Krait cores.
+0a375c8 Add notifier to force flush outstanding data
+e1c56a1 Always update frequency limits when core is online
+03ce225 Initialize cpufreq driver early at boot
+0d4c1b9 ARM: proc: Add Krait proc info
+eaedf89 Fixed HTC onmode charging
+08e6c6c Working on fixing thermald and mpdec
+64b33c2 Adding mpdecision
+6f91761 kernel/wq: fix misuse of __cpuinit for hotplug functions
+a8b0168 revert hacks for the previous misuse of __cpuinit for hotplug only functions
+f74f213 kbuild: drop cpuinit/cpuexit checks in modpost
+aabca78 cpuinit: turn __cpuinit into nops
+b8a15b7 cpuinit: get rid of __cpuinit, manual fixups
+ee28e0f cpuinit: get rid of __cpuinit, sixth regexp
+4d3dab2 cpuinit: get rid of __cpuinit, fifth regexp
+598f205 cpuinit: get rid of __cpuinit, fourth regexp
+1f6e666 cpuinit: get rid of __cpuinit, third regexp
+1019e06 cpuinit: get rid of __cpuinit, second regexp
+11789c1 finishing last pick
+cc4cede cpuinit: get rid of __cpuinit, first regexp
+b0344f4 drivers: cpufreq: address issue where cpus forget their clock speeds
+28ab7a7 Finishing Beats hack
+0039222 sound: Hack beats to always being enabled
+183bfb3563 fixing some m7 includes and dropping oc to 1.83ghz for now
+5e10aae adding OC
+d88562e updating audio protocols
+262a1d0 switch to m7 sampling for now
+4e6a013 adding new defconfig
+1d5d9b0 fixing leftovers
+84ccc29 fixing s2w listen area
+f72bab6 cleaning s2w pick
+3658320 adding s2w and BLN
+84a9dc5 changing to different sound routing to avoid tinny bluetooth audio
+d092092 Updated to build with GCC 4.7 via codeworkx <daniel.hillenbrand@codeworkx.de> [PATCH] fix build errors using gcc-4.7
+862fa92 updating git ignore
+4254c04e removing critical voltage as this battery algo doesnt recognze it
+b9821ad forcing localver for modules
+5f7bf4d fixing adb
+30e0ad6 fixing build files in rawchip
+be04fde adding panel ids
+b5689df adding bcm 4334 from htc mini source
+381d323 intial monarudo source commit
+ed4f656 base commit of htc source
