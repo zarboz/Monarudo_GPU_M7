@@ -35,6 +35,7 @@
 #include <linux/async.h>
 #ifdef CONFIG_TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE
 #include <linux/ctype.h>
+#include <linux/mfd/pm8xxx/pm8xxx-vibrator-pwm.h>
 #endif
 #define SYN_I2C_RETRY_TIMES 10
 #define SYN_UPDATE_RETRY_TIMES 5
@@ -2009,7 +2010,7 @@ static void synaptics_ts_finger_func(struct synaptics_ts_data *ts)
 										    (finger_data[i][1] > 2720)) {
 											if (finger_data[i][0] > 880) {
 												if (exec_count) {
-													vibrate(15);
+													vibrate(0,15);
 													printk(KERN_INFO "[sweep2wake]: ON");
 													sweep2wake_pwrtrigger();
 													exec_count = false;

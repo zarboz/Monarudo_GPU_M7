@@ -77,6 +77,7 @@
 #include <linux/mfd/pm8xxx/pm8xxx-vibrator-pwm.h>
 #include <mach/htc_ramdump.h>
 
+
 #ifdef CONFIG_PERFLOCK
 #include <mach/perflock.h>
 #endif
