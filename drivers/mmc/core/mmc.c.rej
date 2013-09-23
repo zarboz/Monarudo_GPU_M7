@@ -1,0 +1,19 @@
+--- drivers/mmc/core/mmc.c	2013-06-24 02:50:47.000000000 -0600
++++ drivers/mmc/core/mmc.c	2013-08-01 23:38:03.000000000 -0600
+@@ -933,9 +933,14 @@
+ 		}
+ 	}
+ 	
+-	if (card->ext_csd.rev >= 6)
++	if (card->ext_csd.rev >= 6) {
+ 		card->wr_perf = 14;
+-	else if (card->cid.manfid == 0x45) {
++		
++		if (card->cid.manfid == 0x15) {
++			card->host->bkops_check_status = 1;
++			pr_info("%s: set bkops_check_status\n", mmc_hostname(card->host));
++		}
++	} else if (card->cid.manfid == 0x45) {
+ 		
+ 		if ((card->ext_csd.sectors == 31105024) && !strcmp(card->cid.prod_name, "SEM16G"))
+ 			card->wr_perf = 12;

@@ -1,0 +1,19 @@
+--- drivers/media/video/msm/msm.h	2013-06-24 02:50:45.000000000 -0600
++++ drivers/media/video/msm/msm.h	2013-08-01 23:38:00.000000000 -0600
+@@ -155,6 +155,7 @@
+ 	NOTIFY_AXI_IRQ,
+ 	NOTIFY_GESTURE_EVT, 
+ 	NOTIFY_GESTURE_CAM_EVT, 
++	NOTIFY_VFE_CAMIF_ERROR,
+ 	NOTIFY_INVALID
+ };
+ 
+@@ -443,7 +444,7 @@
+ 	uint32_t server_evt_id;
+ 	struct msm_cam_server_mctl_inst mctl[MAX_NUM_ACTIVE_CAMERA];
+ 	uint32_t mctl_handle_cnt;
+-	
++
+ 	int use_count;
+ 	
+ 	struct msm_isp_ops *isp_subdev[MSM_MAX_CAMERA_CONFIGS];

@@ -1,0 +1,11 @@
+--- arch/arm/mach-msm/include/mach/msm_serial_hs.h	2013-06-24 02:50:44.000000000 -0600
++++ arch/arm/mach-msm/include/mach/msm_serial_hs.h	2013-08-01 23:37:56.000000000 -0600
+@@ -35,4 +35,8 @@
+ void msm_hs_request_clock_on(struct uart_port *uport);
+ void msm_hs_set_mctrl(struct uart_port *uport,
+ 				    unsigned int mctrl);
++
++void dump_uart_ringbuffer(void);
++void DbgBuffer_printRaw( void *raw, int size, const char *msg);
++void DbgBuffer_printLog( const char * fmt, ...);
+ #endif

@@ -1,0 +1,13 @@
+--- fs/read_write.c	2013-06-24 02:50:48.000000000 -0600
++++ fs/read_write.c	2013-08-01 23:38:04.000000000 -0600
+@@ -428,6 +428,10 @@
+ 	show_state_filter(TASK_UNINTERRUPTIBLE);
+ 	pr_info("### Show System Server State ###\n");
+ 	show_thread_group_state_filter("system_server", 0);
++	pr_info("### Show bugreport State ###\n");
++	show_thread_group_state_filter("bugreport", 0);
++	pr_info("### Show adbd State ###\n");
++	show_thread_group_state_filter("adbd", 0);
+ }
+ 
+ SYSCALL_DEFINE3(write, unsigned int, fd, const char __user *, buf,

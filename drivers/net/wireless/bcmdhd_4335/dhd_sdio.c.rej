@@ -1,0 +1,36 @@
+--- drivers/net/wireless/bcmdhd_4335/dhd_sdio.c	2013-06-24 02:50:44.000000000 -0600
++++ drivers/net/wireless/bcmdhd_4335/dhd_sdio.c	2013-08-01 23:38:00.000000000 -0600
+@@ -2310,6 +2310,7 @@
+ }
+ 
+ static int bus_txctl_failed_num = 0;
++extern volatile bool dhd_mmc_suspend;
+ 
+ int rxglom_fail_count = RXGLOM_FAIL_COUNT;
+ int max_cntl_timeout =  MAX_CNTL_TIMEOUT;
+@@ -2461,13 +2462,19 @@
+ 				DHD_ERROR(("%s: Device asleep already\n", __FUNCTION__));
+ 			} else if (ret < 0) {
+ #if 1
+-			
+-			DHD_ERROR(("%s: sdio error %d, abort command and terminate frame 2.\n",
+-			__FUNCTION__, ret));
+-			bus->dhd->busstate = DHD_BUS_DOWN;
+-			dhd_os_send_hang_message(bus->dhd);
++                
++                DHD_ERROR(("%s: sdio error %d, abort command and terminate frame 2.\n",
++                            __FUNCTION__, ret));
++                if(!dhd_mmc_suspend) {
++                    bus->dhd->busstate = DHD_BUS_DOWN;
++                    dhd_os_send_hang_message(bus->dhd);
++                }
++                else {
++                     DHD_ERROR(("%s: mmc is in suspend state, not send hang event\n",
++                                                             __FUNCTION__));
++                }
+ #else
+-			
++                
+ 				DHD_ERROR(("%s: sdio error %d, abort command and terminate frame.\n",
+ 				          __FUNCTION__, ret));
+ 				bus->tx_sderrs++;

@@ -1,0 +1,79 @@
+--- drivers/media/video/msm/sensors/vd6869_v4l2.c	2013-06-24 02:50:45.000000000 -0600
++++ drivers/media/video/msm/sensors/vd6869_v4l2.c	2013-08-01 23:38:00.000000000 -0600
+@@ -4611,23 +4618,27 @@
+ 	.sensor_id_reg_addr = 0x0,
+ 	.sensor_id = 0x0365,
+ };
++#define SENSOR_REGISTER_MAX_LINECOUNT 0xffff
++#define SENSOR_VERT_OFFSET 25
+ 
+ static struct msm_sensor_exp_gain_info_t vd6869_exp_gain_info = {
+ 	.coarse_int_time_addr = 0x202,
+ 	.global_gain_addr = 0x204,
+-	.vert_offset = 25,
++	.vert_offset = SENSOR_VERT_OFFSET, 
+ 	.min_vert = 4,  
+-	.sensor_max_linecount = 65525,  
++	.sensor_max_linecount = SENSOR_REGISTER_MAX_LINECOUNT-SENSOR_VERT_OFFSET,  
+ };
+ 
++#define SENSOR_VERT_OFFSET_HDR 4
++
+ static struct vd6869_hdr_exp_info_t vd6869_hdr_gain_info = {
+ 	.long_coarse_int_time_addr_h = 0x32e5,
+ 	.long_coarse_int_time_addr_l = 0x32e6,
+ 	.short_coarse_int_time_addr_h = 0x32f0,
+ 	.short_coarse_int_time_addr_l = 0x32f1,
+ 	.global_gain_addr = 0x32e7,
+-	.vert_offset = 4,
+-	.sensor_max_linecount = 65531,  
++	.vert_offset = SENSOR_VERT_OFFSET_HDR,
++	.sensor_max_linecount = SENSOR_REGISTER_MAX_LINECOUNT-SENSOR_VERT_OFFSET_HDR,  
+ };
+ 
+ 
+@@ -5128,27 +5195,6 @@
+ };
+ #endif
+ 
+-static void vd6869_dump_otp_to_file(const short* add, const uint8_t* data, size_t count)
+-{
+-    uint8_t *path= "/data/vd6869_otp.txt";
+-    struct file* f = msm_fopen (path, O_CREAT|O_RDWR|O_TRUNC, 0666);
+-    char buf[512];
+-    int i=0;
+-    int len=0;
+-    pr_info ("%s\n",__func__);
+-
+-    if (f) {
+-        for (i=0; i<count; ++i) {
+-            len += sprintf (buf+len,"0x%x 0x%x\n",add[i],data[i]);
+-        }
+-
+-        msm_fwrite (f,0,buf,len);
+-        msm_fclose (f);
+-    } else {
+-        pr_err ("%s: fail to open file\n", __func__);
+-    }
+-}
+-
+ int vd6869_read_fuseid_liteon(struct sensor_cfg_data *cdata,
+ 	struct msm_sensor_ctrl_t *s_ctrl, bool first)
+ {
+@@ -5255,12 +5315,11 @@
+     vd6869_ver = otp[2]; 
+     cdata->sensor_ver = otp[2];
+ 
+-    
+-    if(vd6869_ver == 0x0A){
+-        vd6869_apply_analog_setting(s_ctrl);
+-    }
+     if (board_mfg_mode()) {
+-        vd6869_dump_otp_to_file (otp_addr[valid_layer], otp, VD6869_LITEON_OTP_SIZE);
++        if(vd6869_s_ctrl.ews_enable) 
++            msm_dump_otp_to_file (PLATFORM_DRIVER_NAME, old_otp_addr[valid_layer], otp, VD6869_LITEON_OTP_SIZE);
++        else
++            msm_dump_otp_to_file (PLATFORM_DRIVER_NAME, new_otp_addr[valid_layer], otp, VD6869_LITEON_OTP_SIZE);
+     }
+     
+     cdata->cfg.fuse.fuse_id_word1 = 0;

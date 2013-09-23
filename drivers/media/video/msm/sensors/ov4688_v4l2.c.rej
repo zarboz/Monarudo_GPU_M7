@@ -1,0 +1,22 @@
+--- drivers/media/video/msm/sensors/ov4688_v4l2.c	2013-06-24 02:50:45.000000000 -0600
++++ drivers/media/video/msm/sensors/ov4688_v4l2.c	2013-08-01 23:38:00.000000000 -0600
+@@ -962,14 +922,17 @@
+ 	.sensor_id_reg_addr = 0x300A,
+ 	.sensor_id = 0x4688,
+ };
++#define SENSOR_REGISTER_MAX_LINECOUNT 0xffff
++#define SENSOR_VERT_OFFSET 25
+ 
+ static struct msm_sensor_exp_gain_info_t ov4688_exp_gain_info = {
+ 	.coarse_int_time_addr = 0x3500,
+ 	.global_gain_addr = 0x3508,
+-	.vert_offset = 25,
++	.vert_offset = SENSOR_VERT_OFFSET, 
+ 	.min_vert = 4,  
+-	.sensor_max_linecount = 65531,  
++	.sensor_max_linecount = SENSOR_REGISTER_MAX_LINECOUNT - SENSOR_VERT_OFFSET,  
+ };
++#define SENSOR_VERT_OFFSET_HDR 4
+ 
+ static struct ov4688_hdr_exp_info_t ov4688_hdr_gain_info = {
+ 	.long_coarse_int_time_addr_h = 0x3500,

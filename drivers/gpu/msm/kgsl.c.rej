@@ -1,0 +1,129 @@
+--- drivers/gpu/msm/kgsl.c	2013-06-24 02:50:46.000000000 -0600
++++ drivers/gpu/msm/kgsl.c	2013-08-01 23:38:02.000000000 -0600
+@@ -744,80 +883,70 @@
+ 	if (private == NULL) {
+ 		KGSL_DRV_ERR(cur_dev_priv->device, "kzalloc(%d) failed\n",
+ 			sizeof(struct kgsl_process_private));
+-		goto out;
++		goto done;
+ 	}
+ 
+-#ifdef CONFIG_MSM_KGSL_GPU_USAGE
+-	private->gputime.total = 0;
+-	private->gputime.busy = 0;
+-	for(i=0;i<KGSL_MAX_PWRLEVELS;i++) {
+-		private->gputime_in_state[i].total = 0;
+-		private->gputime_in_state[i].busy = 0;
+-	}
+-#endif
++	kref_init(&private->refcount);
+ 
+-	spin_lock_init(&private->mem_lock);
+-	private->refcnt = 1;
+ 	private->pid = task_tgid_nr(current);
+-	private->mem_rb = RB_ROOT;
+-
+-	if (kgsl_mmu_enabled())
+-	{
+-		unsigned long pt_name;
+-
+-		pt_name = task_tgid_nr(current);
+-		private->pagetable = kgsl_mmu_getpagetable(pt_name);
+-		if (private->pagetable == NULL) {
+-			kfree(private);
+-			private = NULL;
+-			goto out;
+-		}
+-	}
+-
++	spin_lock_init(&private->mem_lock);
++	mutex_init(&private->process_private_mutex);
++	
+ 	spin_lock(&kgsl_driver.process_dump_lock);
+ 	list_add(&private->list, &kgsl_driver.process_list);
+ 	spin_unlock(&kgsl_driver.process_dump_lock);
+-
+-	kgsl_process_init_sysfs(private);
+-	kgsl_process_init_debugfs(private);
+-
+-out:
++done:
+ 	mutex_unlock(&kgsl_driver.process_mutex);
+ 	return private;
+ }
+ 
+-static void
+-kgsl_put_process_private(struct kgsl_device *device,
+-			 struct kgsl_process_private *private)
++static struct kgsl_process_private *
++kgsl_get_process_private(struct kgsl_device_private *cur_dev_priv)
+ {
+-	struct kgsl_mem_entry *entry = NULL;
+-	struct rb_node *node;
+-
+-	if (!private)
+-		return;
++	struct kgsl_process_private *private;
++#ifdef CONFIG_MSM_KGSL_GPU_USAGE
++	int i;
++#endif
+ 
+-	mutex_lock(&kgsl_driver.process_mutex);
+-	spin_lock(&kgsl_driver.process_dump_lock);
+-	if (--private->refcnt)
+-		goto unlock;
++	private = kgsl_find_process_private(cur_dev_priv);
+ 
+-	kgsl_process_uninit_sysfs(private);
+-	debugfs_remove_recursive(private->debug_root);
++	mutex_lock(&private->process_private_mutex);
+ 
+-	list_del(&private->list);
++	if (!private->mem_rb.rb_node) {
++		private->mem_rb = RB_ROOT;
++		idr_init(&private->mem_idr);
++	}
+ 
+-	for (node = rb_first(&private->mem_rb); node; ) {
+-		entry = rb_entry(node, struct kgsl_mem_entry, node);
+-		node = rb_next(&entry->node);
++	if ((!private->pagetable) && kgsl_mmu_enabled()) {
++		unsigned long pt_name;
+ 
+-		rb_erase(&entry->node, &private->mem_rb);
+-		kgsl_mem_entry_detach_process(entry);
++		pt_name = task_tgid_nr(current);
++		private->pagetable = kgsl_mmu_getpagetable(pt_name);
++		if (private->pagetable == NULL) {
++			mutex_unlock(&private->process_private_mutex);
++			kgsl_put_process_private(cur_dev_priv->device,
++						private);
++			return NULL;
++		}
+ 	}
+-	kgsl_mmu_putpagetable(private->pagetable);
+-	kfree(private);
+-unlock:
+-	spin_unlock(&kgsl_driver.process_dump_lock);
+-	mutex_unlock(&kgsl_driver.process_mutex);
++
++	if (!private->kobj.parent)
++		kgsl_process_init_sysfs(private);
++	if (!private->debug_root)
++		kgsl_process_init_debugfs(private);
++
++#ifdef CONFIG_MSM_KGSL_GPU_USAGE
++    private->gputime.total = 0;
++    private->gputime.busy = 0;
++    for(i=0;i<KGSL_MAX_PWRLEVELS;i++) {
++        private->gputime_in_state[i].total = 0;
++        private->gputime_in_state[i].busy = 0;
++    }
++#endif
++
++	mutex_unlock(&private->process_private_mutex);
++
++	return private;
+ }
+ 
+ static int kgsl_release(struct inode *inodep, struct file *filep)

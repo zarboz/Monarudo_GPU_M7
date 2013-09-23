@@ -1,0 +1,11 @@
+--- kernel/events/core.c	2013-06-24 02:50:42.000000000 -0600
++++ kernel/events/core.c	2013-08-01 23:37:50.000000000 -0600
+@@ -4271,7 +4271,7 @@
+ 
+ static int perf_swevent_init(struct perf_event *event)
+ {
+-	int event_id = event->attr.config;
++	u64 event_id = event->attr.config;
+ 
+ 	if (event->attr.type != PERF_TYPE_SOFTWARE)
+ 		return -ENOENT;

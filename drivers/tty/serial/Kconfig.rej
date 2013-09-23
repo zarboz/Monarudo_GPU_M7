@@ -1,0 +1,16 @@
+--- drivers/tty/serial/Kconfig	2013-06-24 02:50:48.000000000 -0600
++++ drivers/tty/serial/Kconfig	2013-08-01 23:38:05.000000000 -0600
+@@ -1030,6 +1030,13 @@
+ 	help
+ 	  Select this module to enable MSM high speed UART driver.
+ 
++config SERIAL_MSM_HS_DEBUG_RINGBUFFER
++	bool "Capture UART raw data in a ringbuffer for debug purpose."
++	depends on SERIAL_MSM_HS
++	default n
++	help
++	  Capture UART raw data in a ringbuffer for debug purpose.
++
+ config SERIAL_IRDA
+ 	tristate "MSM UART High Speed : Legacy mode IRDA Driver"
+ 	depends on ARM && ARCH_MSM

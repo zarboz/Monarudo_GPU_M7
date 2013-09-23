@@ -1,0 +1,80 @@
+--- drivers/cpufreq/cpufreq_stats.c	2012-08-26 16:02:10.000000000 -0600
++++ drivers/cpufreq/cpufreq_stats.c	2013-08-01 23:38:03.000000000 -0600
+@@ -456,32 +622,70 @@
+ 	if (val != CPUFREQ_POSTCHANGE)
+ 		return 0;
+ 
++	cpufreq_stats_update(freq->cpu);
++
++	spin_lock(&cpufreq_stats_lock);
+ 	stat = per_cpu(cpufreq_stats_table, freq->cpu);
+-	if (!stat)
++	if (!stat) {
++		spin_unlock(&cpufreq_stats_lock);
+ 		return 0;
++	}
+ 
+ 	old_index = stat->last_index;
+ 	new_index = freq_table_get_index(stat, freq->new);
+ 
+-	/* We can't do stat->time_in_state[-1]= .. */
+-	if (old_index == -1 || new_index == -1)
++	
++	if (old_index == -1 || new_index == -1) {
++		spin_unlock(&cpufreq_stats_lock);
+ 		return 0;
++	}
+ 
+-	cpufreq_stats_update(freq->cpu);
+-
+-	if (old_index == new_index)
++	if (old_index == new_index) {
++		spin_unlock(&cpufreq_stats_lock);
+ 		return 0;
++	}
+ 
+-	spin_lock(&cpufreq_stats_lock);
+ 	stat->last_index = new_index;
+ #ifdef CONFIG_CPU_FREQ_STAT_DETAILS
+ 	stat->trans_table[old_index * stat->max_state + new_index]++;
+ #endif
+ 	stat->total_trans++;
++#ifdef CONFIG_ARCH_APQ8064
++	if (freq->cpu == 1)
++		cpu1_total_trans++;
++	if (freq->cpu == 2)
++		cpu2_total_trans++;
++	if (freq->cpu == 3)
++		cpu3_total_trans++;
++#elif defined(CONFIG_ARCH_MSM8960)
++	if (freq->cpu == 1)
++		cpu1_total_trans++;
++#endif
+ 	spin_unlock(&cpufreq_stats_lock);
+ 	return 0;
+ }
+ 
++static int cpufreq_stats_create_table_cpu(unsigned int cpu)
++{
++	struct cpufreq_policy *policy;
++	struct cpufreq_frequency_table *table;
++	int ret = -ENODEV;
++
++	policy = cpufreq_cpu_get(cpu);
++	if (!policy)
++		return -ENODEV;
++
++	table = cpufreq_frequency_get_table(cpu);
++	if (!table)
++		goto out;
++
++	ret = cpufreq_stats_create_table(policy, table);
++
++out:
++	cpufreq_cpu_put(policy);
++	return ret;
++}
++
+ static int __cpuinit cpufreq_stat_cpu_callback(struct notifier_block *nfb,
+ 					       unsigned long action,
+ 					       void *hcpu)

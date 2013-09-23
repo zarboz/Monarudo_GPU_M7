@@ -1,0 +1,34 @@
+commit 00f3439ae53c658875b1dd779ff793c37ced2275
+Author: flar2 <asegaert@gmail.com>
+Date:   Wed May 1 17:06:52 2013 -0400
+
+     pm8xxx: externalizing vibrate method for custom vibration calls (tbalden) https://github.com/TeaMSeven/android_kernel_htc_m7-sense/commit/e808a548141e46a750f29a3b473acd56f10a7912
+
+diff --git a/drivers/misc/pm8xxx-vibrator.c b/drivers/misc/pm8xxx-vibrator.c
+index 4b199d7..cdedb5d 100644
+--- a/drivers/misc/pm8xxx-vibrator.c
++++ b/drivers/misc/pm8xxx-vibrator.c
+@@ -195,6 +195,12 @@ retry:
+ 	}
+ }
+ 
++int vibrate(int time)
++{
++    pm8xxx_vib_enable(&vib_dev->timed_dev, time);
++    return 0;
++}
++
+ 
+ static int pm8xxx_vib_get_time(struct timed_output_dev *dev)
+ {
+diff --git a/include/linux/mfd/pm8xxx/vibrator.h b/include/linux/mfd/pm8xxx/vibrator.h
+index b2a08b9..a395ea4 100644
+--- a/include/linux/mfd/pm8xxx/vibrator.h
++++ b/include/linux/mfd/pm8xxx/vibrator.h
+@@ -39,4 +39,6 @@ struct pm8xxx_vibrator_platform_data {
+ 
+ int pm8xxx_vibrator_config(struct pm8xxx_vib_config *vib_config);
+ 
++extern int vibrate(int time);
++
+ #endif 

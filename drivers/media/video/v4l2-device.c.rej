@@ -1,0 +1,11 @@
+--- drivers/media/video/v4l2-device.c	2013-06-24 02:50:45.000000000 -0600
++++ drivers/media/video/v4l2-device.c	2013-08-01 23:38:00.000000000 -0600
+@@ -180,7 +180,7 @@
+ 	}
+ #endif
+ 
+-#if defined(CONFIG_MACH_DUMMY)
++#if defined(CONFIG_MACH_DELUXE_J)
+ 	if (v4l2_dev->subdevs.prev == NULL)
+ 		return -EINVAL;
+ #endif

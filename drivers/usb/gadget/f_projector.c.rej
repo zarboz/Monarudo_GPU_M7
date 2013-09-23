@@ -1,0 +1,21 @@
+--- drivers/usb/gadget/f_projector.c	2013-06-24 02:50:44.000000000 -0600
++++ drivers/usb/gadget/f_projector.c	2013-08-01 23:38:00.000000000 -0600
+@@ -81,6 +81,7 @@
+ static const char cand_shortname[] = "htc_cand";
+ static const char htcmode_shortname[] = "htcmode";
+ static ktime_t start;
++extern int htc_battery_set_max_input_current(int target_ma);
+ 
+ struct projector_dev {
+ 	struct usb_function function;
+@@ -1534,6 +1535,10 @@
+ 					value = w_length;
+ 				}
+ 				break;
++			case HSML_06_REQ_SET_MAX_CHARGING_CURRENT:
++				htc_battery_set_max_input_current((int)w_value);
++				value = 0;
++				break;
+ 
+ 			default:
+ 				printk(KERN_INFO "%s: unrecognized request(req=0x%02x, wValue=%d, "

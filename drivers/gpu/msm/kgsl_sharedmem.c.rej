@@ -1,0 +1,80 @@
+--- drivers/gpu/msm/kgsl_sharedmem.c	2013-06-24 02:50:46.000000000 -0600
++++ drivers/gpu/msm/kgsl_sharedmem.c	2013-08-01 23:38:02.000000000 -0600
+@@ -600,63 +591,56 @@
+ 
+ 	page_size = (align >= ilog2(SZ_64K) && size >= SZ_64K)
+ 			? SZ_64K : PAGE_SIZE;
+-
+ 	
+-	kgsl_memdesc_set_align(memdesc, ilog2(page_size));
++	if (page_size != PAGE_SIZE)
++		kgsl_memdesc_set_align(memdesc, ilog2(page_size));
+ 
+ 
+ 	sglen_alloc = PAGE_ALIGN(size) >> PAGE_SHIFT;
+ 
+-
+-	if (kgsl_mmu_get_mmutype() == KGSL_MMU_TYPE_IOMMU)
+-		sglen_alloc++;
+-
+ 	memdesc->size = size;
+ 	memdesc->pagetable = pagetable;
+ 	memdesc->ops = &kgsl_page_alloc_ops;
+ 
+-	memdesc->sg = kgsl_sg_alloc(sglen_alloc);
++	memdesc->sglen_alloc = sglen_alloc;
++	memdesc->sg = kgsl_sg_alloc(memdesc->sglen_alloc);
+ 
+ 	if (memdesc->sg == NULL) {
+-		KGSL_CORE_ERR("vmalloc(%d) failed\n",
+-			sglen_alloc * sizeof(struct scatterlist));
+ 		ret = -ENOMEM;
+ 		goto done;
+ 	}
+ 
+ 
+-	pages = kmalloc(sglen_alloc * sizeof(struct page *), GFP_KERNEL);
++	pages = kmalloc(memdesc->sglen_alloc * sizeof(struct page *),
++		GFP_KERNEL);
+ 
+ 	if (pages == NULL) {
+-		KGSL_CORE_ERR("kmalloc (%d) failed\n",
+-			sglen_alloc * sizeof(struct page *));
+ 		ret = -ENOMEM;
+ 		goto done;
+ 	}
+ 
+ 	kmemleak_not_leak(memdesc->sg);
+ 
+-	memdesc->sglen_alloc = sglen_alloc;
+-	sg_init_table(memdesc->sg, sglen_alloc);
++	sg_init_table(memdesc->sg, memdesc->sglen_alloc);
+ 
+ 	len = size;
+ 
+ 	while (len > 0) {
+ 		struct page *page;
++		unsigned int gfp_mask = __GFP_HIGHMEM;
+ 		int j;
+ 
+ 		
+ 		if (len < page_size)
+ 			page_size = PAGE_SIZE;
+ 
+-		if (page_size == PAGE_SIZE)
+-			page = alloc_page(GFP_KERNEL | __GFP_HIGHMEM);
+-		else {
+-			page = alloc_pages(GFP_KERNEL | __GFP_HIGHMEM | __GFP_COMP |
+-				__GFP_NO_COMPACT | __GFP_NOWARN | __GFP_NORETRY | __GFP_NO_KSWAPD,
+-				get_order(page_size));
++		if (page_size != PAGE_SIZE)
++			gfp_mask |= __GFP_COMP | __GFP_NORETRY |
++				__GFP_NO_KSWAPD | __GFP_NOWARN;
++		else
++			gfp_mask |= GFP_KERNEL;
+ 
+-		}
++		page = alloc_pages(gfp_mask, get_order(page_size));
+ 
+ 		if (page == NULL) {
+ 			if (page_size != PAGE_SIZE) {

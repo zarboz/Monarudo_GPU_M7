@@ -1,0 +1,46 @@
+--- arch/arm/mach-msm/Kconfig	2013-06-24 02:50:48.000000000 -0600
++++ arch/arm/mach-msm/Kconfig	2013-08-01 23:38:05.000000000 -0600
+@@ -2681,23 +2686,23 @@
+ 	help
+ 	  Support for the HTC APQ8064 MONARUDO.
+ 
+-config MACH_monarudo_UL
++config MACH_DELUXE_J
+         depends on ARCH_APQ8064
+-        bool "APQ8064 monarudo_UL"
++        bool "APQ8064 DELUXE_J"
+         help
+-          Support for the HTC APQ8064 monarudo_UL.
++          Support for the HTC APQ8064 DELUXE_J.
+ 
+-config MACH_monarudo_DXG
++config MACH_IMPRESSION_J
+         depends on ARCH_APQ8064
+-        bool "APQ8064 monarudo_DXG"
++        bool "APQ8064 IMPRESSION_J"
+         help
+-          Support for the HTC APQ8064 monarudo_DXG.
++          Support for the HTC APQ8064 IMPRESSION_J.
+ 
+-config MACH_T6_DXG
++config MACH_monarudo_UL
+         depends on ARCH_APQ8064
+-        bool "APQ8064 T6_DXG"
++        bool "APQ8064 monarudo_UL"
+         help
+-          Support for the HTC APQ8064 T6_DXG.
++          Support for the HTC APQ8064 monarudo_UL.
+ 
+ config QSC_MODEM
+         default n
+@@ -2760,5 +2765,10 @@
+ 	  stand alone power collapse operation. Selecting this option
+ 	  ensures that they are always off.
+ 
++config QUALCOMM_WLAN_PXO
++	default n
++	bool "Use PXO for WLAN clock source"
++	help
++	  Use PXO for clock source of WLAN chip
+ endif
+ 

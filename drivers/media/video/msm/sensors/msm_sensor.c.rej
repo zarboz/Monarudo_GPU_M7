@@ -1,0 +1,20 @@
+--- drivers/media/video/msm/sensors/msm_sensor.c	2013-06-24 02:50:45.000000000 -0600
++++ drivers/media/video/msm/sensors/msm_sensor.c	2013-08-01 23:38:00.000000000 -0600
+@@ -1780,7 +1819,7 @@
+ {
+ 	int32_t rc = 0;
+ 	uint16_t chipid = 0;
+-#if defined(CONFIG_MACH_MONARUDO) || defined(CONFIG_MACH_DUMMY) || defined(CONFIG_MACH_DELUXE_R) || defined(CONFIG_MACH_DUMMY)\
++#if defined(CONFIG_MACH_MONARUDO) || defined(CONFIG_MACH_DELUXE_J) || defined(CONFIG_MACH_DELUXE_R) || defined(CONFIG_MACH_IMPRESSION_J)\
+ 		|| defined(CONFIG_MACH_DUMMY) || defined(CONFIG_MACH_DUMMY) || defined(CONFIG_MACH_DUMMY)
+ 	int i=1;
+ #else
+@@ -1828,7 +1867,7 @@
+ 		}
+ #endif
+ 	if (chipid != s_ctrl->sensor_id_info->sensor_id) {
+-#if defined(CONFIG_MACH_MONARUDO) || defined(CONFIG_MACH_DUMMY) || defined(CONFIG_MACH_DELUXE_R) || defined(CONFIG_MACH_DUMMY)\
++#if defined(CONFIG_MACH_MONARUDO) || defined(CONFIG_MACH_DELUXE_J) || defined(CONFIG_MACH_DELUXE_R) || defined(CONFIG_MACH_IMPRESSION_J)\
+     || defined(CONFIG_MACH_DUMMY) || defined(CONFIG_MACH_DUMMY)
+ 		if (chipid == 0x174 && s_ctrl->sensor_id_info->sensor_id == 0x175)
+ 		{

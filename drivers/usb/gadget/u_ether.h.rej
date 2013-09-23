@@ -1,0 +1,10 @@
+--- drivers/usb/gadget/u_ether.h	2013-06-24 02:50:44.000000000 -0600
++++ drivers/usb/gadget/u_ether.h	2013-08-01 23:38:00.000000000 -0600
+@@ -63,6 +63,7 @@
+ void gether_cleanup(void);
+ int gether_setup_name(struct usb_gadget *g, u8 ethaddr[ETH_ALEN],
+ 		const char *netname);
++int gether_change_mtu(int new_mtu);
+ 
+ struct net_device *gether_connect(struct gether *);
+ void gether_disconnect(struct gether *);

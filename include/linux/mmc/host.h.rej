@@ -1,0 +1,12 @@
+--- include/linux/mmc/host.h	2013-06-24 02:50:43.000000000 -0600
++++ include/linux/mmc/host.h	2013-08-01 23:37:52.000000000 -0600
+@@ -266,7 +266,9 @@
+ 	int			bkops_started;
+ 	int 		hpi_issued;
+ 	int 		bkops_trigger;
++	int			bkops_check_status;
+ 	int 		bkops_alarm_set;
++	int			long_bkops;
+ 	struct mmc_card		*card;		
+ 
+ 	wait_queue_head_t	wq;

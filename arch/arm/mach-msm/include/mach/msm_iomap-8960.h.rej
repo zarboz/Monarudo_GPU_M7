@@ -1,0 +1,11 @@
+--- arch/arm/mach-msm/include/mach/msm_iomap-8960.h	2013-06-24 02:50:43.000000000 -0600
++++ arch/arm/mach-msm/include/mach/msm_iomap-8960.h	2013-08-01 23:37:51.000000000 -0600
+@@ -130,7 +130,7 @@
+ 
+ #else 
+ 
+-  #if defined(CONFIG_ARCH_DUMMY) || defined(CONFIG_ARCH_DUMMY)
++  #if defined(CONFIG_ARCH_DUMMY) || defined(CONFIG_ARCH_DUMMY) || defined(CONFIG_ARCH_DUMMY)
+     #define MSM_HTC_RAM_CONSOLE_PHYS	0x8D900000	
+   #else
+     #define MSM_HTC_RAM_CONSOLE_PHYS	0x8F100000

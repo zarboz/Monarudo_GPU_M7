@@ -1,0 +1,10 @@
+--- fs/internal.h	2013-06-24 02:50:48.000000000 -0600
++++ fs/internal.h	2013-08-01 23:38:04.000000000 -0600
+@@ -62,6 +62,7 @@
+ extern struct dentry *mount_fs(struct file_system_type *,
+ 			       int, const char *, void *);
+ extern struct super_block *user_get_super(dev_t);
++extern int umount2(char *name, int flags);
+ 
+ extern atomic_t vfs_emergency_remount;
+ 

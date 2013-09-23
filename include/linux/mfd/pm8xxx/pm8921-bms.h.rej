@@ -1,0 +1,23 @@
+--- include/linux/mfd/pm8xxx/pm8921-bms.h	2013-06-24 02:50:43.000000000 -0600
++++ include/linux/mfd/pm8xxx/pm8921-bms.h	2013-08-01 23:37:52.000000000 -0600
+@@ -128,6 +136,7 @@
+ #ifdef CONFIG_HTC_BATT_8960
+ int pm8921_bms_get_batt_current(int *result);
+ 
++int pm8921_store_hw_reset_reason(int is_hw_reset);
+ int pm8921_bms_get_batt_soc(int *result);
+ int pm8921_bms_get_batt_cc(int *result);
+ int pm8921_bms_get_attr_text(char *buf, int size);
+@@ -185,6 +194,12 @@
+ {
+ 	return -ENXIO;
+ }
++
++static inline int pm8921_store_hw_reset_reason(int is_hw_reset)
++{
++	return -ENXIO;
++}
++
+ static inline int pm8921_bms_get_batt_soc(int *result)
+ {
+ 	return -ENXIO;

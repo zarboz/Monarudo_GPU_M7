@@ -1,0 +1,11 @@
+--- drivers/media/video/msm/msm_vfe32.h	2013-06-24 02:50:45.000000000 -0600
++++ drivers/media/video/msm/msm_vfe32.h	2013-08-01 23:38:00.000000000 -0600
+@@ -160,6 +160,8 @@
+ 	VFE_STATE_STARTED,
+ 	VFE_STATE_STOP_REQUESTED,
+ 	VFE_STATE_STOPPED,
++	VFE_STATE_HW_STOP_REQUESTED,
++	VFE_STATE_HW_STOPPED,
+ };
+ 
+ #define V32_CAMIF_OFF             0x000001E4

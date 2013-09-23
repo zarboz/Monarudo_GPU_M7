@@ -1,0 +1,17 @@
+--- drivers/media/video/msm/msm_mctl_pp.c	2013-06-24 02:50:45.000000000 -0600
++++ drivers/media/video/msm/msm_mctl_pp.c	2013-08-01 23:38:00.000000000 -0600
+@@ -553,14 +555,6 @@
+ 			kfree(zoom);
+ 			return -EFAULT;
+ 		}
+-		if ((void *)zoom->pp_frame_cmd.src_buf_handle == NULL ||
+-			(void *)zoom->pp_frame_cmd.dest_buf_handle == NULL) {
+-			pr_err("%s: src_buf_handle 0x%x dest_buf_handle 0x%x\n",
+-				__func__, zoom->pp_frame_cmd.src_buf_handle, zoom->pp_frame_cmd.dest_buf_handle);
+-			rc = -EINVAL;
+-			kfree(zoom);
+-			break;
+-		}
+ 		D("%s: src=0x%x, dest=0x%x,cookie=0x%x,action=0x%x,path=0x%x",
+ 				__func__, zoom->pp_frame_cmd.src_buf_handle,
+ 				zoom->pp_frame_cmd.dest_buf_handle,

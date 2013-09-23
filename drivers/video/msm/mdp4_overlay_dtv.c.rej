@@ -1,0 +1,12 @@
+--- drivers/video/msm/mdp4_overlay_dtv.c	2013-06-24 02:50:46.000000000 -0600
++++ drivers/video/msm/mdp4_overlay_dtv.c	2013-08-01 23:38:01.000000000 -0600
+@@ -951,6 +1051,9 @@
+ 
+ 	vctrl = &vsync_ctrl_db[cndx];
+ 	pipe = vctrl->base_pipe;
++	if (pipe == NULL)
++		return;
++
+ 	pr_debug("%s: cpu=%d\n", __func__, smp_processor_id());
+ 
+ 	spin_lock(&vctrl->spin_lock);

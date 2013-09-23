@@ -1,0 +1,11 @@
+--- fs/super.c	2013-06-24 02:50:48.000000000 -0600
++++ fs/super.c	2013-08-01 23:38:05.000000000 -0600
+@@ -594,6 +594,8 @@
+ 	char b[BDEVNAME_SIZE];
+ 
+ 	atomic_set(&vfs_emergency_remount, 1);
++	
++	umount2("/devlog", MNT_DETACH);
+ 	spin_lock(&sb_lock);
+ 	list_for_each_entry(sb, &super_blocks, s_list) {
+ 		if (hlist_unhashed(&sb->s_instances))
