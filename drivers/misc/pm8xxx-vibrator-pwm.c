@@ -163,14 +163,14 @@ retry:
 	}
 
 }
-
+/*
 int vibrate(struct timed_output_dev *dev, int time)
 {
     struct pm8xxx_vib_pwm *vib = container_of(dev, struct pm8xxx_vib_pwm, timed_dev);
     pm8xxx_vib_enable(vib.timed_dev, time);
     return 0;
 }
-
+*/
 static void pm8xxx_vib_update(struct work_struct *work)
 {
 	struct pm8xxx_vib_pwm *vib = container_of(work, struct pm8xxx_vib_pwm,
