@@ -153,7 +153,7 @@ extern uint8_t touchscreen_is_on(void)
 } 
 
 #ifdef CONFIG_TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE
-int s2w_switch = 2;
+int s2w_switch = -1;
 bool exec_count = true;
 bool scr_on_touch = false, led_exec_count = false, barrier[2] = {false, false};
 static struct input_dev * sweep2wake_pwrdev;
@@ -1988,7 +1988,7 @@ static void synaptics_ts_finger_func(struct synaptics_ts_data *ts)
 								if ((barrier[0] == true) ||
 								   ((finger_data[i][0] > prevx) &&
 								    (finger_data[i][0] < nextx) &&
-								    (finger_data[i][1] > 2725))) {
+								    (finger_data[i][1] > 2720))) {
 						if ((led_exec_count == true) && (scr_on_touch == false) && (s2w_switch == 2)) {
  						pm8xxx_led_current_set(sweep2wake_leddev, 255);
 						printk(KERN_INFO "[sweep2wake]: activated button backlight.\n");
@@ -2000,11 +2000,11 @@ static void synaptics_ts_finger_func(struct synaptics_ts_data *ts)
 									if ((barrier[1] == true) ||
 									   ((finger_data[i][0] > prevx) &&
 									    (finger_data[i][0] < nextx) &&
-									    (finger_data[i][1] > 2725))) {
+									    (finger_data[i][1] > 2720))) {
 										prevx = nextx;
 										barrier[1] = true;
 										if ((finger_data[i][0] > prevx) &&
-										    (finger_data[i][1] > 2725)) {
+										    (finger_data[i][1] > 2720)) {
 											if (finger_data[i][0] > 880) {
 												if (exec_count) {
 													printk(KERN_INFO "[sweep2wake]: ON");
@@ -2024,18 +2024,18 @@ static void synaptics_ts_finger_func(struct synaptics_ts_data *ts)
 								if ((barrier[0] == true) ||
 								   ((finger_data[i][0] < prevx) &&
 								    (finger_data[i][0] > nextx) &&
-								    (finger_data[i][1] > 2725))) {
+								    (finger_data[i][1] > 2720))) {
 									prevx = nextx;
 									nextx = 500;
 									barrier[0] = true;
 									if ((barrier[1] == true) ||
 									   ((finger_data[i][0] < prevx) &&
 									    (finger_data[i][0] > nextx) &&
-									    (finger_data[i][1] > 2725))) {
+									    (finger_data[i][1] > 2720))) {
 										prevx = nextx;
 										barrier[1] = true;
 										if ((finger_data[i][0] < prevx) &&
-										    (finger_data[i][1] > 2725)) {
+										    (finger_data[i][1] > 2720)) {
 											if (finger_data[i][0] < 250) {
 												if (exec_count) {
 													printk(KERN_INFO "[sweep2wake]: OFF");

@@ -26,6 +26,28 @@
 #endif
 
 
+
+#ifdef CONFIG_CMDLINE_OPTIONS
+uint32_t cmdline_maxoc = 0;
+int maxoc_switch = -1;
+
+static int __init cpufreq_read_maxoc_cmdline(char *maxoc)
+{
+	if (strcmp(maxoc, "1") == 0) {
+		printk(KERN_INFO "[cmdline_maxoc]: Overclocking enabled. | maxoc='%s'", maxoc);
+		maxoc_switch = 2;
+	} else if (strcmp(maxoc, "0") == 0) {
+		printk(KERN_INFO "[cmdline_maxoc]: Overclocking disabled. | maxoc='%s'", maxoc);
+		maxoc_switch = 0;
+	} else {
+		printk(KERN_INFO "[cmdline_maxoc]: No valid input found. Leaving tables alone | maxoc='%s'", maxoc);
+		maxoc_switch = 0;
+	}
+	return 1;
+}
+__setup("maxoc=", cpufreq_read_maxoc_cmdline);
+#endif
+
 static struct hfpll_data hfpll_data __initdata = {
 	.mode_offset = 0x00,
 	.l_offset = 0x08,
@@ -105,7 +127,8 @@ static struct msm_bus_paths bw_level_tbl[] __initdata = {
 	[2] = BW_MBPS(1600), 
 	[3] = BW_MBPS(2128), 
 	[4] = BW_MBPS(3200), 
-	[5] = BW_MBPS(4264), 
+	[5] = BW_MBPS(4264),
+	[6] = BW_MBPS(5328), 
 };
 
 static struct msm_bus_scale_pdata bus_scale_data __initdata = {
@@ -131,6 +154,7 @@ static struct l2_level l2_freq_tbl[] __initdata = {
 	[12] = { { 1026000, HFPLL, 1, 0x26 }, 1150000, 1150000, 5 },
 	[13] = { { 1080000, HFPLL, 1, 0x28 }, 1150000, 1150000, 5 },
 	[14] = { { 1134000, HFPLL, 1, 0x2A }, 1150000, 1150000, 5 },
+	[16] = { { 1242000, HFPLL, 1, 0x2C }, 1150000, 1150000, 5 },
 	{ }
 };
 
@@ -165,13 +189,10 @@ static struct acpu_level tbl_slow[] __initdata = {
 	{ 1, {  1458000, HFPLL, 1, 0x36 }, L2(14), 1237500 },
 	{ 1, {  1512000, HFPLL, 1, 0x38 }, L2(14), 1250000 },
 	{ 1, {  1566000, HFPLL, 1, 0x3A }, L2(14), 1250000 },
-	{ 1, {  1674000, HFPLL, 1, 0x3E }, L2(14), 1250000 },
+	{ 1, {  1674000, HFPLL, 1, 0x3E }, L2(14), 1262500 },
 	{ 1, {  1728000, HFPLL, 1, 0x40 }, L2(14), 1275000 },
 	{ 1, {  1836000, HFPLL, 1, 0x44 }, L2(15), 1275000 },
-	{ 1, {  1890000, HFPLL, 1, 0x46 }, L2(15), 1275000 },
-	/*{ 1, {  1944000, HFPLL, 1, 0x48 }, L2(14), 1300000 },
-	{ 1, {  2160000, HFPLL, 1, 0x50 }, L2(14), 1300000 },*/
-	
+	{ 1, {  1890000, HFPLL, 1, 0x46 }, L2(16), 1275000 },
 	{ 0, { 0 } }
 };
 
@@ -206,13 +227,10 @@ static struct acpu_level tbl_nom[] __initdata = {
 	{ 1, {  1458000, HFPLL, 1, 0x36 }, L2(14), 1187500 },
 	{ 1, {  1512000, HFPLL, 1, 0x38 }, L2(14), 1200000 },
 	{ 1, {  1566000, HFPLL, 1, 0x3A }, L2(14), 1200000 },
-	{ 1, {  1674000, HFPLL, 1, 0x3E }, L2(14), 1225000 },
+	{ 1, {  1674000, HFPLL, 1, 0x3E }, L2(14), 1212500 },
 	{ 1, {  1728000, HFPLL, 1, 0x40 }, L2(14), 1225000 },
-	{ 1, {  1836000, HFPLL, 1, 0x44 }, L2(15), 1250000 },
-	{ 1, {  1890000, HFPLL, 1, 0x46 }, L2(15), 1250000 },
-       /* { 1, {  1917000, HFPLL, 1, 0x47 }, L2(15), 1300000 },
-	{ 1, {  1944000, HFPLL, 1, 0x48 }, L2(14), 1300000 },
-	{ 1, {  2160000, HFPLL, 1, 0x50 }, L2(14), 1300000 },*/
+	{ 1, {  1836000, HFPLL, 1, 0x44 }, L2(15), 1237500 },
+	{ 1, {  1890000, HFPLL, 1, 0x46 }, L2(16), 1250000 },
 	{ 0, { 0 } }
 };
 
@@ -247,13 +265,10 @@ static struct acpu_level tbl_fast[] __initdata = {
 	{ 1, {  1458000, HFPLL, 1, 0x36 }, L2(14), 1137500 },
 	{ 1, {  1512000, HFPLL, 1, 0x38 }, L2(14), 1150000 },
 	{ 1, {  1566000, HFPLL, 1, 0x3A }, L2(14), 1150000 },
-	{ 1, {  1674000, HFPLL, 1, 0x3E }, L2(14), 1187500 },
-	{ 1, {  1728000, HFPLL, 1, 0x40 }, L2(14), 1200000 },
-	{ 1, {  1836000, HFPLL, 1, 0x44 }, L2(15), 1250000 },
-	{ 1, {  1890000, HFPLL, 1, 0x46 }, L2(15), 1250000 },
-	/*{ 1, {  1917000, HFPLL, 1, 0x47 }, L2(15), 1275000 },
-	{ 1, {  1944000, HFPLL, 1, 0x48 }, L2(14), 1300000 },
-	{ 1, {  2160000, HFPLL, 1, 0x50 }, L2(14), 1300000 },*/
+	{ 1, {  1674000, HFPLL, 1, 0x3E }, L2(14), 1162500 },
+	{ 1, {  1728000, HFPLL, 1, 0x40 }, L2(14), 1175000 },
+	{ 1, {  1836000, HFPLL, 1, 0x44 }, L2(15), 1187500 },
+	{ 1, {  1890000, HFPLL, 1, 0x46 }, L2(16), 1200000 },
 	{ 0, { 0 } }
 };
 
@@ -288,13 +303,10 @@ static struct acpu_level tbl_faster[] __initdata = {
 	{ 1, {  1458000, HFPLL, 1, 0x36 }, L2(14), 1112500 },
 	{ 1, {  1512000, HFPLL, 1, 0x38 }, L2(14), 1125000 },
 	{ 1, {  1566000, HFPLL, 1, 0x3A }, L2(14), 1150000 },
-	{ 1, {  1674000, HFPLL, 1, 0x3E }, L2(14), 1187500 },
-	{ 1, {  1728000, HFPLL, 1, 0x40 }, L2(14), 1200000 },
-	{ 1, {  1836000, HFPLL, 1, 0x44 }, L2(15), 1250000 },
-	{ 1, {  1890000, HFPLL, 1, 0x46 }, L2(15), 1250000 },
-	/*{ 1, {  1917000, HFPLL, 1, 0x47 }, L2(15), 1250000 },
-	{ 1, {  1944000, HFPLL, 1, 0x48 }, L2(14), 1300000 },
-	{ 1, {  2160000, HFPLL, 1, 0x50 }, L2(14), 1300000 },*/
+	{ 1, {  1674000, HFPLL, 1, 0x3E }, L2(14), 1162500 },
+	{ 1, {  1728000, HFPLL, 1, 0x40 }, L2(14), 1175000 },
+	{ 1, {  1836000, HFPLL, 1, 0x44 }, L2(15), 1187500 },
+	{ 1, {  1890000, HFPLL, 1, 0x46 }, L2(16), 1250000 },
 	{ 0, { 0 } }
 };
 
@@ -592,57 +604,6 @@ static struct acpuclk_krait_params acpuclk_8064_params __initdata = {
 	.stby_khz = 384000,
 };
 
-#if 0
-unsigned msm8064_perf_acpu_table[] = {
-	594000000, 
-	810000000, 
-	1026000000,
-	1134000000,
-	1512000000, 
-};
-
-static struct perflock_data msm8064_floor_data = {
-	.perf_acpu_table = msm8064_perf_acpu_table,
-	.table_size = ARRAY_SIZE(msm8064_perf_acpu_table),
-};
-
-static struct perflock_data msm8064_cpufreq_ceiling_data = {
-	.perf_acpu_table = msm8064_perf_acpu_table,
-	.table_size = ARRAY_SIZE(msm8064_perf_acpu_table),
-};
-
-static struct perflock_pdata perflock_pdata = {
-	.perf_floor = &msm8064_floor_data,
-	.perf_ceiling = &msm8064_cpufreq_ceiling_data,
-};
-
-struct platform_device msm8064_device_perf_lock = {
-	.name = "perf_lock",
-	.id = -1,
-	.dev = {
-		.platform_data = &perflock_pdata,
-	},
-};
-
-extern uint32_t __init msm_get_cpu_speed_bin(void);
-static void __init perftable_fix_up(void)
-{
-	uint32_t speed;
-	speed = msm_get_cpu_speed_bin();
-	
-	if(speed == 0)
-		msm8064_perf_acpu_table[PERF_LOCK_HIGHEST] = 1512000000;
-	
-	else if(speed == 1)
-		msm8064_perf_acpu_table[PERF_LOCK_HIGHEST] = 1566000000;
-	
-	else if(speed == 2)
-		msm8064_perf_acpu_table[PERF_LOCK_HIGHEST] = 1566000000;
-	
-	else
-		msm8064_perf_acpu_table[PERF_LOCK_HIGHEST] = 1512000000;
-}
-#endif
 
 static int __init acpuclk_8064_probe(struct platform_device *pdev)
 {
@@ -655,10 +616,6 @@ static int __init acpuclk_8064_probe(struct platform_device *pdev)
 
 	ret = acpuclk_krait_init(&pdev->dev, &acpuclk_8064_params);
 
-#ifdef CONFIG_PERFLOCK
-		if (!ret)
-			perftable_fix_up();
-#endif
 	return ret;
 }
 
@@ -679,15 +636,21 @@ device_initcall(acpuclk_8064_init);
 #ifdef CONFIG_CMDLINE_OPTIONS
 uint32_t __init acpu_check_khz_value(unsigned long khz)
 {
+	uint32_t cmdline_maxoc;
 	struct acpu_level *f;
 
-	if (khz > 1890000)
-		return CONFIG_MSM_CPU_FREQ_MAX;
-
+	if ((cmdline_maxoc = 1)) {
+			if (khz > 1890000)
+			return CONFIG_MSM_CPU_FREQ_MAX;
+		}
+	if ((cmdline_maxoc = 0)) {
+			if (khz > 1512000)
+			return CONFIG_MSM_CPU_FREQ_MAX;
+		}
 	if (khz < 162000)
 		return CONFIG_MSM_CPU_FREQ_MIN;
 
-	for (f = tbl_PVS0_1700MHz,tbl_PVS1_1700MHz,tbl_PVS2_1700MHz,tbl_PVS3_1700MHz,tbl_PVS4_1700MHz,tbl_PVS5_1700MHz,tbl_PVS6_1700MHz; f->speed.khz != 0; f++) {
+	for (f = tbl_slow,tbl_nom,tbl_fast,tbl_faster; f->speed.khz != 0; f++) {
 		if (khz < 162000) {
 			if (f->speed.khz == (khz*1000))
 				return f->speed.khz;

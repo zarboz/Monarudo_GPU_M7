@@ -30,6 +30,7 @@ extern uint32_t cmdline_maxkhz, cmdline_minkhz;
 extern char cmdline_gov[16];
 extern int cmdline_gov_cnt;
 extern uint32_t cmdline_maxscroff;
+extern uint32_t cmdline_maxoc;
 extern bool cmdline_scroff;
 
 /* check_khz function for cmdline khz parameters */

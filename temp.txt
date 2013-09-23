@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Binary file ./.git/objects/pack/pack-b27361edfbf57628c7b6995caa40fc27bd17ef27.pack matches
 ./drivers/i2c/muxes/gpio-i2cmux.c:101:		gpio_direction_output(pdata->gpios[i],
 Binary file ./drivers/i2c/built-in.o matches
@@ -1318,3 +1319,1682 @@ Binary file ./arch/arm/boot/Image matches
 ./arch/m68k/platform/5407/gpio.c:30:			.direction_output	= mcf_gpio_direction_output,
 ./arch/m68k/include/asm/mcfgpio.h:34:int mcf_gpio_direction_output(struct gpio_chip *, unsigned, int);
 Binary file ./vmlinux.o matches
+=======
+] c0      1 i2c-core: driver [pn544] using legacy suspend method
+<4>[    1.234579] c0      1 i2c-core: driver [pn544] using legacy resume method
+<6>[    1.234640] c0      1 [AUD] tfa9887: tfa9887_init
+<4>[    1.235067] c0      1 i2c-core: driver [tfa9887] using legacy suspend method
+<4>[    1.235098] c0      1 i2c-core: driver [tfa9887] using legacy resume method
+<6>[    1.235128] c0      1 [AUD] rt5501: rt5501_init
+<6>[    1.236502] c0      1 [AUD] rt5501: i2c_read rt5501_i2c_read: rx[0] = 0x0
+<6>[    1.236532] c0      1 [AUD] rt5501: i2c_read rt5501_i2c_read: rx[1] = 0x0
+<6>[    1.236563] c0      1 [AUD] rt5501: rt5501 is connected
+<6>[    1.237509] c0      1 [HS_MGR] (headset_notifier_register) Register MIC_BIAS notifier
+<4>[    1.237631] c0      1 i2c-core: driver [rt5501] using legacy suspend method
+<4>[    1.237662] c0      1 i2c-core: driver [rt5501] using legacy resume method
+<6>[    1.237692] c0      1 [AUD] tpa6185: tpa6185_init
+<6>[    1.238913] c0      1 qup_i2c qup_i2c.0: QUP: I2C status flags :0x11100c8, irq:226
+<3>[    1.241629] c0      1 [AUD] tpa6185: tpa6185_i2c_read: transfer error -5
+<6>[    1.241660] c0      1 [AUD] tpa6185: tpa6185 is not connected
+<3>[    1.241721] c0      1 [AUD] tpa6185: tpa6185_probe: gpio 161 off error -5
+<4>[    1.241904] c0      1 i2c-core: driver [tpa6185] using legacy suspend method
+<4>[    1.241934] c0      1 i2c-core: driver [tpa6185] using legacy resume method
+<6>[    1.242057] c0      1 [PS][cm3629] cm3629_probe
+<6>[    1.247916] c0      0 [KEY] gpio_keys_scan_keys: key 1-74, 0 (26) changed to 0
+<6>[    1.247947] c0      0 [KEY] [PWR] start count for power key clear check
+<6>[    1.248008] c0      0 [KEY] gpio_keys_scan_keys: key 1-72, 1 (77) changed to 0
+<6>[    1.248039] c0      0 [KEY] gpio_keys_scan_keys: key 1-73, 2 (11) changed to 0
+<6>[    1.248161] c0     53 [KEY] [PWR] cancel power key check reset work unsuccessfully
+<6>[    1.253654] c1     79 [USBH] ulpi: write 0x5a to 0x81
+<6>[    1.253654] c1     79 [USBH] ulpi: write 0x24 to 0x82
+<6>[    1.273950] c0      1 [PS][cm3629] cm3629_read_chip_id, chip_id value = 0x83, 0x0, ret 0
+<6>[    1.273981] c0      1 [PS][cm3629]cm3629_probe: lp_info->ls_cmd = 0x80!
+<6>[    1.274011] c0      1 [PS][cm3629] cm3629_probe: ls_cmd 0x80, ps1_adc_offset=0x00, ps2_adc_offset=0x00, ps_debounce=0x0, ps1_thh_diff 0
+<6>[    1.274378] c0      1 input: lightsensor-level as /devices/virtual/input/input5
+<6>[    1.275019] c0      1 input: proximity as /devices/virtual/input/input6
+<6>[    1.275385] c0      1 [LS][cm3629] lightsensor_set_kvalue: ALS calibrated als_kadc=0x6da522e6
+<6>[    1.275415] c0      1 [LS][cm3629] lightsensor_set_kvalue: als_kadc=0x22e6, als_gadc=0x1900
+<6>[    1.275446] c0      1 [LS][cm3629] wsensor_set_kvalue: WS calibrated ws_kadc=0x0
+<6>[    1.275476] c0      1 [LS][cm3629] wsensor_set_kvalue: no WS calibrated
+<6>[    1.275507] c0      1 [LS][cm3629] wsensor_set_kvalue: ws_kadc=0x1, ws_gadc=0x1
+<6>[    1.275537] c0      1 [LS][cm3629] lightsensor_update_table: Calibrated adc_table: data[0], 1
+<6>[    1.275568] c0      1 [LS][cm3629] lightsensor_update_table: Calibrated adc_table: data[1], 4
+<6>[    1.275598] c0      1 [LS][cm3629] lightsensor_update_table: Calibrated adc_table: data[2], 2e
+<6>[    1.275629] c0      1 [LS][cm3629] lightsensor_update_table: Calibrated adc_table: data[3], 510
+<6>[    1.275629] c0      1 [LS][cm3629] lightsensor_update_table: Calibrated adc_table: data[4], 7da
+<6>[    1.275660] c0      1 [LS][cm3629] lightsensor_update_table: Calibrated adc_table: data[5], 1e9c
+<6>[    1.275690] c0      1 [LS][cm3629] lightsensor_update_table: Calibrated adc_table: data[6], 2ea3
+<6>[    1.275721] c0      1 [LS][cm3629] lightsensor_update_table: Calibrated adc_table: data[7], 43b2
+<6>[    1.275751] c0      1 [LS][cm3629] lightsensor_update_table: Calibrated adc_table: data[8], 58c3
+<6>[    1.275782] c0      1 [LS][cm3629] lightsensor_update_table: Calibrated adc_table: data[9], ffff
+<6>[    1.275965] c0      1 [PS][cm3629] psensor_set_kvalue: PS calibrated ps_kparam1 = 0x50530306, ps_kparam2 = 0xFFFF0A43
+<6>[    1.275995] c0      1 [PS][cm3629] psensor_set_kvalue: PS calibrated inte_ps1_canc = 0x43, inte_ps2_canc = 0x0A, ((ps_kparam2 >> 16) & 0xFF) = 0xFF
+<6>[    1.276453] c0      1 [LS][cm3629] ls_initial_cmd, cmd[0] = 0x81, cmd[1] = 0x0
+<6>[    1.277369] c0      1 [PS][cm3629] psensor_initial_cmd, finish
+<6>[    1.278254] c0      1 [PS][cm3629] cm3629_probe: Probe success!
+<6>[    1.278376] c0      1 AKM8963 compass driver: initialize.
+<4>[    1.278467] c0      1 i2c-core: driver [akm8963] using legacy suspend method
+<4>[    1.278498] c0      1 i2c-core: driver [akm8963] using legacy resume method
+<4>[    1.278650] c0      1 i2c-core: driver [r3gd20_gyr] using legacy suspend method
+<4>[    1.278681] c0      1 i2c-core: driver [r3gd20_gyr] using legacy resume method
+<4>[    1.278803] c0      1 i2c-core: driver [bma250] using legacy suspend method
+<4>[    1.278834] c0      1 i2c-core: driver [bma250] using legacy resume method
+<6>[    1.279017] c0      1 lirc_dev: IR Remote Control driver registered, major 231 
+<6>[    1.279047] c0      1 IR NEC protocol handler initialized
+<6>[    1.279078] c0      1 IR RC5(x) protocol handler initialized
+<6>[    1.279108] c0      1 IR RC6 protocol handler initialized
+<6>[    1.279139] c0      1 IR JVC protocol handler initialized
+<6>[    1.279139] c0      1 IR Sony protocol handler initialized
+<6>[    1.279169] c0      1 IR RC5 (streamzap) protocol handler initialized
+<6>[    1.279200] c0      1 IR SANYO protocol handler initialized
+<6>[    1.279230] c0      1 IR MCE Keyboard/mouse protocol handler initialized
+<6>[    1.279261] c0      1 IR LIRC bridge handler initialized
+<6>[    1.279261] c0      1 Linux video capture interface: v2.00
+<6>[    1.279688] c0      1 [CAM] system rev = 129
+<6>[    1.280604] c0      1 [CAM] htccallback:kobject creat and add
+<6>[    1.280756] c0      1 [CAM] camera_attrs:kobject creat and add
+<6>[    1.281336] c0      1 [CAM] rawchip_driver_probe
+<6>[    1.281367] c0      1 [CAM] setup_rawchip_cdev
+<6>[    1.281580] c0      1 [CAM]rawchip_spi_init 
+<6>[    1.281641] c0      1 [CAM]:spi_rawchip_probe
+<6>[    1.282221] c0      1 [CAM] imx091 msm_sensor_init_module
+<6>[    1.282374] c0      1 [CAM] imx175 msm_sensor_init_module
+<6>[    1.282466] c0      1 [CAM] imx175_i2c_probe
+<6>[    1.282496] c0      1 [CAM] msm_sensor_i2c_probe: sensor_i2c_probe called - name: imx175
+<6>[    1.282527] c0      1 [CAM] msm_camio_probe_on_bootup: sinfo sensor name - imx175
+<6>[    1.282557] c0      1 [CAM] msm_camio_probe_on_bootup: camio_clk m(24000000) v(228570000)
+<6>[    1.282588] c0      1 [CAM] msm_camio_config_gpio_table: no cam gpio config table
+<6>[    1.282618] c0      1 [CAM] rawchip_probe_init
+<6>[    1.282649] c0      1 monarudo_rawchip_vreg_on
+<6>[    1.282679] c0      1 rawchip external 1v8 gpio_request,156 rc(0)
+<6>[    1.288783] c0      1 rawchip external 1v2 gpio_request,33 rc(0)
+<6>[    1.288844] c0      1 [CAM] msm_camio_clk_enable: clk(c0d4d5c8) obj.name:4-0010
+<6>[    1.293605] c0      1 [CAM] rawchip id: 0x2030200 requested id: 0x2030200
+<6>[    1.293636] c0      1 [CAM] rawchip_probe_init: probe_success
+<6>[    1.294246] c0      1 [CAM] imx175_power_up called
+<6>[    1.294277] c0      1 monarudo_imx175_ov8838_vreg_on
+<6>[    1.299282] c0      1 monarudo_imx175_ov8838_vreg_on: 8921_l9 2800000
+<4>[    1.299313] c0      1 8921_l9: Failed to create debugfs directory
+<6>[    1.299954] c0      1 monarudo_imx175_ov8838_vreg_on: 8921_l9 2800000 (0)
+<6>[    1.300961] c0      1 monarudo_imx175_ov8838_vreg_on: CAM_PIN_GPIO_V_CAM_D1V2_EN
+<6>[    1.300991] c0      1 monarudo_imx175_ov8838_vreg_on: CAM_PIN_GPIO_V_CAM_D1V2_EN (0)
+<6>[    1.301999] c0      1 monarudo_imx175_ov8838_vreg_on: CAM_PIN_GPIO_V_CAM_D1V2_EN_XD
+<6>[    1.301999] c0      1 monarudo_imx175_ov8838_vreg_on: CAM_PIN_GPIO_V_CAM_D1V2_EN_XD (0)
+<6>[    1.303036] c0      1 digital gpio_request,163
+<6>[    1.333251] c1    139 [TP] Device Status = 0
+<6>[    1.364291] c0      1 monarudo_imx175_ov8838_vreg_on: 8921_lvs4 1800000
+<4>[    1.364352] c0      1 8921_lvs4: Failed to create debugfs directory
+<6>[    1.364840] c0      1 monarudo_imx175_ov8838_vreg_on: 8921_lvs4 1800000 (0)
+<6>[    1.365878] c0      1 monarudo_imx175_ov8838_vreg_on: 8921_l8 2800000
+<4>[    1.365939] c0      1 8921_l8: Failed to create debugfs directory
+<6>[    1.366641] c0      1 monarudo_imx175_ov8838_vreg_on: 8921_l8 2800000 (0)
+<6>[    1.367648] c0      1 reset pin gpio_request,2
+<6>[    1.368686] c0      1 [CAM] msm_sensor_set_power_up: called 1686
+<6>[    1.375888] c0      1 [CAM] imx175_sensor_open_init called
+<6>[    1.376194] c0      1 [CAM] msm_sensor_match_id: msm_sensor id: 0x175,expect sensor_id=0x175
+<6>[    1.376255] c0      1 [CAM] imx175_read_VCM_driver_IC_info: sensor OTP information:
+<6>[    1.382694] c0      1 [CAM] imx175_read_VCM_driver_IC_info: OTP=2
+<6>[    1.382725] c0      1 [CAM] imx175_read_VCM_driver_IC_info: sdata->actuator_info->board_info->type=ti201_act
+<6>[    1.382755] c0      1 [CAM] imx175_read_VCM_driver_IC_info: sdata->actuator_info->board_info->addr=0x1c
+<6>[    1.383427] c0      1 [CAM] msm_sensor_register mctl_node_name[0] = video1
+<6>[    1.383457] c0      1 [CAM] imx175_power_down called
+<6>[    1.383488] c0      1 calledmonarudo_imx175_ov8838_vreg_off
+<6>[    1.385960] c0      1 monarudo_imx175_ov8838_vreg_off: CAM_PIN_GPIO_V_CAM_D1V2_EN_XD (0)
+<6>[    1.388402] c0      1 reset pin gpio_request,2
+<6>[    1.389928] c0      1 digital gpio_request,163
+<6>[    1.389989] c0      1 [CAM] msm_sensor_set_power_down: called 1720
+<6>[    1.393132] c0      1 monarudo_rawchip_vreg_off
+<6>[    1.398229] c0      1 [CAM] msm_camio_config_gpio_table: no cam gpio config table
+<6>[    1.398260] c0      1 [CAM] imx175_sysfs_init: imx175:kobject creat and add
+<6>[    1.398290] c0      1 [CAM] imx175:sysfs_create_file
+<6>[    1.398321] c0      1 [CAM] imx175_i2c_probe: rc(0)
+<6>[    1.398443] c0      1 [CAM] ov8838 msm_sensor_init_module
+<6>[    1.398565] c0      1 [CAM] msm_sensor_init_module
+<6>[    1.398687] c0      1 [CAM] msm_sensor_init_module
+<6>[    1.398779] c0      1 [CAM] ar0260_i2c_probe
+<6>[    1.398809] c0      1 [CAM] msm_sensor_i2c_probe: sensor_i2c_probe called - name: ar0260
+<6>[    1.398840] c0      1 [CAM] msm_camio_probe_on_bootup: sinfo sensor name - ar0260
+<6>[    1.398870] c0      1 [CAM] msm_camio_probe_on_bootup: camio_clk m(24000000) v(228570000)
+<6>[    1.398901] c0      1 [CAM] msm_camio_config_gpio_table: no cam gpio config table
+<6>[    1.398931] c0      1 [CAM] rawchip_probe_init
+<6>[    1.398962] c0      1 monarudo_rawchip_vreg_on
+<6>[    1.398992] c0      1 rawchip external 1v8 gpio_request,156 rc(0)
+<6>[    1.405280] c0      1 rawchip external 1v2 gpio_request,33 rc(0)
+<6>[    1.405280] c0      1 [CAM] msm_camio_clk_enable: clk(c0d4d5c8) obj.name:4-0048
+<6>[    1.409064] c0      1 [CAM] rawchip id: 0x2030200 requested id: 0x2030200
+<6>[    1.409095] c0      1 [CAM] rawchip_probe_init: probe_success
+<6>[    1.409095] c0      1 [CAM] ar0260_power_up
+<6>[    1.419136] c0      1 monarudo_ar0260_vreg_on
+<6>[    1.424080] c0     26 hub_port_wait_reset: portstatus = 0x00000503 portchange = 0x00000000
+<6>[    1.424141] c0      1 rawchip external 1v8 gpio_request,156 rc(0)
+<6>[    1.429177] c0      1 digital gpio_request,163
+<3>[    1.483747] c0     26 usb 1-1: hub_port_init[2569] hub_port_reset retval:0
+<6>[    1.483778] c0     26 usb 1-1: new high-speed USB device number 2 using msm_hsic_host
+<4>[    1.489302] c1      1 8921_lvs4: Failed to create debugfs directory
+<6>[    1.489913] c0      1 sensor_power_enable("8921_lvs4", 1.8V) == 0
+<4>[    1.490035] c0      1 8921_l8: Failed to create debugfs directory
+<6>[    1.490584] c0      1 sensor_power_enable("8921_l8", 2.8V) == 0
+<3>[    1.493819] c0     26 usb 1-1: hub_port_init[2693] hub_set_address devnum:2 retval:0
+<6>[    1.495864] c0      1 [CAM] reset pin gpio_request,2
+<3>[    1.521745] c2     26 usb 1-1: hub_port_init[2720] usb_get_device_descriptor retval:8
+<6>[    1.523302] c0      1 [CAM] ar0260_power_up end
+<6>[    1.523515] c0      1 [CAM] msm_sensor_match_id: msm_sensor id: 0x4581,expect sensor_id=0x4581
+<6>[    1.523729] c0      1 [CAM] msm_sensor_match_id: msm_sensor id 0x3000: 0x4580,expect sensor_id=0x4581
+<6>[    1.523760] c0      1 [CAM] msm_actuator_probe: probe failed
+<6>[    1.523882] c0      1 [CAM] msm_sensor_register mctl_node_name[1] = video3
+<6>[    1.523882] c0      1 [CAM] ar0260_power_down
+<6>[    1.523882] c0      1 monarudo_ar0260_vreg_off
+<6>[    1.524248] c0      1 monarudo_ar0260_vreg_off: sensor_power_disable("reg_8921_l8") == 0
+<6>[    1.524706] c0      1 monarudo_ar0260_vreg_off: sensor_power_disable("reg_8921_lvs4") == 0
+<6>[    1.524767] c0      1 digital gpio_request,163
+<6>[    1.524797] c0      1 rawchip external 1v8 gpio_request,156 rc(0)
+<6>[    1.530901] c0      1 monarudo_rawchip_vreg_off
+<6>[    1.535937] c0      1 [CAM] msm_camio_config_gpio_table: no cam gpio config table
+<6>[    1.535968] c0      1 [CAM] ar0260:kobject creat and add
+<6>[    1.535968] c0      1 [CAM] ar0260:sysfs_create_file
+<6>[    1.535968] c0      1 [CAM] ar0260_i2c_probe: rc(0)
+<6>[    1.536059] c0      1 [CAM] ov2722 msm_sensor_init_module
+<6>[    1.537219] c0      1 [swfa] swfa_init: SW-MM-A-2013-0314-1600-v0001
+<6>[    1.537921] c0      1 ion_client_create: create ion_client (wfd) at de6f6080
+<6>[    1.538135] c0      1 [BATT][CCADC] r_sense=10
+<3>[    1.539081] c0      1 pm8xxx_adc_probe: failed to request pa_therm vreg with error -517
+<6>[    1.539081] c0      1 monarudo_pm8xxx_adc_device_register: Register PM8XXX ADC device. rev: 129
+<6>[    1.539325] c0      1 [CABLE] XA monarudo_usb_dpdn_switch: Set USB path
+<6>[    1.539447] c0      1 [CABLE] usb_id_detect_init: id pin 158
+<6>[    1.539508] c0      1 [CABLE] monarudo_config_usb_id_gpios: 7 input none pull
+<6>[    1.539905] c0      1 [THERMAL] thermal_sys: thermal_zone0: Current temperature (45 C)
+<6>[    1.539935] c0      1 [THERMAL] thermal_sys: trip_temp:225, type:3
+<6>[    1.539935] c0      1 [THERMAL] thermal_sys: trip_temp:188, type:4
+<6>[    1.539935] c0      1 [THERMAL] thermal_sys: trip_temp:19, type:5
+<6>[    1.539966] c0      1 [THERMAL] thermal_sys: trip_temp:-75, type:6
+<6>[    1.540088] c0      1 [THERMAL] thermal_sys: thermal_zone1: Current temperature (46 C)
+<6>[    1.540088] c0      1 [THERMAL] thermal_sys: trip_temp:212, type:3
+<6>[    1.540088] c0      1 [THERMAL] thermal_sys: trip_temp:175, type:4
+<6>[    1.540119] c0      1 [THERMAL] thermal_sys: trip_temp:6, type:5
+<6>[    1.540119] c0      1 [THERMAL] thermal_sys: trip_temp:-88, type:6
+<6>[    1.540241] c0      1 [THERMAL] thermal_sys: thermal_zone2: Current temperature (44 C)
+<6>[    1.540241] c0      1 [THERMAL] thermal_sys: trip_temp:205, type:3
+<6>[    1.540241] c0      1 [THERMAL] thermal_sys: trip_temp:168, type:4
+<6>[    1.540271] c0      1 [THERMAL] thermal_sys: trip_temp:3, type:5
+<6>[    1.540271] c0      1 [THERMAL] thermal_sys: trip_temp:-89, type:6
+<6>[    1.540393] c0      1 [THERMAL] thermal_sys: thermal_zone3: Current temperature (43 C)
+<6>[    1.540393] c0      1 [THERMAL] thermal_sys: trip_temp:217, type:3
+<6>[    1.540424] c0      1 [THERMAL] thermal_sys: trip_temp:179, type:4
+<6>[    1.540424] c0      1 [THERMAL] thermal_sys: trip_temp:11, type:5
+<6>[    1.540424] c0      1 [THERMAL] thermal_sys: trip_temp:-83, type:6
+<6>[    1.540546] c0      1 [THERMAL] thermal_sys: thermal_zone4: Current temperature (43 C)
+<6>[    1.540576] c0      1 [THERMAL] thermal_sys: trip_temp:201, type:3
+<6>[    1.540576] c0      1 [THERMAL] thermal_sys: trip_temp:166, type:4
+<6>[    1.540576] c0      1 [THERMAL] thermal_sys: trip_temp:7, type:5
+<6>[    1.540576] c0      1 [THERMAL] thermal_sys: trip_temp:-82, type:6
+<6>[    1.540698] c0      1 [THERMAL] thermal_sys: thermal_zone5: Current temperature (42 C)
+<6>[    1.540729] c0      1 [THERMAL] thermal_sys: trip_temp:195, type:3
+<6>[    1.540729] c0      1 [THERMAL] thermal_sys: trip_temp:159, type:4
+<6>[    1.540729] c0      1 [THERMAL] thermal_sys: trip_temp:-3, type:5
+<6>[    1.540759] c0      1 [THERMAL] thermal_sys: trip_temp:-93, type:6
+<6>[    1.540851] c0      1 [THERMAL] thermal_sys: thermal_zone6: Current temperature (42 C)
+<6>[    1.540882] c0      1 [THERMAL] thermal_sys: trip_temp:202, type:3
+<6>[    1.540882] c0      1 [THERMAL] thermal_sys: trip_temp:166, type:4
+<6>[    1.540882] c0      1 [THERMAL] thermal_sys: trip_temp:4, type:5
+<6>[    1.540912] c0      1 [THERMAL] thermal_sys: trip_temp:-87, type:6
+<6>[    1.541034] c0      1 [THERMAL] thermal_sys: thermal_zone7: Current temperature (48 C)
+<6>[    1.541034] c0      1 [THERMAL] thermal_sys: trip_temp:203, type:3
+<6>[    1.541034] c0      1 [THERMAL] thermal_sys: trip_temp:164, type:4
+<6>[    1.541065] c0      1 [THERMAL] thermal_sys: trip_temp:-7, type:5
+<6>[    1.541065] c0      1 [THERMAL] thermal_sys: trip_temp:-103, type:6
+<6>[    1.541187] c0      1 [THERMAL] thermal_sys: thermal_zone8: Current temperature (45 C)
+<6>[    1.541187] c0      1 [THERMAL] thermal_sys: trip_temp:196, type:3
+<6>[    1.541217] c0      1 [THERMAL] thermal_sys: trip_temp:160, type:4
+<6>[    1.541217] c0      1 [THERMAL] thermal_sys: trip_temp:-2, type:5
+<6>[    1.541217] c0      1 [THERMAL] thermal_sys: trip_temp:-92, type:6
+<6>[    1.541339] c0      1 [THERMAL] thermal_sys: thermal_zone9: Current temperature (49 C)
+<6>[    1.541370] c0      1 [THERMAL] thermal_sys: trip_temp:228, type:3
+<6>[    1.541370] c0      1 [THERMAL] thermal_sys: trip_temp:189, type:4
+<6>[    1.541370] c0      1 [THERMAL] thermal_sys: trip_temp:18, type:5
+<6>[    1.541370] c0      1 [THERMAL] thermal_sys: trip_temp:-78, type:6
+<6>[    1.541492] c0      1 [THERMAL] thermal_sys: thermal_zone10: Current temperature (45 C)
+<6>[    1.541522] c0      1 [THERMAL] thermal_sys: trip_temp:204, type:3
+<6>[    1.541522] c0      1 [THERMAL] thermal_sys: trip_temp:168, type:4
+<6>[    1.541522] c0      1 [THERMAL] thermal_sys: trip_temp:6, type:5
+<6>[    1.541553] c0      1 [THERMAL] thermal_sys: trip_temp:-84, type:6
+<6>[    1.541919] c0      1 device-mapper: ioctl: 4.22.0-ioctl (2011-10-19) initialised: dm-devel@redhat.com
+<6>[    1.542224] c0      1 cpuidle: using governor ladder
+<6>[    1.542224] c0      1 cpuidle: using governor menu
+<6>[    1.542499] c0      1 mmc0: SDCC Version: 0x0000001a
+<6>[    1.543689] c0      1 mmc0: bam physical base=0x12402000
+<6>[    1.543689] c0      1 mmc0: bam virtual base=0xe60fc000
+<6>[    1.543689] c0      1 sps:BAM 0x12402000 is registered.
+<6>[    1.543720] c0      1 mmc0: BAM device registered. bam_handle=0xde740c00
+<6>[    1.543811] c0      1 sps:REVISION of BAM 0xe60fc000 is 0x5.
+<6>[    1.543995] c0      1 mmc0: Qualcomm MSM SDCC-BAM at 0x0000000012402000 irq 130
+<6>[    1.544025] c0      1 mmc0: Qualcomm MSM SDCC-DML at 0x0000000012400800
+<3>[    1.544208] c0      1 mmc0: No card detect facilities available
+<6>[    1.545948] c0      1 mmc0: Qualcomm MSM SDCC-core at 0x0000000012400000 irq 136,0 dma -1 dmacrcri -1
+<6>[    1.545948] c0      1 mmc0: Controller capabilities: 0x0000039e
+<6>[    1.545948] c0      1 mmc0: Platform slot type: MMC
+<6>[    1.545978] c0      1 mmc0: 8 bit data mode enabled
+<6>[    1.545978] c0      1 mmc0: 4 bit data mode disabled
+<6>[    1.545978] c0      1 mmc0: polling status mode disabled
+<6>[    1.545978] c0      1 mmc0: MMC clock 400000 -> 96000000 Hz, PCLK 0 Hz
+<6>[    1.546009] c0      1 mmc0: Slot eject status = 0
+<6>[    1.546009] c0      1 mmc0: Power save feature enable = 1
+<6>[    1.546009] c0      1 mmc0: SPS-BAM data transfer mode available
+<6>[    1.546131] c0      1 mmc1: SDCC Version: 0x0000001a
+<6>[    1.548145] c0      1 mmc1: bam physical base=0x12182000
+<6>[    1.548176] c0      1 mmc1: bam virtual base=0xe631c000
+<6>[    1.548176] c0      1 sps:BAM 0x12182000 is registered.
+<6>[    1.548176] c0      1 mmc1: BAM device registered. bam_handle=0xde741200
+<6>[    1.548267] c0      1 sps:REVISION of BAM 0xe631c000 is 0x5.
+<6>[    1.548451] c0      1 mmc1: Qualcomm MSM SDCC-BAM at 0x0000000012182000 irq 128
+<6>[    1.548481] c0      1 mmc1: Qualcomm MSM SDCC-DML at 0x0000000012180800
+<6>[    1.548725] c0      1 [WIFI] [MMC] msmsdcc_set_ios [WIFI] mmc1 clks is OFF
+<6>[    1.549732] c0      1 mmc1: Qualcomm MSM SDCC-core at 0x0000000012180000 irq 134,0 dma -1 dmacrcri -1
+<6>[    1.549763] c0      1 mmc1: Controller capabilities: 0x0000039e
+<6>[    1.549763] c0      1 mmc1: Platform slot type: SDIO(WIFI)
+<6>[    1.549763] c0      1 mmc1: 8 bit data mode disabled
+<6>[    1.549763] c0      1 mmc1: 4 bit data mode enabled
+<6>[    1.549793] c0      1 mmc1: polling status mode disabled
+<6>[    1.549793] c0      1 mmc1: MMC clock 400000 -> 48000000 Hz, PCLK 0 Hz
+<6>[    1.549793] c0      1 mmc1: Slot eject status = 1
+<6>[    1.549793] c0      1 mmc1: Power save feature enable = 1
+<6>[    1.549824] c0      1 mmc1: SPS-BAM data transfer mode available
+<6>[    1.549946] c0      1 [FLT]TPS tps61310 Led Flash driver: init
+<6>[    1.549977] c0      1 [FLT]TPS tps61310_probe +
+<7>[    1.550099] c0      1 Registered led device: flashlight
+<6>[    1.550373] c0      1 [FLT]TPS tps61310_probe no reset pin
+<6>[    1.550404] c0      1 [FLT]TPS tps61310_probe no power save pin
+<6>[    1.550404] c0      1 [FLT]TPS tps61310_probe no power save pin_2
+<6>[    1.550404] c0      1 [FLT]TPS tps61310_probe -
+<4>[    1.550434] c0      1 i2c-core: driver [TPS61310_FLASHLIGHT] using legacy suspend method
+<4>[    1.550434] c0      1 i2c-core: driver [TPS61310_FLASHLIGHT] using legacy resume method
+<6>[    1.550740] c0      1 usbcore: registered new interface driver usbhid
+<6>[    1.550740] c0      1 usbhid: USB HID core driver
+<6>[    1.551106] c0      1 ashmem: initialized
+<6>[    1.551167] c0      1 logger: created 256K log 'log_main'
+<6>[    1.551228] c0      1 logger: created 256K log 'log_events'
+<6>[    1.551289] c0      1 logger: created 256K log 'log_radio'
+<6>[    1.551350] c0      1 logger: created 256K log 'log_system'
+<6>[    1.551716] c0      1 usbcore: registered new interface driver snd-usb-audio
+<3>[    1.552449] c0      1 [AUD] snd_soc_wcd9310: tabla_probe
+<6>[    1.552876] c0      1 ion_client_create: create ion_client (voip_client) at de7115c0
+<6>[    1.553395] c0      1 [AUD] msm_pcm_voip: msm_pcm_probe: dev name msm-voip-dsp
+<6>[    1.553609] c0      1 msm-dai-q6-mi2s msm-dai-q6-mi2s: msm_dai_q6_mi2s_platform_data_validation: playback sdline 1 capture sdline 4
+<6>[    1.553609] c0      1 msm-dai-q6-mi2s msm-dai-q6-mi2s: msm_dai_q6_mi2s_platform_data_validation: playback ch_max 2 capture ch_mx 2
+<6>[    1.555043] c3      1 [AUD] snd_soc_qdsp6: msm_pcm_probe: dev name msm-pcm-dsp
+<6>[    1.555531] c3      1 msm_pcm_probe: dev name msm-multi-ch-pcm-dsp
+<6>[    1.556752] c3      1 [AUD] snd_soc_qdsp6: msm_compr_probe: dev name msm-compr-dsp
+<6>[    1.557485] c3      1 msm-pcm-lpa msm-pcm-lpa: msm_pcm_probe: dev name msm-pcm-lpa
+<3>[    1.559011] c3      1 msm_audio_init: Not the right machine type
+<6>[    1.569845] c0     26 usb 1-1: New USB device found, idVendor=05c6, idProduct=9008
+<6>[    1.569876] c0     26 usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+<6>[    1.569906] c0     26 usb 1-1: Product: QHSUSB__BULK
+<6>[    1.569906] c0     26 usb 1-1: Manufacturer: Qualcomm CDMA Technologies MSM
+<6>[    1.581718] c0     26 usb 1-1: adding 1-1:1.0 (config #1, interface 0)
+<6>[    1.582084] c0     26 qcserial 1-1:1.0: Qualcomm USB modem converter detected
+<6>[    1.582145] c0     26 [WWAN_POOL] init wwan_in_buf_list:c0f3a7d0
+<6>[    1.582176] c0     26 [WWAN_POOL] init wwan_out_buf_list:c0f3a7d8
+<6>[    1.582206] c0     26 [WWAN_POOL] htc_get_wwan_buffer(93): list c0f3a7d0 empty
+<6>[    1.582237] c0     26 [WWAN_POOL] alloc in_buffer:de7c4000 size:16384
+<6>[    1.582267] c0     26 [WWAN_POOL] htc_get_wwan_buffer(93): list c0f3a7d0 empty
+<6>[    1.582298] c0     26 [WWAN_POOL] alloc in_buffer:de7c8000 size:16384
+<6>[    1.582328] c0     26 [WWAN_POOL] htc_get_wwan_buffer(93): list c0f3a7d0 empty
+<6>[    1.582359] c0     26 [WWAN_POOL] alloc in_buffer:de7cc000 size:16384
+<6>[    1.582389] c0     26 [WWAN_POOL] htc_get_wwan_buffer(93): list c0f3a7d0 empty
+<6>[    1.582420] c0     26 [WWAN_POOL] alloc in_buffer:de7d0000 size:16384
+<6>[    1.582420] c0     26 [WWAN_POOL] htc_get_wwan_buffer(93): list c0f3a7d0 empty
+<6>[    1.582481] c0     26 [WWAN_POOL] alloc in_buffer:de7d4000 size:16384
+<6>[    1.582481] c0     26 [WWAN_POOL] htc_get_wwan_buffer(93): list c0f3a7d8 empty
+<6>[    1.582542] c0     26 [WWAN_POOL] alloc out_buffer:de7e0000 size:65536
+<6>[    1.582542] c0     26 [WWAN_POOL] htc_get_wwan_buffer(93): list c0f3a7d8 empty
+<6>[    1.582572] c0     26 [WWAN_POOL] alloc out_buffer:de7f0000 size:65536
+<6>[    1.582603] c0     26 [WWAN_POOL] htc_get_wwan_buffer(93): list c0f3a7d8 empty
+<6>[    1.582664] c0     26 [WWAN_POOL] alloc out_buffer:de000000 size:65536
+<6>[    1.582694] c0     26 [WWAN_POOL] htc_get_wwan_buffer(93): list c0f3a7d8 empty
+<6>[    1.582725] c0     26 [WWAN_POOL] alloc out_buffer:de010000 size:65536
+<6>[    1.582755] c0     26 [WWAN_POOL] htc_get_wwan_buffer(93): list c0f3a7d8 empty
+<6>[    1.582786] c0     26 [WWAN_POOL] alloc out_buffer:de020000 size:65536
+<6>[    1.583152] c0     26 usb 1-1: Qualcomm USB modem converter now attached to ttyUSB0
+<6>[    1.583213] c0     26 qcserial 1-1:1.0: usb_probe_interface[297] needs_remote_wakeup:1
+<6>[    1.583641] c0     26 mdm_hsic_usb_device_add_handler(696) USB device added 2 <Qualcomm CDMA Technologies MSM QHSUSB__BULK>
+<6>[    1.583702] c0     26 usb 1-1: udev(1-1)->enable_pm_debug=[0]
+<4>[    1.602563] c2      1 msm-pcm-routing msm-pcm-routing: ASoC: Failed to create MI2S_UL_HL debugfs file
+<3>[    1.633419] c0     20 mmc0: ACMD 41 init process fail : resp : 0x0
+<6>[    1.639066] c0      1 asoc: snd-soc-dummy-dai <-> MultiMedia1 mapping ok
+<6>[    1.639615] c0      1 asoc: snd-soc-dummy-dai <-> MultiMedia2 mapping ok
+<6>[    1.640134] c0      1 asoc: snd-soc-dummy-dai <-> CS-VOICE mapping ok
+<6>[    1.640653] c0      1 asoc: snd-soc-dummy-dai <-> VoIP mapping ok
+<6>[    1.641141] c0      1 asoc: snd-soc-dummy-dai <-> MultiMedia3 mapping ok
+<6>[    1.641660] c0      1 asoc: snd-soc-dummy-dai <-> SLIMBUS0_HOSTLESS mapping ok
+<6>[    1.642179] c0      1 asoc: snd-soc-dummy-dai <-> PRI_I2S_HOSTLESS mapping ok
+<6>[    1.642667] c0      1 asoc: msm-stub-rx <-> msm-dai-q6.241 mapping ok
+<6>[    1.643125] c0      1 asoc: msm-stub-tx <-> msm-dai-q6.240 mapping ok
+<6>[    1.643674] c0      1 asoc: snd-soc-dummy-dai <-> VOICE_STUB mapping ok
+<6>[    1.646146] c1      1 asoc: tabla_rx1 <-> msm-dai-q6.16384 mapping ok
+<6>[    1.651030] c1      1 asoc: tabla_tx1 <-> msm-dai-q6.16385 mapping ok
+<6>[    1.652250] c1      1 asoc: msm-stub-rx <-> msm-dai-q6.12288 mapping ok
+<6>[    1.653502] c1      1 asoc: msm-stub-tx <-> msm-dai-q6.12289 mapping ok
+<6>[    1.654082] c1      1 asoc: msm-stub-rx <-> msm-dai-q6.12292 mapping ok
+<6>[    1.654539] c1      1 asoc: msm-stub-tx <-> msm-dai-q6.12293 mapping ok
+<6>[    1.654936] c1      1 asoc: msm-stub-rx <-> msm-dai-q6-hdmi.8 mapping ok
+<6>[    1.655302] c1      1 asoc: msm-stub-tx <-> msm-dai-q6.1 mapping ok
+<6>[    1.655699] c1      1 asoc: msm-stub-rx <-> msm-dai-q6-mi2s mapping ok
+<6>[    1.656096] c1      1 asoc: msm-stub-tx <-> msm-dai-q6-mi2s mapping ok
+<6>[    1.656554] c1      1 asoc: msm-stub-rx <-> msm-dai-q6.224 mapping ok
+<6>[    1.656951] c1      1 asoc: msm-stub-tx <-> msm-dai-q6.225 mapping ok
+<6>[    1.657317] c1      1 asoc: msm-stub-rx <-> msm-dai-q6.2 mapping ok
+<6>[    1.657714] c1      1 asoc: msm-stub-tx <-> msm-dai-q6.3 mapping ok
+<6>[    1.658171] c1      1 asoc: tabla_rx2 <-> msm-dai-stub mapping ok
+<6>[    1.658538] c1      1 asoc: tabla_tx1 <-> msm-dai-stub mapping ok
+<6>[    1.658934] c1      1 asoc: msm-stub-rx <-> msm-dai-q6.16386 mapping ok
+<6>[    1.659362] c1      1 asoc: msm-stub-tx <-> msm-dai-q6.16387 mapping ok
+<6>[    1.659880] c1      1 asoc: tabla_tx2 <-> msm-dai-q6.16389 mapping ok
+<6>[    1.660247] c1      1 asoc: msm-stub-rx <-> msm-dai-q6.16392 mapping ok
+<6>[    1.660705] c1      1 asoc: msm-stub-tx <-> msm-dai-q6.16393 mapping ok
+<6>[    1.661101] c1      1 asoc: tabla_tx3 <-> msm-dai-stub mapping ok
+<4>[    1.661132] c0     20 mmc0: BKOPS already enabled
+<6>[    1.661162] c0     20 mmc0: cid 1501004d414732474115ed115bf2bfde
+<6>[    1.661193] c0     20 mmc0: csd d02701320f5903fff6dbffff8a404006
+<6>[    1.661223] c0     20 mmc0: ext_csd 00000000000000010301000000000000
+<6>[    1.661254] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661315] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661345] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661376] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661406] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661437] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661468] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661498] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661559] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661559] c1      1 asoc: msm-stub-rx <-> msm-dai-q6.16390 mapping ok
+<6>[    1.661620] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661651] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661681] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661712] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661742] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661773] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661803] c0     20 mmc0: ext_csd 00000000000000003c00000000001e00
+<6>[    1.661864] c0     20 mmc0: ext_csd 0000000000000002151b110700100701
+<6>[    1.661895] c0     20 mmc0: ext_csd 010140070700110001d1f00000000000
+<6>[    1.661925] c0     20 mmc0: ext_csd 00000000000000000102000700020005
+<6>[    1.661956] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.661986] c0     20 mmc0: ext_csd 00000000000000011f05000001010003
+<6>[    1.662017] c0     20 mmc0: ext_csd 0000e800000000000000000000000000
+<6>[    1.662078] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.662108] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.662139] c1      1 asoc: snd-soc-dummy-dai <-> SLIMBUS0_HOSTLESS mapping ok
+<6>[    1.662139] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.662169] c0     20 mmc0: ext_csd 00000000102012071912000000150000
+<6>[    1.662231] c0     20 mmc0: ext_csd 00000000000000000000000000080003
+<6>[    1.662261] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.662292] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.662322] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.662353] c0     20 mmc0: ext_csd 00000000000000000000000000000000
+<6>[    1.662658] c1      1 asoc: snd-soc-dummy-dai <-> MultiMedia5 mapping ok
+<6>[    1.663238] c1      1 asoc: snd-soc-dummy-dai <-> MultiMedia6 mapping ok
+<6>[    1.664153] c0     20 mmc0: set ext_csd.erase_group_def
+<6>[    1.664367] c1      1 asoc: snd-soc-dummy-dai <-> MultiMedia4 mapping ok
+<6>[    1.664733] c1      1 asoc: snd-soc-dummy-dai <-> MultiMedia7 mapping ok
+<6>[    1.665222] c1      1 asoc: snd-soc-dummy-dai <-> MultiMedia8 mapping ok
+<3>[    1.666412] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL8 not found
+<3>[    1.666412] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL8 not found
+<3>[    1.666442] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL7 not found
+<3>[    1.666473] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL7 not found
+<3>[    1.666503] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL4 not found
+<3>[    1.666534] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL4 not found
+<3>[    1.666564] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_UL4 not found
+<3>[    1.666595] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_UL4 not found
+<3>[    1.666625] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL6 not found
+<3>[    1.666625] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL6 not found
+<3>[    1.666656] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL5 not found
+<3>[    1.666687] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL5 not found
+<3>[    1.666717] c1      1 soc-audio soc-audio.0: DAI AIF widget for VOICE_STUB_DL not found
+<3>[    1.666748] c1      1 soc-audio soc-audio.0: DAI AIF widget for VOICE_STUB_DL not found
+<3>[    1.666778] c1      1 soc-audio soc-audio.0: DAI AIF widget for VOICE_STUB_UL not found
+<3>[    1.666809] c1      1 soc-audio soc-audio.0: DAI AIF widget for VOICE_STUB_UL not found
+<3>[    1.666839] c1      1 soc-audio soc-audio.0: DAI AIF widget for PRI_I2S_DL_HL not found
+<3>[    1.666839] c1      1 soc-audio soc-audio.0: DAI AIF widget for PRI_I2S_DL_HL not found
+<3>[    1.666870] c1      1 soc-audio soc-audio.0: DAI AIF widget for PRI_I2S_UL_HL not found
+<3>[    1.666900] c1      1 soc-audio soc-audio.0: DAI AIF widget for PRI_I2S_UL_HL not found
+<3>[    1.666931] c1      1 soc-audio soc-audio.0: DAI AIF widget for SLIM0_DL_HL not found
+<3>[    1.666961] c1      1 soc-audio soc-audio.0: DAI AIF widget for SLIM0_DL_HL not found
+<3>[    1.666992] c1      1 soc-audio soc-audio.0: DAI AIF widget for SLIM0_UL_HL not found
+<3>[    1.666992] c1      1 soc-audio soc-audio.0: DAI AIF widget for SLIM0_UL_HL not found
+<3>[    1.667022] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL3 not found
+<3>[    1.667053] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL3 not found
+<3>[    1.667083] c1      1 soc-audio soc-audio.0: DAI AIF widget for VOIP_DL not found
+<3>[    1.667114] c1      1 soc-audio soc-audio.0: DAI AIF widget for VOIP_DL not found
+<3>[    1.667144] c1      1 soc-audio soc-audio.0: DAI AIF widget for VOIP_UL not found
+<3>[    1.667144] c1      1 soc-audio soc-audio.0: DAI AIF widget for VOIP_UL not found
+<3>[    1.667175] c1      1 soc-audio soc-audio.0: DAI AIF widget for CS-VOICE_DL1 not found
+<3>[    1.667205] c1      1 soc-audio soc-audio.0: DAI AIF widget for CS-VOICE_DL1 not found
+<3>[    1.667236] c1      1 soc-audio soc-audio.0: DAI AIF widget for CS-VOICE_UL1 not found
+<3>[    1.667266] c1      1 soc-audio soc-audio.0: DAI AIF widget for CS-VOICE_UL1 not found
+<3>[    1.667297] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL2 not found
+<3>[    1.667327] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL2 not found
+<3>[    1.667358] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_UL2 not found
+<3>[    1.667358] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_UL2 not found
+<3>[    1.667388] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL1 not found
+<3>[    1.667419] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_DL1 not found
+<3>[    1.667450] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_UL1 not found
+<3>[    1.667480] c1      1 soc-audio soc-audio.0: DAI AIF widget for MM_UL1 not found
+<6>[    1.668121] c1      1 input: apq8064-tabla-snd-card Button Jack as /devices/platform/soc-audio.0/sound/card0/input7
+<6>[    1.668274] c1      1 input: apq8064-tabla-snd-card Headset Jack as /devices/platform/soc-audio.0/sound/card0/input8
+<6>[    1.668640] c0     20 mmc0: switch to bus width 8
+<6>[    1.669830] c0     20 mmc0: new high speed DDR MMC card at address 0001
+<6>[    1.669922] c1      1 u32 classifier
+<6>[    1.669922] c1      1     Actions configured
+<6>[    1.669922] c1      1 Netfilter messages via NETLINK v0.30.
+<6>[    1.669983] c1      1 nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
+<6>[    1.670471] c1      1 ctnetlink v0.93: registering with nfnetlink.
+<6>[    1.670502] c1      1 NF_TPROXY: Transparent proxy support initialized, version 4.1.0
+<6>[    1.670532] c1      1 NF_TPROXY: Copyright (c) 2006-2007 BalaBit IT Ltd.
+<6>[    1.670654] c1      1 xt_time: kernel timezone is -0000
+<3>[    1.670746] c1      1 [NET]tcp_init_mem:limit=14218,128UL=128
+<6>[    1.670746] c1      1 [NET]tcp_init_mem:limit=113744,tcp_mem[0]=85308,tcp_mem[1]=113744,tcp_mem[2]=170616
+<6>[    1.670837] c0     20 mmcblk0: mmc0:0001 MAG2GA 14.5 GiB 
+<6>[    1.671020] c1      1 ip_tables: (C) 2000-2006 Netfilter Core Team
+<6>[    1.671173] c1      1 arp_tables: (C) 2002 David S. Miller
+<6>[    1.671234] c1      1 TCP: cubic registered
+<6>[    1.671234] c1      1 Initializing XFRM netlink socket
+<6>[    1.671692] c1      1 NET: Registered protocol family 10
+<7>[    1.672028] c1      1 [NET][IPV6][RULE] fib6_rules_init 
+<7>[    1.672028] c1      1 [NET][IPV6][RULE] fib6_rules_net_init 
+<7>[    1.672028] c1      1 [NET][CORE][RULE] fib_rules_register 
+<7>[    1.672058] c1      1 [NET][CORE][RULE] __fib_rules_register ,owner=(null)
+<7>[    1.672058] c1      1 [NET][CORE][RULE] fib_default_rule_add ,owner=(null)
+<7>[    1.672058] c1      1 [NET][CORE][RULE] fib_default_rule_add ,owner=(null)
+<6>[    1.673096] c1      1 Mobile IPv6
+<6>[    1.673126] c1      1 ip6_tables: (C) 2000-2006 Netfilter Core Team
+<6>[    1.673279] c1      1 IPv6 over IPv4 tunneling driver
+<7>[    1.673523] c1      1 [NET][CORE][RULE] attach_rules 
+<7>[    1.673523] c1      1 [NET][CORE][RULE] attach_rules 
+<6>[    1.673706] c1      1 NET: Registered protocol family 17
+<6>[    1.673737] c1      1 NET: Registered protocol family 15
+<6>[    1.673737] c1      1 Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+<6>[    1.673889] c1      1 ######## bthid_init: ########
+<6>[    1.673950] c1      1 ######## bthid_init: done ########
+<5>[    1.673950] c1      1 Registering the dns_resolver key type
+<6>[    1.674256] c1      1 [DISP] monarudo_panel_init panel ID = PANEL_ID_DLX_SHARP_RENESAS
+<6>[    1.674256] c1      1 [DISP] monarudo_panel_init
+<6>[    1.674469] c1      1 setting pdata->panel_info.fb_num to 3. type: 8
+<6>[    1.682130] c0      1 msm_fb_resolution_override : ovr_src_height : 1920, ovr_src_width : 1080, ovr_dst_height : 1920, ovr_dst_width : 1080
+<6>[    1.682649] c0      1 [DISP] update panel framerate 59 -> 60
+<6>[    1.694521] c3     20  mmcblk0: p1 p2 p3 p4 < p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 p17 p18 p19 p20 p21 p22 p23 p24 p25 p26 p27 p28 p29 p30 p31 p32 p33 p34 >
+<6>[    1.699618] c0      1 FrameBuffer[0] 1080x1920 size=25067520 bytes is registered successfully!
+<7>[    1.699862] c0      1 Registered led device: lcd-backlight
+<6>[    1.699923] c0      1 [DISP] monarudo_lcd_probe
+<6>[    1.701480] c0      1 VFP support v0.3: implementor 51 architecture 64 part 6f variant 0 rev 2
+<6>[    1.701510] c0      1 ThumbEE CPU extension supported.
+<5>[    1.701510] c0      1 Registering SWP/SWPB emulation handler
+<6>[    1.706394] c3     20 mmc_rescan_try_freq: Find a MMC/eMMC card
+<6>[    1.710209] c0      1 clock_late_init: Removing enables held for handed-off clocks
+<6>[    1.712284] c0      1 [MPDEC]: msm_mpdec_init init complete.
+<6>[    1.712314] c0      1 [Port list] init()
+<6>[    1.717808] c0      1 [PM] Acquire 'boot-time' no_halt_lock 60s
+<6>[    1.718083] c0      1 [PM] msm_pm_init: msm_pm_boot_vector 0xc0d3798c
+<6>[    1.718449] c0    149 configure_bark_dump: dogbark processed by TZ side, regsave address = 0x8F1F0000
+<6>[    1.719456] c0    149 set_bark_bite_time: successfully set WDT0_BARK_TIME to 589824 in 1 milliseconds!
+<6>[    1.720341] c3     20 [WIFI] [MMC] msmsdcc_set_ios [WIFI] mmc1 clks is ON
+<6>[    1.720463] c0    149 set_bark_bite_time: successfully set WDT0_BITE_TIME to 688128 in 1 milliseconds!
+<6>[    1.720647] c0    149 MSM Watchdog Initialized
+<6>[    1.724278] c0      1 [AUD] htc-acoustic: acoustic_register_ops 
+<6>[    1.724278] c0      1 monarudo_audio_init
+<6>[    1.724980] c1      1 set_restart_reason: set restart reason = 776655aa
+<6>[    1.725011] c1      1 set_restart_msg: set restart msg = `Unknown'
+<6>[    1.725682] c1      1 msm_sleep_stats: Initializing sleep stats 
+<6>[    1.727422] c1      1 setting pdata->panel_info.fb_num to 1. type: 7
+<6>[    1.728216] c1      1 msm_fb_resolution_override : ovr_src_height : 1080, ovr_src_width : 1920, ovr_dst_height : 1080, ovr_dst_width : 1920
+<6>[    1.728521] c1      1 FrameBuffer[1] 1920x1080 size=0 bytes is registered successfully!
+<6>[    1.728979] c1      1 mdp4_dtv_vsync_init: ndx=0
+<3>[    1.729223] c1      1 hdmi_msm hdmi_msm.1: external_common_state_create: sysfs group de21ac08
+<6>[    1.729284] c1      1 hdmi_msm hdmi_msm.1: HDMI HPD: ON
+<6>[    1.729497] c1      1 hdmi_core_power(on): success
+<6>[    1.731542] c3     20 [WIFI] [MMC] msmsdcc_set_ios [WIFI] mmc1 clks is ON
+<6>[    1.733648] c3     20 [WIFI] [MMC] msmsdcc_set_ios [WIFI] mmc1 clks is ON
+<3>[    1.734808] c3     20 mmc1: ACMD 41 init process fail : resp : 0x0
+<6>[    1.734869] c3     20 [WIFI] [MMC] msmsdcc_set_ios [WIFI] mmc1 clks is ON
+<6>[    1.734961] c3     20 mmc_rescan_try_freq: Can not find a card type. A dummy card ?
+<6>[    1.735083] c3     20 [WIFI] [MMC] msmsdcc_set_ios [WIFI] mmc1 clks is OFF
+<6>[    1.834030] c1      1 hdmi_core_power(off): success
+<6>[    1.834030] c1      1 hdmi_msm hdmi_msm.1: probe done
+<6>[    1.834915] c1      1 setting pdata->panel_info.fb_num to 1. type: 10
+<3>[    1.835189] c1      1 Inside writeback_probe
+<6>[    1.835739] c1      1 msm_fb_resolution_override : ovr_src_height : 1920, ovr_src_width : 1920, ovr_dst_height : 1920, ovr_dst_width : 1920
+<4>[    1.835769] c1      1 mdp_get_panel_framerate frame rate=60 is default
+<6>[    1.836014] c1      1 FrameBuffer[2] 1920x1920 size=0 bytes is registered successfully!
+<3>[    1.836502] c1      1 gpio_request: request gpio-77 (ext_3p3v_en) but already occupied by gpio_kp_in
+<7>[    1.836563] c1      1 gpio_request: gpio-77 (ext_3p3v_en) status -16
+<3>[    1.836593] c1      1 gpio_vreg_request_gpio: failed to request gpio 77 (ext_3p3v_en), rc=-16
+<6>[    1.837295] c1      1 ion_client_create: create ion_client (msm_rotator) at de1538c0
+<6>[    1.838425] c0      1 msm_rotator_probe: rotator_hw_revision=2
+<6>[    1.839310] c0      1 [WLAN] ## wifi_probe
+<6>[    1.839340] c0      1 [WLAN] wifi_set_power = 1
+<6>[    1.839371] c0      1 monarudo_wifi_power: 1
+<6>[    1.965115] c2      1 [WLAN] wifi_set_carddetect = 1
+<6>[    1.965145] c2      1 monarudo_wifi_set_carddetect: 1
+<6>[    1.965145] c2      1 mmc1: Slot status change detected (0 -> 1)
+<6>[    1.965420] c2      1 [WLAN] 
+<6>[    1.965420] c2      1 Dongle Host Driver, version 1.42.1 (r344168)
+<6>[    1.965420] c2      1 Compiled in drivers/net/wireless/bcmdhd on Sep 17 2013 at 08:11:28
+<6>[    1.979368] c0     20 [WIFI] [MMC] msmsdcc_set_ios [WIFI] mmc1 clks is ON
+<6>[    2.001403] c0     20 [WIFI] [MMC] msmsdcc_set_ios [WIFI] mmc1 clks is ON
+<6>[    2.003692] c0     20 [WIFI] [MMC] msmsdcc_set_ios [WIFI] mmc1 clks is ON
+<6>[    2.010560] c0     20 [WIFI] [MMC] msmsdcc_set_ios [WIFI] mmc1 clks is ON
+<3>[    2.011994] c0     20 sdio_read_cccr: card->ccr.sdio_vsn: 4, cccr_vsn: 3
+<6>[    2.020753] c0     20 [WIFI] [MMC] msmsdcc_set_ios [WIFI] mmc1 clks is ON
+<6>[    2.020845] c0     20 [WIFI] [MMC] msmsdcc_set_ios [WIFI] mmc1 clks is ON
+<6>[    2.021059] c0     20 [WIFI] [MMC] msmsdcc_set_ios [WIFI] mmc1 clks is ON
+<6>[    2.027163] c0     20 mmc1: new high speed SDIO card at address 0001
+<6>[    2.030947] c0     20 [WLAN] alloc static buf at df280000!
+<6>[    2.032412] c0     20 [WLAN] dhdsdio_probe: Enter
+<6>[    2.032962] c0     20 [WLAN] F1 signature read @0x18000000=0x16234334
+<6>[    2.047489] c0     20 [WLAN] DHD: dongle ram size is set to 524288(orig 524288)
+<6>[    2.049076] c0     20 [WLAN] dhd_attach: Enter
+<6>[    2.049076] c0     20 [WLAN] Read PCBID = 81
+<6>[    2.049565] c1     20 wl_create_event_handler thr:a1 created
+<7>[    2.050633] c1     20 [NET][CORE][RULE] attach_rules 
+<7>[    2.050663] c1     20 [NET][CORE][RULE] attach_rules 
+<6>[    2.051182] c1     20 p2p0: P2P Interface Registered
+<6>[    2.051213] c1     20 [WLAN] wl_iw_attach: Initialize iscan_sysioc thread
+<6>[    2.051396] c1     20 wl_iw_attach thr:a2 created
+<6>[    2.051426] c1     20 [WLAN] dhd_attach: Initialize watchdog thread
+<6>[    2.051609] c1     20 dhd_attach thr:a3 created
+<6>[    2.051640] c1     20 [WLAN] dhd_attach: Initialize DPC thread
+<6>[    2.051823] c1     20 dhd_attach thr:a4 created
+<6>[    2.051854] c1     20 [WLAN] dhd_attach: Initialize sysioc thread
+<6>[    2.052006] c1     20 dhd_attach thr:a5 created
+<7>[    2.053074] c1     20 [NET][CORE][RULE] attach_rules 
+<7>[    2.053074] c1     20 [NET][CORE][RULE] attach_rules 
+<6>[    2.053624] c1     20 [WLAN] Broadcom Dongle Host Driver: register interface [wlan0] MAC: 00:00:00:00:00:00
+<6>[    2.053685] c1     20 [WLAN] dhdsdio_probe : no mutex held. 
+<6>[    2.053685] c2      1 [WLAN] wifi_set_power = 0
+<6>[    2.053715] c2      1 monarudo_wifi_power: 0
+<6>[    2.053929] c1     20 mmc_rescan_try_freq: Find a SDIO card
+<6>[    2.153883] c1    129 [USB] android_enable_function: android_enable_function: mtp enabled
+<6>[    2.153914] c1    129 [USB] android_enable_function: android_enable_function: mass_storage enabled
+<6>[    2.153975] c1    129 [USB] android_bind_enabled_functions: android_bind_enabled_functions bind name: mtp
+<6>[    2.154005] c1    129 [USB] mtp_bind_config
+<6>[    2.154036] c1    129 ===========interface_id 0 mtp
+<6>[    2.154158] c1    129 [USB] android_bind_enabled_functions: android_bind_enabled_functions bind name: mass_storage
+<6>[    2.154188] c1    129 ===========interface_id 1 mass_storage
+<6>[    2.154219] c1    129 [USB] android_usb_init_work: android_usb_init_work: ret: 0
+<6>[    2.176590] c0      1 [WLAN] =========== WLAN placed in RESET ========
+<6>[    2.176621] c0      1 [WLAN] [ATS][press_widget][launch]
+<6>[    2.176773] c0      1 rtc-pm8xxx rtc-pm8xxx: setting system clock to 2013-09-23 03:16:37 UTC (1379906197)
+<6>[    2.176926] c0      1 [BATT][BMS] pm8921_bms_probe
+<4>[    2.196001] c0      1 [BATT]warn: cur_cell is initiated by htc_battery_cell_find_and_set_id_auto
+<6>[    2.196032] c0      1 [BATT][BMS] set bms_battery_data (cell_id=1).
+<6>[    2.197741] c0      1 [BATT][BMS] program rev reg is 0x50
+<6>[    2.197772] c0      1 [BATT][BMS] trim reg=0x45, trim delta=4
+<4>[    2.197863] c0      1 [BATT][CHG] pm8921_is_usb_chg_plugged_in: warn: called before init
+<4>[    2.200579] c0    149 [BATT][CHG] pm8921_is_usb_chg_plugged_in: warn: called before init
+<4>[    2.203235] c0      1 [BATT][CHG] pm8921_is_usb_chg_plugged_in: warn: called before init
+<6>[    2.203265] c0      1 [BATT][BMS] read_soc_params_raw: Skip adjust_pon_ocv_raw due to ocv_updated_flag=0x1
+<6>[    2.203296] c0      1 read_backup_cc_uv: cc_backup_uv=-35440801, magic=10004040
+<6>[    2.203326] c0      1 [BATT][BMS] read_soc_params_raw: last_good_ocv_raw=0x94b6, last_good_ocv_uv/ori=3933488uV/3933488uVocv_reading_at_100=0, cc_backup_uv=0, ocv_backup_uv=0, last_ocv_uv=3933488
+<6>[    2.203418] c0      1 [BATT][BMS] OK battery_capacity_at_boot=78 volt = 4120599 ocv = 3933488
+<6>[    2.203448] c0      1 [BATT][BMS] r_sense=10,i_test=2000,v_failure=3000,default_rbatt_mohm=250
+<6>[    2.203509] c0      1 [BATT][BMS] pm8921_store_hw_reset_reason OCV_UPDATE_STORAGE=0x1->0x1
+<6>[    2.204547] c0      1 [BATT][CHG] Init: Set vbatdet=5780
+<6>[    2.210773] c0      1 [CABLE] cable_detection_vbus_irq_handler
+<6>[    2.210804] c0      1 [CABLE] cable_detection_vbus_irq_handler --
+<6>[    2.212360] c0    149 [BATT][BMS] read_soc_params_raw: Skip adjust_pon_ocv_raw due to ocv_updated_flag=0x1
+<6>[    2.212391] c0    149 read_backup_cc_uv: cc_backup_uv=-35440801, magic=10004040
+<6>[    2.212421] c0    149 [BATT][BMS] read_soc_params_raw: last_good_ocv_raw=0x94b6, last_good_ocv_uv/ori=3939433uV/3939433uVocv_reading_at_100=0, cc_backup_uv=0, ocv_backup_uv=0, last_ocv_uv=3939433
+<6>[    2.212482] c0    149 [BATT][BMS] soc = 79 reporting last_soc = 78
+<6>[    2.212513] c0    149 [BATT][BMS] start_percent = 78%
+<6>[    2.212543] c0    149 [BATT][BMS] ocv_update_stop_reason:0x0->0x1
+<6>[    2.212574] c0    149 [BATT][BMS] stopping ocv updates, is_ocv_update_start=0
+<6>[    2.214130] c0      1 [BATT][BMS] start_percent = 79%
+<6>[    2.214191] c0      1 [BATT] htc_charger_event_notify charger event=0
+<6>[    2.214222] c0      1 [BATT] htc_gauge_event_notify gauge event=0
+<6>[    2.214253] c0      1 [BATT][CHG] pm8921_charger_probe: max_vbat=4340, cool_vbat=4340, warm_vbat=4000,wlc_tx_gpio=180, vin_min=4400, vin_min_wlc=4800
+<6>[    2.214741] c0      1 [AUD] pm8921_audio: pm8921_audio_probe
+<6>[    2.221303] c0      1 ALSA device list:
+<6>[    2.221333] c0      1   #0: apq8064-tabla-snd-card
+<4>[    2.221455] c0      1 Warning: unable to open an initial console.
+<6>[    2.223744] c0      1 Freeing init memory: 1040K
+<3>[    2.228200] c1      1 init: property 'ro.hardware' doesn't exist while expanding '/init.${ro.hardware}.rc'
+<3>[    2.228261] c1      1 init: error while handling import on line '8' in '/init.rc'
+<3>[    2.235647] c1      1 init: /init.target.rc: 63: invalid command 'e2fsck'
+<3>[    2.236593] c1      1 init: /init.target.rc: 750: ignored duplicate definition of service 'ril-daemon'
+<3>[    2.236624] c1      1 init: /init.target.rc: 767: ignored duplicate definition of service 'shutdown'
+<3>[    2.236654] c1      1 init: /init.target.rc: 773: ignored duplicate definition of service 'charging'
+<4>[    2.236868] c1      1 init (1): /proc/1/oom_adj is deprecated, please use /proc/1/oom_score_adj instead.
+<6>[    2.304013] c0     20 [BATT][CHG] pm8921_is_pwr_src_plugged_in: usb_in=1, dc_in=0
+<6>[    2.304043] c0     20 [CABLE] check_vbus_in: vbus = 0, vbus_in = 1
+<6>[    2.304074] c0     20 monarudo_usb_uart_switch: usb, rev=129
+<6>[    2.304196] c0     20 [USBH] msm_otg_set_vbus_state: 1
+<6>[    2.304227] c0     20 [USB] PMIC: BSV set
+<6>[    2.304257] c0     20 [USB] PMIC: BSV init complete
+<6>[    2.304288] c1     79 [USB] OTG_STATE_B_IDLE state
+<6>[    2.304318] c1     79 [USBH] b_sess_vld
+<6>[    2.304349] c1     79 [USBH] msm_chg_detect_work: state:CHG_STATE_UNDEFINED
+<7>[    2.333953] c1     79 [DISP] Drv: ReadHPD: D
+<6>[    2.400183] c1      1 keychord: using input dev h2w headset for fevent
+<6>[    2.400244] c1      1 keychord: using input dev keypad_8960 for fevent
+<6>[    2.400274] c1      1 keychord: using input dev dummy_keypad for fevent
+<6>[    2.403998] c1     79 [USBH] msm_chg_detect_work: state:CHG_WAIT_FOR_DCD
+<6>[    2.504135] c1     79 [USBH] msm_chg_detect_work: state:CHG_WAIT_FOR_DCD
+<6>[    2.604333] c1     79 [USBH] msm_chg_detect_work: state:CHG_WAIT_FOR_DCD
+<7>[    2.636929] c2      1 [TIMERIRQ]timerirq_open: current->pid 1
+<7>[    2.636990] c2      1 [TIMERIRQ] timerirq_release: data->run = 0
+<7>[    2.637021] c2      1 [TIMERIRQ]timerirq_release: del_timer_sync() return = 0
+<7>[    2.637479] c2      1 [TIMERIRQ]timerirq_open: current->pid 1
+<7>[    2.637540] c2      1 [TIMERIRQ] timerirq_release: data->run = 0
+<7>[    2.637570] c2      1 [TIMERIRQ]timerirq_release: del_timer_sync() return = 0
+<6>[    2.662414] c0      1 EXT4-fs (mmcblk0p32): mounted filesystem with ordered data mode. Opts: barrier=1
+<3>[    2.674500] c0      1 init: skipping insecure file '/system/lib/modules/texfat.ko'
+<3>[    2.674774] c0      1 init: skipping insecure file '/system/lib/modules/moc_platform_mod.ko'
+<3>[    2.675019] c0      1 init: skipping insecure file '/system/lib/modules/moc_crypto.ko'
+<3>[    2.675202] c0      1 init: skipping insecure file '/system/lib/modules/dm-crypt.ko'
+<4>[    2.683381] c1    172 EXT4-fs (mmcblk0p34): warning: maximal mount count reached, running e2fsck is recommended
+<6>[    2.693117] c1    172 EXT4-fs (mmcblk0p34): mounted filesystem with ordered data mode. Opts: noauto_da_alloc,discard
+<4>[    2.700503] c1      1 EXT4-fs (mmcblk0p33): warning: maximal mount count reached, running e2fsck is recommended
+<6>[    2.704227] c1     79 [USBH] msm_chg_detect_work: state:CHG_WAIT_FOR_DCD
+<6>[    2.707248] c1      1 EXT4-fs (mmcblk0p33): mounted filesystem with ordered data mode. Opts: barrier=1
+<6>[    2.722844] c1      1 EXT4-fs (mmcblk0p24): mounted filesystem with ordered data mode. Opts: barrier=1,errors=continue
+<6>[    2.804272] c1     79 [USBH] msm_chg_detect_work: state:CHG_WAIT_FOR_DCD
+<6>[    2.904379] c1     79 [USBH] msm_chg_detect_work: state:CHG_WAIT_FOR_DCD
+<6>[    2.954494] c1     79 [USBH] msm_chg_detect_work: state:CHG_DCD_DONE
+<6>[    2.984404] c1     79 [USBH] msm_chg_detect_work: state:CHG_DETECTED
+<6>[    2.984556] c1     79 [USBH] chg_type = USB_SDP_CHARGER
+<6>[    2.984648] c1     79 [USBH] msm_otg_sm_work: state:b_idle bit:0x00000003
+<6>[    2.984678] c1     79 [USB] b_idle work
+<6>[    2.984709] c1     79 [USB] OTG_STATE_B_IDLE state
+<6>[    2.984770] c1     79 [USBH] b_sess_vld
+<6>[    2.984800] c1     79 [USB] Avail curr from USB = 500
+<6>[    2.984831] c1     79 [USB] Power Supply doesn't support USB charger
+<6>[    2.984892] c1     79 [BATT][CHG] Enter charge=500 (deprecated api)
+<7>[    2.984922] c1     79 [USBH] gadget on
+<6>[    2.985289] c1     76 [USBH] send connect type -1
+<6>[    2.985319] c1     76 [CABLE] usb_status_notifier_func: cable_type = -1
+<6>[    2.985411] c1     76 pm8921_is_wireless_charger: usb_in=1, dc_in=0
+<7>[    2.985441] c1     76 [CABLE] send_cable_connect_notify: cable_type = -1
+<6>[    2.985472] c1     76 [CABLE] Send to: htc_battery_8960, type -1
+<6>[    2.985533] c1     76 [BATT] cable_status_notifier_func(-1) at 2981292221 (2013-09-23 03:16:38.294779433 UTC)
+<6>[    2.985594] c1     76 [BATT] unknown type at 2981383729 (2013-09-23 03:16:38.294870942 UTC)
+<6>[    2.985655] c1     76 [BATT] htc_charger_event_notify charger event=12
+<6>[    2.985746] c1     76 [BATT] batt_worker: total_time since last batt update = 2550 ms. at 2981536243 (2013-09-23 03:16:38.294992952 UTC)
+<6>[    2.988493] c1     79 [USB] CI13XXX_CONTROLLER_RESET_EVENT received
+<6>[    2.991515] c1     76 [BATT][BMS] FCC=2020000,UC=40400,RC=1252400,CC=-333932,CC_reset=0,RUC=1545932,SOC=79,SOC_R=184400,start_percent=79,end_percent=-22,OCV=3939433,OCV_raw=3939433,rbatt=175,rbatt_sf=70,batt_temp=351,soc_rbatt=78,last_rbatt=-22,V_unusable_uv=3350000,pc_unusable=2,rc_pc=62,scalefactor=100,no_ocv_update_ms=0
+<6>[    2.991606] c1     76 [BATT][CHG] usbin_ov_irq_state:0 -> 0 [0,1,0]
+<6>[    2.991637] c0      0 [USB] suspend
+<6>[    2.991759] c1     76 [BATT] prev_chg_src=0, prev_chg_en=0, chg_dis_reason/control/active=0x0/0x0/0x0, chg_limit_reason/active=0x0/0x3, pwrsrc_dis_reason=0x0, prev_pwrsrc_enabled=1, context_state=0x0, htc_extension=0x0, sw_stimer_counter=0
+<6>[    2.991820] c1     76 [BATT] set_pwrsrc_and_charger_enable(6, 6, 1) at 2987606282 (2013-09-23 03:16:38.301093494 UTC)
+<6>[    2.991881] c1     76 [BATT][CHG] src=6, chg_enable=1, pwrsrc_enable=1
+<6>[    2.992064] c1     76 [BATT][CHG] vbus present change: 0 -> 1
+<6>[    3.004639] c0     76 [BATT][CHG] V=4131 mV, I=-106 mA, T=35 C, SoC=79%, FCC=2020000, id=134 mV, H=1, P=1, CHG=3, S=1, FSM=7, AC=0, USB=1, DC=0, WLC=0 iusb_ma=500, usb_target_ma=0, OVP=0, UVP=0, TM=0, eoc_count=0, vbatdet_low=1, is_ac_ST=0, batfet_dis=0x0, pwrsrc_dis=0x0, is_full=0, temp_fault=0, is_bat_warm/cool=0/0, btm_warm/cool=0/0, ichg=298 uA, vph_pwr=4128921 uV, usbin=4537168 uV, dcin=16644 uV, pwrsrc_under_rating=0, usbin_critical_low_cnt=0 flag=0000
+<6>[    3.004761] c0     76 [BATT] ID=1,level=79,level_raw=79,vol=4133,temp=351,current=-106900,chg_src=6,chg_en=6,full_bat=2000,over_vchg=0,batt_state=1,overload=0,ui_chg_full=0 at 3000570029 (2013-09-23 03:16:38.313996234 UTC)
+<6>[    3.004883] c0     76 [BATT] power_supply_changed: battery at 3000661539 (2013-09-23 03:16:38.314118247 UTC)
+<6>[    3.004944] c0     76 [BATT] batt_worker: done
+<6>[    3.142408] c0      0 [USB] reset
+<6>[    3.142469] c0      0 [USB] Avail curr from USB = 0
+<6>[    3.142499] c0      0 [USB] Power Supply doesn't support USB charger
+<6>[    3.142530] c0      0 [BATT][CHG] Enter charge=0 (deprecated api)
+<6>[    3.142926] c0     76 [USBH] send connect type 1
+<6>[    3.142957] c0     76 [CABLE] usb_status_notifier_func: cable_type = 1
+<6>[    3.143048] c0     76 pm8921_is_wireless_charger: usb_in=1, dc_in=0
+<7>[    3.143048] c0     76 [CABLE] send_cable_connect_notify: cable_type = 1
+<6>[    3.143079] c0     76 [CABLE] Send to: htc_battery_8960, type 1
+<6>[    3.143140] c0     76 [BATT] cable_status_notifier_func(1) at 3138818918 (2013-09-23 03:16:38.452306127 UTC)
+<6>[    3.143171] c0     76 [BATT] USB charger at 3138879932 (2013-09-23 03:16:38.452367140 UTC)
+<6>[    3.143232] c0     76 [BATT] htc_charger_event_notify charger event=4
+<6>[    3.143323] c0     76 [BATT] batt_worker: total_time since last batt update = 150 ms. at 3139001958 (2013-09-23 03:16:38.452489166 UTC)
+<6>[    3.144666] c0     53 [USB] portsc = 88000a05
+<6>[    3.144697] c0     53 [USB] portchange USB_SPEED_HIGH
+<6>[    3.148878] c0     76 [BATT][BMS] FCC=2020000,UC=40400,RC=1252400,CC=-333936,CC_reset=0,RUC=1545936,SOC=79,SOC_R=184800,start_percent=79,end_percent=-22,OCV=3939433,OCV_raw=3939433,rbatt=175,rbatt_sf=70,batt_temp=351,soc_rbatt=78,last_rbatt=-22,V_unusable_uv=3350000,pc_unusable=2,rc_pc=62,scalefactor=100,no_ocv_update_ms=0
+<6>[    3.148969] c0     76 [BATT][CHG] usbin_ov_irq_state:0 -> 0 [0,1,0]
+<6>[    3.149092] c0     76 [BATT] prev_chg_src=6, prev_chg_en=6, chg_dis_reason/control/active=0x0/0x0/0x0, chg_limit_reason/active=0x0/0x3, pwrsrc_dis_reason=0x0, prev_pwrsrc_enabled=1, context_state=0x0, htc_extension=0x0, sw_stimer_counter=0
+<6>[    3.149153] c0     76 [BATT] set_pwrsrc_and_charger_enable(1, 1, 1) at 3144859262 (2013-09-23 03:16:38.458346470 UTC)
+<6>[    3.149214] c0     76 [BATT][CHG] src=1, chg_enable=1, pwrsrc_enable=1
+<3>[    3.154799] c2      1 tmpfs: No value for mount option 'rec'
+<6>[    3.161330] c1     76 [BATT][CHG] V=4136 mV, I=-106 mA, T=35 C, SoC=79%, FCC=2020000, id=135 mV, H=1, P=1, CHG=3, S=1, FSM=7, AC=0, USB=1, DC=0, WLC=0 iusb_ma=500, usb_target_ma=0, OVP=0, UVP=0, TM=0, eoc_count=0, vbatdet_low=1, is_ac_ST=0, batfet_dis=0x0, pwrsrc_dis=0x0, is_full=0, temp_fault=0, is_bat_warm/cool=0/0, btm_warm/cool=0/0, ichg=199 uA, vph_pwr=4137540 uV, usbin=4531620 uV, dcin=17238 uV, pwrsrc_under_rating=0, usbin_critical_low_cnt=0 flag=0000
+<6>[    3.161422] c1     76 [BATT] ID=1,level=79,level_raw=79,vol=4134,temp=351,current=-106900,chg_src=1,chg_en=1,full_bat=2000,over_vchg=0,batt_state=1,overload=0,ui_chg_full=0 at 3157123039 (2013-09-23 03:16:38.470579740 UTC)
+<6>[    3.161727] c1     76 [BATT] power_supply_changed: battery at 3157428108 (2013-09-23 03:16:38.470915316 UTC)
+<6>[    3.161971] c1     76 [BATT] power_supply_changed: usb at 3157672164 (2013-09-23 03:16:38.471159372 UTC)
+<6>[    3.162032] c1     76 [BATT] batt_worker: done
+<6>[    3.213337] c0     53 [USB] android_work: android_work: sent uevent USB_STATE=CONNECTED
+<6>[    3.213551] c0     53 [USB] android_work: set usb_connect2pc = 1
+<6>[    3.216633] c0     53 [USB] reset
+<6>[    3.218892] c0      0 [USB] portsc = 88000a05
+<6>[    3.218922] c0      0 [USB] portchange USB_SPEED_HIGH
+<3>[    3.270593] c2      1 init: There is no cw property file /data/cw.prop.
+<3>[    3.279383] c2      1 init: There is no cw property file /data/cw.prop.
+<7>[    3.300473] c2      1 [NET][CORE][RULE] fib_magic:net_dev name=lo,base_addr=0,irq=0,cmd=24
+<7>[    3.300503] c2      1 [NET][CORE][RULE] fib_table_insert Insert table=255 7f000001/32
+<7>[    3.300625] c2      1 [NET][CORE][RULE] fib_magic:net_dev name=lo,base_addr=0,irq=0,cmd=24
+<7>[    3.300656] c2      1 [NET][CORE][RULE] fib_table_insert Insert table=255 7f000000/8
+<7>[    3.300778] c2      1 [NET][CORE][RULE] fib_magic:net_dev name=lo,base_addr=0,irq=0,cmd=24
+<7>[    3.300808] c2      1 [NET][CORE][RULE] fib_table_insert Insert table=255 7f000000/32
+<7>[    3.300930] c2      1 [NET][CORE][RULE] fib_magic:net_dev name=lo,base_addr=0,irq=0,cmd=24
+<7>[    3.300961] c2      1 [NET][CORE][RULE] fib_table_insert Insert table=255 7fffffff/32
+<7>[    3.301693] c2      1 [NET][CORE][RULE] fib_magic:net_dev name=lo,base_addr=0,irq=0,cmd=24
+<7>[    3.301724] c2      1 [NET][CORE][RULE] fib_table_insert Insert table=255 7f000001/32
+<7>[    3.301785] c2      1 [NET][CORE][RULE] fib_magic:net_dev name=lo,base_addr=0,irq=0,cmd=24
+<7>[    3.301815] c2      1 [NET][CORE][RULE] fib_table_insert Insert table=255 7f000000/8
+<7>[    3.301846] c2      1 [NET][CORE][RULE] fib_magic:net_dev name=lo,base_addr=0,irq=0,cmd=24
+<7>[    3.301877] c2      1 [NET][CORE][RULE] fib_table_insert Insert table=255 7f000000/32
+<7>[    3.301938] c2      1 [NET][CORE][RULE] fib_magic:net_dev name=lo,base_addr=0,irq=0,cmd=24
+<7>[    3.301968] c2      1 [NET][CORE][RULE] fib_table_insert Insert table=255 7fffffff/32
+<6>[    3.305081] c0      0 composite_setup: OS_LINUX
+<6>[    3.306851] c0      0 android_usb gadget: high-speed config #1: android
+<6>[    3.306973] c0      0 [USB] Avail curr from USB = 500
+<6>[    3.307004] c0      0 [USB] Power Supply doesn't support USB charger
+<6>[    3.307034] c0      0 [BATT][CHG] Enter charge=500 (deprecated api)
+<6>[    3.318815] c2      1 [USBDIAG] diagchar_open:init(parent:swapper/0): tgid=1
+<6>[    3.318907] c2      1 [USBDIAG] diagcharmdm_open:init(parent:swapper/0): tgid=1
+<6>[    3.318937] c2      1 [USBDIAG] diagcharmdm_close:init(parent:swapper/0): tgid=1
+<6>[    3.318968] c2      1 [USBDIAG] diagcharmdm_close:#0(1) init close
+<6>[    3.318998] c2      1 [USBDIAG] htc_diag_open:init(parent:swapper/0): tgid=1
+<6>[    3.319029] c2      1 [USBDIAG] htc_diag_release: 
+<6>[    3.319059] c2      1 [USBDIAG] diag2arm9_open
+<6>[    3.319090] c2      1 [USBDIAG] diag2arm9_release
+<6>[    3.319182] c2      1 [USBDIAG] diagchar_open:init(parent:swapper/0): tgid=1
+<6>[    3.319243] c2      1 [USBDIAG] diagcharmdm_open:init(parent:swapper/0): tgid=1
+<6>[    3.319273] c2      1 [USBDIAG] diagcharmdm_close:init(parent:swapper/0): tgid=1
+<6>[    3.319304] c2      1 [USBDIAG] diagcharmdm_close:#0(1) init close
+<6>[    3.319304] c2      1 [USBDIAG] htc_diag_open:init(parent:swapper/0): tgid=1
+<6>[    3.319334] c2      1 [USBDIAG] htc_diag_release: 
+<6>[    3.319365] c2      1 [USBDIAG] diag2arm9_open
+<6>[    3.319395] c2      1 [USBDIAG] diag2arm9_release
+<3>[    3.321776] c2      1 init: cannot find '/system/bin/thermald', disabling 'thermald_boot'
+<3>[    3.321806] c2      1 init: cannot find '/system/bin/mpdecision', disabling 'mpdecision'
+<3>[    3.322844] c2      1 init: cannot find '/sbin/hdf', disabling 'hdf'
+<6>[    3.364535] c0     53 [USB] android_work: android_work: sent uevent USB_STATE=CONFIGURED
+<6>[    3.404639] c2    143 android_usb gadget: composite_request_reset
+<6>[    3.404822] c2    143 [USB] ci13xxx_pullup: 0
+<6>[    3.415656] c2      1 [NFC] pn544_dev_open : major=10, minor=80
+<6>[    3.415748] c2      1 [NFC] pn544_dev_open : major=10, minor=80
+<3>[    3.416389] c2      1 init: skipping insecure file '/system/lib/modules/bcmdhd.ko'
+<7>[    3.426644] c0    218 [MDM][COMM] mdm_modem_ioctl: Entering ioctl cmd = 94
+<6>[    3.426674] c0    218 [MDM][COMM] mdm_modem_ioctl: board_mfg_mode()=0
+<7>[    3.426705] c0    218 [MDM][COMM] mdm_modem_ioctl: Entering ioctl cmd = 102
+<6>[    3.426705] c0    218 [MDM][COMM] mdm_modem_ioctl: (HTC_UPDATE_CRC_RESTART_LEVEL)
+<6>[    3.426735] c0    218 [SSR] subsystem_update_restart_level_for_crc: Default SSR is Enabled...
+<6>[    3.449198] c2      1 [USBDIAG] diagchar_open:init(parent:swapper/0): tgid=1
+<6>[    3.449473] c2      1 [USBDIAG] diagcharmdm_open:init(parent:swapper/0): tgid=1
+<6>[    3.449565] c2      1 [USBDIAG] diagcharmdm_close:init(parent:swapper/0): tgid=1
+<6>[    3.449626] c2      1 [USBDIAG] diagcharmdm_close:#0(1) init close
+<6>[    3.449748] c2      1 [USBDIAG] htc_diag_open:init(parent:swapper/0): tgid=1
+<6>[    3.449839] c2      1 [USBDIAG] htc_diag_release: 
+<6>[    3.450969] c2      1 [USBDIAG] diag2arm9_open
+<6>[    3.451274] c2      1 [USBDIAG] diag2arm9_release
+<6>[    3.451487] c2      1 [USBDIAG] diagchar_open:init(parent:swapper/0): tgid=1
+<6>[    3.451701] c2      1 [USBDIAG] diagcharmdm_open:init(parent:swapper/0): tgid=1
+<6>[    3.451793] c2      1 [USBDIAG] diagcharmdm_close:init(parent:swapper/0): tgid=1
+<6>[    3.451854] c2      1 [USBDIAG] diagcharmdm_close:#0(1) init close
+<6>[    3.451976] c2      1 [USBDIAG] htc_diag_open:init(parent:swapper/0): tgid=1
+<6>[    3.452037] c2      1 [USBDIAG] htc_diag_release: 
+<6>[    3.452189] c2      1 [USBDIAG] diag2arm9_open
+<6>[    3.452281] c2      1 [USBDIAG] diag2arm9_release
+<6>[    3.454631] c1     79 [HS_1WIRE] (onewire_init_work_func) Open /dev/ttyHSL3
+<6>[    3.454692] c1     79 [HS_1WIRE] (openFile) Open: fp count = 1
+<6>[    3.455089] c1     79 [HS_1WIRE] (onewire_init_work_func) Private data exist
+<6>[    3.455119] c1     79 [HS_1WIRE] (closeFile) Close: fp count = 0
+<3>[    3.479688] c2      1 init: service 'console' requires console
+<3>[    3.521989] c1      1 init: cannot find '/system/bin/hdmid', disabling 'hdmid'
+<6>[    3.522356] c1      1 [USB] android_switch_function: android_switch_function: 131, before 129
+<6>[    3.522356] c1      1 [USB] ci13xxx_pullup: 0
+<6>[    3.522539] c1      1 [USB] android_switch_function: # mtp
+<6>[    3.522569] c1      1 [USB] android_switch_function: # adb
+<6>[    3.522569] c1      1 [USB] android_switch_function: # mass_storage
+<6>[    3.522569] c1      1 [USB] android_switch_function: android_switch_function: vendor_id=0xbb4, product_id=0xdff
+<6>[    3.522600] c1      1 [USB] android_bind_enabled_functions: android_bind_enabled_functions bind name: mtp
+<6>[    3.522600] c1      1 [USB] mtp_bind_config
+<6>[    3.522600] c1      1 ===========interface_id 0 mtp
+<6>[    3.522661] c1      1 [USB] android_bind_enabled_functions: android_bind_enabled_functions bind name: adb
+<6>[    3.522661] c1      1 adb_bind_config
+<6>[    3.522661] c1      1 ===========interface_id 1 adb
+<6>[    3.522691] c1      1 [USB] android_bind_enabled_functions: android_bind_enabled_functions bind name: mass_storage
+<6>[    3.522691] c1      1 ===========interface_id 2 mass_storage
+<7>[    3.522722] c1      1 [USBH] ci13xxx_request_reset
+<6>[    3.522722] c1      1 [USBH] msm_otg_reset
+<6>[    3.522752] c1      1 [USBH] phy_reset: success
+<6>[    3.525194] c1    248 [USB] adb_open: adbd(parent:init): tgid=246
+<7>[    3.543903] c0    218 [MDM][COMM] mdm_modem_ioctl: Entering ioctl cmd = 1
+<6>[    3.543903] c0    218 [MDM][COMM] mdm_modem_ioctl: Powering on mdm
+<6>[    3.561056] c0    253 [BATT][CHG] set mitigation level(0) current=1100
+<6>[    3.561391] c0    253 [BATT] Set context disable_limit_chg = 0 at 3556932691 (2013-09-23 03:16:38.870450406 UTC)
+<4>[    3.568747] c0    251 EXT4-fs (mmcblk0p32): warning: maximal mount count reached, running e2fsck is recommended
+<6>[    3.624752] c1      1 [USBH] ulpi: write 0x5a to 0x81
+<6>[    3.624813] c1      1 [USBH] ulpi: write 0x24 to 0x82
+<6>[    3.624965] c1      1 [USB] CI13XXX_CONTROLLER_RESET_EVENT received
+<6>[    3.642087] c1    256 ion_client_create: create ion_client (qseecomd) at dda2dbc0
+<6>[    3.642575] c2    214 warning: `rild' uses 32-bit capabilities (legacy support in use)
+<6>[    3.643033] c1    256 ion_client_create: create ion_client (qseecomd) at dda2dec0
+<3>[    3.698092] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[    3.726629] c1      1 [USB] ci13xxx_pullup: 1
+<6>[    3.726629] c1      1 [USB] unknown ci13xxx_udc event
+<6>[    3.729681] c0    222 [USB] suspend
+<6>[    3.789134] c0    251 EXT4-fs (mmcblk0p32): re-mounted. Opts: (null)
+<6>[    3.874439] c0      0 [USB] reset
+<6>[    3.874469] c0      0 [USB] Avail curr from USB = 0
+<6>[    3.874500] c0      0 [USB] Power Supply doesn't support USB charger
+<6>[    3.874500] c0      0 [BATT][CHG] Enter charge=0 (deprecated api)
+<6>[    3.876697] c0     53 [USB] portsc = 88000a05
+<6>[    3.876728] c0     53 [USB] portchange USB_SPEED_HIGH
+<6>[    3.914573] c2    143 [USB] ci13xxx_pullup: 1
+<6>[    3.914603] c2    143 [USB] unknown ci13xxx_udc event
+<6>[    3.948695] c0      0 [USB] reset
+<6>[    3.950953] c0      0 [USB] portsc = 88000a05
+<6>[    3.950953] c0      0 [USB] portchange USB_SPEED_HIGH
+<6>[    4.037295] c0    294 composite_setup: OS_LINUX
+<6>[    4.039645] c0    294 android_usb gadget: high-speed config #1: android
+<6>[    4.040012] c0    294 [USB] Avail curr from USB = 500
+<6>[    4.040073] c0    294 [USB] Power Supply doesn't support USB charger
+<6>[    4.040134] c0    294 [BATT][CHG] Enter charge=500 (deprecated api)
+<6>[    4.041263] c0     53 [USB] android_work: android_work: sent missed DISCONNECT event
+<6>[    4.044834] c0    149 usb 1-1: usb_runtime_suspend : autosuspend_check ret -95
+<6>[    4.064611] c0     53 [USB] android_work: android_work: sent CONNECT event
+<6>[    4.125255] c1    313 EXT4-fs (mmcblk0p32): re-mounted. Opts: (null)
+<6>[    4.131237] c1    315 EXT4-fs (mmcblk0p32): re-mounted. Opts: (null)
+<6>[    4.135418] c0    149 android_usb gadget: composite_request_reset
+<6>[    4.135510] c0    149 [USB] ci13xxx_pullup: 0
+<6>[    4.135998] c1    250 [USB] adb_release: adbd(parent:init): tgid=246
+<6>[    4.136242] c1    248 [USB] adb_open: adbd(parent:init): tgid=246
+<6>[    4.152937] c2    214 [USBDIAG] diagchar_open:rild(parent:init): tgid=214
+<6>[    4.154738] c0     53 [USB] android_work: android_work: sent uevent USB_STATE=CONFIGURED
+<3>[    4.198351] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[    4.219899] c3    341 EXT4-fs (mmcblk0p32): re-mounted. Opts: (null)
+<7>[    4.344666] c1     79 [DISP] Drv: ReadHPD: D
+<6>[    4.344697] c1     79 hdmi_msm hdmi_msm.1: HDMI HPD: event detected
+<6>[    4.344697] c1     79 hdmi_msm hdmi_msm.1: HDMI HPD: QDSP OFF
+<6>[    4.344788] c1     79 hdmi_msm hdmi_msm.1: CBusHPD :0, PreCBusHPD:0
+<6>[    4.344788] c1     79 hdmi_msm hdmi_msm.1: HDMI HPD: sense DISCONNECTED: send OFFLINE
+<6>[    4.344819] c1     79 hdmi_msm hdmi_msm.1: Hdmi state switch to 0: hdmi_msm_hpd_state_work
+<6>[    4.643522] c3    328 [DISP] update panel framerate 59 -> 60
+<6>[    4.644681] c0    149 [USB] ci13xxx_pullup: 1
+<6>[    4.644712] c0    149 [USB] unknown ci13xxx_udc event
+<6>[    4.647764] c0    233 [USB] suspend
+<3>[    4.698824] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[    4.731329] c3    328 msm_fb_ioctl: device (1080, 1920), client (0, 0)
+<6>[    4.732061] c0    433 hdmi_msm hdmi_msm.1: hdmi_3d_wta_format_3d: '7' (notify ready)
+<7>[    4.783976] c2    432 [NET][CORE][RULE] fib_nl_dumprule 
+<7>[    4.783976] c2    432 [NET][CORE][RULE] lookup_rules_ops 
+<7>[    4.783976] c2    432 [NET][CORE][RULE] dump_rules ,owner=(null)
+<7>[    4.783976] c2    432 [NET][CORE][RULE] fib_nl_fill_rule ,owner=(null)
+<7>[    4.784007] c2    432 [NET][IPV4][RULE] fib4_rule_fill 
+<7>[    4.784007] c2    432 [NET][CORE][RULE] fib_nl_fill_rule ,owner=(null)
+<7>[    4.784007] c2    432 [NET][IPV4][RULE] fib4_rule_fill 
+<7>[    4.784007] c2    432 [NET][CORE][RULE] fib_nl_fill_rule ,owner=(null)
+<7>[    4.784037] c2    432 [NET][IPV4][RULE] fib4_rule_fill 
+<7>[    4.784037] c2    432 [NET][CORE][RULE] rules_ops_put ,owner=(null)
+<7>[    4.784068] c2    432 [NET][CORE][RULE] fib_nl_dumprule 
+<7>[    4.784098] c2    432 [NET][CORE][RULE] lookup_rules_ops 
+<7>[    4.784098] c2    432 [NET][CORE][RULE] dump_rules ,owner=(null)
+<7>[    4.784098] c2    432 [NET][CORE][RULE] rules_ops_put ,owner=(null)
+<7>[    4.784220] c2    432 [NET][CORE][RULE] fib_nl_delrule 
+<7>[    4.784220] c2    432 [NET][CORE][RULE] lookup_rules_ops 
+<7>[    4.784251] c2    432 [NET][CORE][RULE] validate_rulemsg ,owner=(null)
+<7>[    4.784251] c2    432 [NET][CORE][RULE] notify_rule_change ,owner=(null)
+<7>[    4.784251] c2    432 [NET][CORE][RULE] fib_rule_nlmsg_size 
+<7>[    4.784251] c2    432 [NET][CORE][RULE] fib_nl_fill_rule ,owner=(null)
+<7>[    4.784282] c2    432 [NET][IPV4][RULE] fib4_rule_fill 
+<7>[    4.784282] c2    432 [NET][CORE][RULE] flush_route_cache ,owner=(null)
+<7>[    4.784282] c2    432 [NET][IPV4][RULE] fib4_rule_flush_cache 
+<7>[    4.784312] c2    432 [NET][CORE][RULE] rules_ops_put ,owner=(null)
+<7>[    4.784434] c2    432 [NET][CORE][RULE] fib_nl_delrule 
+<7>[    4.784434] c2    432 [NET][CORE][RULE] lookup_rules_ops 
+<7>[    4.784434] c2    432 [NET][CORE][RULE] validate_rulemsg ,owner=(null)
+<7>[    4.784465] c2    432 [NET][CORE][RULE] notify_rule_change ,owner=(null)
+<7>[    4.784465] c2    432 [NET][CORE][RULE] fib_rule_nlmsg_size 
+<7>[    4.784465] c2    432 [NET][CORE][RULE] fib_nl_fill_rule ,owner=(null)
+<7>[    4.784465] c2    432 [NET][IPV4][RULE] fib4_rule_fill 
+<7>[    4.784495] c2    432 [NET][CORE][RULE] flush_route_cache ,owner=(null)
+<7>[    4.784495] c2    432 [NET][IPV4][RULE] fib4_rule_flush_cache 
+<7>[    4.784526] c2    432 [NET][CORE][RULE] rules_ops_put ,owner=(null)
+<7>[    4.788402] c2    437 [NET][CORE][RULE] fib_nl_dumprule 
+<7>[    4.788402] c2    437 [NET][CORE][RULE] lookup_rules_ops 
+<7>[    4.788402] c2    437 [NET][CORE][RULE] dump_rules ,owner=(null)
+<7>[    4.788432] c2    437 [NET][CORE][RULE] fib_nl_fill_rule ,owner=(null)
+<7>[    4.788432] c2    437 [NET][IPV6][RULE] fib6_rule_fill 
+<7>[    4.788432] c2    437 [NET][CORE][RULE] fib_nl_fill_rule ,owner=(null)
+<7>[    4.788432] c2    437 [NET][IPV6][RULE] fib6_rule_fill 
+<7>[    4.788463] c2    437 [NET][CORE][RULE] rules_ops_put ,owner=(null)
+<7>[    4.788493] c2    437 [NET][CORE][RULE] fib_nl_dumprule 
+<7>[    4.788493] c2    437 [NET][CORE][RULE] lookup_rules_ops 
+<7>[    4.788493] c2    437 [NET][CORE][RULE] dump_rules ,owner=(null)
+<7>[    4.788493] c2    437 [NET][CORE][RULE] rules_ops_put ,owner=(null)
+<7>[    4.788615] c2    437 [NET][CORE][RULE] fib_nl_delrule 
+<7>[    4.788615] c2    437 [NET][CORE][RULE] lookup_rules_ops 
+<7>[    4.788615] c2    437 [NET][CORE][RULE] validate_rulemsg ,owner=(null)
+<7>[    4.788646] c2    437 [NET][CORE][RULE] notify_rule_change ,owner=(null)
+<7>[    4.788646] c2    437 [NET][CORE][RULE] fib_rule_nlmsg_size 
+<7>[    4.788646] c2    437 [NET][CORE][RULE] fib_nl_fill_rule ,owner=(null)
+<7>[    4.788676] c2    437 [NET][IPV6][RULE] fib6_rule_fill 
+<7>[    4.788676] c2    437 [NET][CORE][RULE] flush_route_cache ,owner=(null)
+<7>[    4.788676] c2    437 [NET][CORE][RULE] rules_ops_put ,owner=(null)
+<6>[    4.790538] c0    233 [USB] reset
+<6>[    4.790569] c0    233 [USB] Avail curr from USB = 0
+<6>[    4.790569] c0    233 [USB] Power Supply doesn't support USB charger
+<6>[    4.790599] c0    233 [BATT][CHG] Enter charge=0 (deprecated api)
+<7>[    4.792156] c2    438 [NET][CORE][RULE] fib_nl_newrule 
+<7>[    4.792156] c2    438 [NET][CORE][RULE] lookup_rules_ops 
+<7>[    4.792156] c2    438 [NET][CORE][RULE] validate_rulemsg ,owner=(null)
+<7>[    4.792186] c2    438 [NET][IPV4][RULE] fib4_rule_configure 
+<7>[    4.792186] c2    438 [NET][CORE][RULE] notify_rule_change ,owner=(null)
+<7>[    4.792217] c2    438 [NET][CORE][RULE] fib_rule_nlmsg_size 
+<7>[    4.792217] c2    438 [NET][CORE][RULE] fib_nl_fill_rule ,owner=(null)
+<7>[    4.792247] c2    438 [NET][IPV4][RULE] fib4_rule_fill 
+<7>[    4.792247] c2    438 [NET][CORE][RULE] flush_route_cache ,owner=(null)
+<7>[    4.792247] c2    438 [NET][IPV4][RULE] fib4_rule_flush_cache 
+<7>[    4.792278] c2    438 [NET][CORE][RULE] rules_ops_put ,owner=(null)
+<6>[    4.792766] c0      0 [USB] portsc = 88000a05
+<6>[    4.792797] c0      0 [USB] portchange USB_SPEED_HIGH
+<7>[    4.795849] c2    439 [NET][CORE][RULE] fib_nl_newrule 
+<7>[    4.795879] c2    439 [NET][CORE][RULE] lookup_rules_ops 
+<7>[    4.795879] c2    439 [NET][CORE][RULE] validate_rulemsg ,owner=(null)
+<7>[    4.795879] c2    439 [NET][IPV4][RULE] fib4_rule_configure 
+<7>[    4.795910] c2    439 [NET][CORE][RULE] notify_rule_change ,owner=(null)
+<7>[    4.795910] c2    439 [NET][CORE][RULE] fib_rule_nlmsg_size 
+<7>[    4.795940] c2    439 [NET][CORE][RULE] fib_nl_fill_rule ,owner=(null)
+<7>[    4.795940] c2    439 [NET][IPV4][RULE] fib4_rule_fill 
+<7>[    4.795940] c2    439 [NET][CORE][RULE] flush_route_cache ,owner=(null)
+<7>[    4.795940] c2    439 [NET][IPV4][RULE] fib4_rule_flush_cache 
+<7>[    4.795971] c2    439 [NET][CORE][RULE] rules_ops_put ,owner=(null)
+<7>[    4.799389] c2    440 [NET][CORE][RULE] fib_nl_newrule 
+<7>[    4.799389] c2    440 [NET][CORE][RULE] lookup_rules_ops 
+<7>[    4.799420] c2    440 [NET][CORE][RULE] validate_rulemsg ,owner=(null)
+<7>[    4.799420] c2    440 [NET][IPV6][RULE] fib6_rule_configure 
+<7>[    4.799450] c2    440 [NET][CORE][RULE] notify_rule_change ,owner=(null)
+<7>[    4.799450] c2    440 [NET][CORE][RULE] fib_rule_nlmsg_size 
+<7>[    4.799450] c2    440 [NET][CORE][RULE] fib_nl_fill_rule ,owner=(null)
+<7>[    4.799481] c2    440 [NET][IPV6][RULE] fib6_rule_fill 
+<7>[    4.799481] c2    440 [NET][CORE][RULE] flush_route_cache ,owner=(null)
+<7>[    4.799481] c2    440 [NET][CORE][RULE] rules_ops_put ,owner=(null)
+<7>[    4.802990] c2    441 [NET][CORE][RULE] fib_nl_newrule 
+<7>[    4.802990] c2    441 [NET][CORE][RULE] lookup_rules_ops 
+<7>[    4.802990] c2    441 [NET][CORE][RULE] validate_rulemsg ,owner=(null)
+<7>[    4.803021] c2    441 [NET][IPV6][RULE] fib6_rule_configure 
+<7>[    4.803021] c2    441 [NET][CORE][RULE] notify_rule_change ,owner=(null)
+<7>[    4.803021] c2    441 [NET][CORE][RULE] fib_rule_nlmsg_size 
+<7>[    4.803052] c2    441 [NET][CORE][RULE] fib_nl_fill_rule ,owner=(null)
+<7>[    4.803052] c2    441 [NET][IPV6][RULE] fib6_rule_fill 
+<7>[    4.803052] c2    441 [NET][CORE][RULE] flush_route_cache ,owner=(null)
+<7>[    4.803082] c2    441 [NET][CORE][RULE] rules_ops_put ,owner=(null)
+<6>[    4.864642] c0      0 [USB] reset
+<6>[    4.866900] c0    456 [USB] portsc = 88000a05
+<6>[    4.866900] c0    456 [USB] portchange USB_SPEED_HIGH
+<6>[    4.953212] c0    152 composite_setup: OS_LINUX
+<6>[    4.954799] c0    152 android_usb gadget: high-speed config #1: android
+<6>[    4.954921] c0    152 [USB] Avail curr from USB = 500
+<6>[    4.954951] c0    152 [USB] Power Supply doesn't support USB charger
+<6>[    4.954951] c0    152 [BATT][CHG] Enter charge=500 (deprecated api)
+<6>[    4.955714] c0    149 [USB] android_work: android_work: sent missed DISCONNECT event
+<6>[    4.984678] c0    149 [USB] android_work: android_work: sent CONNECT event
+<6>[    5.084297] c0    149 [USB] android_work: android_work: sent uevent USB_STATE=CONFIGURED
+<6>[    5.141767] c0    328 [DISP] cabc_level_ctl_switch: change cabc level
+<3>[    5.199023] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<3>[    5.205859] c1      1 init: sys_prop: permission denied uid:1003  name:service.bootanim.ready
+<6>[    5.241049] c0    149 [DISP] mipi_dsi_on+:
+<6>[    5.289882] c0    149 [DISP] mipi_dsi_on-:
+<6>[    5.442575] c0    149 [DISP] monarudo_display_on
+<6>[    5.442575] c0    149 [DISP] msm_fb_pan_display_sub: bl_level 0 ignore_bkl_zero 0
+<6>[    5.442606] c0    149 [DISP] brightness orig=143, transformed=83
+<3>[    5.699221] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[    5.703036] c0    226 [USBDIAG] diagchar_open:mediaserver(parent:init): tgid=226
+<6>[    5.703189] c0    226 [USBDIAG] diagchar_ioctl:mediaserver(parent:init): tgid=226
+<6>[    5.703250] c0    226 ion_client_create: create ion_client (mediaserver) at dd4f47c0
+<6>[    5.703464] c0    226 ion_client_create: create ion_client (audio_acdb_client) at de06b2c0
+<6>[    5.703921] c0    226 [AUD] htc-acoustic: open
+<6>[    5.703952] c0    226 [AUD] htc-acoustic: support components: 0x1
+<6>[    5.703952] c0    226 [AUD] htc-acoustic: release
+<6>[    5.841385] c3    215 ion_client_create: create ion_client (surfaceflinger) at dd4efec0
+<6>[    5.859697] c3    509 ion_client_create: create ion_client (bootanimation) at dd4efc00
+<3>[    5.867388] c3      1 init: sys_prop: permission denied uid:1003  name:service.bootanim.ready
+<6>[    5.867907] c3    118 mdp4_overlay_mdp_perf_upd mdp clk is changed [1] from 0 to 177780000
+<6>[    5.870135] c3    118 mdp4_overlay_mdp_perf_upd mdp bw is changed [1] from 4 to 1
+<3>[    6.199389] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[    6.310758] c1    226 [AUD] htc-acoustic: open
+<6>[    6.310758] c1    226 [AUD] htc-acoustic: support components: 0x20
+<6>[    6.310788] c1    226 [AUD] htc-acoustic: release
+<6>[    6.318419] c1    226 [AUD] rt5501: rt5501_ioctl: update rt5501 i2c commands #21 success.
+<6>[    6.318449] c1    226 [AUD] rt5501: update_amp_parameter: set mode 2
+<6>[    6.318449] c1    226 [AUD] rt5501: update_amp_parameter: set mode 1
+<6>[    6.318480] c1    226 [AUD] rt5501: update_amp_parameter: set mode 0
+<6>[    6.334564] c3    226 [AUD] htc-acoustic: open
+<6>[    6.335602] c3    226 [AUD] htc-acoustic: Set Q6 Effect : 0
+<6>[    6.335632] c3    226 apq8064_set_q6_effect_mode: mode 0
+<6>[    6.335632] c3    226 [AUD] htc-acoustic: release
+<6>[    6.342102] c3    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    6.342682] c3    226 [AUD] snd_soc_core: soc_dpcm_be_dai_startup:open BE MI2S Playback
+<6>[    6.342682] c3    226 [AUD] snd_soc_core: soc_pcm_open: pcm open MI2S Playback
+<6>[    6.342774] c3    226 [AUD] snd_soc_msm8960: spk amp on ++
+<6>[    6.342804] c3    226 [AUD] tfa9887: set_tfa9887_spkamp: en = 1 dsp_enabled = 0
+<6>[    6.343201] c3    226 [AUD] snd_soc_msm8960: spk amp on --
+<6>[    6.343232] c3    226 [AUD] snd_soc_core: soc_pcm_open: pcm open MultiMedia1
+<6>[    6.343232] c3    226 [AUD] apr: apr_register: Load Q6 image
+<6>[    6.357851] c3    226 scm-pas: init image, id:1
+<6>[    6.359011] c3    226 scm-pas: init image, id:1 ret:0
+<6>[    6.684938] c0    226 scm-pas: auth and reset, id:1
+<6>[    6.696078] c3    548 usb_wwan_open
+<3>[    6.852403] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[    6.852586] c0    226 scm-pas: auth and reset, id:1 ret:0
+<6>[    6.857378] c0    226 pil pil0: q6: Brought out of reset
+<6>[    6.874530] c0    149 [SYSMON] sysmon_probe() name=sys_mon
+<6>[    6.876361] c1     20 [USBDIAG] diagchar_ioctl:kworker/u:1(parent:kthreadd): tgid=20
+<6>[    6.876453] c1     20 [USBDIAG] diagchar_ioctl:kworker/u:1(parent:kthreadd): tgid=20
+<6>[    6.876545] c1     20 [USBDIAG] diagchar_ioctl:kworker/u:1(parent:kthreadd): tgid=20
+<6>[    6.876636] c1     20 [USBDIAG] diagchar_ioctl:kworker/u:1(parent:kthreadd): tgid=20
+<6>[    6.876728] c1     20 [USBDIAG] diagchar_ioctl:kworker/u:1(parent:kthreadd): tgid=20
+<6>[    6.876789] c1     20 [USBDIAG] diagchar_ioctl:kworker/u:1(parent:kthreadd): tgid=20
+<6>[    6.876880] c1     20 [USBDIAG] diagchar_ioctl:kworker/u:1(parent:kthreadd): tgid=20
+<6>[    6.887471] c0    166 [AUD] apr_tal: apr_tal:Q6 Is Up
+<6>[    6.888081] c0    226 [AUD] apr_tal: apr_tal: SMD_EVENT_OPEN
+<6>[    7.134655] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.134686] c0    226 [AUD] q6asm: q6asm_open_write_v2:change to HTC_POPP_TOPOLOGY
+<6>[    7.141584] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.141614] c0    226 ion_client_create: create ion_client (audio_client) at dde0d580
+<6>[    7.144056] c0    226 [AUD] snd_soc_qdsp6: msm_pcm_hw_params:buf = de7a5d00
+<6>[    7.144147] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.147199] c0    226 [AUD] q6adm: adm_matrix_map: session 0x1 path:1 num_copps:1 port_id[0]:6
+<6>[    7.147230] c0    226 [AUD] q6adm: adm_matrix_map: port_id[0]: 6, index: 6
+<6>[    7.148786] c0    226 [AUD] q6afe: afe_port_start: 6 48000
+<6>[    7.153273] c3    226 [AUD] tfa9887: tfa9887_ioctl: TPA9887_ENABLE_DSP
+<6>[    7.283808] c0    226 [AUD] tfa9887: tfa9887_open: busy
+<6>[    7.283808] c0    226 [AUD] tfa9887: tfa9887_ioctl: TPA9887_ENABLE_DSP
+<6>[    7.347352] c0    226 [AUD] snd_pcm: snd_pcm_drop: runtime->status->state 2
+<6>[    7.351014] c0    226 ion_client_destroy: destroy ion_client dde0d580 (audio_client)
+<6>[    7.351045] c0    226 [AUD] q6adm: adm_close port_id=6 index 6
+<3>[    7.352601] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[    7.355135] c0    226 [AUD] q6afe: afe_close: port_id=6
+<6>[    7.358553] c0    226 [AUD] snd_soc_msm8960: spk amp off++
+<6>[    7.358583] c0    226 [AUD] tfa9887: set_tfa9887_spkamp: en = 0 dsp_enabled = 1
+<6>[    7.365573] c0    226 [AUD] snd_soc_msm8960: spk amp off--
+<6>[    7.447611] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.447947] c0    226 [AUD] snd_soc_core: soc_dpcm_be_dai_startup:open BE MI2S Playback
+<6>[    7.447978] c0    226 [AUD] snd_soc_core: soc_pcm_open: pcm open MI2S Playback
+<6>[    7.448039] c0    226 [AUD] snd_soc_msm8960: spk amp on ++
+<6>[    7.448039] c0    226 [AUD] tfa9887: set_tfa9887_spkamp: en = 1 dsp_enabled = 1
+<6>[    7.449015] c0    226 [AUD] snd_soc_msm8960: spk amp on --
+<6>[    7.449046] c0    226 [AUD] snd_soc_core: soc_pcm_open: pcm open MultiMedia1
+<6>[    7.449168] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.449168] c0    226 [AUD] q6asm: q6asm_open_write_v2:change to HTC_POPP_TOPOLOGY
+<6>[    7.453685] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.453715] c0    226 ion_client_create: create ion_client (audio_client) at dd6b7100
+<6>[    7.456004] c0    226 [AUD] snd_soc_qdsp6: msm_pcm_hw_params:buf = de7a5d00
+<6>[    7.456096] c0    226 [AUD] snd_pcm: snd_pcm_drop: runtime->status->state 1
+<6>[    7.459575] c0    226 ion_client_destroy: destroy ion_client dd6b7100 (audio_client)
+<6>[    7.459636] c0    226 [AUD] snd_soc_msm8960: spk amp off++
+<6>[    7.459636] c0    226 [AUD] tfa9887: set_tfa9887_spkamp: en = 0 dsp_enabled = 1
+<6>[    7.460888] c0    226 [AUD] snd_soc_msm8960: spk amp off--
+<6>[    7.462536] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.462780] c0    226 [AUD] snd_soc_core: soc_dpcm_be_dai_startup:open BE MI2S Playback
+<6>[    7.462780] c0    226 [AUD] snd_soc_core: soc_pcm_open: pcm open MI2S Playback
+<6>[    7.462871] c0    226 [AUD] snd_soc_msm8960: spk amp on ++
+<6>[    7.462871] c0    226 [AUD] tfa9887: set_tfa9887_spkamp: en = 1 dsp_enabled = 1
+<6>[    7.463787] c0    226 [AUD] snd_soc_msm8960: spk amp on --
+<6>[    7.463818] c0    226 [AUD] snd_soc_core: soc_pcm_open: pcm open MultiMedia1
+<6>[    7.463940] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.463940] c0    226 [AUD] q6asm: q6asm_open_write_v2:change to HTC_POPP_TOPOLOGY
+<6>[    7.468182] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.468213] c0    226 ion_client_create: create ion_client (audio_client) at dd6b7700
+<6>[    7.470379] c0    226 [AUD] snd_soc_qdsp6: msm_pcm_hw_params:buf = de7a5d00
+<6>[    7.470441] c0    226 [AUD] snd_pcm: snd_pcm_drop: runtime->status->state 1
+<6>[    7.473981] c0    226 ion_client_destroy: destroy ion_client dd6b7700 (audio_client)
+<6>[    7.474042] c0    226 [AUD] snd_soc_msm8960: spk amp off++
+<6>[    7.474042] c0    226 [AUD] tfa9887: set_tfa9887_spkamp: en = 0 dsp_enabled = 1
+<6>[    7.475415] c0    226 [AUD] snd_soc_msm8960: spk amp off--
+<6>[    7.479047] c3    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.479322] c3    226 [AUD] snd_soc_core: soc_dpcm_be_dai_startup:open BE MI2S Playback
+<6>[    7.479322] c3    226 [AUD] snd_soc_core: soc_pcm_open: pcm open MI2S Playback
+<6>[    7.479414] c3    226 [AUD] snd_soc_msm8960: spk amp on ++
+<6>[    7.479414] c3    226 [AUD] tfa9887: set_tfa9887_spkamp: en = 1 dsp_enabled = 1
+<6>[    7.480329] c0    226 [AUD] snd_soc_msm8960: spk amp on --
+<6>[    7.480329] c0    226 [AUD] snd_soc_core: soc_pcm_open: pcm open MultiMedia1
+<6>[    7.480482] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.480482] c0    226 [AUD] q6asm: q6asm_open_write_v2:change to HTC_POPP_TOPOLOGY
+<6>[    7.485090] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.485151] c0    226 ion_client_create: create ion_client (audio_client) at dd75ea80
+<6>[    7.486952] c0    226 [AUD] snd_soc_qdsp6: msm_pcm_hw_params:buf = de7a5d00
+<6>[    7.487074] c0    226 [AUD] snd_pcm: snd_pcm_drop: runtime->status->state 1
+<6>[    7.490584] c0    226 ion_client_destroy: destroy ion_client dd75ea80 (audio_client)
+<6>[    7.490645] c0    226 [AUD] snd_soc_msm8960: spk amp off++
+<6>[    7.490645] c0    226 [AUD] tfa9887: set_tfa9887_spkamp: en = 0 dsp_enabled = 1
+<6>[    7.491805] c0    226 [AUD] snd_soc_msm8960: spk amp off--
+<6>[    7.493392] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.493636] c0    226 [AUD] snd_soc_core: soc_dpcm_be_dai_startup:open BE MI2S Playback
+<6>[    7.493667] c0    226 [AUD] snd_soc_core: soc_pcm_open: pcm open MI2S Playback
+<6>[    7.493728] c0    226 [AUD] snd_soc_msm8960: spk amp on ++
+<6>[    7.493728] c0    226 [AUD] tfa9887: set_tfa9887_spkamp: en = 1 dsp_enabled = 1
+<6>[    7.495101] c0    226 [AUD] snd_soc_msm8960: spk amp on --
+<6>[    7.495101] c0    226 [AUD] snd_soc_core: soc_pcm_open: pcm open MultiMedia1
+<6>[    7.495223] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.495254] c0    226 [AUD] q6asm: q6asm_open_write_v2:change to HTC_POPP_TOPOLOGY
+<6>[    7.499557] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.499587] c0    226 ion_client_create: create ion_client (audio_client) at dd75e700
+<6>[    7.501724] c0    226 [AUD] snd_soc_qdsp6: msm_pcm_hw_params:buf = de7a5d00
+<6>[    7.501815] c0    226 [AUD] snd_pcm: snd_pcm_drop: runtime->status->state 1
+<6>[    7.505356] c0    226 ion_client_destroy: destroy ion_client dd75e700 (audio_client)
+<6>[    7.505417] c0    226 [AUD] snd_soc_msm8960: spk amp off++
+<6>[    7.505447] c0    226 [AUD] tfa9887: set_tfa9887_spkamp: en = 0 dsp_enabled = 1
+<6>[    7.506821] c0    226 [AUD] snd_soc_msm8960: spk amp off--
+<6>[    7.511185] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.511551] c0    226 [AUD] snd_soc_core: soc_dpcm_be_dai_startup:open BE MI2S Playback
+<6>[    7.511551] c0    226 [AUD] snd_soc_core: soc_pcm_open: pcm open MI2S Playback
+<6>[    7.511643] c0    226 [AUD] snd_soc_msm8960: spk amp on ++
+<6>[    7.511643] c0    226 [AUD] tfa9887: set_tfa9887_spkamp: en = 1 dsp_enabled = 1
+<6>[    7.513383] c0    226 [AUD] snd_soc_msm8960: spk amp on --
+<6>[    7.513383] c0    226 [AUD] snd_soc_core: soc_pcm_open: pcm open MultiMedia1
+<6>[    7.513535] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.513535] c0    226 [AUD] q6asm: q6asm_open_write_v2:change to HTC_POPP_TOPOLOGY
+<6>[    7.518296] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.518358] c0    226 ion_client_create: create ion_client (audio_client) at dd75ed00
+<6>[    7.520189] c0    226 [AUD] snd_soc_qdsp6: msm_pcm_hw_params:buf = de7a5d00
+<6>[    7.520372] c0    226 [AUD] snd_pcm: snd_pcm_drop: runtime->status->state 1
+<6>[    7.523851] c0    226 ion_client_destroy: destroy ion_client dd75ed00 (audio_client)
+<6>[    7.523912] c0    226 [AUD] snd_soc_msm8960: spk amp off++
+<6>[    7.523943] c0    226 [AUD] tfa9887: set_tfa9887_spkamp: en = 0 dsp_enabled = 1
+<6>[    7.526720] c0    226 [AUD] snd_soc_msm8960: spk amp off--
+<6>[    7.529253] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.531298] c2    226 [AUD] snd_soc_core: soc_dpcm_be_dai_startup:open BE MI2S Playback
+<6>[    7.531420] c2    226 [AUD] snd_soc_core: soc_pcm_open: pcm open MI2S Playback
+<6>[    7.531756] c2    226 [AUD] snd_soc_msm8960: spk amp on ++
+<6>[    7.531848] c2    226 [AUD] tfa9887: set_tfa9887_spkamp: en = 1 dsp_enabled = 1
+<6>[    7.535357] c0    226 [AUD] snd_soc_msm8960: spk amp on --
+<6>[    7.535388] c0    226 [AUD] snd_soc_core: soc_pcm_open: pcm open MultiMedia1
+<6>[    7.535785] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.535815] c0    226 [AUD] q6asm: q6asm_open_write_v2:change to HTC_POPP_TOPOLOGY
+<6>[    7.540057] c0    226 apq8064_get_q6_effect_mode: mode 0
+<6>[    7.540088] c0    226 ion_client_create: create ion_client (audio_client) at dd75eec0
+<6>[    7.542499] c0    226 [AUD] snd_soc_qdsp6: msm_pcm_hw_params:buf = de7a5d00
+<6>[    7.542591] c0    226 [AUD] snd_pcm: snd_pcm_drop: runtime->status->state 1
+<6>[    7.555318] c0    226 ion_client_destroy: destroy ion_client dd75eec0 (audio_client)
+<6>[    7.555379] c0    226 [AUD] snd_soc_msm8960: spk amp off++
+<6>[    7.555409] c0    226 [AUD] tfa9887: set_tfa9887_spkamp: en = 0 dsp_enabled = 1
+<6>[    7.557210] c0    226 [AUD] snd_soc_msm8960: spk amp off--
+<3>[    7.852891] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[    8.024813] c2     20 [BATT] unknown_usb_detect_worker
+<3>[    8.353395] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<3>[    8.853654] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<3>[    9.354097] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<3>[    9.855699] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<3>[   10.356447] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[   10.464977] c1     79 [HS_PMIC] (irq_init_work_func) Enable detect IRQ
+<6>[   10.465069] c1     79 [HS_PMIC] (irq_init_work_func) Setup button IRQ type
+<6>[   10.625362] c0    624 [LS][cm3629] lightsensor_open
+<6>[   10.625453] c0    624 [LS][cm3629] lightsensor_ioctl LIGHTSENSOR_IOCTL_GET_ENABLED, enabled 0
+<6>[   10.625545] c0    624 [LS][cm3629] lightsensor_release
+<3>[   10.858477] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[   10.944788] c0    166 [DISP] init_complete_handler()
+<7>[   10.944880] c0    166 [DISP] MhlTx: SiiMhlTxInitialize
+<7>[   10.947352] c0    166 [DISP] Drv: SiiMhlTxChipInitialize: 9244
+<7>[   10.948451] c0    166 [DISP] SiI 9234
+<7>[   10.948481] c0    166 [DISP] Drv: WriteInitialRegisterValues
+<7>[   10.977414] c0    166 [DISP] Drv: MHL 1.0 Compliant Clock
+<7>[   11.019136] c0    166 [DISP] Drv: InitCBusRegs
+<7>[   11.024385] c0    166 [DISP] Drv: Switch To D3: pinAllowD3 = 1
+<3>[   11.358736] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<3>[   11.858995] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[   12.165328] c3    624 [PS][cm3629] psensor_open
+<6>[   12.165511] c3    624 [PS][cm3629] psensor_ioctl cmd 1
+<7>[   12.165878] c3    624 [TIMERIRQ]timerirq_open: current->pid 624
+<6>[   12.166305] c3    624 MPL-accODR: 0 
+<6>[   12.166305] c3    624 MPL-accODR: 31250 
+<7>[   12.166488] c3    624 gyro_gsensor_kvalue[0] = 0x67
+<7>[   12.166519] c3    624 gyro_gsensor_kvalue[1] = 0x0
+<7>[   12.166519] c3    624 gyro_gsensor_kvalue[2] = 0x0
+<7>[   12.166519] c3    624 gyro_gsensor_kvalue[3] = 0x0
+<7>[   12.166549] c3    624 gyro_gsensor_kvalue[4] = 0x24
+<7>[   12.166549] c3    624 gyro_gsensor_kvalue[5] = 0x0
+<7>[   12.166549] c3    624 gyro_gsensor_kvalue[6] = 0x5
+<7>[   12.166549] c3    624 gyro_gsensor_kvalue[7] = 0xca
+<7>[   12.166580] c3    624 gyro_gsensor_kvalue[8] = 0xfc
+<7>[   12.166580] c3    624 gyro_gsensor_kvalue[9] = 0x0
+<7>[   12.166580] c3    624 gyro_gsensor_kvalue[10] = 0x1
+<7>[   12.166580] c3    624 gyro_gsensor_kvalue[11] = 0x1c
+<7>[   12.166610] c3    624 gyro_gsensor_kvalue[12] = 0x4
+<7>[   12.166610] c3    624 gyro_gsensor_kvalue[13] = 0x0
+<7>[   12.166610] c3    624 gyro_gsensor_kvalue[14] = 0x0
+<7>[   12.166610] c3    624 gyro_gsensor_kvalue[15] = 0xc8
+<7>[   12.166641] c3    624 gyro_gsensor_kvalue[16] = 0x5e
+<7>[   12.166641] c3    624 gyro_gsensor_kvalue[17] = 0x0
+<7>[   12.166641] c3    624 gyro_gsensor_kvalue[18] = 0x0
+<7>[   12.166671] c3    624 gyro_gsensor_kvalue[19] = 0xca
+<7>[   12.166671] c3    624 gyro_gsensor_kvalue[20] = 0x50
+<7>[   12.166671] c3    624 gyro_gsensor_kvalue[21] = 0xff
+<7>[   12.166671] c3    624 gyro_gsensor_kvalue[22] = 0xff
+<7>[   12.166702] c3    624 gyro_gsensor_kvalue[23] = 0xf8
+<7>[   12.166763] c3    624 gyro_gsensor_kvalue[24] = 0x6c
+<7>[   12.166793] c3    624 gyro_gsensor_kvalue[25] = 0xff
+<7>[   12.166793] c3    624 gyro_gsensor_kvalue[26] = 0xff
+<7>[   12.166793] c3    624 gyro_gsensor_kvalue[27] = 0xf9
+<7>[   12.166824] c3    624 gyro_gsensor_kvalue[28] = 0xb8
+<7>[   12.166824] c3    624 gyro_gsensor_kvalue[29] = 0x0
+<7>[   12.166824] c3    624 gyro_gsensor_kvalue[30] = 0x0
+<7>[   12.166824] c3    624 gyro_gsensor_kvalue[31] = 0x12
+<7>[   12.166854] c3    624 gyro_gsensor_kvalue[32] = 0xb8
+<7>[   12.166854] c3    624 gyro_gsensor_kvalue[33] = 0xf9
+<7>[   12.166854] c3    624 gyro_gsensor_kvalue[34] = 0xb1
+<7>[   12.166854] c3    624 gyro_gsensor_kvalue[35] = 0x28
+<7>[   12.166885] c3    624 gyro_gsensor_kvalue[36] = 0xa7
+<7>[   12.171890] c3    624 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, on = 1, motion_sensor_vreg_8921_l17 = 0x  (null)
+<4>[   12.171951] c3    624 8921_l17: Failed to create debugfs directory
+<7>[   12.172592] c0    624 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, Set to Low Power Mode
+<7>[   12.172623] c0    624 [MPU][MPL3.3.7]monarudo_mpu3050_sensor_power_LPM unlock 3
+<7>[   12.172653] c0    624 [GYRO][MPU3050] mpu_lpm_flag_store: mpu_lpm_flag = 1
+<7>[   12.172928] c0    624 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, on = 1, motion_sensor_vreg_8921_l17 = 0xdd6b7d80
+<7>[   12.172958] c0    624 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, Set to Low Power Mode
+<7>[   12.172958] c0    624 [MPU][MPL3.3.7]monarudo_mpu3050_sensor_power_LPM unlock 3
+<7>[   12.172989] c0    624 [GYRO][MPU3050] mpu_lpm_flag_store: mpu_lpm_flag = 1
+<7>[   12.173233] c0    624 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, on = 1, motion_sensor_vreg_8921_l17 = 0xdd6b7d80
+<7>[   12.173264] c0    624 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, Set to Low Power Mode
+<7>[   12.173294] c0    624 [MPU][MPL3.3.7]monarudo_mpu3050_sensor_power_LPM unlock 3
+<7>[   12.173294] c0    624 [GYRO][MPU3050] mpu_lpm_flag_store: mpu_lpm_flag = 1
+<7>[   12.173538] c0    624 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, on = 1, motion_sensor_vreg_8921_l17 = 0xdd6b7d80
+<7>[   12.173569] c0    624 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, Set to Low Power Mode
+<7>[   12.173599] c0    624 [MPU][MPL3.3.7]monarudo_mpu3050_sensor_power_LPM unlock 3
+<7>[   12.173599] c0    624 [GYRO][MPU3050] mpu_lpm_flag_store: mpu_lpm_flag = 1
+<7>[   12.173844] c0    624 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, on = 1, motion_sensor_vreg_8921_l17 = 0xdd6b7d80
+<7>[   12.173874] c0    624 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, Set to Low Power Mode
+<7>[   12.173874] c0    624 [MPU][MPL3.3.7]monarudo_mpu3050_sensor_power_LPM unlock 3
+<7>[   12.173905] c0    624 [GYRO][MPU3050] mpu_lpm_flag_store: mpu_lpm_flag = 1
+<7>[   12.174118] c0    624 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, on = 1, motion_sensor_vreg_8921_l17 = 0xdd6b7d80
+<7>[   12.174149] c0    624 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, Set to Low Power Mode
+<7>[   12.174179] c0    624 [MPU][MPL3.3.7]monarudo_mpu3050_sensor_power_LPM unlock 3
+<7>[   12.174210] c0    624 [GYRO][MPU3050] mpu_lpm_flag_store: mpu_lpm_flag = 1
+<7>[   12.174423] c0    624 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, on = 1, motion_sensor_vreg_8921_l17 = 0xdd6b7d80
+<7>[   12.174454] c0    624 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, Set to Low Power Mode
+<7>[   12.174484] c0    624 [MPU][MPL3.3.7]monarudo_mpu3050_sensor_power_LPM unlock 3
+<7>[   12.174515] c0    624 [GYRO][MPU3050] mpu_lpm_flag_store: mpu_lpm_flag = 1
+<6>[   12.174729] c0    624 [PS][cm3629] psensor_ioctl cmd 2
+<6>[   12.174759] c0    624 [PS][cm3629] psensor_disable 0
+<6>[   12.174759] c0    624 [PS][cm3629] psensor_disable: already disabled
+<6>[   12.176163] c0    624 [PS][cm3629] psensor_release
+<3>[   12.359285] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[   12.515428] c1    548 usb_wwan_close
+<7>[   12.519059] c3    218 [MDM][COMM] mdm_modem_ioctl: Entering ioctl cmd = 5
+<7>[   12.519121] c3    218 [MDM][COMM] mdm_modem_ioctl: check if mdm is booted up
+<6>[   12.519182] c3    218 [MDM][COMM] mdm_modem_ioctl: normal boot done
+<7>[   12.611567] c1     75 [MDM][COMM] mdm_status_change: mdm sent status change interrupt
+<6>[   12.611628] c1    108 [MDM] mdm_status_changed: MDM2AP_STATUS_GPIO changed to 1
+<6>[   12.611628] c1    108 [MDM] mdm_peripheral_disconnect+
+<6>[   12.705112] c1    108 ehci_hsic_msm_remove(2383): mdm_hsic_usb_hcd:0x0
+<6>[   12.708011] c1    108 msm_hsic_host msm_hsic_host: remove, state 1
+<6>[   12.708072] c1    108 usb usb1: USB disconnect, device number 1
+<6>[   12.708072] c1    108 usb 1-1: USB disconnect, device number 2
+<6>[   12.708622] c1    108 qcserial ttyUSB0: Qualcomm USB modem converter now disconnected from ttyUSB0
+<6>[   12.708713] c1    108 [WWAN_POOL] htc_put_wwan_buffer(71): list c0f3a7d0 put de7c4000
+<6>[   12.708744] c1    108 [WWAN_POOL] htc_put_wwan_buffer(71): list c0f3a7d0 put de7c8000
+<6>[   12.708774] c1    108 [WWAN_POOL] htc_put_wwan_buffer(71): list c0f3a7d0 put de7cc000
+<6>[   12.708774] c1    108 [WWAN_POOL] htc_put_wwan_buffer(71): list c0f3a7d0 put de7d0000
+<6>[   12.708805] c1    108 [WWAN_POOL] htc_put_wwan_buffer(71): list c0f3a7d0 put de7d4000
+<6>[   12.708835] c1    108 [WWAN_POOL] htc_put_wwan_buffer(71): list c0f3a7d8 put de7e0000
+<6>[   12.708866] c1    108 [WWAN_POOL] htc_put_wwan_buffer(71): list c0f3a7d8 put de7f0000
+<6>[   12.708866] c1    108 [WWAN_POOL] htc_put_wwan_buffer(71): list c0f3a7d8 put de000000
+<6>[   12.708896] c1    108 [WWAN_POOL] htc_put_wwan_buffer(71): list c0f3a7d8 put de010000
+<6>[   12.708896] c1    108 [WWAN_POOL] htc_put_wwan_buffer(71): list c0f3a7d8 put de020000
+<6>[   12.708957] c1    108 qcserial 1-1:1.0: device disconnected
+<6>[   12.710544] c1    108 msm_hsic_host msm_hsic_host: USB bus 1 deregistered
+<6>[   12.710666] c1    108 ehci_hsic_msm_remove[2404] pm_qos_remove_request pm_qos_req_dma_htc
+<6>[   12.710697] c1    108 msm_hsic_host msm_hsic_host: ehci_hsic_msm_remove[2415] usage_count is [0] msm_hsic_host_dev:0x  (null) &pdev->dev:0xc0d653d8 mdm_is_in_restart:0
+<6>[   12.710880] c1    108 [MDM] mdm_peripheral_disconnect-
+<6>[   12.710911] c1    108 [MDM] mdm_peripheral_connect+
+<6>[   12.718022] c0    668 kgsl: kgsl_driver.stats.page_alloc = 5726208
+<6>[   12.718022] c0    668 kgsl: kgsl_driver.stats.page_alloc_kernel = 65536
+<6>[   12.718022] c0    668 kgsl: kgsl_driver.stats.pre_alloc = 17039360
+<6>[   12.718052] c0    668 kgsl: kgsl_driver.stats.pre_alloc_kernel = 0
+<6>[   12.723760] c1    108 msm_hsic_host msm_hsic_host: Qualcomm EHCI Host Controller using HSIC
+<6>[   12.723790] c1    108 msm_hsic_host msm_hsic_host: new USB bus registered, assigned bus number 1
+<6>[   12.744727] c3    108 msm_hsic_host msm_hsic_host: irq 261, io mem 0x12510000
+<6>[   12.764901] c3    108 msm_hsic_host msm_hsic_host: USB 2.0 started, EHCI 1.00
+<6>[   12.765664] c3    108 usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+<6>[   12.765725] c3    108 usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+<6>[   12.765786] c3    108 usb usb1: Product: Qualcomm EHCI Host Controller using HSIC
+<6>[   12.765878] c3    108 usb usb1: Manufacturer: Linux 3.4.10-g445d072 ehci_hcd
+<6>[   12.765939] c3    108 usb usb1: SerialNumber: msm_hsic_host
+<6>[   12.767617] c3    108 usb usb1: adding 1-0:1.0 (config #1, interface 0)
+<6>[   12.768380] c3    108 hub 1-0:1.0: USB hub found
+<6>[   12.768533] c3    108 hub 1-0:1.0: 1 port detected
+<6>[   12.768838] c3    108 hub 1-0:1.0: usb_probe_interface[297] needs_remote_wakeup:1
+<6>[   12.769815] c3    108 usb usb1: udev(usb1)->enable_pm_debug=[0]
+<6>[   12.770486] c3    108 ehci_hsic_msm_probe[2257] pm_qos_add_request pm_qos_req_dma_htc
+<6>[   12.771738] c1    108 ehci_hsic_msm_probe(2325): mdm_hsic_usb_hcd:0xde3df800
+<6>[   12.772256] c1    108 [MDM] mdm_peripheral_connect-
+<7>[   12.772348] c1    108 [MDM][COMM] mdm_status_fn: status:1
+<6>[   12.772409] c1    108 [MDM][COMM] mdm_status_fn: status = 1: mdm is now ready
+<6>[   12.774851] c3    218 [MDM][COMM] mdm_hsic_reconnectd_check_fn: return 1
+<6>[   12.774912] c3    218 [MDM][COMM] mdm_modem_ioctl: ret_mdm_hsic_reconnectd == 1
+<3>[   12.859667] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[   12.865191] c0     26 hub 1-0:1.0: !connect_change && !wakeup_change 
+<3>[   13.360262] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[   13.474958] c3     26 hub_port_wait_reset: portstatus = 0x00000503 portchange = 0x00000000
+<3>[   13.534716] c3     26 usb 1-1: hub_port_init[2569] hub_port_reset retval:0
+<6>[   13.534716] c3     26 usb 1-1: new high-speed USB device number 2 using msm_hsic_host
+<3>[   13.544849] c1     26 usb 1-1: hub_port_init[2693] hub_set_address devnum:2 retval:0
+<6>[   13.550740] c0    243 ion_client_create: create ion_client (hcheck) at dd64a380
+<4>[   13.556203] c0    243 QSEECOM: qseecom_load_app: App (hcheck) does not exist, loading apps for first time
+<4>[   13.575461] c0    243 QSEECOM: qseecom_load_app: App with id 1 (hcheck) now loaded
+<6>[   13.575644] c0    243 ion_client_destroy: destroy ion_client dd64a380 (hcheck)
+<6>[   13.575705] c0    243 ion_client_create: create ion_client (hcheck) at dd64a380
+<3>[   13.582115] c1     26 usb 1-1: hub_port_init[2720] usb_get_device_descriptor retval:8
+<3>[   13.582267] c0    243 QSEECOM: __qseecom_process_incomplete_cmd: Response result -1 not supported
+<3>[   13.582298] c0    243 QSEECOM: __qseecom_send_cmd: process_incomplete_cmd failed err: -22
+<3>[   13.582298] c0    243 QSEECOM: qseecom_ioctl: failed qseecom_send_cmd: -22
+<4>[   13.582786] c0    243 QSEECOM: qseecom_unload_app: App id 1 now unloaded
+<6>[   13.582878] c0    243 ion_client_destroy: destroy ion_client dd64a380 (hcheck)
+<6>[   13.646207] c2     26 usb 1-1: New USB device found, idVendor=05c6, idProduct=9048
+<6>[   13.646329] c2     26 usb 1-1: New USB device strings: Mfr=3, Product=2, SerialNumber=0
+<6>[   13.646452] c2     26 usb 1-1: Product: Qualcomm CDMA Technologies MSM
+<6>[   13.646543] c2     26 usb 1-1: Manufacturer: Qualcomm, Incorporated
+<6>[   13.662383] c2     26 usb 1-1: adding 1-1:1.0 (config #1, interface 0)
+<7>[   13.663299] c2     26 [HSIC][SYSMON] id:1
+<6>[   13.665496] c2     26 diag_bridge 1-1:1.0: usb_probe_interface[297] needs_remote_wakeup:0
+<6>[   13.666381] c2     26 usb 1-1: adding 1-1:1.1 (config #1, interface 1)
+<7>[   13.667022] c2     26 [HSIC][SYSMON] id:1
+<6>[   13.667633] c2     26 [SYSMON] sysmon_probe() name=sys_mon
+<7>[   13.667755] c2     26 [HSIC][SYSMON] complete
+<6>[   13.667816] c2     26 hsic_sysmon 1-1:1.1: usb_probe_interface[297] needs_remote_wakeup:0
+<6>[   13.668518] c2     26 usb 1-1: adding 1-1:1.2 (config #1, interface 2)
+<7>[   13.669281] c2     26 [HSIC][SYSMON] id:1
+<6>[   13.669861] c2     26 qcserial 1-1:1.2: Qualcomm USB modem converter detected
+<6>[   13.670013] c2     26 [WWAN_POOL] htc_get_wwan_buffer(90): list c0f3a7d0 get de7c4000
+<6>[   13.670074] c2     26 [WWAN_POOL] htc_get_wwan_buffer(90): list c0f3a7d0 get de7c8000
+<6>[   13.670135] c2     26 [WWAN_POOL] htc_get_wwan_buffer(90): list c0f3a7d0 get de7cc000
+<6>[   13.670227] c2     26 [WWAN_POOL] htc_get_wwan_buffer(90): list c0f3a7d0 get de7d0000
+<6>[   13.670288] c2     26 [WWAN_POOL] htc_get_wwan_buffer(90): list c0f3a7d0 get de7d4000
+<6>[   13.670349] c2     26 [WWAN_POOL] htc_get_wwan_buffer(90): list c0f3a7d8 get de7e0000
+<6>[   13.670441] c2     26 [WWAN_POOL] htc_get_wwan_buffer(90): list c0f3a7d8 get de7f0000
+<6>[   13.670532] c2     26 [WWAN_POOL] htc_get_wwan_buffer(90): list c0f3a7d8 get de000000
+<6>[   13.670624] c2     26 [WWAN_POOL] htc_get_wwan_buffer(90): list c0f3a7d8 get de010000
+<6>[   13.670685] c2     26 [WWAN_POOL] htc_get_wwan_buffer(90): list c0f3a7d8 get de020000
+<6>[   13.671936] c2     26 usb 1-1: Qualcomm USB modem converter now attached to ttyUSB0
+<6>[   13.672089] c2     26 qcserial 1-1:1.2: usb_probe_interface[297] needs_remote_wakeup:1
+<6>[   13.672791] c2     26 usb 1-1: adding 1-1:1.3 (config #1, interface 3)
+<7>[   13.673523] c2     26 [HSIC][SYSMON] id:1
+<6>[   13.674408] c2     26 bridge_probe: iface number is 3
+<6>[   13.678406] c2     26 mdm_bridge 1-1:1.3: usb_probe_interface[297] needs_remote_wakeup:0
+<6>[   13.679352] c2     26 usb 1-1: adding 1-1:1.4 (config #1, interface 4)
+<7>[   13.680940] c2     26 [HSIC][SYSMON] id:1
+<6>[   13.681794] c2     26 bridge_probe: iface number is 4
+<6>[   13.686006] c2     26 mdm_bridge 1-1:1.4: usb_probe_interface[297] needs_remote_wakeup:0
+<6>[   13.686189] c2     26 usb 1-1: adding 1-1:1.5 (config #1, interface 5)
+<7>[   13.686433] c2     26 [HSIC][SYSMON] id:1
+<7>[   13.687166] c2     26 [NET][CORE][RULE] attach_rules 
+<7>[   13.687166] c2     26 [NET][CORE][RULE] attach_rules 
+<6>[   13.687471] c2     26 rmnet_usb 1-1:1.5: rmnet_usb0: register 'rmnet_usb' at usb-msm_hsic_host-1, RmNET net device, 02:31:b0:aa:df:a6
+<6>[   13.687471] c2     26 rmnet_usb 1-1:1.5: rmnet_usb0: [RMNET_D]> create device flag file
+<6>[   13.693972] c2     26 rmnet_usb 1-1:1.5: rmnet_usb_ctrl_probe[1152]:rmnet_usb_ctrl_start_rx dev->resp_available:0
+<6>[   13.694063] c2     26 rmnet_usb 1-1:1.5: usb_probe_interface[297] needs_remote_wakeup:0
+<6>[   13.694216] c2     26 usb 1-1: adding 1-1:1.6 (config #1, interface 6)
+<7>[   13.694521] c2     26 [HSIC][SYSMON] id:1
+<7>[   13.696017] c2     26 [NET][CORE][RULE] attach_rules 
+<7>[   13.696017] c2     26 [NET][CORE][RULE] attach_rules 
+<6>[   13.696505] c2     26 rmnet_usb 1-1:1.6: rmnet_usb1: register 'rmnet_usb' at usb-msm_hsic_host-1, RmNET net device, 02:31:b0:aa:df:a6
+<6>[   13.696505] c2     26 rmnet_usb 1-1:1.6: rmnet_usb1: [RMNET_D]> create device flag file
+<6>[   13.701968] c2     26 rmnet_usb 1-1:1.6: rmnet_usb_ctrl_probe[1152]:rmnet_usb_ctrl_start_rx dev->resp_available:0
+<7>[   13.775705] c3    218 [MDM][COMM] mdm_modem_ioctl: Entering ioctl cmd = 7
+<7>[   13.775797] c3    218 [MDM][COMM] mdm_modem_ioctl: wait for mdm to need images reloaded
+<6>[   13.775888] c3    218 [MDM][COMM] dump_gpio: MDM2AP_STATUS	= 1
+<6>[   13.775949] c3    218 [MDM][COMM] dump_gpio: MDM2AP_ERRFATAL	= 0
+<7>[   13.795544] c1    693 [MDM][COMM] mdm_modem_ioctl: Entering ioctl cmd = 95
+<6>[   13.795544] c1    693 [MDM][COMM] mdm_modem_ioctl:get_radio_flag()=0
+<6>[   13.824843] c1     26 rmnet_usb 1-1:1.6: usb_probe_interface[297] needs_remote_wakeup:0
+<6>[   13.825911] c1     26 usb 1-1: adding 1-1:1.7 (config #1, interface 7)
+<7>[   13.826735] c1     26 [HSIC][SYSMON] id:1
+<7>[   13.829238] c1     26 [NET][CORE][RULE] attach_rules 
+<7>[   13.829299] c1     26 [NET][CORE][RULE] attach_rules 
+<6>[   13.830856] c1     26 rmnet_usb 1-1:1.7: rmnet_usb2: register 'rmnet_usb' at usb-msm_hsic_host-1, RmNET net device, 02:31:b0:aa:df:a6
+<6>[   13.830947] c1     26 rmnet_usb 1-1:1.7: rmnet_usb2: [RMNET_D]> create device flag file
+<6>[   13.838089] c1     26 rmnet_usb 1-1:1.7: rmnet_usb_ctrl_probe[1152]:rmnet_usb_ctrl_start_rx dev->resp_available:0
+<6>[   13.860613] c0    219 rmnet_usb 1-1:1.5: rmnet_ctl_open[759]:mdm_wait_timeout:0 resp_available:0
+<3>[   13.860643] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[   13.984739] c0     26 rmnet_usb 1-1:1.7: usb_probe_interface[297] needs_remote_wakeup:0
+<6>[   13.985136] c0     26 usb 1-1: adding 1-1:1.8 (config #1, interface 8)
+<7>[   13.985441] c0     26 [HSIC][SYSMON] id:1
+<7>[   13.986235] c0     26 [NET][CORE][RULE] attach_rules 
+<7>[   13.986235] c0     26 [NET][CORE][RULE] attach_rules 
+<6>[   13.986784] c0     26 rmnet_usb 1-1:1.8: rmnet_usb3: register 'rmnet_usb' at usb-msm_hsic_host-1, RmNET net device, 02:31:b0:aa:df:a6
+<6>[   13.986815] c0     26 rmnet_usb 1-1:1.8: rmnet_usb3: [RMNET_D]> create device flag file
+<6>[   13.990447] c0     26 rmnet_usb 1-1:1.8: rmnet_usb_ctrl_probe[1152]:rmnet_usb_ctrl_start_rx dev->resp_available:0
+<6>[   14.091927] c0     26 rmnet_usb 1-1:1.8: usb_probe_interface[297] needs_remote_wakeup:0
+<6>[   14.092293] c0     26 mdm_hsic_usb_device_add_handler(696) USB device added 2 <Qualcomm, Incorporated Qualcomm CDMA Technologies MSM>
+<6>[   14.092293] c0     26 mdm_hsic_usb_device_add_handler: usb 1-1 found 
+<6>[   14.092324] c0     26 mdm_hsic_usb_device_add_handler: msm_hsic_host_dev:c0d653d8 
+<6>[   14.092324] c0     26 usb 1-1: udev(1-1)->enable_pm_debug=[0]
+<6>[   14.361117] c0    219 rmnet_usb 1-1:1.5: rmnet_ctl_open[759]:mdm_wait_timeout:0 resp_available:0
+<3>[   14.361208] c0    219 hsicctl hsicctl0: rmnet_ctl_open: Connection timedout opening hsicctl0
+<6>[   14.638089] c0    638 rmnet_usb 1-1:1.5: notification_available_cb[360]:dev->resp_available:1
+<6>[   14.638150] c0    638 rmnet_usb 1-1:1.6: notification_available_cb[360]:dev->resp_available:1
+<6>[   14.638180] c0    638 rmnet_usb 1-1:1.7: notification_available_cb[360]:dev->resp_available:1
+<6>[   14.638242] c0    638 rmnet_usb 1-1:1.8: notification_available_cb[360]:dev->resp_available:1
+<6>[   14.861803] c0    219 rmnet_usb 1-1:1.5: rmnet_ctl_open[759]:mdm_wait_timeout:0 resp_available:1
+<6>[   15.363375] c0    219 rmnet_usb 1-1:1.6: rmnet_ctl_open[759]:mdm_wait_timeout:0 resp_available:1
+<6>[   15.364504] c0    219 rmnet_usb 1-1:1.7: rmnet_ctl_open[759]:mdm_wait_timeout:0 resp_available:1
+<6>[   15.365695] c0    219 rmnet_usb 1-1:1.8: rmnet_ctl_open[759]:mdm_wait_timeout:0 resp_available:1
+<6>[   15.422188] c0    166 rmnet_usb 1-1:1.5: autosuspend_check: EBUSY, cnt 1
+<6>[   15.524950] c3     20 [MDM][COMM] mdm_status_check_fn mdm_status_change notified? Y
+<6>[   15.710178] c0    166 rmnet_usb 1-1:1.5: autosuspend_check: EBUSY, cnt 1
+<6>[   15.726171] c0    166 rmnet_usb 1-1:1.5: autosuspend_check: EBUSY, cnt 1
+<6>[   15.818617] c3    718 usb_wwan_open
+<6>[   16.550312] c0    166 rmnet_usb 1-1:1.5: autosuspend_check: EBUSY, cnt 1
+<6>[   18.265099] c0    166 ehci_hsic_bus_suspend: Suspend RH
+<6>[   18.269159] c0    166 msm_hsic_host msm_hsic_host: EHCI runtime idle
+<6>[   18.269159] c0    166 msm_hsic_host msm_hsic_host: EHCI runtime suspend
+<6>[   18.269250] c0    166 msm_hsic_host msm_hsic_host: HSIC-USB in low power mode
+<6>[   19.345460] c0    659 [HSIC] msm_hsic_wakeup_irq: hsic remote wakeup interrupt cnt: 1  at 19340946958 (2013-09-23 03:16:54.654312071 UTC)
+<6>[   19.345856] c0    166 msm_hsic_host msm_hsic_host: EHCI runtime resume
+<6>[   19.346436] c0    166 msm_hsic_host msm_hsic_host: HSIC-USB exited from low power mode
+<6>[   19.346711] c1    671 msm_hsic_resume_thread: Resume RH
+<6>[   19.388432] c0    166 usb usb1: usb_resume_both[1023] resume intf n:1
+<6>[   19.413856] c0     26 usb 1-1: usb_resume_both[1023] resume intf n:9
+<6>[   20.362032] c3      0 [PM] CPU3: msm_pm_power_collapse: change clock rate (old rate = 0)
+<6>[   20.367831] c1     20 [MPDEC]: CPU[3] on->off | Mask=[1110] | time online: 20363
+<6>[   20.903250] c1      0 [PM] CPU1: msm_pm_power_collapse: change clock rate (old rate = 0)
+<6>[   20.911490] c0     20 [MPDEC]: CPU[1] on->off | Mask=[1010] | time online: 20906
+<6>[   21.275476] c0    149 ehci_hsic_bus_suspend: Suspend RH
+<6>[   21.275965] c0    149 msm_hsic_host msm_hsic_host: EHCI runtime idle
+<6>[   21.276056] c0    149 msm_hsic_host msm_hsic_host: EHCI runtime suspend
+<6>[   21.276697] c0    149 msm_hsic_host msm_hsic_host: HSIC-USB in low power mode
+<6>[   21.634732] c0    149 [HSIC] msm_hsic_wakeup_irq: hsic remote wakeup interrupt cnt: 2  at 21630127485 (2013-09-23 03:16:56.943645200 UTC)
+<6>[   21.635098] c0    149 msm_hsic_host msm_hsic_host: EHCI runtime resume
+<6>[   21.635251] c0    149 msm_hsic_host msm_hsic_host: HSIC-USB exited from low power mode
+<6>[   21.636166] c0    671 msm_hsic_resume_thread: Resume RH
+<6>[   21.674958] c0    149 usb usb1: usb_resume_both[1023] resume intf n:1
+<6>[   21.707584] c0     26 usb 1-1: usb_resume_both[1023] resume intf n:9
+<6>[   21.824538] c2      0 [PM] CPU2: msm_pm_power_collapse: change clock rate (old rate = 0)
+<6>[   21.827407] c0    108 [MPDEC]: CPU[2] on->off | Mask=[1000] | time online: 21822
+<6>[   23.264947] c0    166 ehci_hsic_bus_suspend: Suspend RH
+<6>[   23.265557] c0    166 msm_hsic_host msm_hsic_host: EHCI runtime idle
+<6>[   23.265618] c0    166 msm_hsic_host msm_hsic_host: EHCI runtime suspend
+<6>[   23.266687] c0    166 msm_hsic_host msm_hsic_host: HSIC-USB in low power mode
+<6>[   26.404669] c0    108 [AUD] apr: apr_q6_check_worker: 2
+<6>[   26.747047] c0    659 [BATT][BMS] cc_uah = -333074uAh, raw->cc = fb61f9a8, cc = -77465176 after subtracting 0
+<6>[   26.749397] c0    659 [VIB_PWM]pm8xxx_vib_enable vibrate period: 0 msec
+<6>[   26.749427] c0    659 [VIB_PWM]pm8xxx_vib_set_off 
+<6>[   26.753761] c0    659 request_suspend_state: wakeup (3->0) at 26749156936 (2013-09-23 03:17:02.062674651 UTC)
+<6>[   26.765725] c0    659 alarm 1 set 1379906280.000000000
+<7>[   26.849565] c0    661 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, on = 0, motion_sensor_vreg_8921_l17 = 0xdd6b7d80
+<7>[   26.850328] c0    661 [MPU][MPL3.3.7] monarudo_mpu3050_sensor_power_LPM, Set to Normal Mode
+<7>[   26.850358] c0    661 [MPU][MPL3.3.7]monarudo_mpu3050_sensor_power_LPM unlock 3
+<7>[   26.850358] c0    661 [GYRO][MPU3050] mpu_lpm_flag_store: mpu_lpm_flag = 0
+<6>[   26.850419] c0    661 MPL-accODR: 31250 
+<7>[   26.850480] c0    661 [GSNR][MPU3050][TIMERIRQ]stop_timerirq: data->period = 0, data->run = 0
+<7>[   26.850480] c0    661 [GSNR][MPU3050][TIMERIRQ]start_timerirq: data->period = 200
+<7>[   26.880756] c0    661 [GSNR][MPU3050][TIMERIRQ]stop_timerirq: data->period = 200, data->run = 1
+<7>[   26.884724] c0    661 [GSNR][MPU3050][TIMERIRQ]start_timerirq: data->period = 66
+<6>[   26.884816] c0    661 MPL-accODR: 31250 
+<6>[   26.899130] c0     20 [MPDEC]: CPU[1] off->on | Mask=[1100]
+<6>[   27.167923] c1     20 [MPDEC]: CPU[2] off->on | Mask=[1110]
+<6>[   27.561147] c2      0 [PM] CPU2: msm_pm_power_collapse: change clock rate (old rate = 0)
+<4>[   27.561849] c1     20 [PM] msm_pm_wait_cpu_shutdown(): Timed out waiting for CPU 2 SPM to enter sleep stateCPU2: unable to kill
+<6>[   27.562795] c1     20 [MPDEC]: CPU[2] on->off | Mask=[1100] | time online: 395
+<6>[   27.753212] c1    661 ion_client_create: create ion_client (system_server) at de792200
+<3>[   27.770059] c0      1 init: sys_prop: permission denied uid:1003  name:service.bootanim.ready
+<3>[   27.770242] c0      1 init: sys_prop: permission denied uid:1003  name:service.bootanim.exit
+<6>[   27.791149] c0    495 ion_client_destroy: destroy ion_client dd4efc00 (bootanimation)
+<3>[   27.792156] c0      1 init: cannot find '/system/bin/thermald', disabling 'thermald'
+<6>[   27.810529] c0    787 [BATT][CHG] set mitigation level(0) current=1100
+<6>[   27.810834] c0    787 [BATT] Set context disable_limit_chg = 0 at 27806230033 (2013-09-23 03:17:03.119747748 UTC)
+<6>[   27.820204] c0     20 [MPDEC]: CPU[2] off->on | Mask=[1110]
+<3>[   27.895681] c1      1 init: untracked pid 217 exited
+<6>[   28.129070] c1    659 kgsl: kgsl_driver.stats.page_alloc = 3002368
+<6>[   28.129101] c1    659 kgsl: kgsl_driver.stats.page_alloc_kernel = 32768
+<6>[   28.129101] c1    659 kgsl: kgsl_driver.stats.pre_alloc = 0
+<6>[   28.129101] c1    659 kgsl: kgsl_driver.stats.pre_alloc_kernel = 0
+<6>[   28.257378] c1    659 [LED]pm8xxx_led_gpio_set, bank:1, brightness:0 sync: 1
+<6>[   28.257530] c1    659 [LED]pm8xxx_led_blink_store: bank 1 blink 0 sync 1
+<6>[   28.257530] c1    659 [BB] blink value: 0
+<6>[   28.257652] c1    659 [BB] blink off  screen: 1 j: 4294940121 
+<6>[   28.257714] c1    659 [LED]Setting amber off_timer to 0 min 0 sec 
+<6>[   28.257805] c1    659 [LED]pm8xxx_led_gpio_set, bank:0, brightness:0 sync: 1
+<6>[   28.257958] c1    659 [LED]pm8xxx_led_blink_store: bank 0 blink 0 sync 1
+<6>[   28.257958] c1    659 [BB] blink value: 0
+<6>[   28.258080] c1    659 [BB] blink off  screen: 1 j: 4294940121 
+<6>[   28.258141] c1    659 [LED]Setting green off_timer to 0 min 0 sec 
+<6>[   28.767892] c1    659 [USB] show_ats: 0
+<6>[   28.767892] c1    659 
+<6>[   28.770425] c1    659 acc_open
+<6>[   28.770456] c1    659 acc_release
+<6>[   29.141919] c2      0 [PM] CPU2: msm_pm_power_collapse: change clock rate (old rate = 0)
+<6>[   29.144269] c0     20 [MPDEC]: CPU[2] on->off | Mask=[1100] | time online: 1324
+<6>[   29.388768] c0    659 alarm 0 set 1379909870.481000000
+<6>[   29.474195] c1    659 [VIB_PWM]pm8xxx_vib_enable vibrate period: 0 msec
+<6>[   29.474195] c1    659 [VIB_PWM]pm8xxx_vib_set_off 
+<6>[   29.478040] c1    659 [VIB_PWM]pm8xxx_vib_enable vibrate period: 0 msec
+<6>[   29.478071] c1    659 [VIB_PWM]pm8xxx_vib_set_off 
+<6>[   29.544849] c0    661 kgsl: kgsl_driver.stats.page_alloc = 3002368
+<6>[   29.544880] c0    661 kgsl: kgsl_driver.stats.page_alloc_kernel = 32768
+<6>[   29.544880] c0    661 kgsl: kgsl_driver.stats.pre_alloc = 0
+<6>[   29.544880] c0    661 kgsl: kgsl_driver.stats.pre_alloc_kernel = 0
+<6>[   29.545917] c0    661 kgsl: kgsl_driver.stats.page_alloc = 3002368
+<6>[   29.545917] c0    661 kgsl: kgsl_driver.stats.page_alloc_kernel = 32768
+<6>[   29.545948] c0    661 kgsl: kgsl_driver.stats.pre_alloc = 0
+<6>[   29.545948] c0    661 kgsl: kgsl_driver.stats.pre_alloc_kernel = 0
+<6>[   29.559621] c1    740 [LS][cm3629] lightsensor_open
+<6>[   29.559652] c1    740 [LS][cm3629] lightsensor_ioctl LIGHTSENSOR_IOCTL_ENABLE, value = 1
+<6>[   29.559652] c1    740 [LS][cm3629] lightsensor_enable
+<6>[   29.560415] c1    843 [BB] led_current_set 0 
+<6>[   29.560445] c1    843 [LED]pm8xxx_led_current_set_flagged, bank:6, brightness:0
+<6>[   29.571310] c1    843 [DISP] brightness orig=102, transformed=57
+<6>[   29.642759] c0    661 [HSIC] msm_hsic_wakeup_irq: hsic remote wakeup interrupt cnt: 3  at 29638154342 (2013-09-23 03:17:04.951672057 UTC)
+<6>[   29.642820] c0    149 msm_hsic_host msm_hsic_host: EHCI runtime resume
+<6>[   29.642942] c0    149 msm_hsic_host msm_hsic_host: HSIC-USB exited from low power mode
+<6>[   29.642972] c0    671 msm_hsic_resume_thread: Resume RH
+<6>[   29.674683] c0    149 usb usb1: usb_resume_both[1023] resume intf n:1
+<6>[   29.706790] c0     26 usb 1-1: usb_resume_both[1023] resume intf n:9
+<6>[   29.724706] c1    740 [LS][cm3629] get_ls_adc_value:resume 1
+<6>[   29.725072] c1    740 [LS][cm3629] get_ls_adc_value: raw adc = 0x0, ls_calibrate = 0
+<6>[   29.725072] c1    740 [cm3629] set_lsensor_range: low_thd = 0x0, high_thd = 0x1 
+<6>[   29.725347] c1    740 [LS][cm3629] report_lsensor_input_event: ADC=0x000, Level=0, l_thd equal 0, h_thd = 0x1 
+<6>[   29.789745] c0     20 [MPDEC]: CPU[2] off->on | Mask=[1110]
+<6>[   29.830367] c1    842 [BB] led_current_set 205 
+<6>[   29.830367] c1    842 [LED]pm8xxx_led_current_set_flagged, bank:6, brightness:205
+<6>[   29.848130] c1    898 [DISP] brightness orig=99, transformed=55
+<6>[   30.042179] c0    899 [DISP] brightness orig=72, transformed=38
+<6>[   30.049046] c1    900 [DISP] brightness orig=70, transformed=37
+<6>[   30.065588] c1    900 [DISP] brightness orig=67, transformed=35
+<6>[   30.082740] c2    901 [DISP] brightness orig=65, transformed=34
+<6>[   30.099374] c0    843 [DISP] brightness orig=62, transformed=32
+<6>[   30.116343] c1    898 [DISP] brightness orig=60, transformed=31
+<6>[   30.130138] c1    659 alarm 3 set 900.000000000
+<6>[   30.133679] c1    899 [DISP] brightness orig=57, transformed=29
+<6>[   30.150648] c1    900 [DISP] brightness orig=55, transformed=28
+<6>[   30.167099] c0    901 [DISP] brightness orig=52, transformed=26
+<6>[   30.171585] c0    844 kgsl: kgsl_driver.stats.page_alloc = 3002368
+<6>[   30.171616] c0    844 kgsl: kgsl_driver.stats.page_alloc_kernel = 32768
+<6>[   30.171616] c0    844 kgsl: kgsl_driver.stats.pre_alloc = 0
+<6>[   30.171616] c0    844 kgsl: kgsl_driver.stats.pre_alloc_kernel = 0
+<6>[   30.183946] c0    843 [DISP] brightness orig=50, transformed=25
+<6>[   30.201251] c0    898 [DISP] brightness orig=47, transformed=23
+<6>[   30.217823] c1    899 [DISP] brightness orig=45, transformed=22
+<6>[   30.235708] c0    900 [DISP] brightness orig=42, transformed=20
+<6>[   30.251579] c1    901 [DISP] brightness orig=40, transformed=19
+<6>[   30.268609] c0    843 [DISP] brightness orig=38, transformed=17
+<6>[   30.285823] c1    898 [DISP] brightness orig=35, transformed=16
+<6>[   30.303494] c1    899 [DISP] brightness orig=33, transformed=14
+<6>[   30.320555] c0    900 [DISP] brightness orig=30, transformed=13
+<6>[   30.339600] c0    900 [DISP] brightness orig=29, transformed=13
+<6>[   30.439645] c0    108 [MPDEC]: CPU[3] off->on | Mask=[1111]
+<6>[   30.553425] c0    833 [USB] show_is_usb_denied: 0
+<6>[   30.553425] c0    833 
+<6>[   31.031100] c1    936 kgsl: kgsl_driver.stats.page_alloc = 3002368
+<6>[   31.031100] c1    936 kgsl: kgsl_driver.stats.page_alloc_kernel = 32768
+<6>[   31.031130] c1    936 kgsl: kgsl_driver.stats.pre_alloc = 0
+<6>[   31.031130] c1    936 kgsl: kgsl_driver.stats.pre_alloc_kernel = 0
+<6>[   31.076392] c1    936 mtp_open
+<6>[   31.076636] c1    936 [USB] show_os_type: 2
+<6>[   31.076636] c1    936 
+<6>[   31.627132] c3    844 ion_client_create: create ion_client (ndroid.systemui) at dc526d80
+<6>[   32.101052] c2   1176 alarm 3 set 92.082000000
+<6>[   32.115305] c2   1182 task_comm_list_store: Add zygote to monitor list tail successfully
+<6>[   32.115458] c2   1182 task_comm_list_store: Add system_server to monitor list tail successfully
+<6>[   32.264703] c0    166 ehci_hsic_bus_suspend: Suspend RH
+<6>[   32.264916] c0    166 msm_hsic_host msm_hsic_host: EHCI runtime idle
+<6>[   32.264947] c0    166 msm_hsic_host msm_hsic_host: EHCI runtime suspend
+<6>[   32.265038] c0    166 msm_hsic_host msm_hsic_host: HSIC-USB in low power mode
+<6>[   32.292690] c1   1187 kgsl: kgsl_driver.stats.page_alloc = 7745536
+<6>[   32.292690] c1   1187 kgsl: kgsl_driver.stats.page_alloc_kernel = 98304
+<6>[   32.292720] c1   1187 kgsl: kgsl_driver.stats.pre_alloc = 0
+<6>[   32.292720] c1   1187 kgsl: kgsl_driver.stats.pre_alloc_kernel = 0
+<6>[   32.294124] c3   1205 kgsl: kgsl_driver.stats.page_alloc = 7745536
+<6>[   32.294124] c3   1205 kgsl: kgsl_driver.stats.page_alloc_kernel = 98304
+<6>[   32.294124] c3   1205 kgsl: kgsl_driver.stats.pre_alloc = 0
+<6>[   32.294155] c3   1205 kgsl: kgsl_driver.stats.pre_alloc_kernel = 0
+<6>[   32.305722] c3   1215 kgsl: kgsl_driver.stats.page_alloc = 7745536
+<6>[   32.305753] c3   1215 kgsl: kgsl_driver.stats.page_alloc_kernel = 98304
+<6>[   32.305753] c3   1215 kgsl: kgsl_driver.stats.pre_alloc = 0
+<6>[   32.305753] c3   1215 kgsl: kgsl_driver.stats.pre_alloc_kernel = 0
+<6>[   32.611109] c0   1215 kgsl: kgsl_driver.stats.page_alloc = 7745536
+<6>[   32.611139] c0   1215 kgsl: kgsl_driver.stats.page_alloc_kernel = 98304
+<6>[   32.611139] c0   1215 kgsl: kgsl_driver.stats.pre_alloc = 0
+<6>[   32.611139] c0   1215 kgsl: kgsl_driver.stats.pre_alloc_kernel = 0
+<6>[   32.753303] c1    219 msm_hsic_host msm_hsic_host: EHCI runtime resume
+<6>[   32.753425] c1    219 msm_hsic_host msm_hsic_host: HSIC-USB exited from low power mode
+<6>[   32.753486] c0    671 msm_hsic_resume_thread: Resume RH
+<6>[   32.784678] c2    219 usb usb1: usb_resume_both[1023] resume intf n:1
+<6>[   32.800915] c2    219 usb 1-1: usb_resume_both[1023] resume intf n:9
+<6>[   32.824202] c0    998 kgsl: kgsl_driver.stats.page_alloc = 7745536
+<6>[   32.824233] c0    998 kgsl: kgsl_driver.stats.page_alloc_kernel = 98304
+<6>[   32.824233] c0    998 kgsl: kgsl_driver.stats.pre_alloc = 0
+<6>[   32.824233] c0    998 kgsl: kgsl_driver.stats.pre_alloc_kernel = 0
+<6>[   32.824385] c0    998 kgsl: kgsl_driver.stats.page_alloc = 7745536
+<6>[   32.824385] c0    998 kgsl: kgsl_driver.stats.page_alloc_kernel = 98304
+<6>[   32.824385] c0    998 kgsl: kgsl_driver.stats.pre_alloc = 0
+<6>[   32.824416] c0    998 kgsl: kgsl_driver.stats.pre_alloc_kernel = 0
+<6>[   32.865740] c0   1154 kgsl: kgsl_driver.stats.page_alloc = 7745536
+<6>[   32.865740] c0   1154 kgsl: kgsl_driver.stats.page_alloc_kernel = 98304
+<6>[   32.865771] c0   1154 kgsl: kgsl_driver.stats.pre_alloc = 0
+<6>[   32.865771] c0   1154 kgsl: kgsl_driver.stats.pre_alloc_kernel = 0
+<6>[   32.878559] c0   1315 [NFC] pn544_dev_open : major=10, minor=80
+<6>[   32.878925] c0   1315 [NFC] pn544_dev_ioctl power on (delay50)
+<6>[   32.878925] c0   1315 [NFC] pn544_Enable: gpio=57 set_value=0
+<6>[   32.935052] c0   1315 [NFC] pn544_dev_ioctl power off (delay50)
+<6>[   32.935052] c0   1315 [NFC] pn544_Disable: gpio=57 set_value=1
+<6>[   33.004669] c1   1315 [NFC] pn544_dev_ioctl power on (delay50)
+<6>[   33.004700] c1   1315 [NFC] pn544_Enable: gpio=57 set_value=0
+<6>[   33.737189] c3    718 usb_wwan_close
+<7>[   33.784404] c1    693 [MDM][COMM] mdm_modem_ioctl: Entering ioctl cmd = 99
+<6>[   33.784404] c1    693 [MDM][COMM] mdm_modem_ioctl: efs sync is done
+<7>[   33.784434] c1    693 [MDM][COMM] mdm_modem_ioctl: Entering ioctl cmd = 100
+<6>[   33.784434] c1    693 [MDM][COMM] mdm_modem_ioctl: NV write done!
+<6>[   33.802502] c2   1435 usb_wwan_open
+<6>[   34.013337] c2    998 alarm 1 set 1379869200.000000000
+<6>[   34.014741] c0    744 alarm 1 set 1379906280.000000000
+<6>[   34.365573] c2    659 [VIB_PWM]pm8xxx_vib_enable vibrate period: 0 msec
+<6>[   34.365603] c2    659 [VIB_PWM]pm8xxx_vib_set_off 
+<6>[   34.368441] c2    659 [LED]pm8xxx_led_gpio_set, bank:1, brightness:1 sync: 1
+<6>[   34.368808] c2    659 [LED]pm8xxx_led_blink_store: bank 1 blink 0 sync 1
+<6>[   34.368808] c2    659 [BB] blink value: 0
+<6>[   34.369571] c2    659 [LED]Setting amber off_timer to 0 min 0 sec 
+<6>[   34.369662] c2    659 [LED]pm8xxx_led_gpio_set, bank:0, brightness:0 sync: 1
+<6>[   34.369845] c2    659 [LED]pm8xxx_led_blink_store: bank 0 blink 0 sync 1
+<6>[   34.369845] c2    659 [BB] blink value: 0
+<6>[   34.369967] c2    659 [BB] blink off  screen: 1 j: 4294940732 
+<6>[   34.370059] c2    659 [LED]Setting green off_timer to 0 min 0 sec 
+<6>[   34.770334] c2   1231 ion_client_create: create ion_client (om.htc.launcher) at dc096f80
+<3>[   35.343537] c3      1 init: cannot find '/system/bin/bootcomplete', disabling 'bootcomplete'
+<6>[   35.872424] c2    659 alarm 2 set 2700.000000000
+<6>[   36.205585] c3    969 ion_client_create: create ion_client (screen.shortcut) at dbcdec80
+<6>[   36.412238] c2    997 alarm 2 set 1907.595000000
+<6>[   36.527727] c2    997 alarm 2 set 41.509000000
+<6>[   36.530993] c2   1500 alarm 2 set 41.512000000
+<6>[   36.532763] c3   1365 alarm 2 set 41.514000000
+<6>[   36.549000] c3   1365 alarm 2 set 41.530000000
+<6>[   36.549824] c2    637 alarm 2 set 41.531000000
+<6>[   36.844040] c2   1078 alarm 0 set 1379907980.533000000
+<6>[   37.264855] c0    166 ehci_hsic_bus_suspend: Suspend RH
+<6>[   37.265038] c0    166 msm_hsic_host msm_hsic_host: EHCI runtime idle
+<6>[   37.265069] c0    166 msm_hsic_host msm_hsic_host: EHCI runtime suspend
+<6>[   37.265191] c0    166 msm_hsic_host msm_hsic_host: HSIC-USB in low power mode
+>>>>>>> a65d94c... adding cmdline interfacing
