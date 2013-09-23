@@ -13,7 +13,7 @@
 #ifndef __PMIC8XXX_VIBRATOR_PWM_H__
 #define __PMIC8XXX_VIBRATOR_PWM_H__
 
-
+#include "../../../drivers/staging/android/timed_output.h"
 #define PM8XXX_VIBRATOR_PWM_DEV_NAME "pm8xxx-vib-pwm"
 struct pm8xxx_vibrator_pwm_platform_data {
 	int initial_vibrate_ms;
@@ -35,7 +35,7 @@ enum vdd_state {
 	ENABLE_VDD,
 };
 
-extern int vibrate(int time);
+extern int vibrate(struct timed_output_dev *dev, int time);
 
 #endif 
 

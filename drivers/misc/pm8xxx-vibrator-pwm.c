@@ -164,13 +164,12 @@ retry:
 
 }
 
-int vibrate( int time)
+int vibrate(struct timed_output_dev *dev, int time)
 {
-
-
+    struct pm8xxx_vib_pwm *vib = container_of(dev, struct pm8xxx_vib_pwm, timed_dev);
+    pm8xxx_vib_enable(vib.timed_dev, time);
     return 0;
 }
-
 
 static void pm8xxx_vib_update(struct work_struct *work)
 {
@@ -178,6 +177,8 @@ static void pm8xxx_vib_update(struct work_struct *work)
 					 work);
 	pm8xxx_vib_set_off(vib);
 }
+
+
 
 static int pm8xxx_vib_get_time(struct timed_output_dev *dev)
 {
