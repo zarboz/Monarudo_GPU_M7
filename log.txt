@@ -1,3 +1,45 @@
+c770270 patching to 3.4.18
+a286e51  checkin
+4189d65 fixing zram
+05c2eca Patching upstream 3.4.15->3.4.16
+cca2cc6 Patching upstream 3.4.14->3.4.15
+b12567c lightsensor: fix broken lightsensor table!
+d3ec447 gpu: fix dualports for Adreno320
+bcd2d93 Patching upstream 3.0.13->3.0.14
+5882f41 Patching upstream 3.4.12->3.4.13
+e426dc7 Patching upstream 3.0.11->3.0.12
+73799f5 add frandom
+bb5b4a5 ARM: net: JIT compiler for packet filters enabled by default
+1b05b72 Finishing 3.4.11 cleanup
+65ca95e Patch upstream to 3.4.11
+5a3d3de c;ean this soon
+65bbd9e lib: Sparc's strncpy_from_user is generic enough, move under  lib/
+4cfca21 hrtimer: Consider preemption when migrating hrtimer cpu_bases
+2dff69e dynamic fsync: favor true case since most will be using this feature
+41374ee dynamic filesync: add some cache optimizations
+1e2c664 fs/dyn_fsync: check dyn fsync control's active prior to performing fsync ops
+2d566c7 arch/arm/kernel/armksyms: fix merge derp
+9b7e471 switch the protection of percpu_counter list to spinlock
+df00167 decompress_unlzo: fix compilation error
+4b7527f ARM: 7593/1: nommu: do not enable DCACHE_WORD_ACCESS when  !CONFIG_MMU
+bcc3935 ARM: 7592/1: nommu: prevent generation of kernel unaligned memory accesses
+49bf982 ARM: 7492/1: add strstr declaration for decompressors
+b1b539a ARM: 7493/1: use generic unaligned.h
+a4e55c4 ARM: dcache: select DCACHE_WORD_ACCESS for little-endian ARMv6+ CPUs
+a5c4b7c ARM: use generic strnlen_user and strncpy_from_user functions
+9b72941 lib: Fix generic strnlen_user for 32-bit big-endian machines
+8ac4b75 lib: add generic strnlen_user() function
+44e4918 drivers/media/video/msm/msm: fix compilation warning
+ea1cd15 word-at-a-time: make the interfaces truly generic
+276cf74 lib/lzo: Optimize code for CPUs with inefficient unaligned access
+4ed90e6 msm: cpufreq: make the gov stop part fully atomic
+e3bc125 scheduler: Re-compute time-average nr_running on read
+830d16d proc: enhance time-average nr_running stats
+e85c5fa scheduler: compute time-average nr_running per run-queue
+983b241 fs/dyn_sync_cntrl: Linux 3.4 Kernel compatibility fixup
+ccd232a fs/dyn_sync_cntrl: dynamic sync control
+f2d534f adding vibrate callouts
+0573deb changing krait info for this SOC tabling
 a65d94c adding cmdline interfacing
 33692e3 fixing cmdline
 7dba25d updating defconfig
