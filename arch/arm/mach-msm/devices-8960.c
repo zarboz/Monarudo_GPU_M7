@@ -108,7 +108,57 @@
 
 #define MSM8960_HSUSB_PHYS		0x12500000
 #define MSM8960_HSUSB_SIZE		SZ_4K
+#ifdef CONFIG_CMDLINE_OPTIONS
+unsigned int cmdline_2dgpu = CMDLINE_2DGPU_DEFKHZ;
 
+static int __init devices_read_2dgpu_cmdline(char *khz)
+{
+	unsigned long ui_khz;
+	unsigned long *f;
+	unsigned long valid_freq[6] = {200000000, 228571000, 266667000, 300000000, 320000000, 0};
+	int err;
+
+	err = strict_strtoul(khz, 0, &ui_khz);
+	if (err) {
+		cmdline_2dgpu = CMDLINE_2DGPU_DEFKHZ;
+		printk(KERN_INFO "[cmdline_2dgpu]: ERROR while converting! using default value!");
+		printk(KERN_INFO "[cmdline_2dgpu]: 2dgpukhz='%i'\n", cmdline_2dgpu);
+		return 1;
+	}
+
+	/* Check if parsed value is valid */
+	if (ui_khz > 320000000)
+		cmdline_2dgpu = CMDLINE_2DGPU_DEFKHZ;
+
+	if (ui_khz < 200000000)
+		cmdline_2dgpu = CMDLINE_2DGPU_DEFKHZ;
+
+	for (f = valid_freq; f != 0; f++) {
+		if (*f == ui_khz) {
+			cmdline_2dgpu = ui_khz;
+			printk(KERN_INFO "[cmdline_2dgpu]: 2dgpukhz='%u'\n", cmdline_2dgpu);
+			return 1;
+		}
+		if (ui_khz > *f) {
+			f++;
+			if (ui_khz < *f) {
+				f--;
+				cmdline_2dgpu = *f;
+				printk(KERN_INFO "[cmdline_2dgpu]: AUTOCORRECT! Couldn't find entered value");
+				printk(KERN_INFO "[cmdline_2dgpu]: 2dgpukhz='%u'\n", cmdline_2dgpu);
+				return 1;
+			}
+			f--;
+		}
+	}
+	/* if we are still in here then something went wrong. Use defaults */
+	cmdline_2dgpu = CMDLINE_2DGPU_DEFKHZ;
+	printk(KERN_INFO "[cmdline_2dgpu]: ERROR! using default value!");
+	printk(KERN_INFO "[cmdline_2dgpu]: 2dgpukhz='%u'\n", cmdline_2dgpu);
+        return 1;
+}
+__setup("2dgpu=", devices_read_2dgpu_cmdline);
+#endif
 struct flash_platform_data msm_nand_data = {
 	.parts		= NULL,
 	.nr_parts	= 0,
@@ -2233,13 +2283,8 @@ struct platform_device msm8960_cpudai_slimbus_2_tx = {
 };
 
 struct msm_mi2s_pdata mi2s_data = {
-#ifdef CONFIG_MACH_ZIP_CL_MI2S_DATA_SWITCH
-	.rx_sd_lines = MSM_MI2S_SD3 ,   
-	.tx_sd_lines = MSM_MI2S_SD0 ,   
-#else
 	.rx_sd_lines = MSM_MI2S_SD0 ,   
 	.tx_sd_lines = MSM_MI2S_SD3 ,   
-#endif
 };
 
 struct platform_device msm_cpudai_mi2s = {
@@ -2901,7 +2946,6 @@ struct platform_device msm_slim_ctrl = {
 	},
 };
 
-/* end cmdline_gpu */
 static struct msm_dcvs_freq_entry grp3d_freq[] = {
 	{0, 0, 333932},
 	{0, 0, 497532},
@@ -2960,7 +3004,7 @@ static struct msm_bus_vectors grp3d_low_vectors[] = {
 		.src = MSM_BUS_MASTER_GRAPHICS_3D,
 		.dst = MSM_BUS_SLAVE_EBI_CH0,
 		.ab = 0,
-		.ib = KGSL_CONVERT_TO_MBPS(2048),
+		.ib = KGSL_CONVERT_TO_MBPS(1000),
 	},
 };
 
@@ -2969,7 +3013,7 @@ static struct msm_bus_vectors grp3d_nominal_low_vectors[] = {
 		.src = MSM_BUS_MASTER_GRAPHICS_3D,
 		.dst = MSM_BUS_SLAVE_EBI_CH0,
 		.ab = 0,
-		.ib = KGSL_CONVERT_TO_MBPS(2656),
+		.ib = KGSL_CONVERT_TO_MBPS(2048),
 	},
 };
 
@@ -2978,7 +3022,7 @@ static struct msm_bus_vectors grp3d_nominal_high_vectors[] = {
 		.src = MSM_BUS_MASTER_GRAPHICS_3D,
 		.dst = MSM_BUS_SLAVE_EBI_CH0,
 		.ab = 0,
-		.ib = KGSL_CONVERT_TO_MBPS(3968),
+		.ib = KGSL_CONVERT_TO_MBPS(2656),
 	},
 };
 
@@ -2987,7 +3031,7 @@ static struct msm_bus_vectors grp3d_max_vectors[] = {
 		.src = MSM_BUS_MASTER_GRAPHICS_3D,
 		.dst = MSM_BUS_SLAVE_EBI_CH0,
 		.ab = 0,
-		.ib = KGSL_CONVERT_TO_MBPS(5280),
+		.ib = KGSL_CONVERT_TO_MBPS(3968),
 	},
 };
 
@@ -3034,7 +3078,7 @@ static struct msm_bus_vectors grp2d0_nominal_vectors[] = {
 		.src = MSM_BUS_MASTER_GRAPHICS_2D_CORE0,
 		.dst = MSM_BUS_SLAVE_EBI_CH0,
 		.ab = 0,
-		.ib = KGSL_CONVERT_TO_MBPS(2048),
+		.ib = KGSL_CONVERT_TO_MBPS(1000),
 	},
 };
 
@@ -3043,7 +3087,7 @@ static struct msm_bus_vectors grp2d0_max_vectors[] = {
 		.src = MSM_BUS_MASTER_GRAPHICS_2D_CORE0,
 		.dst = MSM_BUS_SLAVE_EBI_CH0,
 		.ab = 0,
-		.ib = KGSL_CONVERT_TO_MBPS(3096),
+		.ib = KGSL_CONVERT_TO_MBPS(2048),
 	},
 };
 
@@ -3082,7 +3126,7 @@ static struct msm_bus_vectors grp2d1_nominal_vectors[] = {
 		.src = MSM_BUS_MASTER_GRAPHICS_2D_CORE1,
 		.dst = MSM_BUS_SLAVE_EBI_CH0,
 		.ab = 0,
-		.ib = KGSL_CONVERT_TO_MBPS(2048),
+		.ib = KGSL_CONVERT_TO_MBPS(1000),
 	},
 };
 
@@ -3091,7 +3135,7 @@ static struct msm_bus_vectors grp2d1_max_vectors[] = {
 		.src = MSM_BUS_MASTER_GRAPHICS_2D_CORE1,
 		.dst = MSM_BUS_SLAVE_EBI_CH0,
 		.ab = 0,
-		.ib = KGSL_CONVERT_TO_MBPS(3096),
+		.ib = KGSL_CONVERT_TO_MBPS(2048),
 	},
 };
 
@@ -3149,17 +3193,17 @@ static struct kgsl_device_iommu_data kgsl_3d0_iommu_data[] = {
 static struct kgsl_device_platform_data kgsl_3d0_pdata = {
 	.pwrlevel = {
 		{
-			.gpu_freq = 450000000,
+			.gpu_freq = 400000000,
 			.bus_freq = 4,
 			.io_fraction = 0,
 		},
 		{
-			.gpu_freq = 400000000,
+			.gpu_freq = 300000000,
 			.bus_freq = 3,
 			.io_fraction = 33,
 		},
 		{
-			.gpu_freq = 320000000,
+			.gpu_freq = 200000000,
 			.bus_freq = 2,
 			.io_fraction = 100,
 		},
@@ -3228,7 +3272,7 @@ static struct kgsl_device_iommu_data kgsl_2d0_iommu_data[] = {
 static struct kgsl_device_platform_data kgsl_2d0_pdata = {
 	.pwrlevel = {
 		{
-			.gpu_freq = 228571000,
+			.gpu_freq = 200000000,
 			.bus_freq = 2,
 		},
 		{
@@ -3295,7 +3339,7 @@ static struct resource kgsl_2d1_resources[] = {
 static struct kgsl_device_platform_data kgsl_2d1_pdata = {
 	.pwrlevel = {
 		{
-			.gpu_freq = 228571000,
+			.gpu_freq = 200000000,
 			.bus_freq = 2,
 		},
 		{
@@ -3330,6 +3374,19 @@ struct platform_device msm_kgsl_2d1 = {
 		.platform_data = &kgsl_2d1_pdata,
 	},
 };
+
+#ifdef CONFIG_CMDLINE_OPTIONS
+extern int set_kgsl_2d0_freq(unsigned int freq)
+{
+	kgsl_2d0_pdata.pwrlevel[0].gpu_freq = freq;
+	return 0;
+}
+extern int set_kgsl_2d1_freq(unsigned int freq)
+{
+	kgsl_2d1_pdata.pwrlevel[0].gpu_freq = freq;
+	return 0;
+}
+#endif
 
 #ifdef CONFIG_MSM_GEMINI
 static struct resource msm_gemini_resources[] = {

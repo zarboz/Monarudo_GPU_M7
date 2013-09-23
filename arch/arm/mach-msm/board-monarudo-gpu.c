@@ -18,9 +18,85 @@
 #include <mach/board.h>
 #include <mach/msm_dcvs.h>
 #include <mach/socinfo.h>
-
+#include "devices-msm8x60.h"
 #include "devices.h"
 #include "board-monarudo.h"
+
+/* cmdline_gpu */
+#ifdef CONFIG_CMDLINE_OPTIONS
+
+unsigned int cmdline_3dgpu[2] = {CMDLINE_3DGPU_DEFKHZ_0, CMDLINE_3DGPU_DEFKHZ_1};
+static int __init devices_read_3dgpu_cmdline(char *khz)
+{
+	unsigned long ui_khz;
+	unsigned long *f;
+	unsigned long valid_freq[9] = {266667000, 300000000, 320000000, 320000000, 400000000, 450000000, 500000000, 550000000, 0};
+	int err;
+
+	err = strict_strtoul(khz, 0, &ui_khz);
+	if (err) {
+		cmdline_3dgpu[1] = CMDLINE_3DGPU_DEFKHZ_1;
+		cmdline_3dgpu[0] = CMDLINE_3DGPU_DEFKHZ_0;
+		printk(KERN_INFO "[cmdline_3dgpu]: ERROR while converting! using default value!");
+		printk(KERN_INFO "[cmdline_3dgpu]: 3dgpukhz_0='%i' & 3dgpukhz_1='%i'\n",
+		       cmdline_3dgpu[0], cmdline_3dgpu[1]);
+		return 1;
+	}
+
+	/* Check if parsed value is valid */
+	if (ui_khz > 550000000)
+		cmdline_3dgpu[1] = CMDLINE_3DGPU_DEFKHZ_1;
+		cmdline_3dgpu[0] = CMDLINE_3DGPU_DEFKHZ_0;
+
+	if (ui_khz < 266667000)
+		cmdline_3dgpu[1] = CMDLINE_3DGPU_DEFKHZ_1;
+		cmdline_3dgpu[0] = CMDLINE_3DGPU_DEFKHZ_0;
+
+	for (f = valid_freq; f != 0; f++) {
+		if (*f == ui_khz) {
+			cmdline_3dgpu[0] = ui_khz;
+			if (*f == valid_freq[0]) {
+				cmdline_3dgpu[1] = CMDLINE_3DGPU_DEFKHZ_1;
+			} else {
+				f--;
+				cmdline_3dgpu[1] = *f;
+				f++;
+			}
+			printk(KERN_INFO "[cmdline_3dgpu]: 3dgpukhz_0='%i' & 3dgpukhz_1='%i'\n",
+			       cmdline_3dgpu[0], cmdline_3dgpu[1]);
+			return 1;
+		}
+		if (ui_khz > *f) {
+			f++;
+			if (ui_khz < *f) {
+				f--;
+				cmdline_3dgpu[0] = *f;
+				if (*f == valid_freq[0]) {
+					cmdline_3dgpu[1] = CMDLINE_3DGPU_DEFKHZ_1;
+				} else {
+					f--;
+					cmdline_3dgpu[1] = *f;
+					f++;
+				}
+				printk(KERN_INFO "[cmdline_3dgpu]: AUTOCORRECT! Couldn't find entered value");
+				printk(KERN_INFO "[cmdline_3dgpu]: 3dgpukhz_0='%i' & 3dgpukhz_1='%i'\n",
+				       cmdline_3dgpu[0], cmdline_3dgpu[1]);
+				return 1;
+			}
+			f--;
+		}
+	}
+	/* if we are still in here then something went wrong. Use defaults */
+	cmdline_3dgpu[1] = CMDLINE_3DGPU_DEFKHZ_1;
+	cmdline_3dgpu[0] = CMDLINE_3DGPU_DEFKHZ_0;
+	printk(KERN_INFO "[cmdline_3dgpu]: ERROR! using default value!");
+	printk(KERN_INFO "[cmdline_3dgpu]: 3dgpukhz_0='%i' & 3dgpukhz_1='%i'\n",
+	       cmdline_3dgpu[0], cmdline_3dgpu[1]);
+        return 1;
+}
+__setup("3dgpu=", devices_read_3dgpu_cmdline);
+
+#endif
 
 #ifdef CONFIG_MSM_DCVS
 static struct msm_dcvs_freq_entry grp3d_freq[] = {
@@ -241,6 +317,16 @@ struct platform_device device_kgsl_3d0 = {
 		.platform_data = &kgsl_3d0_pdata,
 	},
 };
+
+#ifdef CONFIG_CMDLINE_OPTIONS
+/* setters for cmdline_gpu */
+extern int set_kgsl_3d0_freq(unsigned int freq0, unsigned int freq1)
+{
+	kgsl_3d0_pdata.pwrlevel[0].gpu_freq = freq0;
+	kgsl_3d0_pdata.pwrlevel[1].gpu_freq = freq1;
+	return 0;
+}
+#endif
 
 void __init monarudo_init_gpu(void)
 {

@@ -501,13 +501,13 @@ static int msm_cpufreq_init(struct cpufreq_policy *policy)
 
 	if (cpufreq_frequency_table_cpuinfo(policy, table)) {
 #ifdef CONFIG_MSM_CPU_FREQ_SET_MIN_MAX
-		policy->cpuinfo.min_freq = CONFIG_MSM_CPU_FREQ_MIN;
-		policy->cpuinfo.max_freq = CONFIG_MSM_CPU_FREQ_MAX;
+		policy->cpuinfo.min_freq = cmdline_minkhz;
+		policy->cpuinfo.max_freq = cmdline_minkhz;
 #endif
 	}
 #ifdef CONFIG_MSM_CPU_FREQ_SET_MIN_MAX
-	policy->min = CONFIG_MSM_CPU_FREQ_MIN;
-	policy->max = CONFIG_MSM_CPU_FREQ_MAX;
+	policy->max = cmdline_maxkhz;
+	policy->min = cmdline_minkhz;
 #endif
 
 #ifdef CONFIG_ARCH_APQ8064
@@ -541,14 +541,14 @@ static int msm_cpufreq_init(struct cpufreq_policy *policy)
 	INIT_WORK(&cpu_work->work, set_cpu_work);
 	init_completion(&cpu_work->complete);
 #endif
+
+	return 0;
+	
 #ifdef CONFIG_CMDLINE_OPTIONS
 	policy->max = cmdline_maxkhz;
 	policy->min = cmdline_minkhz;
-#else 
-	policy->max = 1512000;
-	policy->min = 384000; 
 #endif
-	return 0;
+
 }
 
 static int msm_cpufreq_suspend(void)
