@@ -1,7 +1,7 @@
 /*
  *
  * Automatically generated file; DO NOT EDIT.
- * Linux/arm 3.4.14 Kernel Configuration
+ * Linux/arm 3.4.16 Kernel Configuration
  *
  */
 #define CONFIG_IP6_NF_MATCH_AH 1
@@ -120,6 +120,7 @@
 #define CONFIG_USB_EHCI_MSM 1
 #define CONFIG_BCMA_POSSIBLE 1
 #define CONFIG_NET_VENDOR_CIRRUS 1
+#define CONFIG_ZRAM 1
 #define CONFIG_FORCE_MAX_ZONEORDER 11
 #define CONFIG_SND_SOC 1
 #define CONFIG_SYNC 1
@@ -628,6 +629,7 @@
 #define CONFIG_USB_GADGET_DUALSPEED 1
 #define CONFIG_MSM_CPU_PWRCTL 1
 #define CONFIG_STRICT_MEMORY_RWX 1
+#define CONFIG_ARM_ERRATA_775420 1
 #define CONFIG_HAS_IOMEM 1
 #define CONFIG_SND_RAWMIDI 1
 #define CONFIG_PPPOPNS 1
@@ -1163,6 +1165,7 @@
 #define CONFIG_SCSI_MULTI_LUN 1
 #define CONFIG_BOSCH_BMA250 1
 #define CONFIG_NEW_LEDS 1
+#define CONFIG_SWAP 1
 #define CONFIG_SND_SOC_VOICE 1
 #define CONFIG_SND_HTC_Q6_NOBUG 1
 #define CONFIG_MSM_RTB_SEPARATE_CPUS 1
