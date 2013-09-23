@@ -35,7 +35,7 @@ enum vdd_state {
 	ENABLE_VDD,
 };
 
-extern int vibrate(struct timed_output_dev *dev, int time);
+//extern int vibrate(struct timed_output_dev *dev, int time);
 
 #endif 
 

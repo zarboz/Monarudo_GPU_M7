@@ -2009,7 +2009,7 @@ static void synaptics_ts_finger_func(struct synaptics_ts_data *ts)
 										    (finger_data[i][1] > 2720)) {
 											if (finger_data[i][0] > 880) {
 												if (exec_count) {
-													vibrate(0,15);
+													//vibrate(0,15);
 													printk(KERN_INFO "[sweep2wake]: ON");
 													sweep2wake_pwrtrigger();
 													exec_count = false;
