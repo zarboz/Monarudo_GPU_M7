@@ -16,12 +16,14 @@
 #include "mdp4.h"
 #include <linux/i2c.h>
 #include <mach/debug_display.h>
+#include <linux/string.h>
 #include <mach/panel_id.h>
 
 static struct mipi_dsi_panel_platform_data *mipi_renesas_pdata;
-
+struct dsi_cmd_desc local_power_on_set_1[33];
 static struct dsi_buf renesas_tx_buf;
 static struct dsi_buf renesas_rx_buf;
+static int lcd_isactive = 0;
 
 static struct dsi_cmd_desc *renesas_video_on_cmds = NULL;
 static struct dsi_cmd_desc *renesas_display_off_cmds = NULL;
@@ -46,7 +48,7 @@ static struct dsi_cmd_desc renesas_cmd_backlight_cmds[] = {
 
 
 static char interface_setting_0[2] = {0xB0, 0x04};
-#if 0
+
 static char interface_setting_1[7] = {
 	0xB3, 0x14, 0x00, 0x00,
 	0x00, 0x00, 0x00};
@@ -190,10 +192,10 @@ static char gamma_setting_blue[25]= {
 	0x1A, 0x28, 0x41, 0x38,
 	0x4C, 0x59, 0x63, 0x6B,
 	0x74};
-#endif
-static char BackLight_Control_6[8]= {
-	0xCE, 0x00, 0x07, 0x00,
-	0xC1, 0x24, 0xB2, 0x02};
+
+//static char BackLight_Control_6[8]= {
+//	0xCE, 0x00, 0x07, 0x00,
+//	0xC1, 0x24, 0xB2, 0x02};
 static char Manufacture_Command_setting[4] = {0xD6, 0x01};
 static char nop[4] = {0x00, 0x00};
 static char CABC[2] = {0x55, 0x00};
@@ -203,7 +205,7 @@ static char TE_OUT[4] = {0x35, 0x00};
 static char deep_standby_off[2] = {0xB1, 0x01};
 
 static struct dsi_cmd_desc sharp_video_on_cmds[] = {
-#if 0
+
 	{DTYPE_DCS_WRITE1, 1, 0, 0, 0, sizeof(interface_setting_0), interface_setting_0},
 	{DTYPE_DCS_LWRITE, 1, 0, 0, 0, sizeof(interface_setting_1), interface_setting_1},
 	{DTYPE_DCS_LWRITE, 1, 0, 0, 0, sizeof(interface_id_setting), interface_id_setting},
@@ -243,7 +245,7 @@ static struct dsi_cmd_desc sharp_video_on_cmds[] = {
 	{DTYPE_DCS_WRITE1, 1, 0, 0, 0, sizeof(Manufacture_Command_setting), Manufacture_Command_setting},
 
 	{DTYPE_DCS_LWRITE, 1, 0, 0, 0, sizeof(write_display_brightnes), write_display_brightnes},
-#endif
+
 	{DTYPE_GEN_LWRITE, 1, 0, 0, 0, sizeof(interface_setting_0), interface_setting_0},
 	{DTYPE_DCS_WRITE1, 1, 0, 0, 0, sizeof(nop), nop},
 	{DTYPE_DCS_WRITE1, 1, 0, 0, 0, sizeof(nop), nop},
@@ -287,7 +289,7 @@ static struct dsi_cmd_desc sony_display_off_cmds[] = {
 	{DTYPE_DCS_LWRITE, 1, 0, 0, 0, sizeof(nop), nop},
 	{DTYPE_GEN_LWRITE, 1, 0, 0, 0, sizeof(deep_standby_off), deep_standby_off},
 };
-#if 0
+/*
 static char manufacture_id[2] = {0x04, 0x00}; 
 
 static struct dsi_cmd_desc renesas_manufacture_id_cmd = {
@@ -307,7 +309,7 @@ static uint32 mipi_renesas_manufacture_id(struct msm_fb_data_type *mfd)
 	pr_info("%s: manufacture_id=%x", __func__, *lp);
 	return *lp;
 }
-#endif
+*/
 static int resume_blk = 1;
 static int first_init = 1;
 struct i2c_client *pwm_client;
@@ -321,7 +323,7 @@ static int mipi_renesas_lcd_on(struct platform_device *pdev)
 		return -ENODEV;
 	if (mfd->key != MFD_KEY)
 		return -EINVAL;
-
+	lcd_isactive = 1;
 	mipi  = &mfd->panel_info.mipi;
 
 	if (first_init)
@@ -348,20 +350,185 @@ static int mipi_renesas_lcd_off(struct platform_device *pdev)
 		return -ENODEV;
 	if (mfd->key != MFD_KEY)
 		return -EINVAL;
-
+	lcd_isactive = 0;
 	resume_blk = 1;
 	PR_DISP_INFO("mipi_renesas_lcd_off\n");
 	return 0;
 }
 
+/******************* Begin sysfs interface *******************/
+
+static unsigned char calc_checksum(int intArr[]) {
+	int i = 0;
+	unsigned char chksum = 0;
+
+	for (i=1; i<10; i++)
+		chksum += intArr[i];
+
+	return chksum;
+}
+
+static ssize_t do_kgamma_store(struct device *dev, struct device_attribute *attr,
+				const char *buf, size_t count,
+				unsigned int offset)
+{
+	int kgamma[10];
+	int i;
+
+	sscanf(buf, "%d %d %d %d %d %d %d %d %d %d",
+		&kgamma[0], &kgamma[1], &kgamma[2], &kgamma[3],
+		&kgamma[4], &kgamma[5], &kgamma[6], &kgamma[7],
+		&kgamma[8], &kgamma[9]);
+
+	if (kgamma[5] > 31 || (kgamma[6] > 31)) {
+		pr_info("gamma 0 and gamma 1 values can't be over 31, got %d %d instead!", kgamma[5], kgamma[6]);
+		return -EINVAL;
+	}
+
+	for (i=1; i<10; i++) {
+		if (kgamma[i] > 255) {
+			pr_info("char values  can't be over 255, got %d instead!", kgamma[i]);
+			return -EINVAL;
+		}
+	}
+
+	if (calc_checksum(kgamma) == (unsigned char) kgamma[0]) {
+		kgamma[0] = 0xd0 + offset;
+		for (i=0; i<10; i++) {
+			pr_info("kgamma_p [%d] => %d \n", i, kgamma[i]);
+			local_power_on_set_1[5+offset].payload[i] = kgamma[i];
+		}
+
+		kgamma[0] = 0xd1 + offset;
+		for (i=0; i<10; i++) {
+			pr_info("kgamma_n [%d] => %d \n", i, kgamma[i]);
+			local_power_on_set_1[6+offset].payload[i] = kgamma[i];
+		}
+		return count;
+	}
+	return -EINVAL;
+}
+
+static ssize_t do_kgamma_show(struct device *dev, struct device_attribute *attr,
+				char *buf, unsigned int offset)
+{
+	int kgamma[10];
+	int i;
+
+	for (i=1; i<10; i++)
+		kgamma[i] = local_power_on_set_1[5+offset].payload[i];
+
+	kgamma[0] = (int) calc_checksum(kgamma);
+
+	return sprintf(buf, "%d %d %d %d %d %d %d %d %d %d",
+		kgamma[0], kgamma[1], kgamma[2], kgamma[3],
+		kgamma[4], kgamma[5], kgamma[6], kgamma[7],
+		kgamma[8], kgamma[9]);
+}
+
+static ssize_t kgamma_r_store(struct device *dev, struct device_attribute *attr,
+						const char *buf, size_t count)
+{
+	return do_kgamma_store(dev,attr,buf,count,0);
+}
+
+static ssize_t kgamma_r_show(struct device *dev, struct device_attribute *attr,
+								char *buf)
+{
+	return do_kgamma_show(dev,attr,buf,0);
+}
+
+static ssize_t kgamma_g_store(struct device *dev, struct device_attribute *attr,
+						const char *buf, size_t count)
+{
+	return do_kgamma_store(dev,attr,buf,count,2);
+}
+
+static ssize_t kgamma_g_show(struct device *dev, struct device_attribute *attr,
+								char *buf)
+{
+	return do_kgamma_show(dev,attr,buf,2);
+}
+
+static ssize_t kgamma_b_store(struct device *dev, struct device_attribute *attr,
+						const char *buf, size_t count)
+{
+	return do_kgamma_store(dev,attr,buf,count,4);
+}
+
+static ssize_t kgamma_b_show(struct device *dev, struct device_attribute *attr,
+								char *buf)
+{
+	return do_kgamma_show(dev,attr,buf,4);
+}
+
+static ssize_t kgamma_apply_store(struct device *dev, struct device_attribute *attr,
+						const char *buf, size_t count)
+{
+	int ret = 0;
+
+	/*
+	 * Only attempt to apply if the LCD is active.
+	 * If it isn't, the device will panic-reboot
+	 */
+	if(lcd_isactive) {
+		MIPI_OUTP(MIPI_DSI_BASE + 0x38, 0x10000000);
+		ret = mipi_dsi_cmds_tx(&renesas_tx_buf,
+				local_power_on_set_1,0/*,
+				mipi_renesas_pdata->renesas_video_on_cmds*/);
+		MIPI_OUTP(MIPI_DSI_BASE + 0x38, 0x14000000);
+		if (ret < 0) {
+			pr_err("%s: failed to transmit power_on_set_1 cmds\n", __func__);
+			return ret;
+		}
+	}
+	else {
+		pr_err("%s: Tried to apply gamma settings when LCD was off\n",__func__);
+		//Is ENODEV correct here?  Perhaps it should be something else?
+		return -ENODEV;
+	}
+	return count;
+}
+
+static ssize_t kgamma_apply_show(struct device *dev, struct device_attribute *attr,
+								char *buf)
+{
+	return 0;
+}
+
+static DEVICE_ATTR(kgamma_r, 0644, kgamma_r_show, kgamma_r_store);
+static DEVICE_ATTR(kgamma_g, 0644, kgamma_g_show, kgamma_g_store);
+static DEVICE_ATTR(kgamma_b, 0644, kgamma_b_show, kgamma_b_store);
+static DEVICE_ATTR(kgamma_apply, 0644, kgamma_apply_show, kgamma_apply_store);
+
+/******************* End sysfs interface *******************/
+
+
 static int __devinit mipi_renesas_lcd_probe(struct platform_device *pdev)
 {
+	int rc;
 	if (pdev->id == 0) {
 		mipi_renesas_pdata = pdev->dev.platform_data;
 		return 0;
 	}
 
 	msm_fb_add_device(pdev);
+
+	rc = device_create_file(&pdev->dev, &dev_attr_kgamma_r);
+	if(rc !=0)
+		return -1;
+
+	rc = device_create_file(&pdev->dev, &dev_attr_kgamma_g);
+	if(rc !=0)
+		return -1;
+
+	rc = device_create_file(&pdev->dev, &dev_attr_kgamma_b);
+	if(rc !=0)
+		return -1;
+
+	rc = device_create_file(&pdev->dev, &dev_attr_kgamma_apply);
+	if(rc !=0)
+		return -1;
 
 	return 0;
 }
