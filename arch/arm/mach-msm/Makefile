@@ -227,6 +227,7 @@ ifdef CONFIG_BT
 	obj-$(CONFIG_MACH_DELUXE_J) += board-deluxe_j-rfkill.o  htc_bdaddress.o
 	obj-$(CONFIG_MACH_IMPRESSION_J) += board-impression_j-rfkill.o  htc_bdaddress.o
 	obj-$(CONFIG_MACH_M7_UL) += board-m7-rfkill.o  htc_bdaddress.o htc_4335_wl_reg.o
+	obj-$(CONFIG_MACH_DLXP_UL) += board-dlxp_ul-rfkill.o htc_bdaddress.o htc_4335_wl_reg.o
 endif
 
 #ifdef CONFIG_MSM_CAMERA_V4L2
@@ -297,8 +298,11 @@ board-monarudo-all-objs += board-monarudo.o board-monarudo-pmic.o board-monarudo
 board-deluxe_j-all-objs += board-deluxe_j.o board-deluxe_j-pmic.o board-deluxe_j-storage.o board-deluxe_j-gpiomux.o board-deluxe_j-keypad.o board-deluxe_j-wifi.o board-deluxe_j-audio.o
 board-impression_j-all-objs += board-impression_j.o board-impression_j-pmic.o board-impression_j-storage.o board-impression_j-gpiomux.o board-impression_j-keypad.o board-impression_j-wifi.o board-impression_j-audio.o
 board-m7-all-objs += board-m7.o board-m7-pmic.o board-m7-storage.o board-m7-gpiomux.o board-m7-keypad.o board-m7-wifi.o board-m7-audio.o
+board-dlxp_ul-all-objs += board-dlxp_ul.o board-dlxp_ul-pmic.o board-dlxp_ul-storage.o board-dlxp_ul-gpiomux.o board-dlxp_ul-display.o board-dlxp_ul-gpu.o board-dlxp_ul-keypad.o board-dlxp_ul-wifi.o  board-dlxp_ul-audio.o
+
 
 ifdef CONFIG_FB_MSM
+board-dlxp_ul-all-objs += board-dlxp_ul-display.o board-dlxp_ul-gpu.o
 board-deluxe_j-all-objs += board-deluxe_j-display.o board-deluxe_j-gpu.o
 board-impression_j-all-objs += board-impression_j-display.o board-impression_j-gpu.o
 board-m7-all-objs += board-m7-display.o board-m7-gpu.o
@@ -309,6 +313,7 @@ board-monarudo-all-objs += board-monarudo-camera.o
 board-deluxe_j-all-objs += board-deluxe_j-camera.o
 board-impression_j-all-objs += board-impression_j-camera.o
 board-m7-all-objs += board-m7-camera.o
+board-dlxp_ul-all-objs += board-dlxp_ul-camera.o
 endif
 obj-$(CONFIG_MACH_MSM8960_SIM) += board-8960-all.o board-8960-regulator.o
 obj-$(CONFIG_MACH_MSM8960_RUMI3) += board-8960-all.o board-8960-regulator.o
@@ -330,8 +335,11 @@ obj-$(CONFIG_MACH_MONARUDO) += board-monarudo-all.o board-monarudo-regulator.o
 obj-$(CONFIG_MACH_DELUXE_J) += board-deluxe_j-all.o board-deluxe_j-regulator.o
 obj-$(CONFIG_MACH_IMPRESSION_J) += board-impression_j-all.o board-impression_j-regulator.o
 obj-$(CONFIG_MACH_M7_UL) += board-m7-all.o board-m7-regulator.o
+obj-$(CONFIG_MACH_DLXP_UL) += board-dlxp_ul-all.o board-dlxp_ul-regulator.o
+
 
 obj-$(CONFIG_MACH_MONARUDO) += htc_util.o
+obj-$(CONFIG_MACH_DLXP_UL) += htc_util.o
 obj-$(CONFIG_MACH_DELUXE_J) += htc_util.o ADP5585_ioextender.o
 obj-$(CONFIG_MACH_IMPRESSION_J) += htc_util.o ADP5585_ioextender.o
 obj-$(CONFIG_MACH_M7_UL) += htc_util.o

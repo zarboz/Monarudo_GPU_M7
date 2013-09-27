@@ -2681,6 +2681,12 @@ config MACH_MONARUDO
 	help
 	  Support for the HTC APQ8064 MONARUDO.
 
+config MACH_DLXP_UL
+	depends on ARCH_APQ8064
+	bool "APQ8064 DLXP_UL"
+	help
+	  Support for the HTC APQ8064 DLXP_UL.
+
 config MACH_DELUXE_J
         depends on ARCH_APQ8064
         bool "APQ8064 DELUXE_J"
