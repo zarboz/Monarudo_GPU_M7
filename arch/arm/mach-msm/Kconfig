@@ -2799,5 +2799,10 @@ config MSM_MPDEC_INPUTBOOST_CPUMIN
 	  This pushes the cpu min speed to predefined values on input events.
 
 	  
+config UPDATE_LCDC_LUT
+	default y
+	bool "enable LCDC LUT"
+	help
+	  enable LCDC LUT
 endif
 
