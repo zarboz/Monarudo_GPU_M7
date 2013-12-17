@@ -13,22 +13,21 @@
  * GNU General Public License for more details.
  */
 
+#include <asm/mach-types.h>
 #include <linux/platform_device.h>
 #include <mach/htc_acoustic_8960.h>
 #include <sound/pcm.h>
 #include <sound/q6asm.h>
 #include <linux/module.h>
-#include <linux/gpio.h>
 #include "board-monarudo.h"
-#include <mach/tpa6185.h>
-#include <mach/rt5501.h>
 #include "../sound/soc/msm/msm-pcm-routing.h"
 #include "../sound/soc/msm/msm-compr-q6.h"
-#define HAC_PAMP_GPIO 6
-
+#include <linux/gpio.h>
+#include <mach/tpa6185.h>
+#include <mach/rt5501.h>
+#define HAC_PAMP_GPIO	6
 static atomic_t q6_effect_mode = ATOMIC_INIT(-1);
 extern unsigned int system_rev;
-extern unsigned int engineerid;
 
 static int monarudo_get_hw_component(void)
 {
@@ -38,17 +37,14 @@ static int monarudo_get_hw_component(void)
         hw_com |= HTC_AUDIO_TPA6185;
 
     if(query_rt5501())
-    hw_com |= HTC_AUDIO_RT5501;
+        hw_com |= HTC_AUDIO_RT5501;
 
     return hw_com;
 }
 
 static int monarudo_enable_digital_mic(void)
 {
-    if(system_rev >= XD)
-        return 1;
-
-    return 0;
+	return 1;
 }
 
 void apq8064_set_q6_effect_mode(int mode)
@@ -87,7 +83,6 @@ static struct msm_compr_q6_ops cops = {
 	.get_24b_audio = apq8064_get_24b_audio,
 };
 
-
 static int __init monarudo_audio_init(void)
 {
         int ret = 0;
@@ -109,10 +104,10 @@ static int __init monarudo_audio_init(void)
 	htc_register_pcm_routing_ops(&rops);
 	htc_register_compr_q6_ops(&cops);
 	acoustic_register_ops(&acoustic);
+	pr_info("%s", __func__);
 	return ret;
 
 }
-
 late_initcall(monarudo_audio_init);
 
 static void __exit monarudo_audio_exit(void)
