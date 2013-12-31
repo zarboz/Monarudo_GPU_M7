@@ -248,7 +248,6 @@ static struct lcdc_platform_data dtv_pdata = {
 };
 #endif
 
-
 struct mdp_reg mdp_gamma[] = {
         {0x94800, 0x000000, 0x0},
         {0x94804, 0x010101, 0x0},
@@ -532,7 +531,7 @@ struct mdp_reg mdp_gamma[] = {
 
 int monarudo_mdp_gamma(void)
 {
-	//mdp_color_enhancement(mdp_gamma, ARRAY_SIZE(mdp_gamma));
+	mdp_color_enhancement(mdp_gamma, ARRAY_SIZE(mdp_gamma));
 	return 0;
 }
 
@@ -594,7 +593,7 @@ uint32_t cfg_panel_te_sleep[] = {GPIO_CFG(LCD_TE, 0, GPIO_CFG_INPUT, GPIO_CFG_PU
 
 static int mipi_dsi_panel_power(int on)
 {
-	static bool dsi_power_on = false;
+        static bool dsi_power_on = false;
 	static struct regulator *reg_lvs5, *reg_l2;
 	static int gpio36, gpio37;
 	int rc;
@@ -791,7 +790,7 @@ static char gamma_setting_blue[25]= {
 	0x74};
 #endif
 
-/*static char Color_enhancement[33]= {
+static char Color_enhancement[33]= {
 	0xCA, 0x01, 0x02, 0xA4,
 	0xA4, 0xB8, 0xB4, 0xB0,
 	0xA4, 0x3F, 0x28, 0x05,
@@ -800,7 +799,7 @@ static char gamma_setting_blue[25]= {
 	0x0C, 0x0C, 0x0C, 0x13,
 	0x13, 0xF0, 0x20, 0x10,
 	0x10, 0x10, 0x10, 0x10,
-	0x10};*/
+	0x10};
 
 
 static char BackLight_Control_6[8]= {
@@ -819,7 +818,7 @@ static struct dsi_cmd_desc sharp_video_on_cmds[] = {
 	{DTYPE_DCS_WRITE1, 1, 0, 0, 0, sizeof(nop), nop},
 	{DTYPE_DCS_WRITE1, 1, 0, 0, 0, sizeof(nop), nop},
 	{DTYPE_GEN_LWRITE, 1, 0, 0, 0, sizeof(Manufacture_Command_setting), Manufacture_Command_setting},
-	//{DTYPE_GEN_LWRITE, 1, 0, 0, 0, sizeof(Color_enhancement), Color_enhancement},
+	{DTYPE_GEN_LWRITE, 1, 0, 0, 0, sizeof(Color_enhancement), Color_enhancement},
 	
 	{DTYPE_GEN_LWRITE, 1, 0, 0, 0, sizeof(BackLight_Control_6), BackLight_Control_6},
 	{DTYPE_DCS_WRITE1, 1, 0, 0, 0, sizeof(write_control_display), write_control_display},
@@ -834,7 +833,7 @@ static struct dsi_cmd_desc sony_video_on_cmds[] = {
 	{DTYPE_DCS_WRITE1, 1, 0, 0, 0, sizeof(nop), nop},
 	{DTYPE_DCS_WRITE1, 1, 0, 0, 0, sizeof(nop), nop},
 	{DTYPE_GEN_LWRITE, 1, 0, 0, 0, sizeof(hsync_output), hsync_output},
-	//{DTYPE_GEN_LWRITE, 1, 0, 0, 0, sizeof(Color_enhancement), Color_enhancement},
+	{DTYPE_GEN_LWRITE, 1, 0, 0, 0, sizeof(Color_enhancement), Color_enhancement},
 	
 	{DTYPE_GEN_LWRITE, 1, 0, 0, 0, sizeof(BackLight_Control_6), BackLight_Control_6},
 	{DTYPE_GEN_LWRITE, 1, 0, 0, 0, sizeof(Manufacture_Command_setting), Manufacture_Command_setting},
@@ -947,6 +946,8 @@ static void monarudo_display_on(struct msm_fb_data_type *mfd)
 	cmdreq.cmds = display_on_cmds;
 	cmdreq.cmds_cnt = 1;
 	cmdreq.flags = CMD_REQ_COMMIT;
+	if (mfd && mfd->panel_info.type == MIPI_CMD_PANEL)
+		cmdreq.flags |= CMD_CLK_CTRL;
 	cmdreq.rlen = 0;
 	cmdreq.cb = NULL;
 
@@ -960,10 +961,10 @@ static void monarudo_display_off(struct msm_fb_data_type *mfd)
 	cmdreq.cmds = display_off_cmds;
 	cmdreq.cmds_cnt = display_off_cmds_count;
 	cmdreq.flags = CMD_REQ_COMMIT;
-	cmdreq.rlen = 0;
-	cmdreq.cb = NULL;
 	if (mfd && mfd->panel_info.type == MIPI_CMD_PANEL)
 		cmdreq.flags |= CMD_CLK_CTRL;
+	cmdreq.rlen = 0;
+	cmdreq.cb = NULL;
 
 	mipi_dsi_cmdlist_put(&cmdreq);
 
@@ -1323,8 +1324,8 @@ void __init monarudo_init_fb(void)
 	}
 	msm_fb_register_device("dtv", &dtv_pdata);
 #ifdef CONFIG_FB_MSM_WRITEBACK_MSM_PANEL
-	platform_device_register(&wfd_panel_device);
-	platform_device_register(&wfd_device);
+  platform_device_register(&wfd_panel_device);
+  platform_device_register(&wfd_device);
 #endif
 }
 

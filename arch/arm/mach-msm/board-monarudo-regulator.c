@@ -66,6 +66,7 @@ VREG_CONSUMERS(L9) = {
 VREG_CONSUMERS(L10) = {
 	REGULATOR_SUPPLY("8921_l10",		NULL),
 	REGULATOR_SUPPLY("iris_vddpa",		"wcnss_wlan.0"),
+	REGULATOR_SUPPLY("cir_3v",		NULL),
 };
 VREG_CONSUMERS(L11) = {
 	REGULATOR_SUPPLY("8921_l11",		NULL),
@@ -77,6 +78,7 @@ VREG_CONSUMERS(L12) = {
 };
 VREG_CONSUMERS(L14) = {
 	REGULATOR_SUPPLY("8921_l14",		NULL),
+	REGULATOR_SUPPLY("vreg_xoadc",		"pm8921-charger"),
 };
 VREG_CONSUMERS(L15) = {
 	REGULATOR_SUPPLY("8921_l15",		NULL),
@@ -547,29 +549,30 @@ monarudo_rpm_regulator_init_data[] __devinitdata = {
 	RPM_NCP(NCP, 0,    0, 1800000, 1800000, "8921_l6", 1p60),
 };
 
+
 #define RPM_REG_MAP(_id, _sleep_also, _voter, _supply, _dev_name) \
-	{ \
-		.vreg_id = RPM_VREG_ID_PM8921_##_id, \
-		.sleep_also = _sleep_also, \
-		.voter = _voter, \
-		.supply = _supply, \
-		.dev_name = _dev_name, \
-	}
+  { \
+    .vreg_id = RPM_VREG_ID_PM8921_##_id, \
+    .sleep_also = _sleep_also, \
+    .voter = _voter, \
+    .supply = _supply, \
+    .dev_name = _dev_name, \
+  }
 static struct rpm_regulator_consumer_mapping
-	      msm_rpm_regulator_consumer_mapping[] __devinitdata = {
-	RPM_REG_MAP(LVS7, 0, 1, "krait0_hfpll", "acpuclk-8064"),
-	RPM_REG_MAP(LVS7, 0, 2, "krait1_hfpll", "acpuclk-8064"),
-	RPM_REG_MAP(LVS7, 0, 4, "krait2_hfpll", "acpuclk-8064"),
-	RPM_REG_MAP(LVS7, 0, 5, "krait3_hfpll", "acpuclk-8064"),
-	RPM_REG_MAP(LVS7, 0, 6, "l2_hfpll",     "acpuclk-8064"),
-	RPM_REG_MAP(L24,  0, 1, "krait0_mem",   "acpuclk-8064"),
-	RPM_REG_MAP(L24,  0, 2, "krait1_mem",   "acpuclk-8064"),
-	RPM_REG_MAP(L24,  0, 4, "krait2_mem",   "acpuclk-8064"),
-	RPM_REG_MAP(L24,  0, 5, "krait3_mem",   "acpuclk-8064"),
-	RPM_REG_MAP(S3,   0, 1, "krait0_dig",   "acpuclk-8064"),
-	RPM_REG_MAP(S3,   0, 2, "krait1_dig",   "acpuclk-8064"),
-	RPM_REG_MAP(S3,   0, 4, "krait2_dig",   "acpuclk-8064"),
-	RPM_REG_MAP(S3,   0, 5, "krait3_dig",   "acpuclk-8064"),
+        msm_rpm_regulator_consumer_mapping[] __devinitdata = {
+  RPM_REG_MAP(LVS7, 0, 1, "krait0_hfpll", "acpuclk-8064"),
+  RPM_REG_MAP(LVS7, 0, 2, "krait1_hfpll", "acpuclk-8064"),
+  RPM_REG_MAP(LVS7, 0, 4, "krait2_hfpll", "acpuclk-8064"),
+  RPM_REG_MAP(LVS7, 0, 5, "krait3_hfpll", "acpuclk-8064"),
+  RPM_REG_MAP(LVS7, 0, 6, "l2_hfpll",     "acpuclk-8064"),
+  RPM_REG_MAP(L24,  0, 1, "krait0_mem",   "acpuclk-8064"),
+  RPM_REG_MAP(L24,  0, 2, "krait1_mem",   "acpuclk-8064"),
+  RPM_REG_MAP(L24,  0, 4, "krait2_mem",   "acpuclk-8064"),
+  RPM_REG_MAP(L24,  0, 5, "krait3_mem",   "acpuclk-8064"),
+  RPM_REG_MAP(S3,   0, 1, "krait0_dig",   "acpuclk-8064"),
+  RPM_REG_MAP(S3,   0, 2, "krait1_dig",   "acpuclk-8064"),
+  RPM_REG_MAP(S3,   0, 4, "krait2_dig",   "acpuclk-8064"),
+  RPM_REG_MAP(S3,   0, 5, "krait3_dig",   "acpuclk-8064"),
 };
 
 int monarudo_pm8921_regulator_pdata_len __devinitdata =
@@ -581,7 +584,7 @@ struct rpm_regulator_platform_data monarudo_rpm_regulator_pdata __devinitdata = 
 	.version		  = RPM_VREG_VERSION_8960,
 	.vreg_id_vdd_mem	  = RPM_VREG_ID_PM8921_L24,
 	.vreg_id_vdd_dig	  = RPM_VREG_ID_PM8921_S3,
-	.consumer_map		  = msm_rpm_regulator_consumer_mapping,
-	.consumer_map_len = ARRAY_SIZE(msm_rpm_regulator_consumer_mapping),
+        .consumer_map      = msm_rpm_regulator_consumer_mapping,
+        .consumer_map_len = ARRAY_SIZE(msm_rpm_regulator_consumer_mapping),
 	.requires_tcxo_workaround = true
 };

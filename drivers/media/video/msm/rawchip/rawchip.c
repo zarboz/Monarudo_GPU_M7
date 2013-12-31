@@ -545,7 +545,7 @@ int rawchip_power_up(const struct msm_camera_rawchip_info *pdata)
 		goto enable_power_on_failed;
 	}
 
-	rc = msm_camio_clk_enable(CAMIO_CAM_MCLK_CLK);
+	rc = msm_camio_clk_enable(0,CAMIO_CAM_MCLK_CLK);
 	if (rc < 0) {
 		pr_err("enable MCLK failed\n");
 		goto enable_mclk_failed;
@@ -567,7 +567,7 @@ int rawchip_power_up(const struct msm_camera_rawchip_info *pdata)
 	return rc;
 
 enable_reset_failed:
-	msm_camio_clk_disable(CAMIO_CAM_MCLK_CLK);
+	msm_camio_clk_disable(0,CAMIO_CAM_MCLK_CLK);
 enable_mclk_failed:
 	if (pdata->camera_rawchip_power_off == NULL)
 		pr_err("rawchip power off platform_data didn't register\n");
@@ -590,7 +590,7 @@ int rawchip_power_down(const struct msm_camera_rawchip_info *pdata)
 
 	mdelay(1);
 
-	rc = msm_camio_clk_disable(CAMIO_CAM_MCLK_CLK);
+	rc = msm_camio_clk_disable(0,CAMIO_CAM_MCLK_CLK);
 	if (rc < 0)
 		pr_err("disable MCLK failed\n");
 

@@ -466,7 +466,7 @@ static void mipi_novatek_set_backlight(struct msm_fb_data_type *mfd)
 		return;
 	}
 
-	if ((mipi_novatek_pdata->enable_wled_bl_ctrl)
+	if (mipi_novatek_pdata && (mipi_novatek_pdata->enable_wled_bl_ctrl)
 	    && (wled_trigger_initialized)) {
 		led_trigger_event(bkl_led_trigger, mfd->bl_level);
 		return;
@@ -496,6 +496,12 @@ static int __devinit mipi_novatek_lcd_probe(struct platform_device *pdev)
 
 	if (pdev->id == 0) {
 		mipi_novatek_pdata = pdev->dev.platform_data;
+
+		if(mipi_novatek_pdata == NULL){
+			pr_err("%s: can't get the platform_data.\n",
+				__func__);
+			return -EINVAL;
+		}
 
 		if (mipi_novatek_pdata
 			&& mipi_novatek_pdata->phy_ctrl_settings) {
@@ -559,9 +565,10 @@ static struct msm_fb_panel_data novatek_panel_data = {
 
 static ssize_t mipi_dsi_3d_barrier_read(struct device *dev,
 				struct device_attribute *attr,
-				char *buf)
+				char *buf
+					)
 {
-	return snprintf((char *)buf, sizeof(buf), "%u\n", barrier_mode);
+	return snprintf((char *)buf, sizeof(*buf), "%u\n", barrier_mode);
 }
 
 static ssize_t mipi_dsi_3d_barrier_write(struct device *dev,

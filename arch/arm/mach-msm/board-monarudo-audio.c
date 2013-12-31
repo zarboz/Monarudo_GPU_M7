@@ -24,7 +24,7 @@
 #include <mach/rt5501.h>
 #include "../sound/soc/msm/msm-pcm-routing.h"
 #include "../sound/soc/msm/msm-compr-q6.h"
-#define HAC_PAMP_GPIO 6
+#define RCV_PAMP_GPIO 67
 
 static atomic_t q6_effect_mode = ATOMIC_INIT(-1);
 extern unsigned int system_rev;
@@ -92,27 +92,17 @@ static int __init monarudo_audio_init(void)
 {
         int ret = 0;
 
-	static uint32_t audio_i2s_table[] = {
-		GPIO_CFG(35, 0, GPIO_CFG_INPUT, GPIO_CFG_PULL_DOWN, GPIO_CFG_2MA),
-		GPIO_CFG(36, 0, GPIO_CFG_INPUT, GPIO_CFG_PULL_DOWN, GPIO_CFG_2MA),
-		GPIO_CFG(37, 0, GPIO_CFG_INPUT, GPIO_CFG_PULL_DOWN, GPIO_CFG_2MA),
-	};
-	pr_info("%s", __func__);
-	gpio_request(HAC_PAMP_GPIO, "AUDIO_HAC_AMP");
-	gpio_direction_output(HAC_PAMP_GPIO, 0);
-	gpio_free(HAC_PAMP_GPIO);
-	gpio_tlmm_config(audio_i2s_table[0], GPIO_CFG_DISABLE);
-	gpio_tlmm_config(audio_i2s_table[1], GPIO_CFG_DISABLE);
-	gpio_tlmm_config(audio_i2s_table[2], GPIO_CFG_DISABLE);
-
+	
+	gpio_request(RCV_PAMP_GPIO, "AUDIO_RCV_AMP");
+	gpio_tlmm_config(GPIO_CFG(67, 0, GPIO_CFG_OUTPUT, GPIO_CFG_PULL_DOWN, GPIO_CFG_2MA), GPIO_CFG_DISABLE);
 	htc_register_q6asm_ops(&qops);
 	htc_register_pcm_routing_ops(&rops);
 	htc_register_compr_q6_ops(&cops);
 	acoustic_register_ops(&acoustic);
+	pr_info("%s", __func__);
 	return ret;
 
 }
-
 late_initcall(monarudo_audio_init);
 
 static void __exit monarudo_audio_exit(void)
