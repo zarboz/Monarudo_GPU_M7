@@ -857,22 +857,14 @@ dhd_pno_set_for_ssid(dhd_pub_t *dhd, wlc_ssid_t* ssid_list, int nssid,
 			scan_fr, pno_repeat, pno_freq_expo_max, nchan));
 
 	_params = &(_pno_state->pno_params_arr[INDEX_OF_LEGACY_PARAMS]);
-	if (_pno_state->pno_mode & DHD_PNO_LEGACY_MODE) {
-		DHD_ERROR(("%s : Legacy PNO mode was already started, "
-			"will disable previous one to start new one\n", __FUNCTION__));
-		err = dhd_pno_stop_for_ssid(dhd);
+	if (!(_pno_state->pno_mode & DHD_PNO_LEGACY_MODE)) {
+		_pno_state->pno_mode |= DHD_PNO_LEGACY_MODE;
+		err = _dhd_pno_reinitialize_prof(dhd, _params, DHD_PNO_LEGACY_MODE);
 		if (err < 0) {
-			DHD_ERROR(("%s : failed to stop legacy PNO (err %d)\n",
+			DHD_ERROR(("%s : failed to reinitialize profile (err %d)\n",
 				__FUNCTION__, err));
 			goto exit;
 		}
-	}
-	_pno_state->pno_mode |= DHD_PNO_LEGACY_MODE;
-	err = _dhd_pno_reinitialize_prof(dhd, _params, DHD_PNO_LEGACY_MODE);
-	if (err < 0) {
-		DHD_ERROR(("%s : failed to reinitialize profile (err %d)\n",
-			__FUNCTION__, err));
-		goto exit;
 	}
 	memset(_chan_list, 0, sizeof(_chan_list));
 	tot_nchan = nchan;
@@ -938,7 +930,7 @@ dhd_pno_set_for_ssid(dhd_pub_t *dhd, wlc_ssid_t* ssid_list, int nssid,
 		goto exit;
 	}
 	if ((err = _dhd_pno_add_ssid(dhd, ssid_list, nssid)) < 0) {
-		DHD_ERROR(("failed to add ssid list(err %d), %d in firmware\n", err, nssid));
+		DHD_ERROR(("failed to add ssid list (err %d) in firmware\n", err));
 		goto exit;
 	}
 	for (i = 0; i < nssid; i++) {
@@ -1327,6 +1319,15 @@ _dhd_pno_get_for_batch(dhd_pub_t *dhd, char *buf, int bufsize, int reason)
 			DHD_PNO(("\tRTT0 : %d, RTT1: %d\n", plnetinfo->rtt0, plnetinfo->rtt1));
 			plnetinfo++;
 		}
+	}
+	if (pscan_results->cnt_header == 0) {
+		/* In case that we didn't get any data from the firmware
+		 * Remove the current scan_result list from get_bach.scan_results_list.
+		 */
+		DHD_PNO(("NO BATCH DATA from Firmware, Delete current SCAN RESULT LIST\n"));
+		list_del(&pscan_results->list);
+		MFREE(dhd->osh, pscan_results, SCAN_RESULTS_SIZE);
+		_params->params_batch.get_batch.top_node_cnt--;
 	}
 	/* increase total scan count using current scan count */
 	_params->params_batch.get_batch.tot_scan_cnt += pscan_results->cnt_header;
@@ -1808,11 +1809,15 @@ dhd_pno_event_handler(dhd_pub_t *dhd, wl_event_msg_t *event, void *event_data)
 	{
 		struct dhd_pno_batch_params *params_batch;
 		params_batch = &_pno_state->pno_params_arr[INDEX_OF_BATCH_PARAMS].params_batch;
-		DHD_PNO(("%s : WLC_E_PFN_BEST_BATCHING\n", __FUNCTION__));
-		params_batch->get_batch.buf = NULL;
-		params_batch->get_batch.bufsize = 0;
-		params_batch->get_batch.reason = PNO_STATUS_EVENT;
-		schedule_work(&_pno_state->work);
+		if (!waitqueue_active(&_pno_state->get_batch_done.wait)) {
+			DHD_PNO(("%s : WLC_E_PFN_BEST_BATCHING\n", __FUNCTION__));
+			params_batch->get_batch.buf = NULL;
+			params_batch->get_batch.bufsize = 0;
+			params_batch->get_batch.reason = PNO_STATUS_EVENT;
+			schedule_work(&_pno_state->work);
+		} else
+			DHD_PNO(("%s : WLC_E_PFN_BEST_BATCHING"
+				"will skip this event\n", __FUNCTION__));
 		break;
 	}
 	default:

@@ -7984,7 +7984,7 @@ static s32 wl_notify_escan_complete(struct wl_priv *wl,
 	}
 #endif 
 	spin_lock_irqsave(&wl->cfgdrv_lock, flags);
-	if (likely(wl->scan_request)) {
+	if (likely(wl->scan_request) && wl->scan_request->wiphy==wl_to_wiphy(wl)) {
 		cfg80211_scan_done(wl->scan_request, aborted);
 		wl->scan_request = NULL;
 	}
@@ -8611,7 +8611,8 @@ s32 wl_cfg80211_attach_post(struct net_device *ndev)
 					
 					memcpy(wl->p2p_net->dev_addr, ndev->dev_addr, ETH_ALEN);
 					wl->p2p_net->dev_addr[0] |= 0x02;
-					
+					printk("%s: p2p_dev_addr="MACSTR "\n",
+						wl->p2p_net->name, MAC2STR(wl->p2p_net->dev_addr));
 				} else {
 					WL_ERR(("p2p_net not yet populated."
 					" Couldn't update the MAC Address for p2p0 \n"));

@@ -2241,11 +2241,8 @@ int wl_android_wifi_off(struct net_device *dev)
 	hotspot_high_ind = 0;
 	sta_high_ind = 0;
  	
-	if (bus_perf_client) {
+	if (bus_perf_client)
 		msm_bus_scale_unregister_client(bus_perf_client);
-		bus_perf_client = 0;
-	}
-	bus_scale_table = NULL;
 
  	msm_otg_setclk(0);
  	
@@ -2505,7 +2502,7 @@ extern int wl_iw_send_priv_event(struct net_device *dev, char *flag);
 
 int wl_android_priv_cmd(struct net_device *net, struct ifreq *ifr, int cmd)
 {
-#define PRIVATE_COMMAND_MAX_LEN	8192
+#define PRIVATE_COMMAND_MAX_LEN	4096
 	int ret = 0;
 	char *command = NULL;
 	int bytes_written = 0;

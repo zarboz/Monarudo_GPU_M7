@@ -1,3 +1,4 @@
+
 /*
  * Linux cfg80211 driver
  *
@@ -23,6 +24,7 @@
  *
  * $Id: wl_cfg80211.c 419844 2013-08-23 00:07:03Z $
  */
+/* */
 #include <typedefs.h>
 #include <linuxver.h>
 #include <osl.h>
@@ -312,11 +314,14 @@ static s32 wl_cfg80211_get_key(struct wiphy *wiphy, struct net_device *dev,
 static s32 wl_cfg80211_config_default_mgmt_key(struct wiphy *wiphy,
 	struct net_device *dev,	u8 key_idx);
 static s32 wl_cfg80211_resume(struct wiphy *wiphy);
+#if defined(WL_SUPPORT_BACKPORTED_KPATCHES) || (LINUX_VERSION_CODE >= KERNEL_VERSION(3, \
+	2, 0))
 static s32 wl_cfg80211_mgmt_tx_cancel_wait(struct wiphy *wiphy,
 	bcm_struct_cfgdev *cfgdev, u64 cookie);
 static s32 wl_cfg80211_del_station(struct wiphy *wiphy,
 	struct net_device *ndev, u8* mac_addr);
-#if LINUX_VERSION_CODE > KERNEL_VERSION(2, 6, 39)
+#endif /* WL_SUPPORT_BACKPORTED_KPATCHES || KERNEL_VER >= KERNEL_VERSION(3, 2, 0)) */
+#if (LINUX_VERSION_CODE > KERNEL_VERSION(2, 6, 39)) || 0
 static s32 wl_cfg80211_suspend(struct wiphy *wiphy, struct cfg80211_wowlan *wow);
 #else
 static s32 wl_cfg80211_suspend(struct wiphy *wiphy);
@@ -330,13 +335,10 @@ static s32 wl_cfg80211_flush_pmksa(struct wiphy *wiphy,
 static void wl_cfg80211_scan_abort(struct wl_priv *wl);
 static s32 wl_notify_escan_complete(struct wl_priv *wl,
 	struct net_device *ndev, bool aborted, bool fw_abort);
-#if LINUX_VERSION_CODE > KERNEL_VERSION(3, 2, 0)
+#if (LINUX_VERSION_CODE > KERNEL_VERSION(3, 2, 0)) || 0
 static s32 wl_cfg80211_tdls_oper(struct wiphy *wiphy, struct net_device *dev,
 	u8 *peer, enum nl80211_tdls_operation oper);
-#endif /* LINUX_VERSION_CODE > KERNEL_VERSION(3, 2, 0) */
-#ifdef WL_SCHED_SCAN
-static int wl_cfg80211_sched_scan_stop(struct wiphy *wiphy, struct net_device *dev);
-#endif
+#endif 
 
 /*
  * event & event Q handlers for cfg80211 interfaces
@@ -561,7 +563,6 @@ extern int dhd_wlfc_init(dhd_pub_t *dhd);
 extern void dhd_wlfc_deinit(dhd_pub_t *dhd);
 #endif /* PROP_TXSTATUS_VSDB */
 
-
 #if (WL_DBG_LEVEL > 0)
 #define WL_DBG_ESTR_MAX	50
 static s8 wl_dbg_estr[][WL_DBG_ESTR_MAX] = {
@@ -716,6 +717,7 @@ static const struct {
 	{WL_DBG_P2P_ACTION, "P2PACTION"}
 };
 #endif
+
 
 /* Return a new chanspec given a legacy chanspec
  * Returns INVCHANSPEC on error
@@ -939,7 +941,7 @@ static void swap_key_to_BE(struct wl_wsec_key *key)
 	key->iv_initialized = dtoh32(key->iv_initialized);
 }
 
-#if LINUX_VERSION_CODE < KERNEL_VERSION(3, 4, 0)
+#if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 4, 0)) && !0
 /* For debug: Dump the contents of the encoded wps ie buffe */
 static void
 wl_validate_wps_ie(char *wps_ie, s32 wps_ie_len, bool *pbc)
@@ -1023,7 +1025,7 @@ wl_validate_wps_ie(char *wps_ie, s32 wps_ie_len, bool *pbc)
 		subel += subelt_len;
 	}
 }
-#endif /* LINUX_VERSION_CODE < KERNEL_VERSION(3, 4, 0) */
+#endif 
 
 static chanspec_t wl_cfg80211_get_shared_freq(struct wiphy *wiphy)
 {
@@ -1108,7 +1110,6 @@ wl_cfg80211_add_virtual_iface(struct wiphy *wiphy,
 	dhd = (dhd_pub_t *)(wl->pub);
 #endif /* PROP_TXSTATUS_VSDB */
 
-
 	/* Use primary I/F for sending cmds down to firmware */
 	_ndev = wl_to_prmry_ndev(wl);
 
@@ -1122,7 +1123,7 @@ wl_cfg80211_add_virtual_iface(struct wiphy *wiphy,
 		mode = WL_MODE_IBSS;
 		return NULL;
 	case NL80211_IFTYPE_MONITOR:
-		return wl_cfg80211_add_monitor_if(name);
+		return wl_cfg80211_add_monitor_if((char *)name);
 #if defined(WL_CFG80211_P2P_DEV_IF)
 	case NL80211_IFTYPE_P2P_DEVICE:
 		return wl_cfgp2p_add_p2p_disc_if();
@@ -1408,9 +1409,6 @@ wl_cfg80211_del_virtual_iface(struct wiphy *wiphy, bcm_struct_cfgdev *cfgdev)
 				WL_ERR(("IFDEL didn't complete properly\n"));
 			}
 			ret = dhd_del_monitor(dev);
-			if (wl_get_mode_by_netdev(wl, dev) == WL_MODE_AP) {
-				DHD_OS_WAKE_LOCK_CTRL_TIMEOUT_CANCEL((dhd_pub_t *)(wl->pub));
-			}
 		}
 	}
 	return ret;
@@ -1512,7 +1510,7 @@ wl_cfg80211_change_virtual_iface(struct wiphy *wiphy, struct net_device *ndev,
 		if (err < 0) {
 			WL_ERR(("SET Adhoc error %d\n", err));
 			return -EINVAL;
-		}
+	}
 	}
 
 	ndev->ieee80211_ptr->iftype = type;
@@ -1895,7 +1893,6 @@ static s32 wl_do_iscan(struct wl_priv *wl, struct cfg80211_scan_request *request
 
 	return err;
 }
-
 static s32
 wl_get_valid_channels(struct net_device *ndev, u8 *valid_chan_list, s32 size)
 {
@@ -1915,6 +1912,11 @@ wl_get_valid_channels(struct net_device *ndev, u8 *valid_chan_list, s32 size)
 	return err;
 }
 
+#if defined(USE_INITIAL_SHORT_DWELL_TIME)
+#define FIRST_SCAN_ACTIVE_DWELL_TIME_MS 40
+static bool
+g_first_broadcast_scan = TRUE;
+#endif
 
 static s32
 wl_run_escan(struct wl_priv *wl, struct net_device *ndev,
@@ -1934,6 +1936,9 @@ wl_run_escan(struct wl_priv *wl, struct net_device *ndev,
 	u16 *default_chan_list = NULL;
 	wl_uint32_list_t *list;
 	struct net_device *dev = NULL;
+#if defined(USE_INITIAL_SHORT_DWELL_TIME)
+	bool is_first_init_2g_scan = false;
+#endif
 	p2p_scan_purpose_t	p2p_scan_purpose = P2P_SCAN_PURPOSE_MIN;
 
 	WL_DBG(("Enter \n"));
@@ -1946,6 +1951,17 @@ wl_run_escan(struct wl_priv *wl, struct net_device *ndev,
 	if (!wl->p2p_supported || !p2p_scan(wl)) {
 		/* LEGACY SCAN TRIGGER */
 		WL_SCAN((" LEGACY E-SCAN START\n"));
+
+#if defined(USE_INITIAL_SHORT_DWELL_TIME)
+		if (!request) {
+			err = -EINVAL;
+			goto exit;
+		}
+		if (ndev == wl_to_prmry_ndev(wl) && g_first_broadcast_scan == true) {
+			is_first_init_2g_scan = true;
+			g_first_broadcast_scan = false;
+		}
+#endif
 
 		/* if scan request is not empty parse scan request paramters */
 		if (request != NULL) {
@@ -1967,6 +1983,12 @@ wl_run_escan(struct wl_priv *wl, struct net_device *ndev,
 			goto exit;
 		}
 		wl_scan_prep(&params->params, request);
+
+#if defined(USE_INITIAL_SHORT_DWELL_TIME)
+		/* Override active_time to reduce scan time if it's first bradcast scan. */
+		if (is_first_init_2g_scan)
+			params->params.active_time = FIRST_SCAN_ACTIVE_DWELL_TIME_MS;
+#endif
 
 		params->version = htod32(ESCAN_REQ_VERSION);
 		params->action =  htod16(action);
@@ -2172,6 +2194,7 @@ __wl_cfg80211_scan(struct wiphy *wiphy, struct net_device *ndev,
 		wl_notify_escan_complete(wl, ndev, true, true);
 	}
 #endif /* WL_CFG80211_VSDB_PRIORITIZE_SCAN_REQUEST */
+
 
 	/* Arm scan timeout timer */
 	mod_timer(&wl->scan_timeout, jiffies + msecs_to_jiffies(WL_SCAN_TIMER_INTERVAL_MS));
@@ -2475,7 +2498,6 @@ static s32 wl_cfg80211_set_wiphy_params(struct wiphy *wiphy, u32 changed)
 
 	return err;
 }
-
 static chanspec_t channel_to_chanspec(struct wiphy *wiphy, struct net_device *dev, u32 channel)
 {
 	struct wl_priv *wl = wiphy_priv(wiphy);
@@ -2848,7 +2870,7 @@ wl_set_auth_type(struct net_device *dev, struct cfg80211_connect_params *sme)
 		WL_DBG(("automatic\n"));
 		break;
 	default:
-		val = WL_AUTH_OPEN_SHARED;
+		val = 2;
 		WL_ERR(("invalid auth type (%d)\n", sme->auth_type));
 		break;
 	}
@@ -3133,11 +3155,6 @@ wl_cfg80211_connect(struct wiphy *wiphy, struct net_device *dev,
 #if !defined(ESCAN_RESULT_PATCH)
 	if (wl->scan_request) {
 		wl_notify_escan_complete(wl, dev, true, true);
-	}
-#endif
-#ifdef WL_SCHED_SCAN
-	if (wl->sched_scan_req) {
-		wl_cfg80211_sched_scan_stop(wiphy, wl_to_prmry_ndev(wl));
 	}
 #endif
 #if defined(ESCAN_RESULT_PATCH)
@@ -3440,7 +3457,8 @@ wl_cfg80211_set_tx_power(struct wiphy *wiphy,
 	s32 txpwrqdbm;
 #if defined(WL_CFG80211_P2P_DEV_IF)
 	s32 dbm = MBM_TO_DBM(mbm);
-#elif (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 3, 0))
+#elif (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 3, 0)) || \
+	defined(WL_COMPAT_WIRELESS) || defined(WL_SUPPORT_BACKPORTED_KPATCHES)
 	dbm = MBM_TO_DBM(dbm);
 #endif /* WL_CFG80211_P2P_DEV_IF */
 
@@ -3873,7 +3891,7 @@ wl_cfg80211_get_station(struct wiphy *wiphy, struct net_device *dev,
 	s32 rate;
 	s32 err = 0;
 	sta_info_t *sta;
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 0, 0)
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 0, 0)) || 0
 	s8 eabuf[ETHER_ADDR_STR_LEN];
 #endif
 	dhd_pub_t *dhd =  (dhd_pub_t *)(wl->pub);
@@ -3893,7 +3911,7 @@ wl_cfg80211_get_station(struct wiphy *wiphy, struct net_device *dev,
 		sta->idle = dtoh32(sta->idle);
 		sta->in = dtoh32(sta->in);
 		sinfo->inactive_time = sta->idle * 1000;
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 0, 0)
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 0, 0)) || 0
 		if (sta->flags & WL_STA_ASSOC) {
 			sinfo->filled |= STATION_INFO_CONNECTED_TIME;
 			sinfo->connected_time = sta->in;
@@ -4016,7 +4034,7 @@ wl_cfg80211_set_power_mgmt(struct wiphy *wiphy, struct net_device *dev,
 	struct net_info *_net_info = wl_get_netinfo_by_netdev(wl, dev);
 #if !defined(SUPPORT_PM2_ONLY)
 	dhd_pub_t *dhd = (dhd_pub_t *)(wl->pub);
-#endif
+#endif /* (OEM_ANDROID) */
 	RETURN_EIO_IF_NOT_UP(wl);
 	WL_DBG(("Enter\n"));
 #if defined(WL_ENABLE_P2P_IF)
@@ -4103,7 +4121,7 @@ static s32 wl_cfg80211_resume(struct wiphy *wiphy)
 	return err;
 }
 
-#if LINUX_VERSION_CODE > KERNEL_VERSION(2, 6, 39)
+#if (LINUX_VERSION_CODE > KERNEL_VERSION(2, 6, 39)) || 0
 static s32 wl_cfg80211_suspend(struct wiphy *wiphy, struct cfg80211_wowlan *wow)
 #else
 static s32 wl_cfg80211_suspend(struct wiphy *wiphy)
@@ -4909,10 +4927,10 @@ wl_cfg80211_mgmt_tx(struct wiphy *wiphy, bcm_struct_cfgdev *cfgdev,
 	enum nl80211_channel_type channel_type,
 	bool channel_type_valid, unsigned int wait,
 	const u8* buf, size_t len,
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 2, 0)
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 2, 0)) || 0
 	bool no_cck,
 #endif
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 3, 0)
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 3, 0)) || 0
 	bool dont_wait_for_ack,
 #endif
 	u64 *cookie)
@@ -5564,7 +5582,7 @@ wl_cfg80211_bcn_validate_sec(
 
 }
 
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)) || 0
 static s32 wl_cfg80211_bcn_set_params(
 	struct cfg80211_ap_settings *info,
 	struct net_device *dev,
@@ -5616,7 +5634,7 @@ static s32 wl_cfg80211_bcn_set_params(
 
 	return err;
 }
-#endif /* LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0) */
+#endif 
 
 static s32
 wl_cfg80211_parse_ies(u8 *ptr, u32 len, struct parsed_ies *ies)
@@ -5752,7 +5770,7 @@ exit:
 	return err;
 }
 
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)) || 0
 s32
 wl_cfg80211_parse_ap_ies(
 	struct net_device *dev,
@@ -5844,7 +5862,7 @@ wl_cfg80211_set_ies(
 
 	return err;
 }
-#endif /* LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0) */
+#endif 
 
 static s32 wl_cfg80211_hostapd_sec(
 	struct net_device *dev,
@@ -5914,6 +5932,8 @@ static s32 wl_cfg80211_hostapd_sec(
 	return 0;
 }
 
+#if defined(WL_SUPPORT_BACKPORTED_KPATCHES) || (LINUX_VERSION_CODE >= KERNEL_VERSION(3, \
+	2, 0))
 static s32
 wl_cfg80211_del_station(
 	struct wiphy *wiphy,
@@ -5968,10 +5988,12 @@ wl_cfg80211_del_station(
 
 	if (num_associated > 0 && ETHER_ISBCAST(mac_addr))
 		wl_delay(400);
+
 	return 0;
 }
+#endif /* WL_SUPPORT_BACKPORTED_KPATCHES || KERNEL_VER >= KERNEL_VERSION(3, 2, 0)) */
 
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)) || 0
 static s32
 wl_cfg80211_start_ap(
 	struct wiphy *wiphy,
@@ -6131,8 +6153,6 @@ wl_cfg80211_stop_ap(
 		}
 	} else {
 		WL_DBG(("Stopping P2P GO \n"));
-		DHD_OS_WAKE_LOCK_CTRL_TIMEOUT_ENABLE((dhd_pub_t *)(wl->pub), DHD_EVENT_TIMEOUT_MS*3);
-		DHD_OS_WAKE_LOCK_TIMEOUT((dhd_pub_t *)(wl->pub));
 	}
 
 exit:
@@ -6326,14 +6346,13 @@ fail:
 	return err;
 
 }
-#endif /* LINUX_VERSION_CODE < KERNEL_VERSION(3, 4, 0) */
+#endif 
 
 #ifdef WL_SCHED_SCAN
 #define PNO_TIME		30
 #define PNO_REPEAT		4
 #define PNO_FREQ_EXPO_MAX	2
-static int
-wl_cfg80211_sched_scan_start(struct wiphy *wiphy,
+int wl_cfg80211_sched_scan_start(struct wiphy *wiphy,
                              struct net_device *dev,
                              struct cfg80211_sched_scan_request *request)
 {
@@ -6397,8 +6416,7 @@ wl_cfg80211_sched_scan_start(struct wiphy *wiphy,
 	return 0;
 }
 
-static int
-wl_cfg80211_sched_scan_stop(struct wiphy *wiphy, struct net_device *dev)
+int wl_cfg80211_sched_scan_stop(struct wiphy *wiphy, struct net_device *dev)
 {
 	struct wl_priv *wl = wiphy_priv(wiphy);
 
@@ -6456,23 +6474,26 @@ static struct cfg80211_ops wl_cfg80211_ops = {
 #if !defined(WL_CFG80211_P2P_DEV_IF) && (LINUX_VERSION_CODE < KERNEL_VERSION(3, 6, 0))
 	.set_channel = wl_cfg80211_set_channel,
 #endif /* !WL_CFG80211_P2P_DEV_IF && (LINUX_VERSION < VERSION(3, 6, 0)) */
-#if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 4, 0))
+#if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 4, 0)) && !0
 	.set_beacon = wl_cfg80211_add_set_beacon,
 	.add_beacon = wl_cfg80211_add_set_beacon,
 #else
 	.change_beacon = wl_cfg80211_change_beacon,
 	.start_ap = wl_cfg80211_start_ap,
 	.stop_ap = wl_cfg80211_stop_ap,
-#endif /* LINUX_VERSION_CODE < KERNEL_VERSION(3, 4, 0) */
+#endif 
 #ifdef WL_SCHED_SCAN
 	.sched_scan_start = wl_cfg80211_sched_scan_start,
 	.sched_scan_stop = wl_cfg80211_sched_scan_stop,
 #endif /* LINUX_VERSION_CODE >= KERNEL_VERSION(3, 2, 0) */
+#if defined(WL_SUPPORT_BACKPORTED_KPATCHES) || (LINUX_VERSION_CODE >= KERNEL_VERSION(3, \
+	2, 0))
 	.del_station = wl_cfg80211_del_station,
 	.mgmt_tx_cancel_wait = wl_cfg80211_mgmt_tx_cancel_wait,
-#if LINUX_VERSION_CODE > KERNEL_VERSION(3, 2, 0)
+#endif /* WL_SUPPORT_BACKPORTED_KPATCHES || KERNEL_VERSION >= (3,2,0) */
+#if (LINUX_VERSION_CODE > KERNEL_VERSION(3, 2, 0)) || 0
 	.tdls_oper = wl_cfg80211_tdls_oper
-#endif /* LINUX_VERSION_CODE > KERNEL_VERSION(3, 2, 0) */
+#endif 
 };
 
 s32 wl_mode_to_nl80211_iftype(s32 mode)
@@ -6607,7 +6628,7 @@ static s32 wl_setup_wiphy(struct wireless_dev *wdev, struct device *sdiofunc_dev
 #endif				/* !WL_POWERSAVE_DISABLED */
 	wdev->wiphy->flags |= WIPHY_FLAG_NETNS_OK |
 		WIPHY_FLAG_4ADDR_AP |
-#if LINUX_VERSION_CODE <= KERNEL_VERSION(2, 6, 39)
+#if (LINUX_VERSION_CODE <= KERNEL_VERSION(2, 6, 39)) && !0
 		WIPHY_FLAG_SUPPORTS_SEPARATE_DEFAULT_KEYS |
 #endif
 		WIPHY_FLAG_4ADDR_STATION;
@@ -6623,16 +6644,17 @@ static s32 wl_setup_wiphy(struct wireless_dev *wdev, struct device *sdiofunc_dev
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 2, 0)
 /*	wdev->wiphy->flags |= WIPHY_FLAG_SUPPORTS_FW_ROAM; */
 #endif
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 3, 0)
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 3, 0)) || 0
 	wdev->wiphy->flags |= WIPHY_FLAG_HAS_REMAIN_ON_CHANNEL |
 		WIPHY_FLAG_OFFCHAN_TX;
 #endif
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)
+#if defined(WL_SUPPORT_BACKPORTED_KPATCHES) || (LINUX_VERSION_CODE >= KERNEL_VERSION(3, \
+	4, 0))
 	/* From 3.4 kernel ownards AP_SME flag can be advertised
 	 * to remove the patch from supplicant
 	 */
 	wdev->wiphy->flags |= WIPHY_FLAG_HAVE_AP_SME;
-#endif /* LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0) */
+#endif /* WL_SUPPORT_BACKPORTED_KPATCHES) || (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)) */
 
 #ifdef CONFIG_CFG80211_INTERNAL_REGDB
 	wdev->wiphy->reg_notifier = wl_cfg80211_reg_notifier;
@@ -6885,7 +6907,8 @@ wl_notify_connect_status_ap(struct wl_priv *wl, struct net_device *ndev,
 	u32 reason = ntoh32(e->reason);
 	u32 len = ntoh32(e->datalen);
 
-#if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 2, 0)) && !defined(WL_CFG80211_STA_EVENT)
+#if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 2, 0)) && !defined(WL_CFG80211_STA_EVENT) \
+	&& !0
 	bool isfree = false;
 	u8 *mgmt_frame;
 	u8 bsscfgidx = e->bsscfgidx;
@@ -6901,7 +6924,7 @@ wl_notify_connect_status_ap(struct wl_priv *wl, struct net_device *ndev,
 	channel_info_t ci;
 #else
 	struct station_info sinfo;
-#endif /* (LINUX_VERSION_CODE < KERNEL_VERSION(3, 2, 0)) && !WL_CFG80211_STA_EVENT */
+#endif 
 
 	WL_DBG(("event %d status %d reason %d\n", event, ntoh32(e->status), reason));
 	/* if link down, bsscfg is disabled. */
@@ -6913,7 +6936,8 @@ wl_notify_connect_status_ap(struct wl_priv *wl, struct net_device *ndev,
 		return 0;
 	}
 
-#if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 2, 0)) && !defined(WL_CFG80211_STA_EVENT)
+#if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 2, 0)) && !defined(WL_CFG80211_STA_EVENT) \
+	&& !0
 	WL_DBG(("Enter \n"));
 	if (!len && (event == WLC_E_DEAUTH)) {
 		len = 2; /* reason code field */
@@ -6990,23 +7014,23 @@ wl_notify_connect_status_ap(struct wl_priv *wl, struct net_device *ndev,
 	isfree = true;
 
 	if (event == WLC_E_ASSOC_IND && reason == DOT11_SC_SUCCESS) {
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)) || 0
 		cfg80211_rx_mgmt(ndev, freq, 0, mgmt_frame, len, GFP_ATOMIC);
 #else
 		cfg80211_rx_mgmt(ndev, freq, mgmt_frame, len, GFP_ATOMIC);
-#endif /* LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0) */
+#endif 
 	} else if (event == WLC_E_DISASSOC_IND) {
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)) || 0
 		cfg80211_rx_mgmt(ndev, freq, 0, mgmt_frame, len, GFP_ATOMIC);
 #else
 		cfg80211_rx_mgmt(ndev, freq, mgmt_frame, len, GFP_ATOMIC);
-#endif /* LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0) */
+#endif 
 	} else if ((event == WLC_E_DEAUTH_IND) || (event == WLC_E_DEAUTH)) {
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)) || 0
 		cfg80211_rx_mgmt(ndev, freq, 0, mgmt_frame, len, GFP_ATOMIC);
 #else
 		cfg80211_rx_mgmt(ndev, freq, mgmt_frame, len, GFP_ATOMIC);
-#endif /* LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0) */
+#endif 
 	}
 
 exit:
@@ -7014,7 +7038,7 @@ exit:
 		kfree(mgmt_frame);
 	if (body)
 		kfree(body);
-#else /* LINUX_VERSION_CODE < KERNEL_VERSION(3, 2, 0) && !WL_CFG80211_STA_EVENT */
+#else /* LINUX_VERSION < VERSION(3,2,0) && !WL_CFG80211_STA_EVENT && !WL_COMPAT_WIRELESS */
 	sinfo.filled = 0;
 	if (((event == WLC_E_ASSOC_IND) || (event == WLC_E_REASSOC_IND)) &&
 		reason == DOT11_SC_SUCCESS) {
@@ -7031,7 +7055,7 @@ exit:
 	} else if ((event == WLC_E_DEAUTH_IND) || (event == WLC_E_DEAUTH)) {
 		cfg80211_del_sta(ndev, e->addr.octet, GFP_ATOMIC);
 	}
-#endif /* LINUX_VERSION_CODE < KERNEL_VERSION(3, 2, 0) && !WL_CFG80211_STA_EVENT */
+#endif 
 	return err;
 }
 
@@ -7169,6 +7193,7 @@ wl_notify_connect_status(struct wl_priv *wl, bcm_struct_cfgdev *cfgdev,
 					reason = ntoh32(e->reason);
 				/* WLAN_REASON_UNSPECIFIED is used for hang up event in Android */
 				reason = (reason == WLAN_REASON_UNSPECIFIED)? 0 : reason;
+
 				printk("link down if %s may call cfg80211_disconnected. "
 					"event : %d, reason=%d from " MACDBG "\n",
 					ndev->name, event, ntoh32(e->reason),
@@ -7200,6 +7225,7 @@ wl_notify_connect_status(struct wl_priv *wl, bcm_struct_cfgdev *cfgdev,
 				}
 			}
 			else if (wl_get_drv_status(wl, CONNECTING, ndev)) {
+
 				printk("link down, during connecting\n");
 #ifdef ESCAN_RESULT_PATCH
 				if ((memcmp(connect_req_bssid, broad_bssid, ETHER_ADDR_LEN) == 0) ||
@@ -7230,7 +7256,7 @@ wl_notify_connect_status(struct wl_priv *wl, bcm_struct_cfgdev *cfgdev,
 			if (wl_get_drv_status(wl, CONNECTING, ndev))
 				wl_bss_connect_done(wl, ndev, e, data, false);
 		} else {
-			WL_DBG(("%s nothing\n", __FUNCTION__));
+			printk("%s nothing\n", __FUNCTION__);
 		}
 	} else {
 		WL_ERR(("Invalid ndev status %d\n", wl_get_mode_by_netdev(wl, ndev)));
@@ -7463,7 +7489,7 @@ wl_bss_roaming_done(struct wl_priv *wl, struct net_device *ndev,
 	struct wl_connect_info *conn_info = wl_to_conn(wl);
 	s32 err = 0;
 	u8 *curbssid;
-#if LINUX_VERSION_CODE > KERNEL_VERSION(2, 6, 39)
+#if (LINUX_VERSION_CODE > KERNEL_VERSION(2, 6, 39)) || 0
 	struct wl_bss_info *bss_info;
 	struct wiphy *wiphy = wl_to_wiphy(wl);
 	struct ieee80211_supported_band *band;
@@ -7471,7 +7497,7 @@ wl_bss_roaming_done(struct wl_priv *wl, struct net_device *ndev,
 	u8 *buf;
 	u16 channel;
 	u32 freq;
-#endif /* LINUX_VERSION > 2.6.39 */
+#endif 
 
 	wl_get_assoc_ies(wl, ndev);
 	wl_update_prof(wl, ndev, NULL, (void *)(e->addr.octet), WL_PROF_BSSID);
@@ -7479,7 +7505,7 @@ wl_bss_roaming_done(struct wl_priv *wl, struct net_device *ndev,
 	wl_update_bss_info(wl, ndev);
 	wl_update_pmklist(ndev, wl->pmk_list, err);
 
-#if LINUX_VERSION_CODE > KERNEL_VERSION(2, 6, 39)
+#if (LINUX_VERSION_CODE > KERNEL_VERSION(2, 6, 39)) || 0
 	/* channel info for cfg80211_roamed introduced in 2.6.39-rc1 */
 	buf = kzalloc(WL_EXTRA_BUF_MAX, GFP_KERNEL);
 	if (!buf)
@@ -7501,13 +7527,13 @@ wl_bss_roaming_done(struct wl_priv *wl, struct net_device *ndev,
 	notify_channel = ieee80211_get_channel(wiphy, freq);
 done:
 	kfree(buf);
-#endif /* LINUX_VERSION > 2.6.39 */
+#endif 
 
 	printk("wl_bss_roaming_done succeeded to " MACDBG "\n",
 		MAC2STRDBG((u8*)(&e->addr)));
 
 	cfg80211_roamed(ndev,
-#if LINUX_VERSION_CODE > KERNEL_VERSION(2, 6, 39)
+#if (LINUX_VERSION_CODE > KERNEL_VERSION(2, 6, 39)) || 0
 		notify_channel,
 #endif
 		curbssid,
@@ -7943,11 +7969,11 @@ wl_notify_rx_mgmt_frame(struct wl_priv *wl, bcm_struct_cfgdev *cfgdev,
 		}
 	}
 
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)) || 0
 	cfg80211_rx_mgmt(cfgdev, freq, 0, mgmt_frame, mgmt_frame_len, GFP_ATOMIC);
 #else
 	cfg80211_rx_mgmt(cfgdev, freq, mgmt_frame, mgmt_frame_len, GFP_ATOMIC);
-#endif /* LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0) */
+#endif 
 
 	WL_DBG(("mgmt_frame_len (%d) , e->datalen (%d), channel (%d), freq (%d)\n",
 		mgmt_frame_len, ntoh32(e->datalen), channel, freq));
@@ -8054,7 +8080,6 @@ wl_notify_sched_scan_results(struct wl_priv *wl, struct net_device *ndev,
 				wl_clr_drv_status(wl, SCANNING, ndev);
 				goto out_err;
 			}
-			p2p_scan(wl) = false;
 		}
 
 		wl_set_drv_status(wl, SCANNING, ndev);
@@ -8623,7 +8648,6 @@ static void wl_cfg80211_scan_abort(struct wl_priv *wl)
 		}
 	}
 }
-
 static s32 wl_notify_escan_complete(struct wl_priv *wl,
 	struct net_device *ndev,
 	bool aborted, bool fw_abort)
@@ -9333,7 +9357,7 @@ s32 wl_cfg80211_attach_post(struct net_device *ndev)
 
 				wl->p2p_supported = true;
 			}
-	}
+		}
 	wl_set_drv_status(wl, READY, ndev);
 fail:
 	return err;
@@ -9405,7 +9429,7 @@ s32 wl_cfg80211_attach(struct net_device *ndev, void *data)
 	err = wl_cfg80211_btcoex_init(wl);
 	if (err)
 		goto cfg80211_attach_out;
-#endif
+#endif 
 
 	wlcfg_drv_priv = wl;
 
@@ -9434,7 +9458,7 @@ void wl_cfg80211_detach(void *para)
 
 #if defined(COEX_DHCP)
 	wl_cfg80211_btcoex_deinit(wl);
-#endif
+#endif 
 
 	wl_setup_rfkill(wl, FALSE);
 #ifdef DEBUGFS_CFG80211
@@ -9985,11 +10009,6 @@ s32 wl_update_wiphybands(struct wl_priv *wl, bool notify)
 		WL_ERR(("error read bandlist (%d)\n", err));
 		goto end_bands;
 	}
-
-	wiphy = wl_to_wiphy(wl);
-	wiphy->bands[IEEE80211_BAND_2GHZ] = &__wl_band_2ghz;
-	wiphy->bands[IEEE80211_BAND_5GHZ] = NULL;
-
 	err = wldev_ioctl(dev, WLC_GET_BAND, &cur_band,
 		sizeof(s32), false);
 	if (unlikely(err)) {
@@ -10015,6 +10034,7 @@ s32 wl_update_wiphybands(struct wl_priv *wl, bool notify)
 			goto end_bands;
 		err = 0;
 	}
+	wiphy = wl_to_wiphy(wl);
 	nband = bandlist[0];
 
 	for (i = 1; i <= nband && i < ARRAYSIZE(bandlist); i++) {
@@ -10049,12 +10069,19 @@ s32 wl_update_wiphybands(struct wl_priv *wl, bool notify)
 	wiphy->bands[IEEE80211_BAND_2GHZ] = bands[IEEE80211_BAND_2GHZ];
 	wiphy->bands[IEEE80211_BAND_5GHZ] = bands[IEEE80211_BAND_5GHZ];
 
+	/* check if any bands populated otherwise makes 2Ghz as default */
+	if (wiphy->bands[IEEE80211_BAND_2GHZ] == NULL &&
+		wiphy->bands[IEEE80211_BAND_5GHZ] == NULL) {
+		/* Setup 2Ghz band as default */
+		wiphy->bands[IEEE80211_BAND_2GHZ] = &__wl_band_2ghz;
+	}
+
 	if (notify)
 		wiphy_apply_custom_regulatory(wiphy, &brcm_regdom);
 
-end_bands:
-	if (rollback_lock)
-		mutex_unlock(&wl->usr_sync);
+	end_bands:
+		if (rollback_lock)
+			mutex_unlock(&wl->usr_sync);
 	return err;
 }
 
@@ -10158,8 +10185,8 @@ static s32 __wl_cfg80211_down(struct wl_priv *wl)
 	wl_to_prmry_ndev(wl)->ieee80211_ptr->iftype =
 		NL80211_IFTYPE_STATION;
 #if defined(WL_CFG80211) && defined(WL_ENABLE_P2P_IF)
-	if (p2p_net)
-		dev_close(p2p_net);
+		if (p2p_net)
+			dev_close(p2p_net);
 #endif /* WL_CFG80211 && WL_ENABLE_P2P_IF */
 	DNGL_FUNC(dhd_cfg80211_down, (wl));
 	wl_flush_eq(wl);
@@ -10564,7 +10591,7 @@ wl_tdls_event_handler(struct wl_priv *wl, bcm_struct_cfgdev *cfgdev,
 }
 #endif  /* WLTDLS */
 
-#if LINUX_VERSION_CODE > KERNEL_VERSION(3, 2, 0)
+#if (LINUX_VERSION_CODE > KERNEL_VERSION(3, 2, 0)) || 0
 static s32
 wl_cfg80211_tdls_oper(struct wiphy *wiphy, struct net_device *dev,
 	u8 *peer, enum nl80211_tdls_operation oper)
@@ -10573,47 +10600,38 @@ wl_cfg80211_tdls_oper(struct wiphy *wiphy, struct net_device *dev,
 #ifdef WLTDLS
 	struct wl_priv *wl = wlcfg_drv_priv;
 	tdls_iovar_t info;
+	dhd_pub_t *dhd = (dhd_pub_t *)(wl->pub);
 	memset(&info, 0, sizeof(tdls_iovar_t));
 	if (peer)
 		memcpy(&info.ea, peer, ETHER_ADDR_LEN);
 	switch (oper) {
 	case NL80211_TDLS_DISCOVERY_REQ:
-		/* turn on TDLS */
-		ret = dhd_tdls_enable(dev, true, false, NULL);
+		if (!dhd->tdls_enable)
+			ret = dhd_tdls_enable_disable(dhd, 1);
 		if (ret < 0)
 			return ret;
 		info.mode = TDLS_MANUAL_EP_DISCOVERY;
 		break;
 	case NL80211_TDLS_SETUP:
-		/* auto mode on */
-		ret = dhd_tdls_enable(dev, true, true, (struct ether_addr *)peer);
-		if (ret < 0)
-			return ret;
+		info.mode = TDLS_MANUAL_EP_CREATE;
 		break;
 	case NL80211_TDLS_TEARDOWN:
 		info.mode = TDLS_MANUAL_EP_DELETE;
-		/* auto mode off */
-		ret = dhd_tdls_enable(dev, true, false, (struct ether_addr *)peer);
-		if (ret < 0)
-			return ret;
 		break;
 	default:
 		WL_ERR(("Unsupported operation : %d\n", oper));
 		goto out;
 	}
-
-	if (info.mode) {
-		ret = wldev_iovar_setbuf(dev, "tdls_endpoint", &info, sizeof(info),
-			wl->ioctl_buf, WLC_IOCTL_MAXLEN, &wl->ioctl_buf_sync);
-		if (ret) {
-			WL_ERR(("tdls_endpoint error %d\n", ret));
-		}
+	ret = wldev_iovar_setbuf(dev, "tdls_endpoint", &info, sizeof(info),
+		wl->ioctl_buf, WLC_IOCTL_MAXLEN, &wl->ioctl_buf_sync);
+	if (ret) {
+		WL_ERR(("tdls_endpoint error %d\n", ret));
 	}
 out:
 #endif /* WLTDLS */
 	return ret;
 }
-#endif /* LINUX_VERSION_CODE > KERNEL_VERSION(3, 2, 0) */
+#endif 
 
 s32 wl_cfg80211_set_wps_p2p_ie(struct net_device *net, char *buf, int len,
 	enum wl_management_type type)
@@ -10878,7 +10896,6 @@ void get_primary_mac(struct wl_priv *wl, struct ether_addr *mac)
 		0, wl->ioctl_buf, WLC_IOCTL_SMLEN, 0, &wl->ioctl_buf_sync);
 	memcpy(mac->octet, wl->ioctl_buf, ETHER_ADDR_LEN);
 }
-
 static bool check_dev_role_integrity(struct wl_priv *wl, u32 dev_role)
 {
 	dhd_pub_t *dhd = (dhd_pub_t *)(wl->pub);
@@ -10913,7 +10930,8 @@ void wl_cfg80211_enable_trace(bool set, u32 level)
 	else
 		wl_dbg_level |= (WL_DBG_LEVEL & level);
 }
-
+#if defined(WL_SUPPORT_BACKPORTED_KPATCHES) || (LINUX_VERSION_CODE >= KERNEL_VERSION(3, \
+	2, 0))
 static s32
 wl_cfg80211_mgmt_tx_cancel_wait(struct wiphy *wiphy,
 	bcm_struct_cfgdev *cfgdev, u64 cookie)
@@ -10926,6 +10944,9 @@ wl_cfg80211_mgmt_tx_cancel_wait(struct wiphy *wiphy,
 
 	return 0;
 }
+#endif /* WL_SUPPORT_BACKPORTED_PATCHES || KERNEL >= 3.2.0 */
+
+
 
 
 static void wl_cfg80211_work_handler(struct work_struct * work)
@@ -10954,6 +10975,7 @@ static void wl_cfg80211_work_handler(struct work_struct * work)
 					iter->ndev->ieee80211_ptr->ps = true;
 			}
 		}
+
 	}
 }
 

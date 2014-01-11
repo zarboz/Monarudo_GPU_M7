@@ -5,7 +5,7 @@
 #
 #
 
-DHDCFLAGS = -Wall -Wstrict-prototypes -Dlinux -DBCMDRIVER                     \
+DHDCFLAGS = -Wall -Wstrict-prototypes -Dlinux -DBCMDRIVER               \
 	-DBCMDONGLEHOST -DUNRELEASEDCHIP -DBCMDMA32 -DBCMFILEIMAGE            \
 	-DDHDTHREAD -DDHD_DEBUG -DSDTEST -DBDC                                \
 	-DDHD_BCMEVENTS -DSHOW_EVENTS -DPROP_TXSTATUS -DBCMDBG                \
@@ -16,18 +16,17 @@ DHDCFLAGS = -Wall -Wstrict-prototypes -Dlinux -DBCMDRIVER                     \
 	-DEMBEDDED_PLATFORM -DENABLE_INSMOD_NO_FW_LOAD -DPNO_SUPPORT          \
 	-DDHD_USE_IDLECOUNT -DSET_RANDOM_MAC_SOFTAP -DROAM_ENABLE -DVSDB      \
 	-DWL_CFG80211_VSDB_PRIORITIZE_SCAN_REQUEST                            \
-	-DESCAN_RESULT_PATCH -DSDIO_CRC_ERROR_FIX                             \
-	-DDHD_DONOT_FORWARD_BCMEVENT_AS_NETWORK_PKT -DRXFRAME_THREAD          \
-	-DSUPPORT_PM2_ONLY -DWLTDLS                                           \
-	-DMIRACAST_AMPDU_SIZE=8                                               \
-	-Idrivers/net/wireless/bcmdhd -Idrivers/net/wireless/bcmdhd/include   \
+	-DESCAN_RESULT_PATCH -DSDIO_CRC_ERROR_FIX \
+	-DDHD_DONOT_FORWARD_BCMEVENT_AS_NETWORK_PKT -DRXFRAME_THREAD	        \
+	-DSUPPORT_PM2_ONLY -DWLTDLS     \
+	-DMIRACAST_AMPDU_SIZE=8		\
+	-Idrivers/net/wireless/bcmdhd	-Idrivers/net/wireless/bcmdhd/include   \
 	-Idrivers/net/wireless/bcmdhd/common/include
 
 DHDOFILES = aiutils.o bcmsdh_sdmmc_linux.o dhd_linux.o siutils.o bcmutils.o   \
-	dhd_linux_sched.o dhd_sdio.o bcmwifi_channels.o bcmevent.o hndpmu.o   \
-	bcmsdh.o dhd_cdc.o bcmsdh_linux.o dhd_common.o dhd_wlfc.o dhd_ip.o    \
-	linux_osl.o bcmsdh_sdmmc.o dhd_custom_gpio.o sbutils.o wldev_common.o \
-	wl_android.o dhd_pno.o
+	dhd_linux_sched.o dhd_pno.o dhd_sdio.o bcmwifi_channels.o bcmevent.o hndpmu.o   \
+	bcmsdh.o dhd_cdc.o bcmsdh_linux.o dhd_common.o dhd_wlfc.o dhd_ip.o linux_osl.o \
+	bcmsdh_sdmmc.o dhd_custom_gpio.o sbutils.o wldev_common.o wl_android.o
 
 obj-$(CONFIG_BCMDHD) += bcmdhd.o
 bcmdhd-objs += $(DHDOFILES)
@@ -42,7 +41,7 @@ DHDCFLAGS += -DWL_IFACE_COMB_NUM_CHANNELS
 DHDCFLAGS += -DCUSTOM_ROAM_TRIGGER_SETTING=-75
 DHDCFLAGS += -DCUSTOM_ROAM_DELTA_SETTING=10
 DHDCFLAGS += -DCUSTOM_KEEP_ALIVE_SETTING=28000
-DHDCFLAGS += -DCUSTOM_PNO_EVENT_LOCK_xTIME=10
+DHDCFLAGS += -DCUSTOM_PNO_EVENT_LOCK_xTIME=7
 endif
 ifneq ($(CONFIG_DHD_USE_SCHED_SCAN),)
 DHDCFLAGS += -DWL_SCHED_SCAN
@@ -51,10 +50,6 @@ EXTRA_CFLAGS = $(DHDCFLAGS)
 ifeq ($(CONFIG_BCMDHD),m)
 EXTRA_LDFLAGS += --strip-debug
 endif
-
-DHDCFLAGS += -DCUSTOM_TDLS_RSSI_THRESHOLD_HIGH=-60
-DHDCFLAGS += -DCUSTOM_TDLS_RSSI_THRESHOLD_LOW=-70
-DHDCFLAGS += -DCUSTOM_TDLS_IDLE_MODE_SETTING=40000
 
 #########################
 # Chip dependent feature
