@@ -769,7 +769,7 @@ static void register_usb_notification_func(struct work_struct *work)
 #define ULPI_IO_TIMEOUT_USEC	(10 * 1000)
 
 #define USB_PHY_VDD_DIG_VOL_NONE	0 
-#define USB_PHY_VDD_DIG_VOL_MIN		1000000 
+#define USB_PHY_VDD_DIG_VOL_MIN		945000 
 #define USB_PHY_VDD_DIG_VOL_MAX		1320000 
 
 #define HSIC_DBG1_REG		0x38
@@ -2467,15 +2467,24 @@ static int msm_hsic_pm_resume(struct device *dev)
 	if (device_may_wakeup(dev))
 		disable_irq_wake(hcd->irq);
 
-	/*
-	 * Keep HSIC in Low Power Mode if system is resumed
-	 * by any other wakeup source.  HSIC is resumed later
-	 * when remote wakeup is received or interface driver
-	 * start I/O.
-	 */
-	if (!atomic_read(&mehci->pm_usage_cnt) &&
-                       pm_runtime_suspended(dev))
-		return 0;
+	if (hcd_to_bus(hcd)->skip_resume)
+	{
+		if (!atomic_read(&mehci->pm_usage_cnt) &&
+				pm_runtime_suspended(dev))
+		{
+			
+			if (get_radio_flag() & RADIO_FLAG_USB_UPLOAD) {
+				dev_info(dev, "skip ehci-msm-hsic PM resume\n");
+			}
+			
+			return 0;
+		}
+	}
+
+	
+	if (get_radio_flag() & RADIO_FLAG_USB_UPLOAD)
+		dev_info(dev, "ehci-msm-hsic PM resume\n");
+	
 
 	ret = msm_hsic_resume(mehci);
 	if (ret)

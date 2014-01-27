@@ -17,7 +17,6 @@
 #include <asm/e820.h>
 #include <asm/setup.h>
 #include <asm/acpi.h>
-#include <asm/numa.h>
 #include <asm/xen/hypervisor.h>
 #include <asm/xen/hypercall.h>
 
@@ -80,16 +79,9 @@ static void __init xen_add_extra_mem(u64 start, u64 size)
 	memblock_reserve(start, size);
 
 	xen_max_p2m_pfn = PFN_DOWN(start + size);
-	for (pfn = PFN_DOWN(start); pfn < xen_max_p2m_pfn; pfn++) {
-		unsigned long mfn = pfn_to_mfn(pfn);
 
-		if (WARN(mfn == pfn, "Trying to over-write 1-1 mapping (pfn: %lx)\n", pfn))
-			continue;
-		WARN(mfn != INVALID_P2M_ENTRY, "Trying to remove %lx which has %lx mfn!\n",
-			pfn, mfn);
-
+	for (pfn = PFN_DOWN(start); pfn <= xen_max_p2m_pfn; pfn++)
 		__set_phys_to_machine(pfn, INVALID_P2M_ENTRY);
-	}
 }
 
 static unsigned long __init xen_release_chunk(unsigned long start,
@@ -344,7 +336,7 @@ static void __init fiddle_vdso(void)
 #endif
 }
 
-static int register_callback(unsigned type, const void *func)
+static int __cpuinit register_callback(unsigned type, const void *func)
 {
 	struct callback_register callback = {
 		.type = type,
@@ -355,7 +347,7 @@ static int register_callback(unsigned type, const void *func)
 	return HYPERVISOR_callback_op(CALLBACKOP_register, &callback);
 }
 
-void xen_enable_sysenter(void)
+void __cpuinit xen_enable_sysenter(void)
 {
 	int ret;
 	unsigned sysenter_feature;
@@ -374,7 +366,7 @@ void xen_enable_sysenter(void)
 		setup_clear_cpu_cap(sysenter_feature);
 }
 
-void xen_enable_syscall(void)
+void __cpuinit xen_enable_syscall(void)
 {
 #ifdef CONFIG_X86_64
 	int ret;
@@ -432,7 +424,4 @@ void __init xen_arch_setup(void)
 	disable_cpufreq();
 	WARN_ON(set_pm_idle_to_default());
 	fiddle_vdso();
-#ifdef CONFIG_NUMA
-	numa_off = 1;
-#endif
 }

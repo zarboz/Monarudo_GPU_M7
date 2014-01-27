@@ -224,6 +224,7 @@ enum {
 int set_two_phase_freq(int cpufreq);
 #endif
 
+int set_input_event_min_freq_by_cpu(int cpu_nr, int cpufreq);
 
 #ifdef CONFIG_KERNEL_PMEM_EBI_REGION
 static unsigned pmem_kernel_ebi1_size = MSM_PMEM_KERNEL_EBI1_SIZE;
@@ -2826,15 +2827,17 @@ static struct cm3629_platform_data cm36282_pdata = {
 	.ps_select = CM3629_PS1_ONLY,
 	.intr = PM8921_GPIO_PM_TO_SYS(PROXIMITY_INT),
 	.levels = { 1, 3, 33, 929, 1440, 5614, 8553, 12415, 16278, 65535},
+        .correction = {100, 400, 900, 1600, 2500, 3600, 4900, 6400, 8100, 10000},
 	.golden_adc = 0x1900,
 	.power = NULL,
 	.cm3629_slave_address = 0xC0>>1,
 	.ps1_thd_set = 0x15,
 	.ps1_thd_no_cal = 0xF1,
 	.ps1_thd_with_cal = 0xD,
+        .ps_th_add = 5,
 	.ps_calibration_rule = 1,
-	.ps_conf1_val = CM3629_PS_DR_1_80 | CM3629_PS_IT_1_6T |
-			CM3629_PS1_PERS_3,
+	.ps_conf1_val = CM3629_PS_DR_1_40 | CM3629_PS_IT_1_6T |
+			CM3629_PS1_PERS_2,
 	.ps_conf2_val = CM3629_PS_ITB_1 | CM3629_PS_ITR_1 |
 			CM3629_PS2_INT_DIS | CM3629_PS1_INT_DIS,
 	.ps_conf3_val = CM3629_PS2_PROL_32,
@@ -4797,6 +4800,10 @@ static void __init monarudo_cdp_init(void)
         if(!cpu_is_krait_v1())
                 set_two_phase_freq(1134000);
 #endif
+  set_input_event_min_freq_by_cpu(1, 1134000);
+  set_input_event_min_freq_by_cpu(2, 1026000);
+  set_input_event_min_freq_by_cpu(3, 810000);
+  set_input_event_min_freq_by_cpu(4, 810000);
 
 	
 	

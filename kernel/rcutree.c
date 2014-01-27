@@ -214,9 +214,7 @@ cpu_has_callbacks_ready_to_invoke(struct rcu_data *rdp)
 static int
 cpu_needs_another_gp(struct rcu_state *rsp, struct rcu_data *rdp)
 {
-	return *rdp->nxttail[RCU_DONE_TAIL +
-			     ACCESS_ONCE(rsp->completed) != rdp->completed] &&
-	       !rcu_gp_in_progress(rsp);
+	return *rdp->nxttail[RCU_DONE_TAIL] && !rcu_gp_in_progress(rsp);
 }
 
 static struct rcu_node *rcu_get_root(struct rcu_state *rsp)
@@ -1548,7 +1546,7 @@ rcu_boot_init_percpu_data(int cpu, struct rcu_state *rsp)
 	raw_spin_unlock_irqrestore(&rnp->lock, flags);
 }
 
-static void
+static void __cpuinit
 rcu_init_percpu_data(int cpu, struct rcu_state *rsp, int preemptible)
 {
 	unsigned long flags;
@@ -1596,14 +1594,14 @@ rcu_init_percpu_data(int cpu, struct rcu_state *rsp, int preemptible)
 	raw_spin_unlock_irqrestore(&rsp->onofflock, flags);
 }
 
-static void rcu_prepare_cpu(int cpu)
+static void __cpuinit rcu_prepare_cpu(int cpu)
 {
 	rcu_init_percpu_data(cpu, &rcu_sched_state, 0);
 	rcu_init_percpu_data(cpu, &rcu_bh_state, 0);
 	rcu_preempt_init_percpu_data(cpu);
 }
 
-static int rcu_cpu_notify(struct notifier_block *self,
+static int __cpuinit rcu_cpu_notify(struct notifier_block *self,
 				    unsigned long action, void *hcpu)
 {
 	long cpu = (long)hcpu;

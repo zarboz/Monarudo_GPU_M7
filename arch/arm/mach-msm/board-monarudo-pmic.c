@@ -538,8 +538,8 @@ pm8921_bms_pdata __devinitdata = {
 	.v_failure		= 3000,
 	.max_voltage_uv		= MAX_VOLTAGE_MV * 1000,
 	.rconn_mohm		= 0,
-        .criteria_sw_est_ocv      = 86400000, 
-        .rconn_mohm_sw_est_ocv    = 10,
+	.criteria_sw_est_ocv			= 86400000, 
+	.rconn_mohm_sw_est_ocv		= 10,
 };
 
 static int __init check_dq_setup(char *str)

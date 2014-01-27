@@ -2087,7 +2087,7 @@ EXPORT_SYMBOL(kmem_cache_free);
 
 
 static int slub_min_order;
-static int slub_max_order = PAGE_ALLOC_COSTLY_ORDER;
+static int slub_max_order;
 static int slub_min_objects;
 
 static int slub_nomerge;
@@ -3174,7 +3174,7 @@ err:
 EXPORT_SYMBOL(kmem_cache_create);
 
 #ifdef CONFIG_SMP
-static int slab_cpuup_callback(struct notifier_block *nfb,
+static int __cpuinit slab_cpuup_callback(struct notifier_block *nfb,
 		unsigned long action, void *hcpu)
 {
 	long cpu = (long)hcpu;
@@ -3200,7 +3200,7 @@ static int slab_cpuup_callback(struct notifier_block *nfb,
 	return NOTIFY_OK;
 }
 
-static struct notifier_block slab_notifier = {
+static struct notifier_block __cpuinitdata slab_notifier = {
 	.notifier_call = slab_cpuup_callback
 };
 

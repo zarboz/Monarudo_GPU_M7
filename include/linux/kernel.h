@@ -20,8 +20,6 @@
 #include <linux/dynamic_debug.h>
 #include <asm/byteorder.h>
 
-
-
 #define USHRT_MAX	((u16)(~0U))
 #define SHRT_MAX	((s16)(USHRT_MAX>>1))
 #define SHRT_MIN	((s16)(-SHRT_MAX - 1))
@@ -35,11 +33,7 @@
 #define LLONG_MIN	(-LLONG_MAX - 1)
 #define ULLONG_MAX	(~0ULL)
 
-#define REPEAT_BYTE(x)	((~0ul / 0xff) * (x))
-
 #define STACK_MAGIC	0xdeadbeef
-
-#define REPEAT_BYTE(x)	((~0ul / 0xff) * (x))
 
 #define ALIGN(x, a)		__ALIGN_KERNEL((x), (a))
 #define __ALIGN_MASK(x, mask)	__ALIGN_KERNEL_MASK((x), (mask))

@@ -14,8 +14,7 @@ struct nf_conntrack_ecache {
 	unsigned long missed;	
 	u16 ctmask;		
 	u16 expmask;		
-	u32 pid;
-	struct timer_list timeout;		
+	u32 pid;		
 };
 
 static inline struct nf_conntrack_ecache *

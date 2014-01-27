@@ -64,7 +64,8 @@ limit_mt(const struct sk_buff *skb, struct xt_action_param *par)
 	return false;
 }
 
-static u32 user2credits(u32 user)
+static u_int32_t
+user2credits(u_int32_t user)
 {
 	
 	if (user > 0xFFFFFFFF / (HZ*CREDITS_PER_JIFFY))
@@ -93,10 +94,10 @@ static int limit_mt_check(const struct xt_mtchk_param *par)
 
 	
 	r->master = priv;
-	priv->prev = jiffies;
-	priv->credit = user2credits(r->avg * r->burst);
 	if (r->cost == 0) {
-		r->credit_cap = priv->credit;
+		priv->prev = jiffies;
+		priv->credit = user2credits(r->avg * r->burst); 
+		r->credit_cap = user2credits(r->avg * r->burst); 
 		r->cost = user2credits(r->avg);
 	}
 	return 0;

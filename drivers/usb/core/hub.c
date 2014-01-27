@@ -477,15 +477,12 @@ static void hub_tt_work(struct work_struct *work)
 	int			limit = 100;
 
 	spin_lock_irqsave (&hub->tt.lock, flags);
-	while (!list_empty(&hub->tt.clear_list)) {
+	while (--limit && !list_empty (&hub->tt.clear_list)) {
 		struct list_head	*next;
 		struct usb_tt_clear	*clear;
 		struct usb_device	*hdev = hub->hdev;
 		const struct hc_driver	*drv;
 		int			status;
-
-		if (!hub->quiescing && --limit < 0)
-			break;
 
 		next = hub->tt.clear_list.next;
 		clear = list_entry (next, struct usb_tt_clear, clear_list);
@@ -854,7 +851,7 @@ static void hub_quiesce(struct usb_hub *hub, enum hub_quiescing_type type)
 	if (hub->has_indicators)
 		cancel_delayed_work_sync(&hub->leds);
 	if (hub->tt.hub)
-		flush_work_sync(&hub->tt.clear_work);
+		cancel_work_sync(&hub->tt.clear_work);
 }
 
 static int hub_pre_reset(struct usb_interface *intf)
@@ -2261,7 +2258,7 @@ int usb_port_resume(struct usb_device *udev, pm_message_t msg)
 	struct usb_hub	*hub = hdev_to_hub(udev->parent);
 	int		port1 = udev->portnum;
 	int		status;
-	u16		portchange, portstatus;
+	u16		portchange = 0, portstatus = 0;
 
 	
 	status = hub_port_status(hub, port1, &portstatus, &portchange);
@@ -2462,7 +2459,7 @@ static int hub_port_debounce(struct usb_hub *hub, int port1)
 {
 	int ret;
 	int total_time, stable_time = 0;
-	u16 portchange, portstatus;
+	u16 portchange = 0, portstatus = 0;
 	unsigned connection = 0xffff;
 
 	for (total_time = 0; ; total_time += HUB_DEBOUNCE_STEP) {
@@ -3147,10 +3144,10 @@ static void hub_events(void)
 	struct usb_interface *intf;
 	struct usb_hub *hub;
 	struct device *hub_dev;
-	u16 hubstatus;
-	u16 hubchange;
-	u16 portstatus;
-	u16 portchange;
+	u16 hubstatus = 0;
+	u16 hubchange = 0;
+	u16 portstatus = 0;
+	u16 portchange = 0;
 	int i, ret;
 #if defined(CONFIG_USB_PEHCI_HCD) || defined(CONFIG_USB_PEHCI_HCD_MODULE)
 	int j;

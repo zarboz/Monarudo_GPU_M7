@@ -9,9 +9,7 @@
 #define HEADSET_OUTPUT 1
 #define DUAL_OUTPUT 2
 #define HANDSET_OUTPUT 3
-#define BEATS_ON_OUTPUT 4
-#define BEATS_OFF_OUTPUT 5
-#define LINEOUT_OUTPUT 6
+#define LINEOUT_OUTPUT 4
 #define NO_OUTPUT 5
 #define MODE_CMD_LEM 9
 #define MAX_REG_DATA 15
@@ -71,8 +69,6 @@ enum RT5501_Mode {
 	RT5501_MODE_BEATS_128_500,
 	RT5501_MODE_MONO,
 	RT5501_MODE_MONO_BEATS,
-	RT5501_MODE_PLAYBACK_HEADSET_BEATS_ON,
-	RT5501_MODE_PLAYBACK_HEADSET_BEATS_OFF,
 	RT5501_MAX_MODE
 };
 
@@ -128,6 +124,5 @@ enum AMP_S4_STATUS {
 
 int query_rt5501(void);
 void set_rt5501_amp(int on);
-void set_beats_on(int en);
 #endif
 
