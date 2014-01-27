@@ -8,6 +8,7 @@
 
 #include <linux/init.h>
 #include <linux/export.h>
+#include <linux/kernel.h>
 #include <linux/slab.h>
 #include <linux/fs.h>
 #include <linux/namei.h>
@@ -1108,7 +1109,8 @@ EXPORT_SYMBOL(full_name_hash);
 
 static inline unsigned long hash_name(const char *name, unsigned int *hashp)
 {
-	unsigned long a, mask, hash, len;
+	unsigned long a, b, adata, bdata, mask, hash, len;
+	const struct word_at_a_time constants = WORD_AT_A_TIME_CONSTANTS;
 
 	hash = a = 0;
 	len = -sizeof(unsigned long);
@@ -1116,17 +1118,18 @@ static inline unsigned long hash_name(const char *name, unsigned int *hashp)
 		hash = (hash + a) * 9;
 		len += sizeof(unsigned long);
 		a = load_unaligned_zeropad(name+len);
-		
-		mask = has_zero(a) | has_zero(a ^ REPEAT_BYTE('/'));
-	} while (!mask);
+		b = a ^ REPEAT_BYTE('/');
+	} while (!(has_zero(a, &adata, &constants) | has_zero(b, &bdata, &constants)));
 
-	
-	mask = (mask - 1) & ~mask;
-	mask >>= 7;
-	hash += a & mask;
+	adata = prep_zero_mask(a, adata, &constants);
+	bdata = prep_zero_mask(b, bdata, &constants);
+
+	mask = create_zero_mask(adata | bdata);
+
+	hash += a & zero_bytemask(mask);
 	*hashp = fold_hash(hash);
 
-	return len + count_masked_bytes(mask);
+	return len + find_zero(mask);
 }
 
 #else
@@ -2255,7 +2258,7 @@ out:
 static long do_rmdir(int dfd, const char __user *pathname)
 {
 	int error = 0;
-	char * name;
+	char * name = NULL;
 	struct dentry *dentry;
 	struct nameidata nd;
 
@@ -2347,7 +2350,7 @@ int vfs_unlink(struct inode *dir, struct dentry *dentry)
 static long do_unlinkat(int dfd, const char __user *pathname)
 {
 	int error;
-	char *name;
+	char *name = NULL;
 	struct dentry *dentry;
 	struct nameidata nd;
 	struct inode *inode = NULL;
@@ -2699,8 +2702,8 @@ SYSCALL_DEFINE4(renameat, int, olddfd, const char __user *, oldname,
 	struct dentry *old_dentry, *new_dentry;
 	struct dentry *trap;
 	struct nameidata oldnd, newnd;
-	char *from;
-	char *to;
+	char *from = NULL;
+	char *to = NULL;
 	int error;
 
 	error = user_path_parent(olddfd, oldname, &oldnd, &from);

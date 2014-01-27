@@ -954,6 +954,9 @@ config CC_OPTIMIZE_FOR_SIZE
 	  resulting in a smaller kernel.
 
 	  If unsure, say Y.
+config CC_OPTIMIZE_FAST
+  	bool "Use -OFast"
+
 
 config SYSCTL
 	bool

@@ -36,11 +36,17 @@
 #include <linux/pagevec.h>
 #include <trace/events/writeback.h>
 
-#define MAX_PAUSE		max(HZ/5, 1)
+/*
+ * Sleep at most 200ms at a time in balance_dirty_pages().
+ */
+#define MAX_PAUSE		200
 
 #define DIRTY_POLL_THRESH	(128 >> (PAGE_SHIFT - 10))
 
-#define BANDWIDTH_INTERVAL	max(HZ/5, 1)
+/*
+ * Estimate write bandwidth at 200ms intervals.
+ */
+#define BANDWIDTH_INTERVAL	200
 
 #define RATELIMIT_CALC_SHIFT	10
 
@@ -288,7 +294,12 @@ static void bdi_writeout_fraction(struct backing_dev_info *bdi,
 				numerator, denominator);
 }
 
-static unsigned int bdi_min_ratio;
+/*
+ * bdi_min_ratio keeps the sum of the minimum dirty shares of all
+ * registered backing devices, which, for obvious reasons, can not
+ * exceed 100%.
+ */
+static unsigned int bdi_min_ratio = 5;
 
 int bdi_set_min_ratio(struct backing_dev_info *bdi, unsigned int min_ratio)
 {
@@ -951,14 +962,14 @@ void writeback_set_ratelimit(void)
 		ratelimit_pages = 16;
 }
 
-static int __cpuinit
+static int
 ratelimit_handler(struct notifier_block *self, unsigned long u, void *v)
 {
 	writeback_set_ratelimit();
 	return NOTIFY_DONE;
 }
 
-static struct notifier_block __cpuinitdata ratelimit_nb = {
+static struct notifier_block ratelimit_nb = {
 	.notifier_call	= ratelimit_handler,
 	.next		= NULL,
 };

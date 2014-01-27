@@ -638,7 +638,7 @@ static int binder_update_page_range(struct binder_proc *proc, int allocate,
 		page = &proc->pages[(page_addr - proc->buffer) / PAGE_SIZE];
 
 		BUG_ON(*page);
-		*page = alloc_page(GFP_KERNEL | __GFP_ZERO);
+		*page = alloc_page(GFP_KERNEL | __GFP_HIGHMEM | __GFP_ZERO);
 		if (*page == NULL) {
 			printk(KERN_INFO "binder: %d: binder_alloc_buf failed "
 				     "for page at %p\n", proc->pid, page_addr);
@@ -796,6 +796,9 @@ static struct binder_buffer *binder_alloc_buf(struct binder_proc *proc,
 			     proc->free_async_space);
 	}
 
+	kmemleak_alloc(buffer, sizeof(*buffer), 0,
+		       GFP_KERNEL | __GFP_HIGHMEM | __GFP_ZERO);
+
 	return buffer;
 }
 
@@ -860,6 +863,8 @@ static void binder_free_buf(struct binder_proc *proc,
 			    struct binder_buffer *buffer)
 {
 	size_t size, buffer_size;
+
+	kmemleak_free(buffer);
 
 	buffer_size = binder_buffer_size(proc, buffer);
 

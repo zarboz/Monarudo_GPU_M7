@@ -411,6 +411,7 @@ static int get_more_blocks(struct dio *dio, struct dio_submit *sdio,
 	sector_t fs_endblk;	
 	unsigned long fs_count;	
 	int create;
+	unsigned int i_blkbits = sdio->blkbits + sdio->blkfactor;
 
 	/*
 	 * If there was a memory error and we've overwritten all the
@@ -425,7 +426,7 @@ static int get_more_blocks(struct dio *dio, struct dio_submit *sdio,
 		fs_count = fs_endblk - fs_startblk + 1;
 
 		map_bh->b_state = 0;
-		map_bh->b_size = fs_count << dio->inode->i_blkbits;
+		map_bh->b_size = fs_count << i_blkbits;
 
 		create = dio->rw & WRITE;
 		if (dio->flags & DIO_SKIP_HOLES) {
@@ -745,7 +746,8 @@ do_blockdev_direct_IO(int rw, struct kiocb *iocb, struct inode *inode,
 	int seg;
 	size_t size;
 	unsigned long addr;
-	unsigned blkbits = inode->i_blkbits;
+	unsigned i_blkbits = ACCESS_ONCE(inode->i_blkbits);
+	unsigned blkbits = i_blkbits;
 	unsigned blocksize_mask = (1 << blkbits) - 1;
 	ssize_t retval = -EINVAL;
 	loff_t end = offset;
@@ -754,6 +756,7 @@ do_blockdev_direct_IO(int rw, struct kiocb *iocb, struct inode *inode,
 	unsigned long user_addr;
 	size_t bytes;
 	struct buffer_head map_bh = { 0, };
+	struct blk_plug plug;
 
 	if (rw & WRITE)
 		rw = WRITE_ODIRECT;
@@ -822,7 +825,7 @@ do_blockdev_direct_IO(int rw, struct kiocb *iocb, struct inode *inode,
 	dio->inode = inode;
 	dio->rw = rw;
 	sdio.blkbits = blkbits;
-	sdio.blkfactor = inode->i_blkbits - blkbits;
+	sdio.blkfactor = i_blkbits - blkbits;
 	sdio.block_in_file = offset >> blkbits;
 
 	sdio.get_block = get_block;
@@ -846,6 +849,8 @@ do_blockdev_direct_IO(int rw, struct kiocb *iocb, struct inode *inode,
 			((user_addr + iov[seg].iov_len + PAGE_SIZE-1) /
 				PAGE_SIZE - user_addr / PAGE_SIZE);
 	}
+
+	blk_start_plug(&plug);
 
 	for (seg = 0; seg < nr_segs; seg++) {
 		user_addr = (unsigned long)iov[seg].iov_base;
@@ -900,6 +905,8 @@ do_blockdev_direct_IO(int rw, struct kiocb *iocb, struct inode *inode,
 	}
 	if (sdio.bio)
 		dio_bio_submit(dio, &sdio);
+
+	blk_finish_plug(&plug);
 
 	dio_cleanup(dio, &sdio);
 

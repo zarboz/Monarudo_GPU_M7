@@ -28,10 +28,8 @@
 #include <media/v4l2-subdev.h>
 #include "msm_camera_i2c.h"
 #include "msm_camera_eeprom.h"
-#ifdef CONFIG_RAWCHIPII
 #include "../yushanII/ilp0100_ST_definitions.h"
 #include <media/linux_yushanii.h>
-#endif
 
 #define Q8  0x00000100
 #define Q10 0x00000400
@@ -190,7 +188,6 @@ struct msm_sensor_fn_t {
 	int (*sensor_adjust_frame_lines)
 		(struct msm_sensor_ctrl_t *s_ctrl, uint16_t res);
 
-	int32_t (*sensor_write_hdr_exp_gain) (void *, uint16_t, uint16_t); 
 	int32_t (*sensor_set_dig_gain) (struct msm_sensor_ctrl_t *, uint16_t); 
 	int32_t (*sensor_set_hdr_dig_gain) (struct msm_sensor_ctrl_t *, uint16_t, uint16_t); 
 	
@@ -199,7 +196,6 @@ struct msm_sensor_fn_t {
 	int (*sensor_write_output_settings_specific)(struct msm_sensor_ctrl_t *s_ctrl, uint16_t res); 
 	int (*sensor_i2c_read_otp)(struct sensor_cfg_data *cdata, struct msm_sensor_ctrl_t *s_ctrl);
 
-#ifdef CONFIG_RAWCHIPII
 	void (*sensor_yushanii_status_line_modifier2)(uint8_t*);
 	void (*sensor_yushanii_status_line_modifier)(uint16_t*);
 	void (*sensor_yushanii_line_length_pclk_modifier)(uint16_t*);
@@ -210,9 +206,6 @@ struct msm_sensor_fn_t {
 	void(*sensor_yushanII_active_hold)(void);
 	int (*sensor_yushanII_ae_updated)(void);
 	void(*sensor_yushanII_set_default_ae)(struct msm_sensor_ctrl_t *, uint8_t);
-#endif
-	void (*sensor_read_command_line) (struct msm_sensor_ctrl_t *);	
-	void (*sensor_set_aec_weighting)(struct msm_sensor_ctrl_t *,struct sensor_cfg_data *cdata);
 };
 
 struct msm_sensor_ctrl_t {
@@ -264,12 +257,6 @@ struct msm_sensor_ctrl_t {
 	uint8_t driver_ic;
 	bool ews_enable;
 	bool actived_ae;	
-	enum msm_ispif_intftype intf; 
-	bool is_black_level_calibration_ongoing;
-	int channel_offset;
-	bool boot_mode_normal;        
-	struct task_struct *tsk_sensor_init;
-	int first_init;
 };
 
 void msm_sensor_start_stream(struct msm_sensor_ctrl_t *s_ctrl);
@@ -367,8 +354,6 @@ int msm_sensor_enable_debugfs(struct msm_sensor_ctrl_t *s_ctrl);
 long msm_sensor_subdev_ioctl(struct v4l2_subdev *sd,
 			unsigned int cmd, void *arg);
 
-void msm_read_command_line(struct msm_sensor_ctrl_t *);
-
 struct msm_sensor_ctrl_t *get_sctrl(struct v4l2_subdev *sd);
 
 #if (defined CONFIG_WEBCAM_OV7692_QRD || defined CONFIG_OV5647)
@@ -384,14 +369,11 @@ int32_t msm_sensor_adjust_frame_lines(struct msm_sensor_ctrl_t *s_ctrl,
 #define VIDIOC_MSM_SENSOR_RELEASE \
 	_IO('V', BASE_VIDIOC_PRIVATE + 11)
 
-#define VIDIOC_MSM_SENSOR_INTERFACE_CFG \
-	_IOWR('V', BASE_VIDIOC_PRIVATE + 12, void __user *)
-
 
 struct file* msm_fopen(const char* path, int flags, int rights);
 int msm_fwrite(struct file* file, unsigned long long offset, unsigned char* data, unsigned int size);
 void msm_fclose(struct file* file);
-void msm_dump_otp_to_file(const char* sensor_name, const short* add, const uint8_t* data, size_t count);
+void msm_dump_otp_to_file(const char* sensor_name, const short* add, const uint8_t* data, size_t count);  
 
 
 

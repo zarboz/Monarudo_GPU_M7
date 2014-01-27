@@ -1405,7 +1405,8 @@ dhd_op_if(dhd_if_t *ifp)
 			
 			msleep(300);
 			
-			unregister_netdev(ifp->net);
+			if (ifp->net->reg_state == NETREG_REGISTERED)
+				unregister_netdev(ifp->net);
 			ret = DHD_DEL_IF;	
 #ifdef WL_CFG80211
 			if (dhd->dhd_state & DHD_ATTACH_STATE_CFG80211) {
@@ -3378,7 +3379,7 @@ printf("Read PCBID = %x\n", system_rev);
 	}
 #endif
 
-#ifdef CONFIG_MACH_DELUXE_U
+#ifdef CONFIG_MACH_DUMMY
 	if (system_rev >= PVT){
 		strcpy(nvram_path, "/system/etc/calibration.gpio4");
 	}
@@ -3390,11 +3391,11 @@ printf("Read PCBID = %x\n", system_rev);
 	}
 #endif
 
-#ifdef CONFIG_MACH_DELUXE_UB1
+#ifdef CONFIG_MACH_DUMMY
 	strcpy(nvram_path, "/system/etc/calibration.gpio4");
 #endif
 
-#ifdef CONFIG_MACH_OPERAUL
+#ifdef CONFIG_MACH_DUMMY
 	if (system_rev >= XC){
 		strcpy(nvram_path, "/system/etc/calibration.gpio4");
 	}
@@ -3404,6 +3405,14 @@ printf("Read PCBID = %x\n", system_rev);
 	if (system_rev >= PVT){
 		strcpy(nvram_path, "/system/etc/calibration.gpio4");
 	}
+#endif
+
+#ifdef CONFIG_MACH_M4_UL
+	strcpy(nvram_path, "/system/etc/calibration.gpio4");
+#endif
+
+#ifdef CONFIG_MACH_DUMMY
+	strcpy(nvram_path, "/system/etc/calibration.gpio4");
 #endif
 
 #ifdef CONFIG_MACH_DUMMY
@@ -4076,14 +4085,7 @@ int ht_wsec_restrict = WLC_HT_TKIP_RESTRICT | WLC_HT_WEP_RESTRICT;
 #endif
 	}
 
-	
-	if (get_tamper_sf() == 0)
-	DHD_ERROR(("Firmware up: op_mode=%d, "
-			"Broadcom Dongle Host Driver mac=%.2x:%.2x:%.2x:%.2x:%.2x:%.2x\n",
-			dhd->op_mode,
-			dhd->mac.octet[0], dhd->mac.octet[1], dhd->mac.octet[2],
-			dhd->mac.octet[3], dhd->mac.octet[4], dhd->mac.octet[5]));
-	else
+    
 	DHD_ERROR(("Firmware up: op_mode=%d, Broadcom Dongle Host Driver\n",
 			dhd->op_mode));
 

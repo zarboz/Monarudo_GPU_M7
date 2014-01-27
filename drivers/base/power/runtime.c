@@ -410,7 +410,6 @@ static int rpm_suspend(struct device *dev, int rpmflags)
 		goto repeat;
 	}
 
-	dev->power.deferred_resume = false;
 	if (dev->power.no_callbacks)
 		goto no_callback;	
 
@@ -544,7 +543,7 @@ static int rpm_suspend(struct device *dev, int rpmflags)
 		#endif	
 		
 		
-
+		dev->power.deferred_resume = false;
 		rpm_resume(dev, 0);
 
 		
@@ -954,6 +953,7 @@ static int rpm_resume(struct device *dev, int rpmflags)
 	if ( log_enable == 1 )
 		dev_info(dev, "%s[%d] wake_up_all-\n", __func__, __LINE__);
 	if (!retval) {
+
 		if ( log_enable == 1 )
 			dev_info(dev, "%s[%d] rpm_idle+\n", __func__, __LINE__);
 		rpm_idle(dev, RPM_ASYNC);

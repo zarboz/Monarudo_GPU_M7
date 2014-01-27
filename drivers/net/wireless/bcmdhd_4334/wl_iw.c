@@ -4941,7 +4941,8 @@ wl_iw_event(struct net_device *dev, wl_event_msg_t *e, void* data)
 	case WLC_E_SET_SSID:
 	{
 		if (status != WLC_E_STATUS_SUCCESS){
-			printf("%s: WLC_E_SET_SSID, connect to Ext.AP failed, restart apsta ap part!.\n", __FUNCTION__);
+			printf("%s: WLC_E_SET_SSID, connect to Ext.AP failed, status %d, reason %d,"
+				"flags %d.\n", __FUNCTION__, status, reason, flags);
 			if ( apsta_enable && ap_net_dev ) {
 				printf("%s: schedule to restart the apsta ap part\n", __FUNCTION__);
 				schedule_delayed_work(&restart_apsta, HZ);

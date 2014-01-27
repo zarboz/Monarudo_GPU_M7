@@ -24,20 +24,6 @@ config BCMDHD_NVRAM_PATH
 	---help---
 	  Path to the calibration file.
 
-config DHD_USE_STATIC_BUF
-	bool "Enable memory preallocation"
-	depends on BCMDHD
-	default n
-	---help---
-	  Use memory preallocated in platform
-
-config DHD_USE_SCHED_SCAN
-	bool "Use CFG80211 sched scan"
-	depends on BCMDHD && CFG80211
-	default n
-	---help---
-	  Use CFG80211 sched scan
-
 config BCMDHD_WEXT
 	bool "Enable WEXT support"
 	depends on BCMDHD_4334_MCC && CFG80211 = n

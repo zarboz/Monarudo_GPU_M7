@@ -773,7 +773,7 @@ static ssize_t state_onchg_show(struct kobject *kobj, struct kobj_attribute *att
 		s += sprintf(s, "chgon ");
 
 	if (s != buf)
-		
+
 		*(s-1) = '\n';
 
 	return (s - buf);

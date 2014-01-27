@@ -832,7 +832,8 @@ wl_show_host_event(wl_event_msg_t *event, void *event_data)
 		if (status == WLC_E_STATUS_SUCCESS) {
 			DHD_ERROR(("MACEVENT: %s, MAC %s\n", event_name, eabuf));
 		} else if (status == WLC_E_STATUS_FAIL) {
-			DHD_ERROR(("MACEVENT: %s, failed\n", event_name));
+			DHD_ERROR(("MACEVENT: %s, failed, status %d, reason %d, flags %d.\n",
+						event_name, status, reason, flags));
 		} else if (status == WLC_E_STATUS_NO_NETWORKS) {
 			DHD_ERROR(("MACEVENT: %s, no networks found\n", event_name));
 		} else {
