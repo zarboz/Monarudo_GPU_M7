@@ -213,12 +213,9 @@ int32_t msm_sensor_write_res_settings(struct msm_sensor_ctrl_t *s_ctrl,
 	if (s_ctrl->func_tbl->sensor_adjust_frame_lines)
 		rc = s_ctrl->func_tbl->sensor_adjust_frame_lines(s_ctrl, res);
 
-#ifdef CONFIG_RAWCHIPII
 	if (s_ctrl->func_tbl->sensor_yushanII_set_default_ae) {
 		s_ctrl->func_tbl->sensor_yushanII_set_default_ae(s_ctrl, res);
-	} else 
-#endif
-              {
+	} else {
 		if (s_ctrl->prev_dig_gain > 0 && s_ctrl->prev_line > 0){
 			if (s_ctrl->func_tbl->
 				sensor_write_exp_gain_ex != NULL){
