@@ -336,9 +336,10 @@ static void AKECS_SetYPR(
 		rbuf[5], rbuf[6], rbuf[7], rbuf[8]);
 	AKM_DATA(&akm->input->dev, "  Orientation[YPR] : %6d,%6d,%6d",
 		rbuf[9], rbuf[10], rbuf[11]);
+#ifdef CONFIG_GPE_BUILD
 	AKM_DATA(&akm->input->dev, "  Rotation V  : %6d,%6d,%6d,%6d",
 		rbuf[18], rbuf[19], rbuf[20], rbuf[21]);
-
+#endif
 	
 	if (!rbuf[0]) {
 		dev_err(&akm->i2c->dev, "Don't waste a time.");
@@ -381,11 +382,12 @@ static void AKECS_SetYPR(
 		input_report_abs(akm->input, ABS_HAT1X, rbuf[11]);
 		input_report_abs(akm->input, ABS_HAT1Y, rbuf[4]);
 
-		
+#ifdef CONFIG_GPE_BUILD
 		input_report_abs(akm->input, ABS_TILT_X, rbuf[18]);
 		input_report_abs(akm->input, ABS_TILT_Y, rbuf[19]);
 		input_report_abs(akm->input, ABS_TOOL_WIDTH, rbuf[20]);
 		input_report_abs(akm->input, ABS_VOLUME, rbuf[21]);
+#endif
 	}
 
 	input_sync(akm->input);
@@ -1220,7 +1222,7 @@ static int akm8963_input_init(
 	input_set_abs_params(*input, ABS_HAT3Y,
 			-32768, 32767, 0, 0);
 
-	
+#ifdef CONFIG_GPE_BUILD
 	input_set_abs_params(*input, ABS_TILT_X,
 			-16384, 16384, 0, 0);
 	input_set_abs_params(*input, ABS_TILT_Y,
@@ -1229,7 +1231,7 @@ static int akm8963_input_init(
 			-16384, 16384, 0, 0);
 	input_set_abs_params(*input, ABS_VOLUME,
 			-16384, 16384, 0, 0);
-	
+#endif
 	(*input)->name = "compass";
 
 	
