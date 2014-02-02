@@ -511,14 +511,12 @@ static struct msm_camera_sensor_flash_src msm_camera_flash_src = {
 #ifdef CONFIG_RAWCHIP
 static int monarudo_use_ext_1v2(void)
 {
-#if 0	
+	
 	if (system_rev >= 1) 
 		return 1;
 	else 
 		return 0;
-#else
-	return 1;
-#endif
+
 }
 
 static int monarudo_rawchip_vreg_on(void)
