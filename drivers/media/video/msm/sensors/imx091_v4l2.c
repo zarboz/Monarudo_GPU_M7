@@ -652,7 +652,7 @@ int32_t imx091_power_up(struct msm_sensor_ctrl_t *s_ctrl)
 	if (!sdata->use_rawchip) {
 		rc = msm_camio_clk_enable(sdata,CAMIO_CAM_MCLK_CLK);
 		if (rc < 0) {
-			pr_info("%s: msm_camio_sensor_clk_on failed:%d\n",
+			pr_err("%s: msm_camio_sensor_clk_on failed:%d\n",
 			 __func__, rc);
 			goto enable_mclk_failed;
 		}
@@ -717,7 +717,7 @@ int32_t imx091_power_down(struct msm_sensor_ctrl_t *s_ctrl)
 	if (!sdata->use_rawchip) {
 		msm_camio_clk_disable(sdata,CAMIO_CAM_MCLK_CLK);
 		if (rc < 0)
-			pr_info("%s: msm_camio_sensor_clk_off failed:%d\n",
+			pr_err("%s: msm_camio_sensor_clk_off failed:%d\n",
 				 __func__, rc);
 	}
 
