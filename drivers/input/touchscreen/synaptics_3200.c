@@ -37,6 +37,16 @@
 #include <linux/kthread.h>
 #include <linux/wait.h>
 
+#ifdef CONFIG_TOUCHSCREEN_PREVENT_SLEEP
+#ifdef CONFIG_TOUCHSCREEN_SWEEP2WAKE
+#include <linux/input/sweep2wake.h>
+#endif
+#ifdef CONFIG_TOUCHSCREEN_DOUBLETAP2WAKE
+#include <linux/input/doubletap2wake.h>
+#endif
+#endif
+
+
 #define SYN_I2C_RETRY_TIMES 10
 #define SYN_UPDATE_RETRY_TIMES 5
 #define SHIFT_BITS 10
@@ -3421,14 +3431,45 @@ static int synaptics_ts_suspend(struct i2c_client *client, pm_message_t mesg)
 	int ret = 0;
 	uint8_t data = 0, update = 0;
 	struct synaptics_ts_data *ts = i2c_get_clientdata(client);
+#ifdef CONFIG_TOUCHSCREEN_PREVENT_SLEEP
+#if defined(CONFIG_TOUCHSCREEN_SWEEP2WAKE) || defined(CONFIG_TOUCHSCREEN_DOUBLETAP2WAKE)
+	bool prevent_sleep = true;
+#endif
+#if defined(CONFIG_TOUCHSCREEN_SWEEP2WAKE)
+	prevent_sleep = (s2w_switch > 0) && (s2w_s2sonly == 0);
+#endif
+#if defined(CONFIG_TOUCHSCREEN_DOUBLETAP2WAKE)
+	prevent_sleep = prevent_sleep || (dt2w_switch > 0);
+#endif
+#endif
+#ifdef CONFIG_TOUCHSCREEN_PREVENT_SLEEP     
+	if (s2w_switch > 1 || dt2w_switch > 1) {
+
+		enable_irq_wake(client->irq);
+		printk(KERN_INFO "[S2W]: suspend but keep interupt wake going.\n");
+ 	} 
+#endif
 	printk(KERN_INFO "[TP] %s: enter\n", __func__);
 
 	if (ts->use_irq) {
+#ifdef CONFIG_TOUCHSCREEN_PREVENT_SLEEP  
+		if (s2w_switch == 0 && dt2w_switch == 0) {
+#endif
 		disable_irq(client->irq);
 		ts->irq_enabled = 0;
+#ifdef CONFIG_TOUCHSCREEN_PREVENT_SLEEP
+	}
+#endif
 	} else {
 		hrtimer_cancel(&ts->timer);
 		ret = cancel_work_sync(&ts->work);
+#ifdef CONFIG_TOUCHSCREEN_PREVENT_SLEEP
+	if (s2w_switch == 0 && dt2w_switch == 0) {
+		if (ret && ts->use_irq) /* if work was pending disable-count is now 2 */
+                        enable_irq(client->irq);
+        }
+		printk("[S2W]: Clear pending work ");
+#endif
 	}
 
 	if(ts->psensor_detection) {
@@ -3537,7 +3578,9 @@ static int synaptics_ts_suspend(struct i2c_client *client, pm_message_t mesg)
 	}
 	else if(ts->psensor_detection)
 		ts->psensor_phone_enable = 1;
-
+#ifdef CONFIG_TOUCHSCREEN_PREVENT_SLEEP
+		if (s2w_switch == 0 && dt2w_switch == 0) {
+#endif
 #ifdef CONFIG_PWRKEY_STATUS_API
 	if (ts->packrat_number < SYNAPTICS_FW_NOCAL_PACKRAT)
 		printk(KERN_INFO "[TP][PWR][STATE] get power key state = %d\n", getPowerKeyState());
@@ -3626,7 +3669,9 @@ static int synaptics_ts_suspend(struct i2c_client *client, pm_message_t mesg)
 	if ((ts->block_touch_time_near | ts->block_touch_time_far) && ts->block_touch_event) {
 		syn_handle_block_touch(ts, 0);
 	}
-
+#ifdef CONFIG_TOUCHSCREEN_PREVENT_SLEEP
+}
+#endif
 	return 0;
 }
 
@@ -3634,6 +3679,17 @@ static int synaptics_ts_resume(struct i2c_client *client)
 {
 	int ret;
 	struct synaptics_ts_data *ts = i2c_get_clientdata(client);
+#ifdef CONFIG_TOUCHSCREEN_PREVENT_SLEEP
+#if defined(CONFIG_TOUCHSCREEN_SWEEP2WAKE) || defined(CONFIG_TOUCHSCREEN_DOUBLETAP2WAKE)
+	bool prevent_sleep = false;
+#endif
+#if defined(CONFIG_TOUCHSCREEN_SWEEP2WAKE)
+	prevent_sleep = (s2w_switch > 0) && (s2w_s2sonly == 0);
+#endif
+#if defined(CONFIG_TOUCHSCREEN_DOUBLETAP2WAKE)
+	prevent_sleep = prevent_sleep || (dt2w_switch > 0);
+#endif
+#endif
 	printk(KERN_INFO "[TP] %s: enter\n", __func__);
 
 	if (ts->power) {
