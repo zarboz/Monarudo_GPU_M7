@@ -1,4 +1,4 @@
-/* Copyright (c) 2011-2012, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011-2012, Code Aurora Forum. All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -58,6 +58,7 @@
 #define TOP_SPK_AMP_NEG		0x8
 #define TOP_SPK_AMP		0x10
 
+
 #define GPIO_AUX_PCM_DOUT 43
 #define GPIO_AUX_PCM_DIN 44
 #define GPIO_AUX_PCM_SYNC 45
@@ -77,11 +78,8 @@
 #define TABLA_MBHC_DEF_BUTTONS 8
 #define TABLA_MBHC_DEF_RLOADS 5
 #define HAC_PAMP_GPIO	6
-
 #define RCV_PAMP_GPIO    67
-
 #define RCV_SPK_SEL_PMGPIO    24
-
 static int msm_hac_control;
 static int msm_rcv_control;
 static int aux_pcm_open = 0;
@@ -152,25 +150,25 @@ static struct tabla_mbhc_config mbhc_cfg = {
 
 static inline int param_is_mask(int p)
 {
-  return ((p >= SNDRV_PCM_HW_PARAM_FIRST_MASK) &&
-    (p <= SNDRV_PCM_HW_PARAM_LAST_MASK));
+	return ((p >= SNDRV_PCM_HW_PARAM_FIRST_MASK) &&
+		(p <= SNDRV_PCM_HW_PARAM_LAST_MASK));
 }
 
 static inline struct snd_mask *param_to_mask(struct snd_pcm_hw_params *p, int n)
 {
-  return &(p->masks[n - SNDRV_PCM_HW_PARAM_FIRST_MASK]);
+	return &(p->masks[n - SNDRV_PCM_HW_PARAM_FIRST_MASK]);
 }
 
 static void param_set_mask(struct snd_pcm_hw_params *p, int n, unsigned bit)
 {
-  if (bit >= SNDRV_MASK_MAX)
-    return;
-  if (param_is_mask(n)) {
-    struct snd_mask *m = param_to_mask(p, n);
-    m->bits[0] = 0;
-    m->bits[1] = 0;
-    m->bits[bit >> 5] |= (1 << (bit & 31));
-  }
+	if (bit >= SNDRV_MASK_MAX)
+		return;
+	if (param_is_mask(n)) {
+		struct snd_mask *m = param_to_mask(p, n);
+		m->bits[0] = 0;
+		m->bits[1] = 0;
+		m->bits[bit >> 5] |= (1 << (bit & 31));
+	}
 }
 
 static struct mutex cdc_mclk_mutex;
@@ -204,7 +202,6 @@ static int msm8960_mi2s_hw_params(struct snd_pcm_substream *substream,
 	int rate = params_rate(params);
 	int bit_clk_set = 0;
 
-	
 	if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK) {
 		bit_clk_set = 18432000/(rate * 2 * 24);
 		clk_set_rate(mi2s_rx_bit_clk, bit_clk_set);
@@ -280,7 +277,6 @@ static int msm8960_mi2s_startup(struct snd_pcm_substream *substream)
 		configure_mi2s_rx_gpio();
 		mi2s_rx_osr_clk = clk_get(cpu_dai->dev, "osr_clk");
 		if (mi2s_rx_osr_clk) {
-			
 			clk_set_rate(mi2s_rx_osr_clk, 18432000);
 			clk_prepare_enable(mi2s_rx_osr_clk);
 		}
@@ -465,7 +461,7 @@ static struct snd_soc_ops msm8960_i2s_be_ops = {
 
 static void msm_ext_spk_power_amp_on(u32 spk)
 {
-               if (spk & (BOTTOM_SPK_AMP_POS | BOTTOM_SPK_AMP_NEG)) {
+	if (spk & (BOTTOM_SPK_AMP_POS | BOTTOM_SPK_AMP_NEG)) {
 
 		if ((msm_ext_bottom_spk_pamp & BOTTOM_SPK_AMP_POS) &&
 			(msm_ext_bottom_spk_pamp & BOTTOM_SPK_AMP_NEG)) {
@@ -479,6 +475,7 @@ static void msm_ext_spk_power_amp_on(u32 spk)
 
 		if ((msm_ext_bottom_spk_pamp & BOTTOM_SPK_AMP_POS) &&
 			(msm_ext_bottom_spk_pamp & BOTTOM_SPK_AMP_NEG)) {
+
 			
 			pr_info("hs amp on++");
                         if(query_tpa6185()) {
@@ -528,8 +525,9 @@ static void msm_ext_spk_power_amp_on(u32 spk)
 
 static void msm_ext_spk_power_amp_off(u32 spk)
 {
-  if (spk & (BOTTOM_SPK_AMP_POS | BOTTOM_SPK_AMP_NEG)) {
-    if (!msm_ext_bottom_spk_pamp)
+	if (spk & (BOTTOM_SPK_AMP_POS | BOTTOM_SPK_AMP_NEG)) {
+
+		if (!msm_ext_bottom_spk_pamp)
 			return;
 
 		
@@ -701,7 +699,7 @@ static int msm_set_spk(struct snd_kcontrol *kcontrol,
 static int msm_spkramp_event(struct snd_soc_dapm_widget *w,
 	struct snd_kcontrol *k, int event)
 {
-  pr_debug("%s() %x\n", __func__, SND_SOC_DAPM_EVENT_ON(event));
+	pr_debug("%s() %x\n", __func__, SND_SOC_DAPM_EVENT_ON(event));
 
 	if (SND_SOC_DAPM_EVENT_ON(event)) {
 		if (!strncmp(w->name, "Ext Spk Bottom Pos", 18))
@@ -838,6 +836,7 @@ static const struct snd_soc_dapm_widget apq8064_dapm_widgets[] = {
 	SND_SOC_DAPM_SPK("Ext Spk Top Pos", msm_spkramp_event),
 	SND_SOC_DAPM_SPK("Ext Spk Top Neg", msm_spkramp_event),
 	SND_SOC_DAPM_SPK("Ext Spk Top", msm_spkramp_event),
+
 	
 	SND_SOC_DAPM_MIC("Analog mic7", NULL),
 
@@ -1443,19 +1442,19 @@ static int msm_slim_0_stub_rx_be_hw_params_fixup(struct snd_soc_pcm_runtime *rtd
 }
 
 static int msm_slim_0_tx_be_hw_params_fixup(struct snd_soc_pcm_runtime *rtd,
-      struct snd_pcm_hw_params *params)
+			struct snd_pcm_hw_params *params)
 {
-  struct snd_interval *rate = hw_param_interval(params,
-  SNDRV_PCM_HW_PARAM_RATE);
+	struct snd_interval *rate = hw_param_interval(params,
+	SNDRV_PCM_HW_PARAM_RATE);
 
-  struct snd_interval *channels = hw_param_interval(params,
-      SNDRV_PCM_HW_PARAM_CHANNELS);
+	struct snd_interval *channels = hw_param_interval(params,
+			SNDRV_PCM_HW_PARAM_CHANNELS);
 
-  pr_debug("%s()\n", __func__);
-  rate->min = rate->max = 48000;
-  channels->min = channels->max = msm_slim_0_tx_ch;
+	pr_debug("%s()\n", __func__);
+	rate->min = rate->max = 48000;
+	channels->min = channels->max = msm_slim_0_tx_ch;
 
-  return 0;
+	return 0;
 }
 
 static int msm_slim_3_rx_be_hw_params_fixup(struct snd_soc_pcm_runtime *rtd,
@@ -1527,6 +1526,7 @@ static int msm_hdmi_be_hw_params_fixup(struct snd_soc_pcm_runtime *rtd,
 
 	pr_debug("%s channels->min %u channels->max %u ()\n", __func__,
 			channels->min, channels->max);
+
 	param_set_mask(params, SNDRV_PCM_HW_PARAM_FORMAT,
 		SNDRV_PCM_FORMAT_S16_LE);
 
@@ -1628,9 +1628,8 @@ static int msm_auxpcm_be_params_fixup(struct snd_soc_pcm_runtime *rtd,
 	struct snd_interval *channels = hw_param_interval(params,
 					SNDRV_PCM_HW_PARAM_CHANNELS);
 
-	
 #ifdef CONFIG_BT_WBS_BRCM
-	rate->min = rate->max = 16000;
+  rate->min = rate->max = 16000;
 #else
 	rate->min = rate->max = 8000;
 #endif
@@ -1646,6 +1645,7 @@ static int msm_proxy_be_hw_params_fixup(struct snd_soc_pcm_runtime *rtd,
 	SNDRV_PCM_HW_PARAM_RATE);
 
 	pr_debug("%s()\n", __func__);
+
 	param_set_mask(params, SNDRV_PCM_HW_PARAM_FORMAT,
 		SNDRV_PCM_FORMAT_S16_LE);
 
@@ -2348,20 +2348,21 @@ static struct snd_soc_dai_link msm_dai[] = {
 	
 	
 	{   
-	    .name = "VoLTE Stub",
-	    .stream_name = "VoLTE Stub",
-	    .cpu_dai_name   = "VOLTE_STUB",
-	    .platform_name  = "msm-pcm-hostless",
+	    .name = "VoLTE",
+	    .stream_name = "VoLTE",
+	    .cpu_dai_name   = "VoLTE",
+	    .platform_name  = "msm-pcm-voice",
 	    .dynamic = 1,
 	    .trigger = {SND_SOC_DPCM_TRIGGER_POST,
 	            SND_SOC_DPCM_TRIGGER_POST},
 	    .no_host_mode = SND_SOC_DAI_LINK_NO_HOST,
 	    .ignore_suspend = 1,
+	    
 	    .ignore_pmdown_time = 1,
 	    .codec_dai_name = "snd-soc-dummy-dai",
 	    .codec_name = "snd-soc-dummy",
+	    .be_id = MSM_FRONTEND_DAI_VOLTE,
 	},
-#ifdef CONFIG_AUDIO_LOW_LATENCY
 	{    
 	    .name = "MSM8960 LowLatency",
 	    .stream_name = "MultiMedia5",
@@ -2378,7 +2379,6 @@ static struct snd_soc_dai_link msm_dai[] = {
 	    .be_id = MSM_FRONTEND_DAI_MULTIMEDIA5,
 	},
 	
-#endif
 };
 
 struct snd_soc_card snd_soc_card_msm = {
@@ -2415,7 +2415,7 @@ static int __init msm_audio_init(void)
 		GPIO_CFG(42, 0, GPIO_CFG_INPUT, GPIO_CFG_PULL_DOWN, GPIO_CFG_2MA),
 	};
 
-        if (!cpu_is_apq8064()) {
+	if (!cpu_is_apq8064()) {
 		pr_err("%s: Not the right machine type\n", __func__);
 		return -ENODEV;
 	}
@@ -2469,7 +2469,7 @@ module_init(msm_audio_init);
 
 static void __exit msm_audio_exit(void)
 {
-       if (!cpu_is_apq8064() || (socinfo_get_id() == 130)) {
+	if (!cpu_is_apq8064() || (socinfo_get_id() == 130)) {
 		pr_err("%s: Not the right machine type\n", __func__);
 		return ;
 	}
