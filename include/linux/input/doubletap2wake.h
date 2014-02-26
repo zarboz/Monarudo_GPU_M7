@@ -22,5 +22,9 @@
 #define _LINUX_DOUBLETAP2WAKE_H
 
 extern int dt2w_switch;
+#define DRIVER_AUTHOR "Dennis Rassmann <showp1984@gmail.com>"
+#define DRIVER_DESCRIPTION "Doubletap2wake for almost any device"
+#define DRIVER_VERSION "1.0"
+#define LOGTAG "[doubletap2wake]: "
 
 #endif	/* _LINUX_DOUBLETAP2WAKE_H */

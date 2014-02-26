@@ -1036,4 +1036,11 @@ config TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE_END
 	depends on TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE
 	string "Sweep2Wake end button name"
 	default "MENU"
+	
+config TOUCHSCREEN_DOUBLETAP2WAKE
+	tristate "DoubleTap2Wake for touchscreens"
+	string "DoubleTap2Wake magic"
+	default n
+
+
 endif
