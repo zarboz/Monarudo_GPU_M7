@@ -619,7 +619,7 @@ uint32_t __init acpu_check_khz_value(unsigned long khz)
 {
 	struct acpu_level *f;
 
-	if (khz > 2160000)
+	if (khz > 1836000)
 		return CONFIG_MSM_CPU_FREQ_MAX;
 
 	if (khz < 192000)
