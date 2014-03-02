@@ -2102,7 +2102,7 @@ static ssize_t synaptic_sweep2wake_startbutton_show(struct device *dev,
 	}
 
 	if (!found) 
-		count += sprintf(buf, "%s\n","BACK");
+		count += sprintf(buf, "%s\n","UNKNOWN");
 
 	return count;
 }
@@ -2154,7 +2154,7 @@ static ssize_t synaptic_sweep2wake_endbutton_show(struct device *dev,
 	}
 
 	if (!found) 
-		count += sprintf(buf, "%s\n","MENU");
+		count += sprintf(buf, "%s\n","UNKNOWN");
 
 	return count;
 }
@@ -3850,7 +3850,21 @@ static int syn_probe_init(void *arg)
 	if (rmi_char_dev_register())
 		printk(KERN_INFO "[TP] %s: error register char device", __func__);
 #endif
+#ifdef CONFIG_TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE
+#ifdef CONFIG_TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE_START
+	if (s2w_startbutton <= 0)
+		s2w_startbutton = sweep2wake_buttonset(CONFIG_TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE_START);
+#endif 
+#ifdef CONFIG_TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE_END
+	if (s2w_endbutton <= 0)
+		s2w_endbutton = sweep2wake_buttonset(CONFIG_TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE_END);
+#endif 
 
+	barrier1 = s2w_startbutton - 100; 
+	barrier2 = ((s2w_endbutton - s2w_startbutton) / 4) + s2w_startbutton; 
+	barrier3 = (((s2w_endbutton - s2w_startbutton) / 4) * 3) + s2w_startbutton; 
+	barrier4 = s2w_endbutton + 100; 
+#endif
 	printk(KERN_INFO "[TP] synaptics_ts_probe: Start touchscreen %s in %s mode\n", ts->input_dev->name, ts->use_irq ? "interrupt" : "polling");
 
 	return 0;
@@ -3950,21 +3964,7 @@ err_check_functionality_failed:
 static int synaptics_ts_remove(struct i2c_client *client)
 {
 	struct synaptics_ts_data *ts = i2c_get_clientdata(client);
-#ifdef CONFIG_TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE
-#ifdef CONFIG_TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE_START
-	if (s2w_startbutton <= 0)
-		s2w_startbutton = sweep2wake_buttonset(CONFIG_TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE_START);
-#endif 
-#ifdef CONFIG_TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE_END
-	if (s2w_endbutton <= 0)
-		s2w_endbutton = sweep2wake_buttonset(CONFIG_TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE_END);
-#endif 
 
-	barrier1 = s2w_startbutton - 100; 
-	barrier2 = ((s2w_endbutton - s2w_startbutton) / 4) + s2w_startbutton; 
-	barrier3 = (((s2w_endbutton - s2w_startbutton) / 4) * 3) + s2w_startbutton; 
-	barrier4 = s2w_endbutton + 100; 
-#endif
 	unregister_early_suspend(&ts->early_suspend);
 	if (ts->use_irq)
 		free_irq(client->irq, ts);
