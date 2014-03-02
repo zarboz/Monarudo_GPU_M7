@@ -2102,7 +2102,7 @@ static ssize_t synaptic_sweep2wake_startbutton_show(struct device *dev,
 	}
 
 	if (!found) 
-		count += sprintf(buf, "%s\n","UNKNOWN");
+		count += sprintf(buf, "%s\n","BACK");
 
 	return count;
 }
@@ -2143,6 +2143,7 @@ static ssize_t synaptic_sweep2wake_endbutton_show(struct device *dev,
 	int i = 0;
 	size_t count = 0;
 	bool found = false;
+	
 
 	for (i = 0; i < sizeof(buttons)/sizeof(button); i++)
 	{
@@ -2153,7 +2154,7 @@ static ssize_t synaptic_sweep2wake_endbutton_show(struct device *dev,
 	}
 
 	if (!found) 
-		count += sprintf(buf, "%s\n","UNKNOWN");
+		count += sprintf(buf, "%s\n","MENU");
 
 	return count;
 }
@@ -3949,7 +3950,6 @@ err_check_functionality_failed:
 static int synaptics_ts_remove(struct i2c_client *client)
 {
 	struct synaptics_ts_data *ts = i2c_get_clientdata(client);
-
 #ifdef CONFIG_TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE
 #ifdef CONFIG_TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE_START
 	if (s2w_startbutton <= 0)
@@ -3965,7 +3965,6 @@ static int synaptics_ts_remove(struct i2c_client *client)
 	barrier3 = (((s2w_endbutton - s2w_startbutton) / 4) * 3) + s2w_startbutton; 
 	barrier4 = s2w_endbutton + 100; 
 #endif
-
 	unregister_early_suspend(&ts->early_suspend);
 	if (ts->use_irq)
 		free_irq(client->irq, ts);
