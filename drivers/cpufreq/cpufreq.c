@@ -849,7 +849,7 @@ static int cpufreq_add_dev_interface(unsigned int cpu,
 				     struct device *dev)
 {
 	struct cpufreq_policy new_policy;
-#ifdef CONFIG_CMDLINE_OPTIONS
+#if 0
 	struct cpufreq_governor *fgov;
 #endif
 	struct freq_attr **drv_attr;
@@ -903,7 +903,7 @@ static int cpufreq_add_dev_interface(unsigned int cpu,
 	memcpy(&new_policy, policy, sizeof(struct cpufreq_policy));
 	
 	policy->governor = NULL;
-#ifdef CONFIG_CMDLINE_OPTIONS
+#if 0
 	/* cmdline_khz governor */
 	fgov = __find_governor(cmdline_gov);
 	if ((*cmdline_gov) && (strcmp(cmdline_gov, "") != 0) &&

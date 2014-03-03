@@ -300,7 +300,7 @@ static void msm_cpufreq_early_suspend(struct early_suspend *h)
 			if (curfreq > cmdline_maxscroff) {
 				acpuclk_set_rate(cpu, cmdline_maxscroff, SETRATE_CPUFREQ);
 				curfreq = acpuclk_get_rate(cpu);
-				printk(KERN_INFO "[cmdline - Freq limiter]: Limited freq to '%u'\n", curfreq);
+				//printk(KERN_INFO "[cmdline - Freq limiter]: Limited freq to '%u'\n", curfreq);
 			}
 		}
 		mutex_unlock(&per_cpu(cpufreq_suspend, cpu).suspend_mutex);
@@ -322,7 +322,7 @@ static void msm_cpufreq_late_resume(struct early_suspend *h)
 			if (curfreq != cpu_work->frequency) {
 				acpuclk_set_rate(cpu, cmdline_maxkhz, SETRATE_CPUFREQ);
 				curfreq = acpuclk_get_rate(cpu);
-				printk(KERN_INFO "[cmdline - Freq limiter]: Unlocking freq to '%u'\n", curfreq);
+				//printk(KERN_INFO "[cmdline - Freq limiter]: Unlocking freq to '%u'\n", curfreq);
 			}
 		}
 		mutex_unlock(&per_cpu(cpufreq_suspend, cpu).suspend_mutex);
@@ -500,12 +500,12 @@ static int msm_cpufreq_init(struct cpufreq_policy *policy)
 		cpumask_setall(policy->cpus);
 
 	if (cpufreq_frequency_table_cpuinfo(policy, table)) {
-#if 0
+#ifdef CONFIG_MSM_CPU_FREQ_SET_MIN_MAX
 		policy->cpuinfo.min_freq = CONFIG_MSM_CPU_FREQ_MIN;
 		policy->cpuinfo.max_freq = CONFIG_MSM_CPU_FREQ_MAX;
 #endif
 	}
-#if 0
+#ifdef CONFIG_MSM_CPU_FREQ_SET_MIN_MAX
 	policy->min = CONFIG_MSM_CPU_FREQ_MIN;
 	policy->max = CONFIG_MSM_CPU_FREQ_MAX;
 #endif
@@ -540,13 +540,6 @@ static int msm_cpufreq_init(struct cpufreq_policy *policy)
 	cpu_work = &per_cpu(cpufreq_work, policy->cpu);
 	INIT_WORK(&cpu_work->work, set_cpu_work);
 	init_completion(&cpu_work->complete);
-#endif
-#ifdef CONFIG_CMDLINE_OPTIONS
-	policy->max = cmdline_maxkhz;
-	policy->min = cmdline_minkhz;
-#else 
-	policy->max = 1512000;
-	policy->min = 384000; 
 #endif
 	return 0;
 }
