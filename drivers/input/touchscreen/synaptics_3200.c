@@ -315,6 +315,22 @@ static int __init synaptic_read_s2w_end_cmdline(char *s2w_end)
 	return 1;
 }
 __setup("s2w_end=", synaptic_read_s2w_end_cmdline);
+
+static int __init synaptic_read_dt2w_cmdline(char *dt2w)
+{
+	if (strcmp(dt2w, "1") == 0) {
+		printk(KERN_INFO "[DOUBLETAP2WAKE]: Doubletap2Wake enabled. | dt2w='%s'", dt2w);
+		dt2w_switch = 1;
+	} else if (strcmp(dt2w, "0") == 0) {
+		printk(KERN_INFO "[DOUBLETAP2WAKE]: Doubletap2Wake disabled. | dt2w='%s'", dt2w);
+		dt2w_switch = 0;
+	} else {
+		printk(KERN_INFO "[DOUBLETAP2WAKE]: No valid input found. Doubletap2Wake disabled. | dt2w='%s'", dt2w);
+		dt2w_switch = 0;
+	}
+	return 1;
+}
+__setup("dt2w=", synaptic_read_dt2w_cmdline);
 #endif
 
 extern void sweep2wake_setdev(struct input_dev * input_device) {
