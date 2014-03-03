@@ -77,40 +77,8 @@ static int override_cpu;
 
 uint32_t cmdline_maxkhz = CONFIG_MSM_CPU_FREQ_MAX, cmdline_minkhz = CONFIG_MSM_CPU_FREQ_MIN;
 
-#ifdef CONFIG_CPU_FREQ_DEFAULT_GOV_ASSWAX
-char cmdline_gov[16] = "AssWax";
-#endif
-#ifdef CONFIG_CPU_FREQ_DEFAULT_GOV_BADASS
-char cmdline_gov[16] = "Badass";
-#endif
-#ifdef CONFIG_CPU_FREQ_DEFAULT_GOV_USERSPACE
-char cmdline_gov[16] = "userspace";
-#endif
-#ifdef CONFIG_CPU_FREQ_DEFAULT_GOV_POWERSAVE
-char cmdline_gov[16] = "powersave";
-#endif
-#ifdef CONFIG_CPU_FREQ_DEFAULT_GOV_LIONHEART
-char cmdline_gov[16] = "lionheart";
-#endif
-#ifdef CONFIG_CPU_FREQ_DEFAULT_GOV_ONDEMAND
-char cmdline_gov[16] = "ondemand";
-#endif
-#ifdef CONFIG_CPU_FREQ_DEFAULT_GOV_PERFORMANCE
-char cmdline_gov[16] = "performance";
-#endif
-#ifdef CONFIG_CPU_FREQ_DEFAULT_GOV_INTELLIDEMAND
-char cmdline_gov[16] = "intellidemand";
-#endif
-#ifdef CONFIG_CPU_FREQ_DEFAULT_GOV_SMARTMAX
-char cmdline_gov[16] = "smartmax";
-#endif
-
 uint32_t cmdline_maxscroff = 486000;
 bool cmdline_scroff = false;
-
-/* only override the governor 2 times, when
- * initially bringing up cpufreq on the cpus */
-int cmdline_gov_cnt = CONFIG_NR_CPUS;
 
 static int __init cpufreq_read_maxkhz_cmdline(char *maxkhz)
 {
@@ -179,18 +147,6 @@ static int __init cpufreq_read_minkhz_cmdline(char *minkhz)
         return 1;
 }
 __setup("minkhz=", cpufreq_read_minkhz_cmdline);
-
-static int __init cpufreq_read_gov_cmdline(char *gov)
-{
-	if (gov) {
-		strcpy(cmdline_gov, gov);
-		printk(KERN_INFO "[cmdline_gov]: Governor will be set to '%s'", cmdline_gov);
-	} else {
-		printk(KERN_INFO "[cmdline_gov]: No input found.");
-	}
-	return 1;
-}
-__setup("gov=", cpufreq_read_gov_cmdline);
 
 static int __init cpufreq_read_maxscroff_cmdline(char *maxscroff)
 {
